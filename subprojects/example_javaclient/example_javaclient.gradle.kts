@@ -1,7 +1,7 @@
 dependencies {
     implementation(project(":kris"))
 
-    implementation("io.reactivex.rxjava2:rxjava:2.2.14")
+    implementation(Lib.rxjava2())
 
-    testImplementation("org.assertj:assertj-core:3.14.0")
+    testImplementation(Lib.assertJ())
 }

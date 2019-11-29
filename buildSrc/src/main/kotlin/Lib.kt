@@ -17,7 +17,7 @@ object Lib {
 
     fun spek(module: String) = Dep("org.spekframework.spek2", "spek-$module", "2.0.8")
     fun mockk() = Dep("io.mockk", "mockk", "1.9.3")
-    fun kluent() = Dep("org.amshove.kluent", "kluent", "1.56")
+    fun kluent() = Dep("org.amshove.kluent", "kluent", "1.58")
     fun assertJ() = Dep("org.assertj", "assertj-core", "3.14.0")
 }
 

@@ -4,7 +4,7 @@ import org.gradle.api.artifacts.dsl.DependencyHandler
 @Suppress("TooManyFunctions", "MaximumLineLength", "MemberVisibilityCanBePrivate", "SpellCheckingInspection")
 object Lib {
 
-    private const val kotlinVersion = "1.3.50"
+    private const val kotlinVersion = "1.3.61"
 
     fun kotlin(module: String) = Dep("org.jetbrains.kotlin:kotlin-$module", kotlinVersion)
     fun kotlinx(module: String) = Dep("org.jetbrains.kotlinx:kotlinx-$module", "1.3.2")

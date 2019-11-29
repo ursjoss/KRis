@@ -11,7 +11,7 @@ pluginManagement {
     }
 
     plugins {
-        kotlin("jvm") version "1.3.50"
+        kotlin("jvm") version "1.3.61"
         val kordampPluginVersion = "0.30.0"
         id("org.kordamp.gradle.project") version kordampPluginVersion
         id("org.kordamp.gradle.integration-test") version kordampPluginVersion

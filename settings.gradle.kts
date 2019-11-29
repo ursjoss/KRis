@@ -18,7 +18,7 @@ pluginManagement {
         id("org.kordamp.gradle.guide") version kordampPluginVersion
         id("org.sonarqube") version "2.8"
         id("io.gitlab.arturbosch.detekt") version "1.2.0"
-        id("org.ajoberstar.reckon") version "0.11.0"
+        id("org.ajoberstar.reckon") version "0.12.0"
     }
 }
 buildscript {

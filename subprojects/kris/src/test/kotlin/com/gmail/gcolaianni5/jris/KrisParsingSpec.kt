@@ -12,6 +12,7 @@ object KrisParsingSpec : Spek({
 
     describe("with RIS file as list of strings") {
         val type = "JOUR"
+        val number = 999L
         val author = "Shannon, Claude E."
         val pubYear = "1948/07//"
         val title = "A Mathematical Theory of Communication"
@@ -23,6 +24,7 @@ object KrisParsingSpec : Spek({
         // example from wikipedia (https://en.wikipedia.org/wiki/RIS_(file_format))
         val lines = listOf(
             "TY  - $type",
+            "M1  - $number",
             "AU  - $author",
             "PY  - $pubYear",
             "TI  - $title",
@@ -38,6 +40,7 @@ object KrisParsingSpec : Spek({
 
             it("should be parsed into one single RisRecord") { risRecords shouldHaveSize 1 }
             it("should have the reference type $type") { risRecords.first().type shouldEqual RisType.JOUR }
+            it("should have number") { risRecords.first().number shouldEqual number }
             it("should have single author") { risRecords.first().authors shouldHaveSize 1 }
             it("should have author $author") { risRecords.first().authors.first() shouldEqual author }
             it("should have publication year $pubYear") { risRecords.first().publicationYear shouldEqual pubYear }

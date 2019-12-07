@@ -187,7 +187,6 @@ object JRis {
         val rawValue: String = line.substring(START_INDEX_VALUE).trim()
         return when (kClass) {
             RisType::class -> RisType.valueOf(rawValue)
-            Integer::class -> Integer.valueOf(rawValue)
             Long::class -> rawValue.toLong()
             else -> rawValue.truncatedTo(maxLength)
         }

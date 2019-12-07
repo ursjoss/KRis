@@ -1,4 +1,4 @@
-@file:Suppress("unused", "TooManyFunctions")
+@file:Suppress("unused", "TooManyFunctions", "SpellCheckingInspection")
 
 package com.gmail.gcolaianni5.jris
 
@@ -37,7 +37,7 @@ class JRisException(message: String) : Throwable(message)
  * * processing lines of RIS files (Strings), converting them to [RisRecord]s
  * * building well formatted RIS files from [RisRecord]s.
  *
- * The Jris class works in non-blocking manner as default.
+ * The JRis class works in non-blocking manner as default.
  * Extension functions provide blocking alternatives for ease of use both from Kotlin or Java.
  *
  * @author Gianluca Colaianni -- g.colaianni5@gmail.com

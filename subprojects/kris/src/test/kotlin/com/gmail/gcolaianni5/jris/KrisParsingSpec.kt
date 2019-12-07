@@ -8,6 +8,7 @@ import org.amshove.kluent.shouldHaveSize
 import org.spekframework.spek2.Spek
 import org.spekframework.spek2.style.specification.describe
 
+@Suppress("unused")
 object KrisParsingSpec : Spek({
 
     describe("with RIS file as list of strings") {

@@ -96,7 +96,7 @@ object KrisParsingSpec : Spek({
             val lines = listOf(
                 "TY  - $type",
                 "",
-                "a",
+                "abcdefg",
                 "AB  - $abstract",
                 "XX  - $abstract2",
                 "ER  - "

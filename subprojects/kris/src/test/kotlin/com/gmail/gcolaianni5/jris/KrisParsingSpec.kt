@@ -95,6 +95,8 @@ object KrisParsingSpec : Spek({
         describe("with number, abstract and some invalid tag thereafter") {
             val lines = listOf(
                 "TY  - $type",
+                "",
+                "a",
                 "AB  - $abstract",
                 "XX  - $abstract2",
                 "ER  - "

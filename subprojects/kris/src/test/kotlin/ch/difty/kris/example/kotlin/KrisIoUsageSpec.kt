@@ -1,5 +1,6 @@
 package ch.difty.kris.example.kotlin
 
+import com.gmail.gcolaianni5.jris.JRisIO
 import com.gmail.gcolaianni5.jris.RisRecord
 import com.gmail.gcolaianni5.jris.RisType
 import com.gmail.gcolaianni5.jris.build
@@ -24,6 +25,18 @@ object KrisIoUsageSpec : Spek({
         }
 
         it("can read from File") {
+            JRisIO.process(file) shouldHaveSize 1
+        }
+
+        it("can read from Path") {
+            JRisIO.process(file.path) shouldHaveSize 1
+        }
+
+        it("can read from InputStream") {
+            JRisIO.process(file.inputStream()) shouldHaveSize 1
+        }
+
+        it("can read from File") {
             file.process() shouldHaveSize 1
         }
 
@@ -42,6 +55,7 @@ object KrisIoUsageSpec : Spek({
 
     describe("exporting into file") {
         val file by memoized { File.createTempFile("kris2", null, null).apply { deleteOnExit() } }
+        val customSort = listOf("AB")
 
         describe("with fields in natural order") {
             val records = listOf(RisRecord(type = RisType.ABST, typeOfWork = "tow", abstr = "abstr", language = "lang", databaseProvider = "dp"))
@@ -51,8 +65,18 @@ object KrisIoUsageSpec : Spek({
                 file.path.process() shouldHaveSize records.size
             }
 
+            it("can write to File with custom sort") {
+                file.build(records, customSort)
+                file.path.process() shouldHaveSize records.size
+            }
+
             it("can write to writer") {
                 file.bufferedWriter().build(records)
+                file.path.process() shouldHaveSize records.size
+            }
+
+            it("can write to writer with custom sort") {
+                file.bufferedWriter().build(records, customSort)
                 file.path.process() shouldHaveSize records.size
             }
 
@@ -61,8 +85,18 @@ object KrisIoUsageSpec : Spek({
                 file.path.process() shouldHaveSize records.size
             }
 
+            it("can write to stream with custom sort") {
+                file.outputStream().build(records, customSort)
+                file.path.process() shouldHaveSize records.size
+            }
+
             it("can read from path") {
                 file.path.build(records)
+                file.path.process() shouldHaveSize records.size
+            }
+
+            it("can read from path with custom sort") {
+                file.path.build(records, customSort)
                 file.path.process() shouldHaveSize records.size
             }
 

@@ -5,6 +5,7 @@ import com.gmail.gcolaianni5.jris.RisType
 import com.gmail.gcolaianni5.jris.build
 import com.gmail.gcolaianni5.jris.process
 import kotlinx.coroutines.InternalCoroutinesApi
+import org.amshove.kluent.shouldEqual
 import org.amshove.kluent.shouldHaveSize
 import org.spekframework.spek2.Spek
 import org.spekframework.spek2.style.specification.describe
@@ -15,11 +16,11 @@ import java.io.File
 object KrisIoUsageSpec : Spek({
 
     describe("importing from file") {
-        val file by memoized { File.createTempFile("kris1", null, null) }
-
-        beforeEachTest {
-            file.build(listOf(RisRecord(type = RisType.JOUR)))
-            file.deleteOnExit()
+        val file by memoized {
+            File.createTempFile("kris1", null, null).apply {
+                build(listOf(RisRecord(type = RisType.JOUR)))
+                deleteOnExit()
+            }
         }
 
         it("can read from File") {
@@ -40,33 +41,59 @@ object KrisIoUsageSpec : Spek({
     }
 
     describe("exporting into file") {
-        val file by memoized { File.createTempFile("kris2", null, null) }
-        val records = listOf(RisRecord(type = RisType.ABST))
+        val file by memoized { File.createTempFile("kris2", null, null).apply { deleteOnExit() } }
 
-        beforeEachTest {
-            file.deleteOnExit()
-        }
+        describe("with fields in natural order") {
+            val records = listOf(RisRecord(type = RisType.ABST, typeOfWork = "tow", abstr = "abstr", language = "lang", databaseProvider = "dp"))
 
-        it("can write to File") {
-            file.build(records)
-            file.path.process() shouldHaveSize records.size
-        }
+            it("can write to File") {
+                file.build(records)
+                file.path.process() shouldHaveSize records.size
+            }
 
-        it("can write to writer") {
-            file.bufferedWriter().build(records)
-            file.path.process() shouldHaveSize records.size
-        }
+            it("can write to writer") {
+                file.bufferedWriter().build(records)
+                file.path.process() shouldHaveSize records.size
+            }
 
-        it("can write to stream") {
-            file.outputStream().build(records)
-            file.path.process() shouldHaveSize records.size
-        }
+            it("can write to stream") {
+                file.outputStream().build(records)
+                file.path.process() shouldHaveSize records.size
+            }
 
-        it("can read from path") {
-            file.path.build(records)
-            file.path.process() shouldHaveSize records.size
+            it("can read from path") {
+                file.path.build(records)
+                file.path.process() shouldHaveSize records.size
+            }
+
+            describe("without explicit sort") {
+                it("writes TY first, EL last and remainder alphabetically") {
+                    file.path.build(records)
+                    val fileContent = file.readText()
+                    fileContent shouldEqual """TY  - ABST
+                    |AB  - abstr
+                    |DP  - dp
+                    |LA  - lang
+                    |M3  - tow
+                    |ER  - 
+                    |""".trimMargin()
+                }
+            }
+
+            describe("with explicit sort") {
+                it("writes TY first, EL last, then according to sort and remainder alphabetically") {
+                    file.path.build(records, listOf("M3", "AB"))
+                    val fileContent = file.readText()
+                    fileContent shouldEqual """TY  - ABST
+                    |M3  - tow
+                    |AB  - abstr
+                    |DP  - dp
+                    |LA  - lang
+                    |ER  - 
+                    |""".trimMargin()
+                }
+            }
         }
     }
-
 })
 

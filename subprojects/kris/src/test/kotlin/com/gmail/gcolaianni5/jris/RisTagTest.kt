@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test
 internal class RisTagTest {
 
     @Test
+    @Suppress("LongMethod")
     fun description() {
         RisTag.values().map { it.description }.containsAll(listOf(
             "Type of reference",

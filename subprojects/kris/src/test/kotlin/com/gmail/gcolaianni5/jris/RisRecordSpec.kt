@@ -23,7 +23,7 @@ object RisRecordSpec : Spek({
         }
     }
 
-    group("all values specified") {
+    group("with all values specified") {
         describe("given record as data class") {
             val record = RisRecord(
                 type = RisType.ABST,

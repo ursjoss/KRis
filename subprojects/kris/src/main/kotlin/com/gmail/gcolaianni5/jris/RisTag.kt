@@ -85,7 +85,8 @@ enum class RisTag(
     ),
     // This field maps to T2 for all reference types except for Whole Book and Unpublished Work references.
     BT(
-        description = "This field maps to T2 for all reference types except for Whole Book and Unpublished Work references.",
+        description =
+        "This field maps to T2 for all reference types except for Whole Book and Unpublished Work references.",
         setInto = { r, v -> r.bt = v as String? },
         getFrom = { r: RisRecord -> r.bt }
     ),
@@ -450,8 +451,8 @@ enum class RisTag(
     ER(
         description = "End of Reference",
         requiredOrder = Integer.MAX_VALUE,
-        setInto = { r, v -> Unit },
-        getFrom = { r: RisRecord -> "" }
+        setInto = { _, _ -> Unit },
+        getFrom = { "" }
     ), // must be last per record
     ;
 

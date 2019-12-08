@@ -1,5 +1,6 @@
 package com.gmail.gcolaianni5.jris
 
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.asFlow
 import kotlinx.coroutines.flow.toList
 import kotlinx.coroutines.runBlocking
@@ -10,7 +11,8 @@ import org.amshove.kluent.shouldThrow
 import org.spekframework.spek2.Spek
 import org.spekframework.spek2.style.specification.describe
 
-@Suppress("unused")
+@ExperimentalCoroutinesApi
+@Suppress("unused", "SpellCheckingInspection")
 object KrisParsingSpec : Spek({
 
     describe("with RIS file as list of strings") {

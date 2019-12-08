@@ -2,6 +2,7 @@ package com.gmail.gcolaianni5.jris
 
 import org.junit.jupiter.api.Test
 
+@Suppress("SpellCheckingInspection")
 internal class RisTagTest {
 
     @Test

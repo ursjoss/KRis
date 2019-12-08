@@ -5,6 +5,7 @@ import com.gmail.gcolaianni5.jris.RisRecord
 import com.gmail.gcolaianni5.jris.RisType
 import com.gmail.gcolaianni5.jris.build
 import com.gmail.gcolaianni5.jris.process
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.InternalCoroutinesApi
 import org.amshove.kluent.shouldEqual
 import org.amshove.kluent.shouldHaveSize
@@ -12,8 +13,9 @@ import org.spekframework.spek2.Spek
 import org.spekframework.spek2.style.specification.describe
 import java.io.File
 
-@Suppress("SpellCheckingInspection")
+@Suppress("SpellCheckingInspection", "unused")
 @InternalCoroutinesApi
+@ExperimentalCoroutinesApi
 object KrisIoUsageSpec : Spek({
 
     describe("importing from file") {

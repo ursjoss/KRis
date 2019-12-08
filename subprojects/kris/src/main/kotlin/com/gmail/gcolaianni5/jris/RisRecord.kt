@@ -8,7 +8,7 @@ package com.gmail.gcolaianni5.jris
  * @since 22 apr 2017
  */
 @Suppress("ParameterListWrapping", "SpellCheckingInspection", "TooManyFunctions")
-data class RisRecord @JvmOverloads constructor(
+data class RisRecord(
 
     /** TY */
     var type: RisType? = null,

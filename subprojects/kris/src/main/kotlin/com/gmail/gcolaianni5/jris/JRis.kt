@@ -99,7 +99,7 @@ object JRis {
         TagAccessor(RisTag.M3, { r, v -> r.typeOfWork = v as String? }, { r: RisRecord -> r.typeOfWork }),
         TagAccessor(RisTag.N1, { r, v -> r.notes = v as String? }, { r: RisRecord -> r.notes }),
         TagAccessor(RisTag.N2, { r, v -> r.abstr2 = v as String? }, { r: RisRecord -> r.abstr2 }),
-        TagAccessor(RisTag.NV, { r, v -> r.abstr2 = v as String? }, { r: RisRecord -> r.abstr2 }),
+        TagAccessor(RisTag.NV, { r, v -> r.numberOfVolumes = v as String? }, { r: RisRecord -> r.numberOfVolumes }),
         TagAccessor(RisTag.OP, { r, v -> r.originalPublication = v as String? }, { r: RisRecord -> r.originalPublication }),
         TagAccessor(RisTag.PB, { r, v -> r.publisher = v as String? }, { r: RisRecord -> r.publisher }),
         TagAccessor(RisTag.PP, { r, v -> r.publishingPlace = v as String? }, { r: RisRecord -> r.publishingPlace }),

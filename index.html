@@ -16,7 +16,7 @@
 <h1>Library for reading/writing RIS files</h1>
 <div class="details">
 <span id="author" class="author">Gianluca Colaianni</span><br>
-<span id="revnumber">version 0.0.1-beta.4.92+903f4f6</span>
+<span id="revnumber">version 0.0.1-beta.4.100+df74286</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -131,7 +131,7 @@ It offers a number of utility functions that allow you to easily handle your use
 <div class="content">
 <pre>    private final RisRecord record1 = new RisRecord.Builder()
         .type(RisType.JOUR)
-        .authors(Lists.list("Shannon, Claude E."))
+        .authors(List.of("Shannon, Claude E."))
         .publicationYear("1948/07//")
         .title("A Mathematical Theory of Communication")
         .secondaryTitle("Bell System Technical Journal")
@@ -142,7 +142,7 @@ It offers a number of utility functions that allow you to easily handle your use
 
     private final RisRecord record2 = new RisRecord.Builder()
         .type(RisType.JOUR)
-        .authors(Lists.list("Turing, Alan Mathison"))
+        .authors(List.of("Turing, Alan Mathison"))
         .publicationYear("1948/07//")
         .periodicalNameFullFormatJO("Proc. of London Mathematical Society")
         .title("On computable numbers, with an application to the Entscheidungsproblem")
@@ -164,7 +164,7 @@ This happens in a blocking manner and it is up to us what we want to do with the
 <div class="listingblock">
 <div class="title">Converting a list of <code>RisRecords</code> in a blocking manner into a list of RIS lines [Java]</div>
 <div class="content">
-<pre>        final List&lt;RisRecord&gt; records = Lists.list(record1, record2);
+<pre>        final List&lt;RisRecord&gt; records = List.of(record1, record2);
 
         List&lt;String&gt; lines = JRis.buildFromList(records);</pre>
 </div>
@@ -176,8 +176,8 @@ We can do that by providing a list of RIS tag names (as string) in the order we&
 <div class="listingblock">
 <div class="title">Converting a list of <code>RisRecords</code> applying custom sort in a blocking manner into a list of RIS lines [Java]</div>
 <div class="content">
-<pre>        final List&lt;RisRecord&gt; records = Lists.list(record1, record2);
-        final List&lt;String&gt; sort = Lists.list("SP", "EP", "T1");
+<pre>        final List&lt;RisRecord&gt; records = List.of(record1, record2);
+        final List&lt;String&gt; sort = List.of("SP", "EP", "T1");
 
         List&lt;String&gt; lines = JRis.buildFromList(records, sort);</pre>
 </div>
@@ -207,7 +207,7 @@ We will not explicitly mention this optional for the following examples.</p>
 <div class="title">Converting an observable of <code>RisRecords</code> in non-blocking manner into a file [Java]</div>
 <div class="content">
 <pre>    void fromObservable() throws IOException {
-        final List&lt;RisRecord&gt; records = Lists.list(record1, record2);
+        final List&lt;RisRecord&gt; records = List.of(record1, record2);
         final Observable&lt;RisRecord&gt; observable = Observable.fromIterable(records);
 
         final BufferedWriter writer = new BufferedWriter(new FileWriter("export.ris"));
@@ -233,7 +233,7 @@ We can use the <code>export</code> functions with a writer, a file, an output st
 <div class="listingblock">
 <div class="title">Writing the list of <code>RisRecords</code> in a blocking manner into a buffered writer [Java]</div>
 <div class="content">
-<pre>        final List&lt;RisRecord&gt; records = Lists.list(record1, record2);
+<pre>        final List&lt;RisRecord&gt; records = List.of(record1, record2);
 
         try (final BufferedWriter writer = new BufferedWriter(new FileWriter("export.ris"))) {
             JRisIO.export(records, writer);
@@ -243,7 +243,7 @@ We can use the <code>export</code> functions with a writer, a file, an output st
 <div class="listingblock">
 <div class="title">Writing the list of <code>RisRecords</code> in a blocking manner into a file [Java]</div>
 <div class="content">
-<pre>        final List&lt;RisRecord&gt; records = Lists.list(record1, record2);
+<pre>        final List&lt;RisRecord&gt; records = List.of(record1, record2);
 
         final File file = new File("export.ris");
 
@@ -253,7 +253,7 @@ We can use the <code>export</code> functions with a writer, a file, an output st
 <div class="listingblock">
 <div class="title">Writing the list of <code>RisRecords</code> in a blocking manner into an output stream [Java]</div>
 <div class="content">
-<pre>        final List&lt;RisRecord&gt; records = Lists.list(record1, record2);
+<pre>        final List&lt;RisRecord&gt; records = List.of(record1, record2);
 
         try (OutputStream s = new BufferedOutputStream(new FileOutputStream("export.ris"))) {
             JRisIO.export(records, s);
@@ -263,7 +263,7 @@ We can use the <code>export</code> functions with a writer, a file, an output st
 <div class="listingblock">
 <div class="title">Writing the list of <code>RisRecords</code> in a blocking manner into a path [Java]</div>
 <div class="content">
-<pre>        final List&lt;RisRecord&gt; records = Lists.list(record1, record2);
+<pre>        final List&lt;RisRecord&gt; records = List.of(record1, record2);
 
         JRisIO.export(records, "export.ris");</pre>
 </div>
@@ -340,7 +340,7 @@ We will receive a list of [RisRecord] instances.</p>
 <div class="listingblock">
 <div class="title">Processing RIS records as list of strings [Java]</div>
 <div class="content">
-<pre>        final List&lt;String&gt; lines = Lists.emptyList(); // TODO
+<pre>        final List&lt;String&gt; lines = List.of(); // TODO
         List&lt;RisRecord&gt; records = JRis.processList(lines);</pre>
 </div>
 </div>
@@ -634,7 +634,7 @@ We will receive a list of [RisRecord] instances.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Version 0.0.1-beta.4.92+903f4f6<br>
+Version 0.0.1-beta.4.100+df74286<br>
 Last updated 2019-12-09 07:59:38 +0100
 </div>
 </div>

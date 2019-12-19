@@ -4,8 +4,8 @@ import org.sonarqube.gradle.SonarQubeTask
 
 plugins {
     kotlin("jvm")
-    id("org.kordamp.gradle.kotlin-project")
     java
+    id("org.kordamp.gradle.kotlin-project")
     id("org.kordamp.gradle.integration-test") apply false
     id("org.sonarqube")
     id("io.gitlab.arturbosch.detekt")
@@ -48,6 +48,11 @@ config {
             }
         }
     }
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
 }
 
 allprojects {
@@ -135,6 +140,7 @@ tasks {
             }
         }
     }
+
     withType<SonarQubeTask> {
         description = "Push jacoco analysis to sonarcloud."
         group = "Verification"
@@ -143,10 +149,9 @@ tasks {
             dependsOn("${it.path}:jacocoTestReport")
         }
         dependsOn("detekt")
-        dependsOn("jacocoRootReport")
+        dependsOn("aggregateJacocoReport")
     }
 }
-
 
 sonarqube {
     properties {
@@ -154,5 +159,14 @@ sonarqube {
         property("sonar.projectKey", "ursjoss_JRis")
         property("sonar.organization", "ursjoss-github")
         property("sonar.kotlin.detekt.reportPaths", detektXml)
+    }
+}
+
+project(":jris-io") {
+    sonarqube {
+        properties {
+            property("sonar.tests", "src/test,src/integrationTest")
+            property("sonar.jacoco.reportPaths", "$buildDir/jacoco/test.exec,$buildDir/jacoco/integrationTest.exec")
+        }
     }
 }

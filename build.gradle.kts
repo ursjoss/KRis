@@ -20,7 +20,14 @@ config {
             url = "https://github.com/ursjoss/JRis.git"
         }
         links {
+            website = "https://ursjoss.github.io/JRis"
             scm = "https://github.com/ursjoss/JRis.git"
+        }
+        ciManagement {
+            url = "https://github.com/ursjoss/JRis/actions"
+        }
+        issueManagement {
+            url = "https://github.com/ursjoss/JRis/issues"
         }
         people {
             person {

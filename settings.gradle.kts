@@ -9,17 +9,19 @@ pluginManagement {
         jcenter()
         gradlePluginPortal()
     }
-
+    val kotlinVersion: String by settings
+    val kordampPluginVersion: String by settings
+    val reckonVersion: String by settings
+    val gitPublishVersion: String by settings
     plugins {
-        kotlin("jvm") version "1.3.61"
-        val kordampPluginVersion = "0.32.0"
+        kotlin("jvm") version kotlinVersion
         id("org.kordamp.gradle.kotlin-project") version kordampPluginVersion
         id("org.kordamp.gradle.integration-test") version kordampPluginVersion
         id("org.kordamp.gradle.guide") version kordampPluginVersion
         id("org.kordamp.gradle.detekt") version kordampPluginVersion
         id("org.kordamp.gradle.sonar") version kordampPluginVersion
-        id("org.ajoberstar.reckon") version "0.12.0"
-        id("org.ajoberstar.git-publish") version "2.1.3"
+        id("org.ajoberstar.reckon") version reckonVersion
+        id("org.ajoberstar.git-publish") version gitPublishVersion
     }
 }
 buildscript {
@@ -28,7 +30,7 @@ buildscript {
         jcenter()
         gradlePluginPortal()
     }
-    val kordampPluginVersion = "0.32.0"
+    val kordampPluginVersion: String by settings
     dependencies {
         classpath("org.kordamp.gradle:settings-gradle-plugin:$kordampPluginVersion")
     }

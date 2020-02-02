@@ -9,10 +9,12 @@ pluginManagement {
         jcenter()
         gradlePluginPortal()
     }
+
     val kotlinVersion: String by settings
     val kordampPluginVersion: String by settings
     val reckonVersion: String by settings
     val gitPublishVersion: String by settings
+
     plugins {
         kotlin("jvm") version kotlinVersion
         id("org.kordamp.gradle.kotlin-project") version kordampPluginVersion

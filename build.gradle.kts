@@ -93,19 +93,27 @@ subprojects {
         apply<IdeaPlugin>()
         apply<JacocoPlugin>()
 
+        val assertjVersion : String by project
+        val coroutinesVersion : String by project
+        val junitJupiterVersion : String by project
+        val kluentVersion : String by project
+        val kotlinVersion : String by project
+        val mockkVersion : String by project
+        val spekVersion : String by project
+
         dependencies {
-            implementation(Lib.kotlin("stdlib-jdk8"))
-            implementation(Lib.kotlin("reflect"))
-            implementation(Lib.kotlinx("coroutines-core"))
+            implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion")
+            implementation("org.jetbrains.kotlin:kotlin-reflect:$kotlinVersion")
+            implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion")
 
-            testImplementation(Lib.junit5("api"))
-            testImplementation(Lib.spek("dsl-jvm"))
-            testImplementation(Lib.mockk())
-            testImplementation(Lib.kluent())
-            testImplementation(Lib.assertJ())
+            testImplementation("org.junit.jupiter:junit-jupiter-api:$junitJupiterVersion")
+            testImplementation("org.spekframework.spek2:spek-dsl-jvm:$spekVersion")
+            testImplementation("io.mockk:mockk:$mockkVersion")
+            testImplementation("org.amshove.kluent:kluent:$kluentVersion")
+            testImplementation("org.assertj:assertj-core:$assertjVersion")
 
-            testRuntimeOnly(Lib.junit5("engine"))
-            testRuntimeOnly(Lib.spek("runner-junit5"))
+            testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:$junitJupiterVersion")
+            testRuntimeOnly("org.spekframework.spek2:spek-runner-junit5:$spekVersion")
         }
 
         tasks {

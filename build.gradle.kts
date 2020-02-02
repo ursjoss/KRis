@@ -4,7 +4,7 @@ plugins {
     id("org.kordamp.gradle.kotlin-project")
     id("org.kordamp.gradle.integration-test") apply false
     id("org.kordamp.gradle.detekt")
-    id("org.kordamp.gradle.sonar")
+//    id("org.kordamp.gradle.sonar") // TODO wait for org.kordamp.gradle.sonar (0.32.1 ?)
     id("org.ajoberstar.reckon")
 }
 
@@ -57,10 +57,10 @@ config {
             buildUponDefaultConfig = true
             failFast = true
         }
-
-        sonar {
-            username = "ursjoss"
-        }
+// TODO wait for org.kordamp.gradle.sonar (0.32.1 ?)
+//        sonar {
+//            username = "ursjoss"
+//        }
     }
 }
 

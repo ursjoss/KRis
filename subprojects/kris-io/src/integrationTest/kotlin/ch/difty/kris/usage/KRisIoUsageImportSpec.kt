@@ -1,4 +1,4 @@
-package com.gmail.gcolaianni5.jris.usage
+package ch.difty.kris.usage
 
 import ch.difty.kris.domain.RisRecord
 import ch.difty.kris.domain.RisType
@@ -14,7 +14,7 @@ import java.io.File
 @ExperimentalCoroutinesApi
 @Suppress("SpellCheckingInspection")
 @InternalCoroutinesApi
-object JRisIoUsageImportSpec : Spek({
+object KRisIoUsageImportSpec : Spek({
 
     describe("importing from file") {
         val file by memoized {

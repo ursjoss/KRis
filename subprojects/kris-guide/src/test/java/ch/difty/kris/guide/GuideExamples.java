@@ -6,7 +6,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import ch.difty.kris.JRis;
-import ch.difty.kris.JRisIO;
+import ch.difty.kris.KRisIO;
 import ch.difty.kris.domain.RisRecord;
 import ch.difty.kris.domain.RisType;
 import io.reactivex.Observable;
@@ -86,7 +86,7 @@ public class GuideExamples {
         final List<RisRecord> records = Arrays.asList(record1, record2);
 
         try (final BufferedWriter writer = new BufferedWriter(new FileWriter("export.ris"))) {
-            JRisIO.export(records, writer);
+            KRisIO.export(records, writer);
         }
         // end::writerExport[]
     }
@@ -97,7 +97,7 @@ public class GuideExamples {
 
         final File file = new File("export.ris");
 
-        JRisIO.export(records, file);
+        KRisIO.export(records, file);
         // end::fileExport[]
     }
 
@@ -106,7 +106,7 @@ public class GuideExamples {
         final List<RisRecord> records = Arrays.asList(record1, record2);
 
         try (OutputStream s = new BufferedOutputStream(new FileOutputStream("export.ris"))) {
-            JRisIO.export(records, s);
+            KRisIO.export(records, s);
         }
         // end::streamExport[]
     }
@@ -115,7 +115,7 @@ public class GuideExamples {
         // tag::pathExport[]
         final List<RisRecord> records = Arrays.asList(record1, record2);
 
-        JRisIO.export(records, "export.ris");
+        KRisIO.export(records, "export.ris");
         // end::pathExport[]
     }
 
@@ -125,7 +125,7 @@ public class GuideExamples {
     void processReader() throws IOException {
         // tag::processReader[]
         try (final BufferedReader reader = new BufferedReader(new FileReader("import.ris"))) {
-            final List<RisRecord> records = JRisIO.process(reader);
+            final List<RisRecord> records = KRisIO.process(reader);
         }
         // end::processReader[]
     }
@@ -133,21 +133,21 @@ public class GuideExamples {
     void processFile() throws IOException {
         // tag::processFile[]
         final File file = new File("import.ris");
-        final List<RisRecord> records = JRisIO.process(file);
+        final List<RisRecord> records = KRisIO.process(file);
         // end::processFile[]
     }
 
     void processInputStream() throws IOException {
         // tag::processInputStream[]
         try (InputStream s = new BufferedInputStream(new FileInputStream("import.ris"))) {
-            final List<RisRecord> records = JRisIO.process(s);
+            final List<RisRecord> records = KRisIO.process(s);
         }
         // end::processInputStream[]
     }
 
     void processPath() throws IOException {
         // tag::processPath[]
-        final List<RisRecord> records = JRisIO.process("import.ris");
+        final List<RisRecord> records = KRisIO.process("import.ris");
         // end::processPath[]
     }
 

@@ -6,14 +6,14 @@ import java.io.*;
 import java.util.Collections;
 import java.util.List;
 
-import ch.difty.kris.JRisIO;
+import ch.difty.kris.KRisIO;
 import ch.difty.kris.domain.RisRecord;
 import ch.difty.kris.domain.RisType;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 @SuppressWarnings("SpellCheckingInspection")
-class JRisIOUsageExportTest {
+class KRisIOUsageExportTest {
 
     private File file;
 
@@ -30,28 +30,28 @@ class JRisIOUsageExportTest {
 
     @Test
     void canExportToFile() throws Exception {
-        JRisIO.export(records, file);
-        assertThat(JRisIO.process(file)).hasSize(records.size());
+        KRisIO.export(records, file);
+        assertThat(KRisIO.process(file)).hasSize(records.size());
     }
 
     @Test
     void canExportToWriter() throws Exception {
         BufferedWriter writer = new BufferedWriter(new FileWriter(file));
-        JRisIO.export(records, writer);
-        assertThat(JRisIO.process(file)).hasSize(records.size());
+        KRisIO.export(records, writer);
+        assertThat(KRisIO.process(file)).hasSize(records.size());
     }
 
     @Test
     void canExportToStream() throws Exception {
         OutputStream stream = new FileOutputStream(file);
-        JRisIO.export(records, stream);
-        assertThat(JRisIO.process(file)).hasSize(records.size());
+        KRisIO.export(records, stream);
+        assertThat(KRisIO.process(file)).hasSize(records.size());
     }
 
     @Test
     void canExportToPath() throws Exception {
         String path = file.getPath();
-        JRisIO.export(records, path);
-        assertThat(JRisIO.process(file)).hasSize(records.size());
+        KRisIO.export(records, path);
+        assertThat(KRisIO.process(file)).hasSize(records.size());
     }
 }

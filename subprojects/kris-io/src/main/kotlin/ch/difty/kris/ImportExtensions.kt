@@ -13,7 +13,7 @@ import java.io.Reader
  * if the lines cannot be parsed successfully.
  */
 @ExperimentalCoroutinesApi
-fun Reader.process() = JRisIO.process(this)
+fun Reader.process() = KRisIO.process(this)
 
 /**
  * Converts the RISFile lines in the [File] provided as receiver into a list of [RisRecord]s.
@@ -21,7 +21,7 @@ fun Reader.process() = JRisIO.process(this)
  * or a [JRisException] if the lines cannot be parsed successfully.
  */
 @ExperimentalCoroutinesApi
-fun File.process() = JRisIO.process(this)
+fun File.process() = KRisIO.process(this)
 
 /**
  * Converts the RISFile lines from the file with the path provided as receiver into a list of [RisRecord]s.
@@ -29,7 +29,7 @@ fun File.process() = JRisIO.process(this)
  * or a [JRisException] if the lines cannot be parsed successfully.
  */
 @ExperimentalCoroutinesApi
-fun String.process() = JRisIO.process(this)
+fun String.process() = KRisIO.process(this)
 
 /**
  * Converts the RISFile lines provided by the [InputStream] as receiver  into a list of [RisRecord]s.
@@ -37,4 +37,4 @@ fun String.process() = JRisIO.process(this)
  * or a [JRisException] if the lines cannot be parsed successfully.
  */
 @ExperimentalCoroutinesApi
-fun InputStream.process() = JRisIO.process(this)
+fun InputStream.process() = KRisIO.process(this)

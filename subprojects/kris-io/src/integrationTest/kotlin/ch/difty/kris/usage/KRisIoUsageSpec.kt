@@ -1,8 +1,8 @@
-package com.gmail.gcolaianni5.jris.usage
+package ch.difty.kris.usage
 
 import ch.difty.kris.domain.RisRecord
 import ch.difty.kris.domain.RisType
-import ch.difty.kris.JRisIO
+import ch.difty.kris.KRisIO
 import ch.difty.kris.accept
 import ch.difty.kris.process
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -16,7 +16,7 @@ import java.io.File
 @Suppress("SpellCheckingInspection", "unused")
 @InternalCoroutinesApi
 @ExperimentalCoroutinesApi
-object JRisIoUsageSpec : Spek({
+object KRisIoUsageSpec : Spek({
 
     describe("importing from file") {
         val file by memoized {
@@ -27,15 +27,15 @@ object JRisIoUsageSpec : Spek({
         }
 
         it("can read from File") {
-            JRisIO.process(file) shouldHaveSize 1
+            KRisIO.process(file) shouldHaveSize 1
         }
 
         it("can read from Path") {
-            JRisIO.process(file.path) shouldHaveSize 1
+            KRisIO.process(file.path) shouldHaveSize 1
         }
 
         it("can read from InputStream") {
-            JRisIO.process(file.inputStream()) shouldHaveSize 1
+            KRisIO.process(file.inputStream()) shouldHaveSize 1
         }
 
         it("can read from File") {

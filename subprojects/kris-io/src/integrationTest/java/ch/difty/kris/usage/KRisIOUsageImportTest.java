@@ -6,14 +6,14 @@ import java.io.*;
 import java.util.Collections;
 import java.util.List;
 
-import ch.difty.kris.JRisIO;
+import ch.difty.kris.KRisIO;
 import ch.difty.kris.domain.RisRecord;
 import ch.difty.kris.domain.RisType;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 @SuppressWarnings("SpellCheckingInspection")
-class JRisIOUsageImportTest {
+class KRisIOUsageImportTest {
 
     private File file;
 
@@ -26,29 +26,29 @@ class JRisIOUsageImportTest {
         // create sample file to import
         file = File.createTempFile("jris1", null, null);
         file.deleteOnExit();
-        JRisIO.export(records, file);
+        KRisIO.export(records, file);
     }
 
     @Test
     void canImportFromFile() throws IOException {
-        assertThat(JRisIO.process(file)).hasSize(1);
+        assertThat(KRisIO.process(file)).hasSize(1);
     }
 
     @Test
     void canImportFromReader() throws IOException {
         BufferedReader reader = new BufferedReader(new FileReader(file));
-        assertThat(JRisIO.process(reader)).hasSize(1);
+        assertThat(KRisIO.process(reader)).hasSize(1);
     }
 
     @Test
     void canImportFromStream() throws IOException {
         InputStream stream = new FileInputStream(file);
-        assertThat(JRisIO.process(stream)).hasSize(1);
+        assertThat(KRisIO.process(stream)).hasSize(1);
     }
 
     @Test
     void canImportFromPath() throws IOException {
         String path = file.getPath();
-        assertThat(JRisIO.process(path)).hasSize(1);
+        assertThat(KRisIO.process(path)).hasSize(1);
     }
 }

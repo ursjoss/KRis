@@ -12,7 +12,7 @@ import java.io.Writer
  * the [RisTag]s in the file.
  */
 @ExperimentalCoroutinesApi
-fun Writer.accept(records: List<RisRecord>, sort: List<String> = emptyList()) = JRisIO.export(records, sort, this)
+fun Writer.accept(records: List<RisRecord>, sort: List<String> = emptyList()) = KRisIO.export(records, sort, this)
 
 /**
  * Converts a list of [RisRecord]s into a list of [String]s in RIS file format, writing them into the [File]
@@ -20,7 +20,7 @@ fun Writer.accept(records: List<RisRecord>, sort: List<String> = emptyList()) = 
  * in the file.
  */
 @ExperimentalCoroutinesApi
-fun File.accept(records: List<RisRecord>, sort: List<String> = emptyList()) = JRisIO.export(records, sort, this)
+fun File.accept(records: List<RisRecord>, sort: List<String> = emptyList()) = KRisIO.export(records, sort, this)
 
 /**
  * Converts a list of [RisRecord]s into a list of [String]s in RIS file format, writing them into
@@ -28,7 +28,7 @@ fun File.accept(records: List<RisRecord>, sort: List<String> = emptyList()) = JR
  * for the [RisTag]s in the file.
  */
 @ExperimentalCoroutinesApi
-fun OutputStream.accept(records: List<RisRecord>, sort: List<String> = emptyList()) = JRisIO.export(records, sort, this)
+fun OutputStream.accept(records: List<RisRecord>, sort: List<String> = emptyList()) = KRisIO.export(records, sort, this)
 
 /**
  * Converts a list of [RisRecord]s into a list of [String]s in RIS file format, writing them into file with
@@ -36,4 +36,4 @@ fun OutputStream.accept(records: List<RisRecord>, sort: List<String> = emptyList
  * Optionally accepts a list of names of [RisTag]s defining a sort order for the [RisTag]s in the file.
  */
 @ExperimentalCoroutinesApi
-fun String.accept(records: List<RisRecord>, sort: List<String> = emptyList()) = JRisIO.export(records, sort, this)
+fun String.accept(records: List<RisRecord>, sort: List<String> = emptyList()) = KRisIO.export(records, sort, this)

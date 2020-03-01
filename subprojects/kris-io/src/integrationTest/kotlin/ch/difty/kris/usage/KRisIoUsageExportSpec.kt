@@ -1,4 +1,4 @@
-package com.gmail.gcolaianni5.jris.usage
+package ch.difty.kris.usage
 
 import ch.difty.kris.domain.RisRecord
 import ch.difty.kris.domain.RisType

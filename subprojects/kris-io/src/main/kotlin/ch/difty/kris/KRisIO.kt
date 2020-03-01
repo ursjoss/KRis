@@ -20,7 +20,7 @@ import java.io.Writer
 /**
  * Convenience methods offering to directly work with IO methods.
  */
-object JRisIO {
+object KRisIO {
 
     //region:process -> RISFile lines -> RisRecords
 

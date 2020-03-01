@@ -1,5 +1,5 @@
 [[_java_usage]]
-= Using `JRis` from Java
+= Using `KRis` from Java
 
 Building RisRecords in Java is more cumbersome than in kotlin, as we cannot simply use the default arguments of the data class or compfortably use extension functions.
 
@@ -44,7 +44,7 @@ We will not explicitly mention this optional for the following examples.
 [[_java_export_nonblocking]]
 === Observable: Non-blocking conversion
 
-Working with JRis in non-blocking manner in Java involves RxJava2.
+Working with KRis in non-blocking manner in Java involves RxJava2.
 
 .Converting an observable of `RisRecords` in non-blocking manner into a file [Java]
 [subs=attributes+,source,java]
@@ -52,7 +52,7 @@ Working with JRis in non-blocking manner in Java involves RxJava2.
 include::../../../../../subprojects/jris-guide/src/test/java/com/gmail/gcolaianni5/jris/guide//GuideExamples.java[tags=fromObservable]
 ----
 
-To make the process of exporting to files easier, JRis offers some dedicated functions in the utility class `JRisIO`.
+To make the process of exporting to files easier, KRis offers some dedicated functions in the utility class `KRisIO`.
 We can use the `export` functions with a writer, a file, an output stream or a path as receiver respectively:
 
 .Writing the list of `RisRecords` in a blocking manner into a buffered writer [Java]
@@ -105,7 +105,7 @@ ER  -
 [[_java_import_file]]
 === Reading from File
 
-If we have a reader, file, input stream or simply the path of the file, we can use the method `process` on `JRisIO`.
+If we have a reader, file, input stream or simply the path of the file, we can use the method `process` on `KRisIO`.
 We will receive a list of [RisRecord] instances.
 
 .Reading RIS records from BufferedReader [Java]

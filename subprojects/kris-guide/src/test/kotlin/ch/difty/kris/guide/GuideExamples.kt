@@ -1,6 +1,6 @@
 @file:Suppress("unused", "SpellCheckingInspection", "UNUSED_VARIABLE", "RedundantExplicitType")
 
-package com.gmail.gcolaianni5.jris.guide
+package ch.difty.kris.guide
 
 import ch.difty.kris.accept
 import ch.difty.kris.domain.RisRecord

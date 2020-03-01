@@ -18,13 +18,13 @@ import org.spekframework.spek2.Spek
 import org.spekframework.spek2.style.specification.describe
 
 /**
- * Specification how to use JRis from kotlin
+ * Specification how to use KRis from kotlin
  */
 @ExperimentalCoroutinesApi
 @FlowPreview
 @Suppress("SpellCheckingInspection", "unused")
 @InternalCoroutinesApi
-object JRisUsageSpec : Spek({
+object KRisUsageSpec : Spek({
 
     describe("with list of strings representing two RIS records") {
         // example from wikipedia (https://en.wikipedia.org/wiki/RIS_(file_format)

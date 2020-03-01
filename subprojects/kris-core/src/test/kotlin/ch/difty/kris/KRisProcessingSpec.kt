@@ -14,7 +14,7 @@ import org.spekframework.spek2.style.specification.describe
 
 @ExperimentalCoroutinesApi
 @Suppress("unused", "SpellCheckingInspection", "S1192")
-object JRisProcessingSpec : Spek({
+object KRisProcessingSpec : Spek({
 
     describe("with RIS file as list of strings") {
         val type = "JOUR"

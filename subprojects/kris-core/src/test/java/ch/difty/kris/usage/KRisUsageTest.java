@@ -16,7 +16,7 @@ import org.junit.jupiter.api.Test;
 /**
  * Specification how to use JRis from Java
  */
-class JRisUsageTest {
+class KRisUsageTest {
 
     //@formatter:off
     @SuppressWarnings("SpellCheckingInspection") private final List<String> risLines = Arrays.asList(

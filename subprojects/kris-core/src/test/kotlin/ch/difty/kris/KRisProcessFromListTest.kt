@@ -8,7 +8,7 @@ import kotlinx.coroutines.ExperimentalCoroutinesApi
 import org.amshove.kluent.shouldBeEqualTo
 import org.junit.jupiter.api.Test
 
-class JRisProcessFromListTest {
+class KRisProcessFromListTest {
 
     private val risRecord = RisRecord(
         type = RisType.BOOK,

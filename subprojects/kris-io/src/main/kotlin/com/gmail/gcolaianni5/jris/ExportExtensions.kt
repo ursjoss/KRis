@@ -1,6 +1,6 @@
 package com.gmail.gcolaianni5.jris
 
-import com.gmail.gcolaianni5.jris.domain.RisRecord
+import ch.difty.kris.domain.RisRecord
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import java.io.File
 import java.io.OutputStream

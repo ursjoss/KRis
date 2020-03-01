@@ -1,7 +1,7 @@
 package com.gmail.gcolaianni5.jris.usage
 
-import com.gmail.gcolaianni5.jris.domain.RisRecord
-import com.gmail.gcolaianni5.jris.domain.RisType
+import ch.difty.kris.domain.RisRecord
+import ch.difty.kris.domain.RisType
 import com.gmail.gcolaianni5.jris.accept
 import com.gmail.gcolaianni5.jris.process
 import kotlinx.coroutines.ExperimentalCoroutinesApi

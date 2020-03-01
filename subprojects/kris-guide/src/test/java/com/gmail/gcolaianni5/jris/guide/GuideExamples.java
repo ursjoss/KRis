@@ -5,10 +5,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import com.gmail.gcolaianni5.jris.JRis;
+import ch.difty.kris.JRis;
+import ch.difty.kris.domain.RisRecord;
+import ch.difty.kris.domain.RisType;
 import com.gmail.gcolaianni5.jris.JRisIO;
-import com.gmail.gcolaianni5.jris.domain.RisRecord;
-import com.gmail.gcolaianni5.jris.domain.RisType;
 import io.reactivex.Observable;
 
 @SuppressWarnings("ALL")

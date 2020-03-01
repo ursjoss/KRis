@@ -1,6 +1,7 @@
 package com.gmail.gcolaianni5.jris
 
-import com.gmail.gcolaianni5.jris.domain.RisRecord
+import ch.difty.kris.JRis
+import ch.difty.kris.domain.RisRecord
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.asFlow

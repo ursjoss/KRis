@@ -27,20 +27,20 @@ object KRisIO {
     /**
      * Converts the RISFile lines provided by the reader into a list of [RisRecord]s.
      * May throw an [IOException] if the reader fails to deliver lines
-     * or a [JRisException] if the lines cannot be parsed successfully.
+     * or a [KRisException] if the lines cannot be parsed successfully.
      */
     @JvmStatic
     @ExperimentalCoroutinesApi
     @Throws(IOException::class)
     fun process(reader: Reader): List<RisRecord> = runBlocking(Dispatchers.IO) {
         val lineFlow = BufferedReader(reader).readLines().asFlow()
-        JRis.process(lineFlow).toList()
+        KRis.process(lineFlow).toList()
     }
 
     /**
      * Converts the RISFile lines in the provided [File] into a list of [RisRecord]s.
      * May throw an [IOException] if the file cannot be read successfully.
-     * or a [JRisException] if the lines cannot be parsed successfully.
+     * or a [KRisException] if the lines cannot be parsed successfully.
      */
     @JvmStatic
     @ExperimentalCoroutinesApi
@@ -50,7 +50,7 @@ object KRisIO {
     /**
      * Converts the RISFile lines from the file with the provided path into a list of [RisRecord]s.
      * May throw an [IOException] if the file cannot be read successfully.
-     * or a [JRisException] if the lines cannot be parsed successfully.
+     * or a [KRisException] if the lines cannot be parsed successfully.
      */
     @JvmStatic
     @ExperimentalCoroutinesApi
@@ -60,7 +60,7 @@ object KRisIO {
     /**
      * Converts the RISFile lines provided by the [InputStream] into a list of [RisRecord]s.
      * May throw an [IOException] if the stream cannot be read successfully.
-     * or a [JRisException] if the lines cannot be parsed successfully.
+     * or a [KRisException] if the lines cannot be parsed successfully.
      */
     @JvmStatic
     @ExperimentalCoroutinesApi
@@ -82,7 +82,7 @@ object KRisIO {
     fun export(records: List<RisRecord>, sort: List<String> = emptyList(), writer: Writer) {
         writer.use { w ->
             runBlocking(Dispatchers.IO) {
-                JRis.build(records.asFlow(), sort).toList().forEach { line ->
+                KRis.build(records.asFlow(), sort).toList().forEach { line ->
                     w.write(line)
                 }
             }

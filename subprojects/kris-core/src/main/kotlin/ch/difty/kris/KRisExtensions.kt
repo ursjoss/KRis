@@ -18,25 +18,25 @@ import java.nio.channels.ClosedChannelException
 
 /**
  * Converts a flow of Strings (representing lines in a RIS file) (as receiver) into a flow of [RisRecord]s.
- * May throw a [JRisException] if the line flow cannot be parsed successfully.
+ * May throw a [KRisException] if the line flow cannot be parsed successfully.
  */
 @ExperimentalCoroutinesApi
-fun Flow<String>.toRisRecords(): Flow<RisRecord> = JRis.process(this)
+fun Flow<String>.toRisRecords(): Flow<RisRecord> = KRis.process(this)
 
 
 @ExperimentalCoroutinesApi
-fun List<String>.toRisRecords(): List<RisRecord> = JRis.processList(this)
+fun List<String>.toRisRecords(): List<RisRecord> = KRis.processList(this)
 
 /**
  * Converts a sequence of Strings (representing lines in a RIS file) (as receiver) into a sequence of [RisRecord]s
- * in a blocking manner. May throw a [JRisException] if the line flow cannot be parsed successfully.
+ * in a blocking manner. May throw a [KRisException] if the line flow cannot be parsed successfully.
  */
 @FlowPreview
 @ExperimentalCoroutinesApi
 fun Sequence<String>.toRisRecords(): Sequence<RisRecord> {
     val lineFlow = this.asFlow()
     return sequence {
-        val channel = JRis.process(lineFlow).produceIn(GlobalScope)
+        val channel = KRis.process(lineFlow).produceIn(GlobalScope)
 
         try {
             while (!channel.isClosedForReceive) {
@@ -59,7 +59,7 @@ fun Sequence<String>.toRisRecords(): Sequence<RisRecord> {
  */
 @JvmOverloads
 @ExperimentalCoroutinesApi
-fun Flow<RisRecord>.toRisLines(sort: List<String> = emptyList()): Flow<String> = JRis.build(this, sort)
+fun Flow<RisRecord>.toRisLines(sort: List<String> = emptyList()): Flow<String> = KRis.build(this, sort)
 
 /**
  * Converts a list of [RisRecord]s into a list of [String]s in RIS file format.
@@ -79,7 +79,7 @@ fun List<RisRecord>.toRisLines(sort: List<String> = emptyList()): List<String> =
 @ExperimentalCoroutinesApi
 fun Sequence<RisRecord>.toRisLines(): Sequence<String> =
     sequence {
-        val channel = JRis.build(asFlow()).produceIn(GlobalScope)
+        val channel = KRis.build(asFlow()).produceIn(GlobalScope)
 
         try {
             while (!channel.isClosedForReceive) {

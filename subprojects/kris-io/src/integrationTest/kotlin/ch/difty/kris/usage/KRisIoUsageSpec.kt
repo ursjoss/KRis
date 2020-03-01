@@ -1,9 +1,9 @@
 package ch.difty.kris.usage
 
-import ch.difty.kris.domain.RisRecord
-import ch.difty.kris.domain.RisType
 import ch.difty.kris.KRisIO
 import ch.difty.kris.accept
+import ch.difty.kris.domain.RisRecord
+import ch.difty.kris.domain.RisType
 import ch.difty.kris.process
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.InternalCoroutinesApi
@@ -20,7 +20,7 @@ object KRisIoUsageSpec : Spek({
 
     describe("importing from file") {
         val file by memoized {
-            File.createTempFile("jris1", null, null).apply {
+            File.createTempFile("kris1", null, null).apply {
                 accept(listOf(RisRecord(type = RisType.JOUR)))
                 deleteOnExit()
             }
@@ -56,7 +56,7 @@ object KRisIoUsageSpec : Spek({
     }
 
     describe("exporting into file") {
-        val file by memoized { File.createTempFile("jris2", null, null).apply { deleteOnExit() } }
+        val file by memoized { File.createTempFile("kris2", null, null).apply { deleteOnExit() } }
         val customSort = listOf("AB")
 
         describe("with fields in natural order") {

@@ -1,8 +1,8 @@
 package ch.difty.kris.usage
 
+import ch.difty.kris.accept
 import ch.difty.kris.domain.RisRecord
 import ch.difty.kris.domain.RisType
-import ch.difty.kris.accept
 import ch.difty.kris.process
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.InternalCoroutinesApi
@@ -18,7 +18,7 @@ object KRisIoUsageImportSpec : Spek({
 
     describe("importing from file") {
         val file by memoized {
-            File.createTempFile("jris1", null, null).also {
+            File.createTempFile("kris1", null, null).also {
                 it.accept(listOf(RisRecord(type = RisType.JOUR)))
                 it.deleteOnExit()
             }

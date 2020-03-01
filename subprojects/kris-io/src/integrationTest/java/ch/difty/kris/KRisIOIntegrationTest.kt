@@ -56,7 +56,7 @@ internal class KRisIOIntegrationTest {
 
     @Test
     fun `can write to writer`() {
-        val tmpFile = File.createTempFile("jris1", null, null)
+        val tmpFile = File.createTempFile("kris1", null, null)
         tmpFile.deleteOnExit()
         tmpFile.bufferedWriter().accept(records)
         tmpFile.process() shouldHaveSize records.size
@@ -64,7 +64,7 @@ internal class KRisIOIntegrationTest {
 
     @Test
     fun `can write to file`() {
-        val tmpFile = File.createTempFile("jris2", null, null)
+        val tmpFile = File.createTempFile("kris2", null, null)
         tmpFile.deleteOnExit()
         tmpFile.accept(records)
         tmpFile.process() shouldHaveSize records.size
@@ -72,7 +72,7 @@ internal class KRisIOIntegrationTest {
 
     @Test
     fun `can write to stream`() {
-        val tmpFile = File.createTempFile("jris3", null, null)
+        val tmpFile = File.createTempFile("kris3", null, null)
         tmpFile.deleteOnExit()
         tmpFile.outputStream().accept(records)
         tmpFile.process() shouldHaveSize records.size
@@ -80,7 +80,7 @@ internal class KRisIOIntegrationTest {
 
     @Test
     fun `can write to path`() {
-        val tmpFile = File.createTempFile("jris4", null, null)
+        val tmpFile = File.createTempFile("kris4", null, null)
         val path = tmpFile.path
         tmpFile.delete()
         path.accept(records)

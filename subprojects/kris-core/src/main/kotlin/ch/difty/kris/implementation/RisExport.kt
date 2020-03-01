@@ -12,7 +12,7 @@ private const val INT_INTERMEDIATE = 1000
 
 private val LINE_SEPARATOR = System.getProperty("line.separator")
 
-internal object JRisExport {
+internal object RisExport {
 
     /**
      * Converts a flow of [RisRecord]s into a flow of [String]s in RIS file format.

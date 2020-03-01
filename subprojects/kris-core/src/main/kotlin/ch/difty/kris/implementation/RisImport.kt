@@ -1,6 +1,6 @@
 package ch.difty.kris.implementation
 
-import ch.difty.kris.JRisException
+import ch.difty.kris.KRisException
 import ch.difty.kris.TAG_SEPARATOR
 import ch.difty.kris.domain.RisRecord
 import ch.difty.kris.domain.RisTag
@@ -15,7 +15,7 @@ import kotlinx.coroutines.flow.flow
 private val TAG_LENGTH = RisTag.ER.name.length
 private val START_INDEX_VALUE = TAG_LENGTH + TAG_SEPARATOR.length
 
-internal object JRisImport {
+internal object RisImport {
     internal fun process(lineFlow: Flow<String>): Flow<RisRecord> = flow {
         var record = RisRecord()
         var previousTag: RisTag? = null
@@ -46,7 +46,7 @@ internal object JRisImport {
         val tagName = line.substring(0, TAG_LENGTH)
         val tag = RisTag.fromName(tagName)
             ?: if (previousTag == RisTag.AB) RisTag.AB
-            else throw JRisException("Unable to parse tag '$tagName'")
+            else throw KRisException("Unable to parse tag '$tagName'")
         tag.setInto(this, tag.typeSafeValueFrom(line))
         return tag
     }

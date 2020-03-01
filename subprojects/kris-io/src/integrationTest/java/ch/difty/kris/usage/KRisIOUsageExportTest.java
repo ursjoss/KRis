@@ -24,7 +24,7 @@ class KRisIOUsageExportTest {
     @BeforeEach
     void setUp() throws IOException {
         // create sample file to import
-        file = File.createTempFile("jris2", null, null);
+        file = File.createTempFile("kris2", null, null);
         file.deleteOnExit();
     }
 

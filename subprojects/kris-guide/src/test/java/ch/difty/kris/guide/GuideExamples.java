@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import ch.difty.kris.JRis;
+import ch.difty.kris.KRis;
 import ch.difty.kris.KRisIO;
 import ch.difty.kris.domain.RisRecord;
 import ch.difty.kris.domain.RisType;
@@ -47,7 +47,7 @@ public class GuideExamples {
         // tag::fromList[]
         final List<RisRecord> records = Arrays.asList(record1, record2);
 
-        List<String> lines = JRis.buildFromList(records);
+        List<String> lines = KRis.buildFromList(records);
         // end::fromList[]
     }
 
@@ -56,7 +56,7 @@ public class GuideExamples {
         final List<RisRecord> records = Arrays.asList(record1, record2);
         final List<String> sort = Arrays.asList("SP", "EP", "T1");
 
-        List<String> lines = JRis.buildFromList(records, sort);
+        List<String> lines = KRis.buildFromList(records, sort);
         // end::fromListCustomSort[]
     }
 
@@ -67,7 +67,7 @@ public class GuideExamples {
 
         final BufferedWriter writer = new BufferedWriter(new FileWriter("export.ris"));
 
-        JRis
+        KRis
             .exportObservable(observable)
             .doFinally(() -> closeWriter(writer))
             .blockingSubscribe(writer::append);
@@ -154,7 +154,7 @@ public class GuideExamples {
     void passRisLinesAsList() throws IOException {
         // tag::passRisLinesAsList[]
         final List<String> lines = Arrays.asList(); // TODO
-        List<RisRecord> records = JRis.processList(lines);
+        List<RisRecord> records = KRis.processList(lines);
         // end::passRisLinesAsList[]
     }
 
@@ -164,7 +164,7 @@ public class GuideExamples {
         final List<String> lines = new ArrayList<>();
         final Observable<String> observable = Observable.fromIterable(lines);
 
-        JRis
+        KRis
             .processObservables(observable)
             .blockingSubscribe(risRecords::add);
         // end::processObservables[]

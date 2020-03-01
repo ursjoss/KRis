@@ -39,7 +39,7 @@ object KRisProcessingSpec : Spek({
             "ER  - "
         )
         describe("representing a single record") {
-            val risRecords by memoized { runBlocking { JRis.process(lines.asFlow()).toList() } }
+            val risRecords by memoized { runBlocking { KRis.process(lines.asFlow()).toList() } }
 
             it("should be parsed into one single RisRecord") { risRecords shouldHaveSize 1 }
             it("should have the reference type $type") { risRecords.first().type shouldBeEqualTo RisType.JOUR }
@@ -56,7 +56,7 @@ object KRisProcessingSpec : Spek({
 
         describe("representing two records") {
             val twoRecordLines = lines + lines
-            it("should be parsed into one single RisRecord") { runBlocking { JRis.process(twoRecordLines.asFlow()).toList() shouldHaveSize 2 } }
+            it("should be parsed into one single RisRecord") { runBlocking { KRis.process(twoRecordLines.asFlow()).toList() shouldHaveSize 2 } }
         }
     }
 
@@ -66,10 +66,10 @@ object KRisProcessingSpec : Spek({
             "XX  - skjd"
         )
 
-        val risRecords by memoized { runBlocking { JRis.process(lines.asFlow()).toList() } }
+        val risRecords by memoized { runBlocking { KRis.process(lines.asFlow()).toList() } }
 
         it("should throw") {
-            invoking { risRecords } shouldThrow JRisException::class
+            invoking { risRecords } shouldThrow KRisException::class
         }
     }
 
@@ -87,7 +87,7 @@ object KRisProcessingSpec : Spek({
                 "AB  - $abstract",
                 "ER  - "
             )
-            val risRecords by memoized { runBlocking { JRis.process(lines.asFlow()).toList() } }
+            val risRecords by memoized { runBlocking { KRis.process(lines.asFlow()).toList() } }
 
             it("should be parsed into one single RisRecord") { risRecords shouldHaveSize 1 }
             it("should have the reference type $type") { risRecords.first().type shouldBeEqualTo RisType.JOUR }
@@ -104,7 +104,7 @@ object KRisProcessingSpec : Spek({
                 "XX  - $abstract2",
                 "ER  - "
             )
-            val risRecords by memoized { runBlocking { JRis.process(lines.asFlow()).toList() } }
+            val risRecords by memoized { runBlocking { KRis.process(lines.asFlow()).toList() } }
 
             it("should be parsed into one single RisRecord") { risRecords shouldHaveSize 1 }
             it("should have the reference type $type") { risRecords.first().type shouldBeEqualTo RisType.JOUR }

@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test
 internal class KRisIODummyTest {
 
     @Test
-    fun canAccessJRisIO() {
+    fun canAccessKRisIO() {
         KRisIO.shouldNotBeNull()
     }
 }

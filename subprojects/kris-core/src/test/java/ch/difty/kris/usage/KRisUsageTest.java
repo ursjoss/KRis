@@ -7,14 +7,14 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-import ch.difty.kris.JRis;
+import ch.difty.kris.KRis;
 import ch.difty.kris.domain.RisRecord;
 import ch.difty.kris.domain.RisType;
 import io.reactivex.Observable;
 import org.junit.jupiter.api.Test;
 
 /**
- * Specification how to use JRis from Java
+ * Specification how to use {@link KRis} from Java
  */
 class KRisUsageTest {
 
@@ -43,7 +43,7 @@ class KRisUsageTest {
 
     @Test
     void whenProcessingRisLinesAsList_willReturnListOfRisRecords() {
-        final List<RisRecord> risRecords = JRis.processList(risLines);
+        final List<RisRecord> risRecords = KRis.processList(risLines);
         assertThat(risRecords).hasSize(2);
     }
 
@@ -53,7 +53,7 @@ class KRisUsageTest {
 
         final Observable<String> observable = Observable.fromIterable(risLines);
 
-        JRis
+        KRis
             .processObservables(observable)
             .blockingSubscribe(risRecords::add);
 
@@ -77,7 +77,7 @@ class KRisUsageTest {
 
     @Test
     void whenProcessingRisRecordsAsList_willReturnListOfRisLines() {
-        final List<String> risLines = JRis.buildFromList(risRecords);
+        final List<String> risLines = KRis.buildFromList(risRecords);
         assertThat(risLines).hasSize(expectedLineCount);
     }
 
@@ -87,7 +87,7 @@ class KRisUsageTest {
 
         final Observable<RisRecord> observable = Observable.fromIterable(risRecords);
 
-        JRis
+        KRis
             .exportObservable(observable)
             .blockingSubscribe(risLines::add);
 

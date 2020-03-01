@@ -1,6 +1,6 @@
 package ch.difty.kris.usage
 
-import ch.difty.kris.JRis
+import ch.difty.kris.KRis
 import ch.difty.kris.domain.RisRecord
 import ch.difty.kris.domain.RisType
 import ch.difty.kris.toRisLines
@@ -52,7 +52,7 @@ object KRisUsageSpec : Spek({
 
 
         it("can be passed to a static method returning a list of RisRecords (blocking)") {
-            JRis.processList(risLines) shouldHaveSize 2
+            KRis.processList(risLines) shouldHaveSize 2
         }
 
         describe("converted to Flow") {
@@ -96,7 +96,7 @@ object KRisUsageSpec : Spek({
         val risRecords = listOf(risRecord)
 
         it("can be passed to a static method returning a list of Strings (blocking)") {
-            JRis.buildFromList(risRecords) shouldHaveSize 9
+            KRis.buildFromList(risRecords) shouldHaveSize 9
         }
 
         describe("converted to Flow") {

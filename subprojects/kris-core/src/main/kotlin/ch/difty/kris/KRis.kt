@@ -3,8 +3,8 @@
 package ch.difty.kris
 
 import ch.difty.kris.domain.RisRecord
-import ch.difty.kris.implementation.JRisExport
-import ch.difty.kris.implementation.JRisImport
+import ch.difty.kris.implementation.RisExport
+import ch.difty.kris.implementation.RisImport
 import io.reactivex.Observable
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.Flow
@@ -13,7 +13,7 @@ import kotlinx.coroutines.flow.toList
 import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.rx2.asObservable
 
-class JRisException(message: String) : Throwable(message)
+class KRisException(message: String) : Throwable(message)
 
 internal const val TAG_SEPARATOR = "  - "
 
@@ -23,26 +23,27 @@ internal const val TAG_SEPARATOR = "  - "
  * * processing lines of RIS files (Strings), converting them to [RisRecord]s
  * * building well formatted RIS files from [RisRecord]s.
  *
- * The JRis class works in non-blocking manner as default.
+ * The [KRis] class works in non-blocking manner as default.
  * Extension functions provide blocking alternatives for ease of use both from Kotlin or Java.
  *
  * @author Gianluca Colaianni -- g.colaianni5@gmail.com
  * @author Urs Joss - urs.joss@gmx.ch
  */
+@Suppress("KDocUnresolvedReference")
 @ExperimentalCoroutinesApi
-object JRis {
+object KRis {
 
 //region:process - RISFile lines -> RisRecords
 
     /**
      * Converts a flow of Strings (representing lines in a RIS file) into a flow of [RisRecord]s.
-     * May throw a [JRisException] if the line flow cannot be parsed successfully.
+     * May throw a [KRisException] if the line flow cannot be parsed successfully.
      */
-    fun process(lineFlow: Flow<String>): Flow<RisRecord> = JRisImport.process(lineFlow)
+    fun process(lineFlow: Flow<String>): Flow<RisRecord> = RisImport.process(lineFlow)
 
     /**
      * Converts an observable of Strings (representing lines in a RIS file) into an observable of [RisRecord]s
-     * in non-blocking manner. May throw [JRisException] if the line flow cannot be parsed successfully.
+     * in non-blocking manner. May throw [KRisException] if the line flow cannot be parsed successfully.
      */
     @JvmStatic
     fun processObservables(risLineObservable: Observable<String>): Observable<RisRecord> =
@@ -50,7 +51,7 @@ object JRis {
 
     /**
      * Converts a list of Strings (representing lines in a RIS file) into a list of [RisRecord]s in blocking manner.
-     * May throw a [JRisException] if the line flow cannot be parsed successfully.
+     * May throw a [KRisException] if the line flow cannot be parsed successfully.
      */
     @JvmStatic
     fun processList(risLines: List<String>): List<RisRecord> = runBlocking { process(risLines.asFlow()).toList() }
@@ -63,7 +64,7 @@ object JRis {
      * Converts a flow of [RisRecord]s into a flow of [String]s in RIS file format.
      * Optionally accepts a list of names of [RisTag]s defining a sort order for the [RisTag]s in the file.
      */
-    fun build(recordFlow: Flow<RisRecord>, sort: List<String> = emptyList()): Flow<String> = JRisExport.build(recordFlow, sort)
+    fun build(recordFlow: Flow<RisRecord>, sort: List<String> = emptyList()): Flow<String> = RisExport.build(recordFlow, sort)
 
     /**
      * Converts a list of [RisRecord]s into a list of [String]s in RIS file format in blocking manner.

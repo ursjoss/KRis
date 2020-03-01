@@ -1,8 +1,8 @@
 package ch.difty.kris.usage
 
+import ch.difty.kris.accept
 import ch.difty.kris.domain.RisRecord
 import ch.difty.kris.domain.RisType
-import ch.difty.kris.accept
 import ch.difty.kris.process
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.InternalCoroutinesApi
@@ -14,10 +14,10 @@ import java.io.File
 @ExperimentalCoroutinesApi
 @Suppress("SpellCheckingInspection")
 @InternalCoroutinesApi
-object JRisIoUsageExportSpec : Spek({
+object KRisIoUsageExportSpec : Spek({
 
     describe("exporting into file") {
-        val file by memoized { File.createTempFile("jris2", null, null).also { it.deleteOnExit() } }
+        val file by memoized { File.createTempFile("kris2", null, null).also { it.deleteOnExit() } }
         val records = listOf(RisRecord(type = RisType.ABST))
 
         it("can write to File") {

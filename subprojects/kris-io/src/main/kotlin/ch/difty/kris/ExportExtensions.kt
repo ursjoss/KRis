@@ -1,4 +1,4 @@
-package com.gmail.gcolaianni5.jris
+package ch.difty.kris
 
 import ch.difty.kris.domain.RisRecord
 import kotlinx.coroutines.ExperimentalCoroutinesApi

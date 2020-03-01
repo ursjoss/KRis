@@ -2,12 +2,12 @@
 
 package com.gmail.gcolaianni5.jris.guide
 
+import ch.difty.kris.accept
 import ch.difty.kris.domain.RisRecord
 import ch.difty.kris.domain.RisType
+import ch.difty.kris.process
 import ch.difty.kris.toRisLines
 import ch.difty.kris.toRisRecords
-import com.gmail.gcolaianni5.jris.accept
-import com.gmail.gcolaianni5.jris.process
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.flow.Flow

@@ -1,7 +1,9 @@
 package com.gmail.gcolaianni5.jris
 
+import ch.difty.kris.accept
 import ch.difty.kris.domain.RisRecord
 import ch.difty.kris.domain.RisType
+import ch.difty.kris.process
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import org.amshove.kluent.shouldContainAll
 import org.amshove.kluent.shouldHaveSize

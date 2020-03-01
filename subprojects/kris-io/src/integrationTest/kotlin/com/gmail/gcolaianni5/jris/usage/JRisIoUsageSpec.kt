@@ -2,9 +2,9 @@ package com.gmail.gcolaianni5.jris.usage
 
 import ch.difty.kris.domain.RisRecord
 import ch.difty.kris.domain.RisType
-import com.gmail.gcolaianni5.jris.JRisIO
-import com.gmail.gcolaianni5.jris.accept
-import com.gmail.gcolaianni5.jris.process
+import ch.difty.kris.JRisIO
+import ch.difty.kris.accept
+import ch.difty.kris.process
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.InternalCoroutinesApi
 import org.amshove.kluent.shouldBeEqualTo

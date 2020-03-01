@@ -1,4 +1,4 @@
-package com.gmail.gcolaianni5.jris.usage;
+package ch.difty.kris.usage;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -6,9 +6,9 @@ import java.io.*;
 import java.util.Collections;
 import java.util.List;
 
+import ch.difty.kris.JRisIO;
 import ch.difty.kris.domain.RisRecord;
 import ch.difty.kris.domain.RisType;
-import com.gmail.gcolaianni5.jris.JRisIO;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

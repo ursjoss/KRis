@@ -1,4 +1,4 @@
-package com.gmail.gcolaianni5.jris
+package ch.difty.kris
 
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import java.io.File

@@ -6,9 +6,9 @@ import java.util.Arrays;
 import java.util.List;
 
 import ch.difty.kris.JRis;
+import ch.difty.kris.JRisIO;
 import ch.difty.kris.domain.RisRecord;
 import ch.difty.kris.domain.RisType;
-import com.gmail.gcolaianni5.jris.JRisIO;
 import io.reactivex.Observable;
 
 @SuppressWarnings("ALL")

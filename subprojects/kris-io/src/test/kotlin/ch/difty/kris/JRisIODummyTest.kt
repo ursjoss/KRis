@@ -1,4 +1,4 @@
-package com.gmail.gcolaianni5.jris
+package ch.difty.kris
 
 import org.amshove.kluent.shouldNotBeNull
 import org.junit.jupiter.api.Test

@@ -1,6 +1,6 @@
 val rxjavaVersion: String by project
 
 dependencies {
-    testImplementation(project(":jris-io"))
+    testImplementation(project(":kris-io"))
     testImplementation("io.reactivex.rxjava2:rxjava:$rxjavaVersion")
 }

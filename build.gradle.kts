@@ -6,6 +6,7 @@ plugins {
     id("org.kordamp.gradle.kotlin-project")
     id("org.kordamp.gradle.integration-test") apply false
     id("org.kordamp.gradle.detekt")
+    id("org.kordamp.gradle.kotlindoc")
     id("org.kordamp.gradle.bintray")
 //    id("org.kordamp.gradle.sonar") // TODO wait for org.kordamp.gradle.sonar (0.32.1 ?)
     id("org.ajoberstar.reckon")
@@ -81,6 +82,24 @@ config {
         publish = true
         skipMavenSync = true
     }
+
+    docs {
+        javadoc {
+            enabled = false
+        }
+
+        kotlindoc {
+            enabled = true
+            replaceJavadoc = true
+            jdkVersion = 8
+
+            aggregate {
+                enabled = true
+                fast = false
+                replaceJavadoc = true
+            }
+        }
+    }
 }
 
 java {
@@ -146,6 +165,20 @@ subprojects {
                 @Suppress("UnstableApiUsage")
                 useJUnitPlatform {
                     includeEngines("junit-jupiter", "spek2")
+                }
+            }
+        }
+
+        config {
+            docs {
+                kotlindoc {
+                    sourceLinks {
+                        sourceLink {
+                            path = "${project.projectDir}/src/main/kotlin"
+                            url = "https://github.com/ursjoss/KRis/blob/master/${projectDir.relativeTo(rootDir)}/src/main/kotlin"
+                            suffix = "#L"
+                        }
+                    }
                 }
             }
         }

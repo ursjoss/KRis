@@ -23,6 +23,7 @@ pluginManagement {
         id("org.kordamp.gradle.detekt") version kordampPluginVersion
         id("org.kordamp.gradle.bintray") version kordampPluginVersion
         id("org.kordamp.gradle.sonar") version kordampPluginVersion
+        id("org.kordamp.gradle.kotlindoc") version kordampPluginVersion
         id("org.ajoberstar.reckon") version reckonVersion
         id("org.ajoberstar.git-publish") version gitPublishVersion
     }
@@ -41,7 +42,7 @@ buildscript {
 
 apply<SettingsPlugin>()
 
-rootProject.name = "KRis"
+rootProject.name = "kris"
 
 configure<ProjectsExtension> {
     layout = "two-level"

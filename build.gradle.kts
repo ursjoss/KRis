@@ -38,11 +38,14 @@ config {
                 id = "ursjoss"
                 name = "Urs Joss"
                 roles = listOf("developer")
+                properties["github"] = "ursjoss"
+                properties["twitter"] = "urs_j_o_s_s"
             }
             person {
                 id = "fastluca"
                 name = "Gianluca Colaianni"
                 roles = listOf("developer")
+                properties["github"] = "fastluca"
             }
         }
     }

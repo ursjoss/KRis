@@ -104,6 +104,11 @@ allprojects {
         named("clean") {
             dependsOn(deleteOutFolderTask)
         }
+        withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach {
+            kotlinOptions.apiVersion = "1.3"
+            kotlinOptions.languageVersion = "1.3"
+            kotlinOptions.jvmTarget = "1.8"
+        }
     }
 }
 

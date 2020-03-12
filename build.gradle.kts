@@ -9,7 +9,6 @@ plugins {
     id("org.kordamp.gradle.bintray")
 //    id("org.kordamp.gradle.sonar") // TODO wait for org.kordamp.gradle.sonar (0.32.1 ?)
     id("org.ajoberstar.reckon")
-    idea
 }
 
 config {
@@ -87,6 +86,8 @@ java {
 }
 
 allprojects {
+    apply<IdeaPlugin>()
+
     repositories {
         mavenLocal()
         jcenter()
@@ -107,7 +108,6 @@ subprojects {
     if (project.name != "guide") {
         apply(plugin = "org.jetbrains.kotlin.jvm")
         apply<JavaPlugin>()
-        apply<IdeaPlugin>()
         apply<JacocoPlugin>()
 
         val assertjVersion: String by project

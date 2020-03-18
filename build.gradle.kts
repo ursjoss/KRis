@@ -12,6 +12,9 @@ plugins {
     id("org.ajoberstar.reckon")
 }
 
+val kotlinSrcSet = "/src/main/kotlin"
+val srcLinkSuffix = "#L"
+
 config {
     release = rootProject.findProperty("release").toString().toBoolean()
 
@@ -21,7 +24,7 @@ config {
         description = "Library for reading/writing RIS files"
         inceptionYear = "2017"
         organization {
-            url = "https://github.com/ursjoss/KRis.git"
+            url = "https://github.com/ursjoss/KRis"
         }
         links {
             website = "https://ursjoss.github.io/KRis"
@@ -97,6 +100,15 @@ config {
                 enabled = true
                 fast = false
                 replaceJavadoc = true
+            }
+            project.subprojects.forEach { subProject ->
+                sourceLinks {
+                    sourceLink {
+                        path = "${subProject.projectDir}/$kotlinSrcSet"
+                        url = subProject.projectRelativSourceLink()
+                        suffix = srcLinkSuffix
+                    }
+                }
             }
         }
     }
@@ -174,9 +186,9 @@ subprojects {
                 kotlindoc {
                     sourceLinks {
                         sourceLink {
-                            path = "${project.projectDir}/src/main/kotlin"
-                            url = "https://github.com/ursjoss/KRis/blob/master/${projectDir.relativeTo(rootDir)}/src/main/kotlin"
-                            suffix = "#L"
+                            path = "$projectDir/$kotlinSrcSet"
+                            url = project.projectRelativSourceLink()
+                            suffix = srcLinkSuffix
                         }
                     }
                 }
@@ -188,4 +200,8 @@ subprojects {
 reckon {
     scopeFromProp()
     stageFromProp("beta", "rc", "final")
+}
+
+fun Project.projectRelativSourceLink(branch: String = "master", srcSet: String = kotlinSrcSet) = rootProject.config.info.links.scm?.let { scmUrl ->
+    "${scmUrl.substringBefore(".git")}/blob/$branch/${projectDir.relativeTo(rootDir)}/$srcSet"
 }

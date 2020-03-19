@@ -8,7 +8,7 @@ plugins {
     id("org.kordamp.gradle.detekt")
     id("org.kordamp.gradle.kotlindoc")
     id("org.kordamp.gradle.bintray")
-//    id("org.kordamp.gradle.sonar") // TODO wait for org.kordamp.gradle.sonar (0.32.1 ?)
+    id("org.kordamp.gradle.sonar")
     id("org.ajoberstar.reckon")
 }
 
@@ -68,10 +68,9 @@ config {
             buildUponDefaultConfig = true
             failFast = true
         }
-// TODO wait for org.kordamp.gradle.sonar (0.32.1 ?)
-//        sonar {
-//            username = "ursjoss"
-//        }
+        sonar {
+            username = "ursjoss"
+        }
     }
 
     bintray {

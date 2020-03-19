@@ -1,3 +1,10 @@
+ifndef::imagesdir[]
+:imagesdir: ../resources/images
+endif::[]
+ifndef::includedir[]
+:includedir: .
+endif::[]
+
 = {project-title}
 :author: {project-author}
 :revnumber: {project-version}

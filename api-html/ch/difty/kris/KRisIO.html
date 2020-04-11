@@ -104,8 +104,8 @@ KRisIO.kt
 <a name="73"><font color="#808080">073</font>&nbsp;</a><font color="#ffffff"></font><br />
 <a name="74"><font color="#808080">074</font>&nbsp;</a><font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">/**</font><br />
 <a name="75"><font color="#808080">075</font>&nbsp;</a><font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;Converts&nbsp;a&nbsp;list&nbsp;of&nbsp;[RisRecord]s&nbsp;into&nbsp;a&nbsp;list&nbsp;of&nbsp;[String]s&nbsp;in&nbsp;RIS&nbsp;file&nbsp;format,&nbsp;dumping&nbsp;them&nbsp;into&nbsp;the</font><br />
-<a name="76"><font color="#808080">076</font>&nbsp;</a><font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;provided&nbsp;[Writer].&nbsp;Optionally&nbsp;accepts&nbsp;a&nbsp;list&nbsp;of&nbsp;names&nbsp;of&nbsp;[RisTag]s&nbsp;defining&nbsp;a&nbsp;sort&nbsp;order&nbsp;for</font><br />
-<a name="77"><font color="#808080">077</font>&nbsp;</a><font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;the&nbsp;[RisTag]s&nbsp;in&nbsp;the&nbsp;file.</font><br />
+<a name="76"><font color="#808080">076</font>&nbsp;</a><font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;provided&nbsp;[Writer].&nbsp;Optionally&nbsp;accepts&nbsp;a&nbsp;list&nbsp;of&nbsp;names&nbsp;of&nbsp;RisTags&nbsp;defining&nbsp;a&nbsp;sort&nbsp;order&nbsp;for</font><br />
+<a name="77"><font color="#808080">077</font>&nbsp;</a><font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;the&nbsp;RisTags&nbsp;in&nbsp;the&nbsp;file.</font><br />
 <a name="78"><font color="#808080">078</font>&nbsp;</a><font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">*/</font><br />
 <a name="79"><font color="#808080">079</font>&nbsp;</a><font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#646464">@JvmStatic</font><br />
 <a name="80"><font color="#808080">080</font>&nbsp;</a><font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#646464">@JvmOverloads</font><br />
@@ -122,8 +122,8 @@ KRisIO.kt
 <a name="91"><font color="#808080">091</font>&nbsp;</a><font color="#ffffff"></font><br />
 <a name="92"><font color="#808080">092</font>&nbsp;</a><font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">/**</font><br />
 <a name="93"><font color="#808080">093</font>&nbsp;</a><font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;Converts&nbsp;a&nbsp;list&nbsp;of&nbsp;[RisRecord]s&nbsp;into&nbsp;a&nbsp;list&nbsp;of&nbsp;[String]s&nbsp;in&nbsp;RIS&nbsp;file&nbsp;format,</font><br />
-<a name="94"><font color="#808080">094</font>&nbsp;</a><font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;writing&nbsp;them&nbsp;into&nbsp;the&nbsp;provided&nbsp;[File].&nbsp;Optionally&nbsp;accepts&nbsp;a&nbsp;list&nbsp;of&nbsp;names&nbsp;of&nbsp;[RisTag]s&nbsp;defining</font><br />
-<a name="95"><font color="#808080">095</font>&nbsp;</a><font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;a&nbsp;sort&nbsp;order&nbsp;for&nbsp;the&nbsp;[RisTag]s&nbsp;in&nbsp;the&nbsp;file.</font><br />
+<a name="94"><font color="#808080">094</font>&nbsp;</a><font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;writing&nbsp;them&nbsp;into&nbsp;the&nbsp;provided&nbsp;[File].&nbsp;Optionally&nbsp;accepts&nbsp;a&nbsp;list&nbsp;of&nbsp;names&nbsp;of&nbsp;RisTags&nbsp;defining</font><br />
+<a name="95"><font color="#808080">095</font>&nbsp;</a><font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;a&nbsp;sort&nbsp;order&nbsp;for&nbsp;the&nbsp;RisTags&nbsp;in&nbsp;the&nbsp;file.</font><br />
 <a name="96"><font color="#808080">096</font>&nbsp;</a><font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">*/</font><br />
 <a name="97"><font color="#808080">097</font>&nbsp;</a><font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#646464">@JvmStatic</font><br />
 <a name="98"><font color="#808080">098</font>&nbsp;</a><font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#646464">@JvmOverloads</font><br />
@@ -136,8 +136,8 @@ KRisIO.kt
 <a name="105"><font color="#808080">105</font>&nbsp;</a><font color="#ffffff"></font><br />
 <a name="106"><font color="#808080">106</font>&nbsp;</a><font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">/**</font><br />
 <a name="107"><font color="#808080">107</font>&nbsp;</a><font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;Converts&nbsp;a&nbsp;list&nbsp;of&nbsp;[RisRecord]s&nbsp;into&nbsp;a&nbsp;list&nbsp;of&nbsp;[String]s&nbsp;in&nbsp;RIS&nbsp;file&nbsp;format,&nbsp;writing&nbsp;them&nbsp;into</font><br />
-<a name="108"><font color="#808080">108</font>&nbsp;</a><font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;the&nbsp;provided&nbsp;[OutputStream].&nbsp;Optionally&nbsp;accepts&nbsp;a&nbsp;list&nbsp;of&nbsp;names&nbsp;of&nbsp;[RisTag]s&nbsp;defining&nbsp;a&nbsp;sort&nbsp;order</font><br />
-<a name="109"><font color="#808080">109</font>&nbsp;</a><font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;for&nbsp;the&nbsp;[RisTag]s&nbsp;in&nbsp;the&nbsp;file.</font><br />
+<a name="108"><font color="#808080">108</font>&nbsp;</a><font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;the&nbsp;provided&nbsp;[OutputStream].&nbsp;Optionally&nbsp;accepts&nbsp;a&nbsp;list&nbsp;of&nbsp;names&nbsp;of&nbsp;RisTags&nbsp;defining&nbsp;a&nbsp;sort&nbsp;order</font><br />
+<a name="109"><font color="#808080">109</font>&nbsp;</a><font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;for&nbsp;the&nbsp;RisTags&nbsp;in&nbsp;the&nbsp;file.</font><br />
 <a name="110"><font color="#808080">110</font>&nbsp;</a><font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">*/</font><br />
 <a name="111"><font color="#808080">111</font>&nbsp;</a><font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#646464">@JvmStatic</font><br />
 <a name="112"><font color="#808080">112</font>&nbsp;</a><font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#646464">@JvmOverloads</font><br />
@@ -151,7 +151,7 @@ KRisIO.kt
 <a name="120"><font color="#808080">120</font>&nbsp;</a><font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">/**</font><br />
 <a name="121"><font color="#808080">121</font>&nbsp;</a><font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;Converts&nbsp;a&nbsp;list&nbsp;of&nbsp;[RisRecord]s&nbsp;into&nbsp;a&nbsp;list&nbsp;of&nbsp;[String]s&nbsp;in&nbsp;RIS&nbsp;file&nbsp;format,&nbsp;writing&nbsp;them&nbsp;into&nbsp;file&nbsp;with</font><br />
 <a name="122"><font color="#808080">122</font>&nbsp;</a><font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;the&nbsp;specified&nbsp;path&nbsp;if&nbsp;possible.</font><br />
-<a name="123"><font color="#808080">123</font>&nbsp;</a><font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;Optionally&nbsp;accepts&nbsp;a&nbsp;list&nbsp;of&nbsp;names&nbsp;of&nbsp;[RisTag]s&nbsp;defining&nbsp;a&nbsp;sort&nbsp;order&nbsp;for&nbsp;the&nbsp;[RisTag]s&nbsp;in&nbsp;the&nbsp;file.</font><br />
+<a name="123"><font color="#808080">123</font>&nbsp;</a><font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">*&nbsp;Optionally&nbsp;accepts&nbsp;a&nbsp;list&nbsp;of&nbsp;names&nbsp;of&nbsp;RisTags&nbsp;defining&nbsp;a&nbsp;sort&nbsp;order&nbsp;for&nbsp;the&nbsp;RisTags&nbsp;in&nbsp;the&nbsp;file.</font><br />
 <a name="124"><font color="#808080">124</font>&nbsp;</a><font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#008000">*/</font><br />
 <a name="125"><font color="#808080">125</font>&nbsp;</a><font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#646464">@JvmStatic</font><br />
 <a name="126"><font color="#808080">126</font>&nbsp;</a><font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#646464">@JvmOverloads</font><br />

@@ -7,6 +7,19 @@
 <BODY>
 <a href="./index.html">KRis</a><br/>
 <br/>
+<p>KRis core module, containing the domain logic on how to interpret RIS records and RIS files.</p>
+<p>This module can be used in case you already have the flows or collections of Strings and handle
+reading from or writing to files yourself.</p>
+<p>Relate to the module <code>kris-io</code> to find add-on functionality that takes care of the IO tasks
+like writing to file or reading to file.</p>
+<p>This module contains code samples sourced by the guide.</p>
+<p>As those code blocks are executable code and are actually unit tested, it is guaranteed that
+the samples in the guide both compile and work as expected.</p>
+<p>KRis extra module that builds on top of <code>kris-core</code> and offers additional functionality
+to read from files or write to files in various ways. If your application manages that
+autonomously, you don't need the IO module, e.g. in the context of a web application that
+does not have access to the file system directly and needs to interact with the Browser
+for uploading/downloading content to the user's machine.</p>
 <h3>Packages</h3>
 <table>
 <tbody>
@@ -15,6 +28,10 @@
 <h4><a href="ch.difty.kris/index.html">ch.difty.kris</a></h4>
 </td>
 <td>
+<p><code>KRis</code> is the object at the core of the KRis library. If offers a number of accessor methods
+to Java Clients that offer to convert <code>String</code>s to <code>RisRecord</code>s or vice versa, in different
+flavors of data input, non-blockingly using kotlin flows or RxJava observables or in a blocking
+manner accepting lists.</p>
 </td>
 </tr>
 <tr>
@@ -22,6 +39,10 @@
 <h4><a href="ch.difty.kris.domain/index.html">ch.difty.kris.domain</a></h4>
 </td>
 <td>
+<p>Home of the <code>RisRecord</code>, the internal representation of a RIS data record.
+Also contains the <code>RisType</code>, in identifier for the various types of <code>RisRecords</code>,
+and the <code>RisTag</code>, an enum that captures all the relevant attributes of the individual
+tags that must or may appear in a <code>RisRecord</code>.</p>
 </td>
 </tr>
 </tbody>

@@ -57,6 +57,12 @@ config {
         }
     }
 
+    coverage {
+        jacoco {
+            includeProjectDependencies = true
+        }
+    }
+
     quality {
         detekt {
             buildUponDefaultConfig = true

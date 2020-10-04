@@ -1,18 +1,6 @@
-$dokka.format:html
+$dokka.format:html-v1
 $dokka.linkExtension:html
-$dokka.location:ch.difty.kris$accept(java.io.File, kotlin.collections.List((ch.difty.kris.domain.RisRecord)), kotlin.collections.List((kotlin.String)))ch.difty.kris/java.io.-file/accept.html
-$dokka.location:ch.difty.kris$accept(java.io.OutputStream, kotlin.collections.List((ch.difty.kris.domain.RisRecord)), kotlin.collections.List((kotlin.String)))ch.difty.kris/java.io.-output-stream/accept.html
-$dokka.location:ch.difty.kris$accept(java.io.Writer, kotlin.collections.List((ch.difty.kris.domain.RisRecord)), kotlin.collections.List((kotlin.String)))ch.difty.kris/java.io.-writer/accept.html
-$dokka.location:ch.difty.kris$accept(kotlin.String, kotlin.collections.List((ch.difty.kris.domain.RisRecord)), kotlin.collections.List((kotlin.String)))ch.difty.kris/kotlin.-string/accept.html
-$dokka.location:ch.difty.kris$process(java.io.File)ch.difty.kris/java.io.-file/process.html
-$dokka.location:ch.difty.kris$process(java.io.InputStream)ch.difty.kris/java.io.-input-stream/process.html
-$dokka.location:ch.difty.kris$process(java.io.Reader)ch.difty.kris/java.io.-reader/process.html
-$dokka.location:ch.difty.kris$process(kotlin.String)ch.difty.kris/kotlin.-string/process.html
-$dokka.location:ch.difty.kris$toRisLines(kotlin.collections.List((ch.difty.kris.domain.RisRecord)), kotlin.collections.List((kotlin.String)))ch.difty.kris/kotlin.collections.-list/to-ris-lines.html
-$dokka.location:ch.difty.kris$toRisLines(kotlin.sequences.Sequence((ch.difty.kris.domain.RisRecord)))ch.difty.kris/kotlin.sequences.-sequence/to-ris-lines.html
-$dokka.location:ch.difty.kris$toRisLines(kotlinx.coroutines.flow.Flow((ch.difty.kris.domain.RisRecord)), kotlin.collections.List((kotlin.String)))ch.difty.kris/kotlinx.coroutines.flow.-flow/to-ris-lines.html
-$dokka.location:ch.difty.kris$toRisRecords(kotlin.collections.List((kotlin.String)))ch.difty.kris/kotlin.collections.-list/to-ris-records.html
-$dokka.location:ch.difty.kris$toRisRecords(kotlin.sequences.Sequence((kotlin.String)))ch.difty.kris/kotlin.sequences.-sequence/to-ris-records.html
-$dokka.location:ch.difty.kris$toRisRecords(kotlinx.coroutines.flow.Flow((kotlin.String)))ch.difty.kris/kotlinx.coroutines.flow.-flow/to-ris-records.html
+
 ch.difty.kris
 ch.difty.kris.domain
+

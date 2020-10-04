@@ -19,16 +19,16 @@
 <ul class="sectlevel1">
 <li><a href="#_introduction">1. Introduction</a></li>
 <li><a href="#_usage">2. Usage</a></li>
-<li><a href="#_java_usage">3. Using <code>KRis</code> from Java</a>
+<li><a href="#_kotlin_usage">3. Using <code>KRis</code> from Kotlin</a>
 <ul class="sectlevel2">
-<li><a href="#_java_export">3.1. Export: RIS records &#8594; text file</a></li>
-<li><a href="#_java_import">3.2. Import: Text file &#8594; RIS records</a></li>
+<li><a href="#_kotlin_usage_export">3.1. Export: RIS records &#8594; text file</a></li>
+<li><a href="#_kotlin_usage_import">3.2. Import: Text file &#8594; RIS records</a></li>
 </ul>
 </li>
-<li><a href="#_kotlin_usage">4. Using <code>KRis</code> from Kotlin</a>
+<li><a href="#_java_usage">4. Using <code>KRis</code> from Java</a>
 <ul class="sectlevel2">
-<li><a href="#_kotlin_usage_export">4.1. Export: RIS records &#8594; text file</a></li>
-<li><a href="#_kotlin_usage_import">4.2. Import: Text file &#8594; RIS records</a></li>
+<li><a href="#_java_export">4.1. Export: RIS records &#8594; text file</a></li>
+<li><a href="#_java_import">4.2. Import: Text file &#8594; RIS records</a></li>
 </ul>
 </li>
 <li><a href="#_links">5. Links</a></li>
@@ -53,6 +53,9 @@ For more details about the RIS file format and it&#8217;s history, refer to the 
 <p>KRis is a kotlin implementation that aims to be used as a library for Kotlin and Java projects.
 It is available on <a href="https://github.com/ursjoss/KRis">Github</a> and can be used via gradle or maven dependency management.
 KRis started as a fork of <a href="https://github.com/fastluca/JRis">JRis</a>, which was developed by Gianluca Colaianni (fastluca).</p>
+</div>
+<div class="paragraph">
+<p>KRis requires Java Platform 11 or later.</p>
 </div>
 </div>
 </div>
@@ -82,262 +85,13 @@ It offers a number of utility functions that allow you to easily handle your use
 </div>
 </div>
 <div class="sect1">
-<h2 id="_java_usage"><a class="anchor" href="#_java_usage"></a>3. Using <code>KRis</code> from Java</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Building RisRecords in Java is more cumbersome than in kotlin, as we cannot simply use the default arguments of the data class or compfortably use extension functions.</p>
-</div>
-<div class="sect2">
-<h3 id="_java_export"><a class="anchor" href="#_java_export"></a>3.1. Export: RIS records &#8594; text file</h3>
-<div class="paragraph">
-<p>We can however use the builder to only specify the fields we actually need.</p>
-</div>
-<div class="listingblock">
-<div class="title">Instantiating bibliographic references as <code>RisRecord</code> [Java]</div>
-<div class="content">
-<pre class="prettyprint highlight linenums"><code data-lang="source">    private final RisRecord record1 = new RisRecord.Builder()
-        .type(RisType.JOUR)
-        .authors(Arrays.asList("Shannon, Claude E."))
-        .publicationYear("1948/07//")
-        .title("A Mathematical Theory of Communication")
-        .secondaryTitle("Bell System Technical Journal")
-        .startPage("379")
-        .endPage("423")
-        .volumeNumber("27")
-        .build();
-
-    private final RisRecord record2 = new RisRecord.Builder()
-        .type(RisType.JOUR)
-        .authors(Arrays.asList("Turing, Alan Mathison"))
-        .publicationYear("1948/07//")
-        .periodicalNameFullFormatJO("Proc. of London Mathematical Society")
-        .title("On computable numbers, with an application to the Entscheidungsproblem")
-        .secondaryTitle("Bell System Technical Journal")
-        .startPage("230")
-        .endPage("265")
-        .volumeNumber("47")
-        .issue("1")
-        .primaryDate("1937")
-        .build();</code></pre>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_java_export_blocking"><a class="anchor" href="#_java_export_blocking"></a>3.1.1. List: Blocking conversion</h4>
-<div class="paragraph">
-<p>We can convert the records as a list into a list of strings.
-This happens in a blocking manner and it is up to us what we want to do with the list of lines.</p>
-</div>
-<div class="listingblock">
-<div class="title">Converting a list of <code>RisRecords</code> in a blocking manner into a list of RIS lines [Java]</div>
-<div class="content">
-<pre class="prettyprint highlight linenums"><code data-lang="source">        final List&lt;RisRecord&gt; records = Arrays.asList(record1, record2);
-
-        List&lt;String&gt; lines = KRis.buildFromList(records);</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>We may want to influence how the RIS tags are sorted in the file.
-We can do that by providing a list of RIS tag names (as string) in the order we&#8217;d like to have them in the file.</p>
-</div>
-<div class="listingblock">
-<div class="title">Converting a list of <code>RisRecords</code> applying custom sort in a blocking manner into a list of RIS lines [Java]</div>
-<div class="content">
-<pre class="prettyprint highlight linenums"><code data-lang="source">        final List&lt;RisRecord&gt; records = Arrays.asList(record1, record2);
-        final List&lt;String&gt; sort = Arrays.asList("SP", "EP", "T1");
-
-        List&lt;String&gt; lines = KRis.buildFromList(records, sort);</code></pre>
-</div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>All the subsequent method calls optionally accept a list of RIS tag names, specifying the tag sort order.
-We will not explicitly mention this option in the subsequent examples.</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_java_export_nonblocking"><a class="anchor" href="#_java_export_nonblocking"></a>3.1.2. Observable: Non-blocking conversion</h4>
-<div class="paragraph">
-<p>Working with KRis in non-blocking manner in Java involves RxJava2.</p>
-</div>
-<div class="listingblock">
-<div class="title">Converting an observable of <code>RisRecords</code> in non-blocking manner into a file [Java]</div>
-<div class="content">
-<pre class="prettyprint highlight linenums"><code data-lang="source">    void fromObservable() throws IOException {
-        final List&lt;RisRecord&gt; records = Arrays.asList(record1, record2);
-        final Observable&lt;RisRecord&gt; observable = Observable.fromIterable(records);
-
-        final BufferedWriter writer = new BufferedWriter(new FileWriter("export.ris"));
-
-        KRis
-            .exportObservable(observable)
-            .doFinally(() -&gt; closeWriter(writer))
-            .blockingSubscribe(writer::append);
-    }
-
-    private void closeWriter(final BufferedWriter writer) {
-        try {
-            writer.close();
-        } catch (Exception ex) {
-        }
-    }</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>To make the process of exporting to files easier, KRis offers some dedicated functions in the utility class <code>KRisIO</code>.
-We can use the <code>export</code> functions with a writer, a file, an output stream or a path as receiver respectively:</p>
-</div>
-<div class="listingblock">
-<div class="title">Writing the list of <code>RisRecords</code> in a blocking manner into a buffered writer [Java]</div>
-<div class="content">
-<pre class="prettyprint highlight linenums"><code data-lang="source">        final List&lt;RisRecord&gt; records = Arrays.asList(record1, record2);
-
-        try (final BufferedWriter writer = new BufferedWriter(new FileWriter("export.ris"))) {
-            KRisIO.export(records, writer);
-        }</code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="title">Writing the list of <code>RisRecords</code> in a blocking manner into a file [Java]</div>
-<div class="content">
-<pre class="prettyprint highlight linenums"><code data-lang="source">        final List&lt;RisRecord&gt; records = Arrays.asList(record1, record2);
-
-        final File file = new File("export.ris");
-
-        KRisIO.export(records, file);</code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="title">Writing the list of <code>RisRecords</code> in a blocking manner into an output stream [Java]</div>
-<div class="content">
-<pre class="prettyprint highlight linenums"><code data-lang="source">        final List&lt;RisRecord&gt; records = Arrays.asList(record1, record2);
-
-        try (OutputStream s = new BufferedOutputStream(new FileOutputStream("export.ris"))) {
-            KRisIO.export(records, s);
-        }</code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="title">Writing the list of <code>RisRecords</code> in a blocking manner into a path [Java]</div>
-<div class="content">
-<pre class="prettyprint highlight linenums"><code data-lang="source">        final List&lt;RisRecord&gt; records = Arrays.asList(record1, record2);
-
-        KRisIO.export(records, "export.ris");</code></pre>
-</div>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_java_import"><a class="anchor" href="#_java_import"></a>3.2. Import: Text file &#8594; RIS records</h3>
-<div class="paragraph">
-<p>Assume we have a text file <code>import.ris</code> with one or more RIS records similar to the following example:</p>
-</div>
-<div class="listingblock">
-<div class="title">import.ris</div>
-<div class="content">
-<pre>TY  - JOUR
-AU  - Hjortebjerg,D.
-AU  - Nybo Andersen,AM.
-AU  - Ketzel,M.
-AU  - Raaschou-Nielsen,O.
-AU  - Sørensen,M.
-PY  - 2018
-TI  - Exposure to traffic noise and air pollution and risk for febrile seizure: a cohort study.
-JO  - Scand J Work Environ Health. 2018 Mar 25. pii: 3724. doi.
-ID  - 29574476
-DO  - 10.5271/sjweh.3724
-M1  - 9300
-L2  - https://www.ncbi.nlm.nih.gov/pubmed/29574476
-ER  -</pre>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_java_import_file"><a class="anchor" href="#_java_import_file"></a>3.2.1. Reading from File</h4>
-<div class="paragraph">
-<p>If we have a reader, file, input stream or simply the path of the file, we can use the method <code>process</code> on <code>KRisIO</code>.
-We will receive a list of [RisRecord] instances.</p>
-</div>
-<div class="listingblock">
-<div class="title">Reading RIS records from BufferedReader [Java]</div>
-<div class="content">
-<pre class="prettyprint highlight linenums"><code data-lang="source">        try (final BufferedReader reader = new BufferedReader(new FileReader("import.ris"))) {
-            final List&lt;RisRecord&gt; records = KRisIO.process(reader);
-        }</code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="title">Reading RIS records from File [Java]</div>
-<div class="content">
-<pre class="prettyprint highlight linenums"><code data-lang="source">        final File file = new File("import.ris");
-        final List&lt;RisRecord&gt; records = KRisIO.process(file);</code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="title">Reading RIS records from InputStream [Java]</div>
-<div class="content">
-<pre class="prettyprint highlight linenums"><code data-lang="source">        try (InputStream s = new BufferedInputStream(new FileInputStream("import.ris"))) {
-            final List&lt;RisRecord&gt; records = KRisIO.process(s);
-        }</code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="title">Reading RIS records from Path [Java]</div>
-<div class="content">
-<pre class="prettyprint highlight linenums"><code data-lang="source">        final List&lt;RisRecord&gt; records = KRisIO.process("import.ris");</code></pre>
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_java_import_memory"><a class="anchor" href="#_java_import_memory"></a>3.2.2. RIS file lines in memory</h4>
-<div class="sect4">
-<h5 id="_java_import_memory_blocking"><a class="anchor" href="#_java_import_memory_blocking"></a>Lists: Blocking conversion</h5>
-<div class="paragraph">
-<p>In case we have the file content already in memory, we can pass it as a list.</p>
-</div>
-<div class="listingblock">
-<div class="title">Processing RIS records as list of strings [Java]</div>
-<div class="content">
-<pre class="prettyprint highlight linenums"><code data-lang="source">        final List&lt;String&gt; lines = Arrays.asList(); // TODO
-        List&lt;RisRecord&gt; records = KRis.processList(lines);</code></pre>
-</div>
-</div>
-</div>
-<div class="sect4">
-<h5 id="_java_import_memory_nonblocking"><a class="anchor" href="#_java_import_memory_nonblocking"></a>Observable : Non-blocking conversion</h5>
-<div class="listingblock">
-<div class="title">Converting an observable of ris line strings in non-blocking manner into RisRecords [Java]</div>
-<div class="content">
-<pre class="prettyprint highlight linenums"><code data-lang="source">        final List&lt;RisRecord&gt; risRecords = new ArrayList&lt;&gt;();
-        final List&lt;String&gt; lines = new ArrayList&lt;&gt;();
-        final Observable&lt;String&gt; observable = Observable.fromIterable(lines);
-
-        KRis
-            .processObservables(observable)
-            .blockingSubscribe(risRecords::add);</code></pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_kotlin_usage"><a class="anchor" href="#_kotlin_usage"></a>4. Using <code>KRis</code> from Kotlin</h2>
+<h2 id="_kotlin_usage"><a class="anchor" href="#_kotlin_usage"></a>3. Using <code>KRis</code> from Kotlin</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Using KRis from kotlin allows us to profit from syntactic sugar provided by kotlin like data classes with default arguments for creating RisRecords or extension functions with receivers for calling the actual export/import methods.</p>
 </div>
 <div class="sect2">
-<h3 id="_kotlin_usage_export"><a class="anchor" href="#_kotlin_usage_export"></a>4.1. Export: RIS records &#8594; text file</h3>
+<h3 id="_kotlin_usage_export"><a class="anchor" href="#_kotlin_usage_export"></a>3.1. Export: RIS records &#8594; text file</h3>
 <div class="paragraph">
 <p>Let&#8217;s assume we have a number of bibliographic references we want to export them into a file in RIS format:
 We first have to convert each reference into a [RisRecord].</p>
@@ -371,7 +125,7 @@ val record2 = RisRecord(
 </div>
 </div>
 <div class="sect3">
-<h4 id="_kotlin_usage_export_blocking"><a class="anchor" href="#_kotlin_usage_export_blocking"></a>4.1.1. List: Blocking conversion</h4>
+<h4 id="_kotlin_usage_export_blocking"><a class="anchor" href="#_kotlin_usage_export_blocking"></a>3.1.1. List: Blocking conversion</h4>
 <div class="paragraph">
 <p>We can convert the records as a list into a list of strings.
 This happens in a blocking manner and it is up to us what we want to do with the list of lines.</p>
@@ -457,7 +211,7 @@ We can use the <code>accept</code> extension function with a writer, a file, an 
 </div>
 </div>
 <div class="sect3">
-<h4 id="_kotlin_usage_export_nonblocking"><a class="anchor" href="#_kotlin_usage_export_nonblocking"></a>4.1.2. Flow: Non-Blocking conversion</h4>
+<h4 id="_kotlin_usage_export_nonblocking"><a class="anchor" href="#_kotlin_usage_export_nonblocking"></a>3.1.2. Flow: Non-Blocking conversion</h4>
 <div class="paragraph">
 <p>If you want to work with non-blocking reactive streams, you can work with flows:</p>
 </div>
@@ -483,7 +237,7 @@ We can use the <code>accept</code> extension function with a writer, a file, an 
 </div>
 </div>
 <div class="sect2">
-<h3 id="_kotlin_usage_import"><a class="anchor" href="#_kotlin_usage_import"></a>4.2. Import: Text file &#8594; RIS records</h3>
+<h3 id="_kotlin_usage_import"><a class="anchor" href="#_kotlin_usage_import"></a>3.2. Import: Text file &#8594; RIS records</h3>
 <div class="paragraph">
 <p>Assume we have a text file <code>import.ris</code> with one or more RIS records similar to the following example:</p>
 </div>
@@ -507,7 +261,7 @@ ER  -</pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_kotlin_usage_import_file"><a class="anchor" href="#_kotlin_usage_import_file"></a>4.2.1. Reading from File</h4>
+<h4 id="_kotlin_usage_import_file"><a class="anchor" href="#_kotlin_usage_import_file"></a>3.2.1. Reading from File</h4>
 <div class="paragraph">
 <p>If we have a reader, file, input stream or simply the path of the file, we can use the method <code>process</code> on the receiver.
 We will receive a list of [RisRecord] instances.</p>
@@ -544,7 +298,7 @@ We will receive a list of [RisRecord] instances.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_kotlin_usage_import_memory"><a class="anchor" href="#_kotlin_usage_import_memory"></a>4.2.2. RIS file lines in memory</h4>
+<h4 id="_kotlin_usage_import_memory"><a class="anchor" href="#_kotlin_usage_import_memory"></a>3.2.2. RIS file lines in memory</h4>
 <div class="sect4">
 <h5 id="_kotlin_usage_import_memory_blocking"><a class="anchor" href="#_kotlin_usage_import_memory_blocking"></a>Lists/Sequences: blocking conversion</h5>
 <div class="paragraph">
@@ -587,6 +341,255 @@ We will receive a list of [RisRecord] instances.</p>
 </div>
 </div>
 <div class="sect1">
+<h2 id="_java_usage"><a class="anchor" href="#_java_usage"></a>4. Using <code>KRis</code> from Java</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Building RisRecords in Java is more cumbersome than in kotlin, as we cannot simply use the default arguments of the data class or compfortably use extension functions.</p>
+</div>
+<div class="sect2">
+<h3 id="_java_export"><a class="anchor" href="#_java_export"></a>4.1. Export: RIS records &#8594; text file</h3>
+<div class="paragraph">
+<p>We can however use the builder to only specify the fields we actually need.</p>
+</div>
+<div class="listingblock">
+<div class="title">Instantiating bibliographic references as <code>RisRecord</code> [Java]</div>
+<div class="content">
+<pre class="prettyprint highlight linenums"><code data-lang="source">    private final RisRecord record1 = new RisRecord.Builder()
+        .type(RisType.JOUR)
+        .authors(Arrays.asList("Shannon, Claude E."))
+        .publicationYear("1948/07//")
+        .title("A Mathematical Theory of Communication")
+        .secondaryTitle("Bell System Technical Journal")
+        .startPage("379")
+        .endPage("423")
+        .volumeNumber("27")
+        .build();
+
+    private final RisRecord record2 = new RisRecord.Builder()
+        .type(RisType.JOUR)
+        .authors(Arrays.asList("Turing, Alan Mathison"))
+        .publicationYear("1948/07//")
+        .periodicalNameFullFormatJO("Proc. of London Mathematical Society")
+        .title("On computable numbers, with an application to the Entscheidungsproblem")
+        .secondaryTitle("Bell System Technical Journal")
+        .startPage("230")
+        .endPage("265")
+        .volumeNumber("47")
+        .issue("1")
+        .primaryDate("1937")
+        .build();</code></pre>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_java_export_blocking"><a class="anchor" href="#_java_export_blocking"></a>4.1.1. List: Blocking conversion</h4>
+<div class="paragraph">
+<p>We can convert the records as a list into a list of strings.
+This happens in a blocking manner and it is up to us what we want to do with the list of lines.</p>
+</div>
+<div class="listingblock">
+<div class="title">Converting a list of <code>RisRecords</code> in a blocking manner into a list of RIS lines [Java]</div>
+<div class="content">
+<pre class="prettyprint highlight linenums"><code data-lang="source">        final List&lt;RisRecord&gt; records = Arrays.asList(record1, record2);
+
+        List&lt;String&gt; lines = KRis.buildFromList(records);</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>We may want to influence how the RIS tags are sorted in the file.
+We can do that by providing a list of RIS tag names (as string) in the order we&#8217;d like to have them in the file.</p>
+</div>
+<div class="listingblock">
+<div class="title">Converting a list of <code>RisRecords</code> applying custom sort in a blocking manner into a list of RIS lines [Java]</div>
+<div class="content">
+<pre class="prettyprint highlight linenums"><code data-lang="source">        final List&lt;RisRecord&gt; records = Arrays.asList(record1, record2);
+        final List&lt;String&gt; sort = Arrays.asList("SP", "EP", "T1");
+
+        List&lt;String&gt; lines = KRis.buildFromList(records, sort);</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>All the subsequent method calls optionally accept a list of RIS tag names, specifying the tag sort order.
+We will not explicitly mention this option in the subsequent examples.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_java_export_nonblocking"><a class="anchor" href="#_java_export_nonblocking"></a>4.1.2. Observable: Non-blocking conversion</h4>
+<div class="paragraph">
+<p>Working with KRis in non-blocking manner in Java involves RxJava2.</p>
+</div>
+<div class="listingblock">
+<div class="title">Converting an observable of <code>RisRecords</code> in non-blocking manner into a file [Java]</div>
+<div class="content">
+<pre class="prettyprint highlight linenums"><code data-lang="source">    void fromObservable() throws IOException {
+        final List&lt;RisRecord&gt; records = Arrays.asList(record1, record2);
+        final Observable&lt;RisRecord&gt; observable = Observable.fromIterable(records);
+
+        final BufferedWriter writer = new BufferedWriter(new FileWriter("export.ris"));
+
+        KRis
+            .exportObservable(observable)
+            .doFinally(() -&gt; closeWriter(writer))
+            .blockingSubscribe(writer::append);
+    }
+
+    private void closeWriter(final BufferedWriter writer) {
+        try {
+            writer.close();
+        } catch (Exception ex) {
+        }
+    }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>To make the process of exporting to files easier, KRis offers some dedicated functions in the utility class <code>KRisIO</code>.
+We can use the <code>export</code> functions with a writer, a file, an output stream or a path as receiver respectively:</p>
+</div>
+<div class="listingblock">
+<div class="title">Writing the list of <code>RisRecords</code> in a blocking manner into a buffered writer [Java]</div>
+<div class="content">
+<pre class="prettyprint highlight linenums"><code data-lang="source">        final List&lt;RisRecord&gt; records = Arrays.asList(record1, record2);
+
+        try (final BufferedWriter writer = new BufferedWriter(new FileWriter("export.ris"))) {
+            KRisIO.export(records, writer);
+        }</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Writing the list of <code>RisRecords</code> in a blocking manner into a file [Java]</div>
+<div class="content">
+<pre class="prettyprint highlight linenums"><code data-lang="source">        final List&lt;RisRecord&gt; records = Arrays.asList(record1, record2);
+
+        final File file = new File("export.ris");
+
+        KRisIO.export(records, file);</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Writing the list of <code>RisRecords</code> in a blocking manner into an output stream [Java]</div>
+<div class="content">
+<pre class="prettyprint highlight linenums"><code data-lang="source">        final List&lt;RisRecord&gt; records = Arrays.asList(record1, record2);
+
+        try (OutputStream s = new BufferedOutputStream(new FileOutputStream("export.ris"))) {
+            KRisIO.export(records, s);
+        }</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Writing the list of <code>RisRecords</code> in a blocking manner into a path [Java]</div>
+<div class="content">
+<pre class="prettyprint highlight linenums"><code data-lang="source">        final List&lt;RisRecord&gt; records = Arrays.asList(record1, record2);
+
+        KRisIO.export(records, "export.ris");</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_java_import"><a class="anchor" href="#_java_import"></a>4.2. Import: Text file &#8594; RIS records</h3>
+<div class="paragraph">
+<p>Assume we have a text file <code>import.ris</code> with one or more RIS records similar to the following example:</p>
+</div>
+<div class="listingblock">
+<div class="title">import.ris</div>
+<div class="content">
+<pre>TY  - JOUR
+AU  - Hjortebjerg,D.
+AU  - Nybo Andersen,AM.
+AU  - Ketzel,M.
+AU  - Raaschou-Nielsen,O.
+AU  - Sørensen,M.
+PY  - 2018
+TI  - Exposure to traffic noise and air pollution and risk for febrile seizure: a cohort study.
+JO  - Scand J Work Environ Health. 2018 Mar 25. pii: 3724. doi.
+ID  - 29574476
+DO  - 10.5271/sjweh.3724
+M1  - 9300
+L2  - https://www.ncbi.nlm.nih.gov/pubmed/29574476
+ER  -</pre>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_java_import_file"><a class="anchor" href="#_java_import_file"></a>4.2.1. Reading from File</h4>
+<div class="paragraph">
+<p>If we have a reader, file, input stream or simply the path of the file, we can use the method <code>process</code> on <code>KRisIO</code>.
+We will receive a list of [RisRecord] instances.</p>
+</div>
+<div class="listingblock">
+<div class="title">Reading RIS records from BufferedReader [Java]</div>
+<div class="content">
+<pre class="prettyprint highlight linenums"><code data-lang="source">        try (final BufferedReader reader = new BufferedReader(new FileReader("import.ris"))) {
+            final List&lt;RisRecord&gt; records = KRisIO.process(reader);
+        }</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Reading RIS records from File [Java]</div>
+<div class="content">
+<pre class="prettyprint highlight linenums"><code data-lang="source">        final File file = new File("import.ris");
+        final List&lt;RisRecord&gt; records = KRisIO.process(file);</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Reading RIS records from InputStream [Java]</div>
+<div class="content">
+<pre class="prettyprint highlight linenums"><code data-lang="source">        try (InputStream s = new BufferedInputStream(new FileInputStream("import.ris"))) {
+            final List&lt;RisRecord&gt; records = KRisIO.process(s);
+        }</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Reading RIS records from Path [Java]</div>
+<div class="content">
+<pre class="prettyprint highlight linenums"><code data-lang="source">        final List&lt;RisRecord&gt; records = KRisIO.process("import.ris");</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_java_import_memory"><a class="anchor" href="#_java_import_memory"></a>4.2.2. RIS file lines in memory</h4>
+<div class="sect4">
+<h5 id="_java_import_memory_blocking"><a class="anchor" href="#_java_import_memory_blocking"></a>Lists: Blocking conversion</h5>
+<div class="paragraph">
+<p>In case we have the file content already in memory, we can pass it as a list.</p>
+</div>
+<div class="listingblock">
+<div class="title">Processing RIS records as list of strings [Java]</div>
+<div class="content">
+<pre class="prettyprint highlight linenums"><code data-lang="source">        final List&lt;String&gt; lines = Arrays.asList(); // TODO
+        List&lt;RisRecord&gt; records = KRis.processList(lines);</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_java_import_memory_nonblocking"><a class="anchor" href="#_java_import_memory_nonblocking"></a>Observable : Non-blocking conversion</h5>
+<div class="listingblock">
+<div class="title">Converting an observable of ris line strings in non-blocking manner into RisRecords [Java]</div>
+<div class="content">
+<pre class="prettyprint highlight linenums"><code data-lang="source">        final List&lt;RisRecord&gt; risRecords = new ArrayList&lt;&gt;();
+        final List&lt;String&gt; lines = new ArrayList&lt;&gt;();
+        final Observable&lt;String&gt; observable = Observable.fromIterable(lines);
+
+        KRis
+            .processObservables(observable)
+            .blockingSubscribe(risRecords::add);</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
 <h2 id="_links"><a class="anchor" href="#_links"></a>5. Links</h2>
 <div class="sectionbody">
 <div class="paragraph">
@@ -600,8 +603,8 @@ We will receive a list of [RisRecord] instances.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Version 0.2.5<br>
-Last updated 2020-06-12 15:00:51 UTC
+Version 0.2.6<br>
+Last updated 2020-10-04 16:17:54 UTC
 </div>
 </div>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prettify/r298/prettify.min.css">

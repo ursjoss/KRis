@@ -309,5 +309,6 @@ var pages = [{'name': 'object KRis', 'description':'ch.difty.kris.KRis', 'locati
 {'name': 'STAND("Standard")', 'description':'ch.difty.kris.domain.RisType.STAND', 'location':'-k-ris/ch.difty.kris.domain/-ris-type/-s-t-a-n-d/index.html', 'searchKey':'STAND'},
 {'name': 'STAT("Statute")', 'description':'ch.difty.kris.domain.RisType.STAT', 'location':'-k-ris/ch.difty.kris.domain/-ris-type/-s-t-a-t/index.html', 'searchKey':'STAT'},
 {'name': 'THES("Thesis/Dissertation")', 'description':'ch.difty.kris.domain.RisType.THES', 'location':'-k-ris/ch.difty.kris.domain/-ris-type/-t-h-e-s/index.html', 'searchKey':'THES'},
+{'name': 'UNBILL("Unenacted Bill")', 'description':'ch.difty.kris.domain.RisType.UNBILL', 'location':'-k-ris/ch.difty.kris.domain/-ris-type/-u-n-b-i-l-l/index.html', 'searchKey':'UNBILL'},
 {'name': 'UNPB("Unpublished work")', 'description':'ch.difty.kris.domain.RisType.UNPB', 'location':'-k-ris/ch.difty.kris.domain/-ris-type/-u-n-p-b/index.html', 'searchKey':'UNPB'},
 {'name': 'VIDEO("Video recording")', 'description':'ch.difty.kris.domain.RisType.VIDEO', 'location':'-k-ris/ch.difty.kris.domain/-ris-type/-v-i-d-e-o/index.html', 'searchKey':'VIDEO'}]

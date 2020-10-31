@@ -76,7 +76,7 @@ config {
 
         sonar {
             hostUrl = "https://sonarcloud.io"
-            login = sonaroken
+            login = sonarToken
             organization = "ursjoss-github"
             projectKey = "ursjoss_${project.name}"
         }
@@ -235,11 +235,6 @@ configure<ProjectsExtension> {
                             }
                         }
                     }
-                }
-                // temporarily explicitly set licensing plugin to disabled
-                // until the resolution of https://github.com/kordamp/kordamp-gradle-plugins/issues/331#issuecomment-680214711
-                licensing {
-                    enabled = false
                 }
             }
         }

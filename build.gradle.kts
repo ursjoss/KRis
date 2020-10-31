@@ -12,6 +12,7 @@ val kotlinVersion = "1.4"
 val javaVersion = JavaVersion.VERSION_11
 val kotlinSrcSet = "/src/main/kotlin"
 val srcLinkSuffix = "#L"
+val sonarToken = System.getenv("SONAR_TOKEN") ?: ""
 
 config {
     release = rootProject.findProperty("release").toString().toBoolean()
@@ -74,8 +75,10 @@ config {
         }
 
         sonar {
-            username = "ursjoss"
-            configProperties["sonar.organization"] = "ursjoss-github"
+            hostUrl = "https://sonarcloud.io"
+            login = sonaroken
+            organization = "ursjoss-github"
+            projectKey = "ursjoss_${project.name}"
         }
     }
 

@@ -163,6 +163,16 @@ We will not explicitly mention this option in the subsequent examples.</p>
 </table>
 </div>
 <div class="paragraph">
+<p>You can get get a complete list of the RisTags available:</p>
+</div>
+<div class="listingblock">
+<div class="title">Getting a list of all RisTags (list of strings) [kotlin]</div>
+<div class="content">
+<pre class="prettyprint highlight linenums"><code data-lang="source">    // import ch.difty.kris.risTags
+    val namesOfAllRisTags = risTagNames</code></pre>
+</div>
+</div>
+<div class="paragraph">
 <p>If we want to write the list of lines into a file, we can do that manually, e.g.</p>
 </div>
 <div class="listingblock">
@@ -356,7 +366,7 @@ We will receive a list of [RisRecord] instances.</p>
 <div class="content">
 <pre class="prettyprint highlight linenums"><code data-lang="source">    private final RisRecord record1 = new RisRecord.Builder()
         .type(RisType.JOUR)
-        .authors(Arrays.asList("Shannon, Claude E."))
+        .authors(List.of("Shannon, Claude E."))
         .publicationYear("1948/07//")
         .title("A Mathematical Theory of Communication")
         .secondaryTitle("Bell System Technical Journal")
@@ -367,7 +377,7 @@ We will receive a list of [RisRecord] instances.</p>
 
     private final RisRecord record2 = new RisRecord.Builder()
         .type(RisType.JOUR)
-        .authors(Arrays.asList("Turing, Alan Mathison"))
+        .authors(List.of("Turing, Alan Mathison"))
         .publicationYear("1948/07//")
         .periodicalNameFullFormatJO("Proc. of London Mathematical Society")
         .title("On computable numbers, with an application to the Entscheidungsproblem")
@@ -389,7 +399,7 @@ This happens in a blocking manner and it is up to us what we want to do with the
 <div class="listingblock">
 <div class="title">Converting a list of <code>RisRecords</code> in a blocking manner into a list of RIS lines [Java]</div>
 <div class="content">
-<pre class="prettyprint highlight linenums"><code data-lang="source">        final List&lt;RisRecord&gt; records = Arrays.asList(record1, record2);
+<pre class="prettyprint highlight linenums"><code data-lang="source">        final List&lt;RisRecord&gt; records = List.of(record1, record2);
 
         List&lt;String&gt; lines = KRis.buildFromList(records);</code></pre>
 </div>
@@ -401,8 +411,8 @@ We can do that by providing a list of RIS tag names (as string) in the order we&
 <div class="listingblock">
 <div class="title">Converting a list of <code>RisRecords</code> applying custom sort in a blocking manner into a list of RIS lines [Java]</div>
 <div class="content">
-<pre class="prettyprint highlight linenums"><code data-lang="source">        final List&lt;RisRecord&gt; records = Arrays.asList(record1, record2);
-        final List&lt;String&gt; sort = Arrays.asList("SP", "EP", "T1");
+<pre class="prettyprint highlight linenums"><code data-lang="source">        final List&lt;RisRecord&gt; records = List.of(record1, record2);
+        final List&lt;String&gt; sort = List.of("SP", "EP", "T1");
 
         List&lt;String&gt; lines = KRis.buildFromList(records, sort);</code></pre>
 </div>
@@ -422,6 +432,15 @@ We will not explicitly mention this option in the subsequent examples.</p>
 </tr>
 </table>
 </div>
+<div class="paragraph">
+<p>You can get get a complete list of the RisTags available:</p>
+</div>
+<div class="listingblock">
+<div class="title">Getting a list of all RisTags (list of strings) [Java]</div>
+<div class="content">
+<pre class="prettyprint highlight linenums"><code data-lang="source">        List&lt;String&gt; namesOfAllRisTags = KRis.risTagNames();</code></pre>
+</div>
+</div>
 </div>
 <div class="sect3">
 <h4 id="_java_export_nonblocking"><a class="anchor" href="#_java_export_nonblocking"></a>4.1.2. Observable: Non-blocking conversion</h4>
@@ -432,7 +451,7 @@ We will not explicitly mention this option in the subsequent examples.</p>
 <div class="title">Converting an observable of <code>RisRecords</code> in non-blocking manner into a file [Java]</div>
 <div class="content">
 <pre class="prettyprint highlight linenums"><code data-lang="source">    void fromObservable() throws IOException {
-        final List&lt;RisRecord&gt; records = Arrays.asList(record1, record2);
+        final List&lt;RisRecord&gt; records = List.of(record1, record2);
         final Observable&lt;RisRecord&gt; observable = Observable.fromIterable(records);
 
         final BufferedWriter writer = new BufferedWriter(new FileWriter("export.ris"));
@@ -458,7 +477,7 @@ We can use the <code>export</code> functions with a writer, a file, an output st
 <div class="listingblock">
 <div class="title">Writing the list of <code>RisRecords</code> in a blocking manner into a buffered writer [Java]</div>
 <div class="content">
-<pre class="prettyprint highlight linenums"><code data-lang="source">        final List&lt;RisRecord&gt; records = Arrays.asList(record1, record2);
+<pre class="prettyprint highlight linenums"><code data-lang="source">        final List&lt;RisRecord&gt; records = List.of(record1, record2);
 
         try (final BufferedWriter writer = new BufferedWriter(new FileWriter("export.ris"))) {
             KRisIO.export(records, writer);
@@ -468,7 +487,7 @@ We can use the <code>export</code> functions with a writer, a file, an output st
 <div class="listingblock">
 <div class="title">Writing the list of <code>RisRecords</code> in a blocking manner into a file [Java]</div>
 <div class="content">
-<pre class="prettyprint highlight linenums"><code data-lang="source">        final List&lt;RisRecord&gt; records = Arrays.asList(record1, record2);
+<pre class="prettyprint highlight linenums"><code data-lang="source">        final List&lt;RisRecord&gt; records = List.of(record1, record2);
 
         final File file = new File("export.ris");
 
@@ -478,7 +497,7 @@ We can use the <code>export</code> functions with a writer, a file, an output st
 <div class="listingblock">
 <div class="title">Writing the list of <code>RisRecords</code> in a blocking manner into an output stream [Java]</div>
 <div class="content">
-<pre class="prettyprint highlight linenums"><code data-lang="source">        final List&lt;RisRecord&gt; records = Arrays.asList(record1, record2);
+<pre class="prettyprint highlight linenums"><code data-lang="source">        final List&lt;RisRecord&gt; records = List.of(record1, record2);
 
         try (OutputStream s = new BufferedOutputStream(new FileOutputStream("export.ris"))) {
             KRisIO.export(records, s);
@@ -488,7 +507,7 @@ We can use the <code>export</code> functions with a writer, a file, an output st
 <div class="listingblock">
 <div class="title">Writing the list of <code>RisRecords</code> in a blocking manner into a path [Java]</div>
 <div class="content">
-<pre class="prettyprint highlight linenums"><code data-lang="source">        final List&lt;RisRecord&gt; records = Arrays.asList(record1, record2);
+<pre class="prettyprint highlight linenums"><code data-lang="source">        final List&lt;RisRecord&gt; records = List.of(record1, record2);
 
         KRisIO.export(records, "export.ris");</code></pre>
 </div>
@@ -565,7 +584,7 @@ We will receive a list of [RisRecord] instances.</p>
 <div class="listingblock">
 <div class="title">Processing RIS records as list of strings [Java]</div>
 <div class="content">
-<pre class="prettyprint highlight linenums"><code data-lang="source">        final List&lt;String&gt; lines = Arrays.asList(); // TODO
+<pre class="prettyprint highlight linenums"><code data-lang="source">        final List&lt;String&gt; lines = List.of(); // TODO
         List&lt;RisRecord&gt; records = KRis.processList(lines);</code></pre>
 </div>
 </div>
@@ -603,8 +622,8 @@ We will receive a list of [RisRecord] instances.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Version 0.2.6<br>
-Last updated 2020-10-04 21:31:33 UTC
+Version 0.3.0<br>
+Last updated 2020-11-07 15:10:35 UTC
 </div>
 </div>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prettify/r298/prettify.min.css">

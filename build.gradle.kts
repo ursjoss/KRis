@@ -219,7 +219,7 @@ configure<ProjectsExtension> {
                     }
                 }
 
-                val check by existing {
+                named("check") {
                     dependsOn("allTests")
                 }
             }

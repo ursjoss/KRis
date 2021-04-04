@@ -169,6 +169,7 @@ configure<ProjectsExtension> {
                         apiVersion = kotlinVersion
                         languageVersion = kotlinVersion
                         jvmTarget = javaVersion.majorVersion
+                        useIR = true
                     }
                 }
             }

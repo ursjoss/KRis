@@ -8,7 +8,7 @@ plugins {
     id("org.ajoberstar.reckon")
 }
 
-val kotlinVersion = "1.4"
+val kotlinVersion: String by project
 val javaVersion = JavaVersion.VERSION_11
 val kotlinSrcSet = "/src/main/kotlin"
 val srcLinkSuffix = "#L"
@@ -165,13 +165,18 @@ configure<ProjectsExtension> {
                 named("clean").configure {
                     dependsOn(deleteOutFolderTask)
                 }
+                val kotlinApiLangVersion =  kotlinVersion.subSequence(0, 3).toString()
+                val jvmTargetVersion = javaVersion.toString()
                 withType<KotlinCompile>().configureEach {
                     kotlinOptions {
-                        apiVersion = kotlinVersion
-                        languageVersion = kotlinVersion
-                        jvmTarget = javaVersion.majorVersion
-                        useIR = true
+                        apiVersion = kotlinApiLangVersion
+                        languageVersion = kotlinApiLangVersion
+                        jvmTarget = jvmTargetVersion
                     }
+                }
+                withType<JavaCompile>().configureEach {
+                    sourceCompatibility = jvmTargetVersion
+                    targetCompatibility = jvmTargetVersion
                 }
             }
         }
@@ -191,7 +196,6 @@ configure<ProjectsExtension> {
             val assertjVersion: String by project
             val coroutinesVersion: String by project
             val kluentVersion: String by project
-            val kotlinVersion: String by project
             val junitJupiterVersion: String by project
             val spekVersion: String by project
             val mockkVersion: String by project

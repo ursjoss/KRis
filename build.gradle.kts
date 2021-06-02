@@ -143,8 +143,8 @@ configure<ProjectsExtension> {
 
             repositories {
                 mavenLocal()
-                jcenter()
                 mavenCentral()
+                jcenter()
             }
 
             kotlin {

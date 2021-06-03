@@ -64,9 +64,7 @@ public fun List<RisRecord>.toRisLines(sort: List<String> = emptyList()): List<St
     runBlocking { asFlow().toRisLines(sort).toList() }
 
 /**
- * Processes a sequence of [RisRecord]s into a sequence of Strings
- * representing lines in RIS file format.
- * Thanks to @jcornaz for the help.
+ * Processes a sequence of [RisRecord]s into a sequence of Strings representing lines in RIS file format.
  */
 @FlowPreview
 @ExperimentalCoroutinesApi
@@ -74,16 +72,21 @@ public fun List<RisRecord>.toRisLines(sort: List<String> = emptyList()): List<St
 public fun Sequence<RisRecord>.toRisLines(scope: CoroutineScope = GlobalScope): Sequence<String> = mapSequence(KRis::build, scope)
 //endregion
 
+/**
+ * Processes a sequence of type [T] into a sequence of type [R] using a [flowMapper]
+ * accepting a flow of type [T] and returning a flow of type [R].
+ * Thanks to @jcornaz for the help.
+ */
 @FlowPreview
 @ExperimentalCoroutinesApi
 private fun <T, R> Sequence<T>.mapSequence(
-    sourceToTargetMapper: (Flow<T>) -> Flow<R>,
+    flowMapper: (Flow<T>) -> Flow<R>,
     scope: CoroutineScope
 ): Sequence<R> = sequence {
-    val source: Flow<T> = this@mapSequence.asFlow()
-    val target: Flow<R> = sourceToTargetMapper(source)
+    val sourceFlow: Flow<T> = this@mapSequence.asFlow()
+    val targetFlow: Flow<R> = flowMapper(sourceFlow)
 
-    val channel: ReceiveChannel<R> = target.produceIn(scope)
+    val channel: ReceiveChannel<R> = targetFlow.produceIn(scope)
     try {
         while (!channel.isClosedForReceive) {
             yield(runBlocking { channel.receive() })

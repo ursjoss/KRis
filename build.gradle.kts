@@ -1,5 +1,6 @@
 @file:Suppress("SpellCheckingInspection")
 
+import io.gitlab.arturbosch.detekt.Detekt
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 import org.kordamp.gradle.plugin.base.ProjectsExtension
 
@@ -170,6 +171,9 @@ configure<ProjectsExtension> {
                 withType<JavaCompile>().configureEach {
                     sourceCompatibility = jvmTargetVersion
                     targetCompatibility = jvmTargetVersion
+                }
+                withType<Detekt>().configureEach {
+                    jvmTarget = jvmTargetVersion
                 }
             }
         }

@@ -1,13 +1,16 @@
-@file:Suppress("SpellCheckingInspection")
+@file:Suppress("SpellCheckingInspection", "RedundantVisibilityModifier")
 
 package ch.difty.kris
 
 import ch.difty.kris.domain.RisRecord
 import ch.difty.kris.domain.RisTag
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.channels.ClosedReceiveChannelException
+import kotlinx.coroutines.channels.ReceiveChannel
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.asFlow
 import kotlinx.coroutines.flow.produceIn
@@ -37,22 +40,8 @@ public fun List<String>.toRisRecords(): List<RisRecord> = KRis.processList(this)
  */
 @FlowPreview
 @ExperimentalCoroutinesApi
-public fun Sequence<String>.toRisRecords(): Sequence<RisRecord> {
-    val lineFlow = this.asFlow()
-    return sequence {
-        val channel = KRis.process(lineFlow).produceIn(GlobalScope)
-
-        try {
-            while (!channel.isClosedForReceive) {
-                yield(runBlocking { channel.receive() })
-            }
-        } catch (closed: ClosedReceiveChannelException) {
-            // flow is completed -> swallow
-        } finally {
-            channel.cancel()
-        }
-    }
-}
+@DelicateCoroutinesApi
+public fun Sequence<String>.toRisRecords(scope: CoroutineScope = GlobalScope): Sequence<RisRecord> = mapSequence(KRis::process, scope)
 //endregion
 
 //region:export - RisRecords -> RISFile lines
@@ -81,24 +70,32 @@ public fun List<RisRecord>.toRisLines(sort: List<String> = emptyList()): List<St
  */
 @FlowPreview
 @ExperimentalCoroutinesApi
-public fun Sequence<RisRecord>.toRisLines(): Sequence<String> =
-    sequence {
-        val channel = KRis.build(asFlow()).produceIn(GlobalScope)
-
-        try {
-            while (!channel.isClosedForReceive) {
-                yield(runBlocking { channel.receive() })
-            }
-        } catch (closed: ClosedReceiveChannelException) {
-            // flow is completed -> swallow
-        } catch (closed: ClosedChannelException) {
-            // flow is completed -> swallow
-        } finally {
-            channel.cancel()
-        }
-    }
-
+@DelicateCoroutinesApi
+public fun Sequence<RisRecord>.toRisLines(scope: CoroutineScope = GlobalScope): Sequence<String> = mapSequence(KRis::build, scope)
 //endregion
+
+@FlowPreview
+@ExperimentalCoroutinesApi
+private fun <T, R> Sequence<T>.mapSequence(
+    sourceToTargetMapper: (Flow<T>) -> Flow<R>,
+    scope: CoroutineScope
+): Sequence<R> = sequence {
+    val source: Flow<T> = this@mapSequence.asFlow()
+    val target: Flow<R> = sourceToTargetMapper(source)
+
+    val channel: ReceiveChannel<R> = target.produceIn(scope)
+    try {
+        while (!channel.isClosedForReceive) {
+            yield(runBlocking { channel.receive() })
+        }
+    } catch (closed: ClosedReceiveChannelException) {
+        // flow is completed -> swallow
+    } catch (closed: ClosedChannelException) {
+        // flow is completed -> swallow
+    } finally {
+        channel.cancel()
+    }
+}
 
 /**
  * List of the names of all [RisTag]s.

@@ -1,4 +1,5 @@
 @file:Suppress("unused", "SpellCheckingInspection", "UNUSED_VARIABLE", "RedundantExplicitType")
+@file: OptIn(ExperimentalCoroutinesApi::class)
 
 package ch.difty.kris.guide
 
@@ -49,7 +50,6 @@ val record2 = RisRecord(
 )
 // end::risRecords[]
 
-@ExperimentalCoroutinesApi
 fun listToRisLines() {
     // tag::listToRisLines[]
     val lines: List<String> = listOf(record1, record2).toRisLines()
@@ -57,7 +57,6 @@ fun listToRisLines() {
 }
 
 @Suppress("UNUSED_VARIABLE")
-@ExperimentalCoroutinesApi
 fun listToRisLinesWithSort() {
     // tag::listToRisLinesWithSort[]
     val sort: List<String> = listOf("SP", "EP", "T1")
@@ -72,7 +71,6 @@ fun getListOfRisTagsAsString() {
     // end::getListOfRisTagsAsString[]
 }
 
-@ExperimentalCoroutinesApi
 fun writingToFileManually() {
     // tag::writingToFileManually[]
     val lines: List<String> = listOf(record1, record2).toRisLines()
@@ -83,7 +81,6 @@ fun writingToFileManually() {
     // end::writingToFileManually[]
 }
 
-@ExperimentalCoroutinesApi
 fun writerAccept() {
     // tag::writerAccept[]
     val writer = File.createTempFile("export.ris", null, null).bufferedWriter()
@@ -92,7 +89,6 @@ fun writerAccept() {
     // end::writerAccept[]
 }
 
-@ExperimentalCoroutinesApi
 fun fileAccept() {
     // tag::fileAccept[]
     val file = File.createTempFile("export.ris", null, null)
@@ -101,7 +97,6 @@ fun fileAccept() {
     // end::fileAccept[]
 }
 
-@ExperimentalCoroutinesApi
 fun streamAccept() {
     // tag::streamAccept[]
     val outputStream = File.createTempFile("export.ris", null, null).outputStream()
@@ -110,7 +105,6 @@ fun streamAccept() {
     // end::streamAccept[]
 }
 
-@ExperimentalCoroutinesApi
 fun pathAccept() {
     // tag::pathAccept[]
     "export.ris".accept(listOf(record1, record2))
@@ -118,7 +112,6 @@ fun pathAccept() {
 }
 
 @Suppress("UNUSED_VARIABLE")
-@ExperimentalCoroutinesApi
 fun flowToRisLines() {
     // tag::flowToRisLines[]
     val flow = flowOf(record1, record2)
@@ -127,7 +120,6 @@ fun flowToRisLines() {
     // end::flowToRisLines[]
 }
 
-@ExperimentalCoroutinesApi
 fun pathAcceptFlow() {
     // tag::pathAcceptFlow[]
     val risLines: Flow<String> = flowOf(record1, record2).toRisLines()
@@ -143,7 +135,6 @@ fun pathAcceptFlow() {
 
 //region file-records
 
-@ExperimentalCoroutinesApi
 @Suppress("UNUSED_VARIABLE")
 fun processReader() {
     // tag::processReader[]
@@ -154,7 +145,6 @@ fun processReader() {
 }
 //endregion
 
-@ExperimentalCoroutinesApi
 @Suppress("UNUSED_VARIABLE")
 fun processFile() {
     // tag::processFile[]
@@ -165,7 +155,6 @@ fun processFile() {
 }
 //endregion
 
-@ExperimentalCoroutinesApi
 @Suppress("UNUSED_VARIABLE")
 fun processInputStream() {
     // tag::processInputStream[]
@@ -176,7 +165,6 @@ fun processInputStream() {
 }
 //endregion
 
-@ExperimentalCoroutinesApi
 @Suppress("UNUSED_VARIABLE")
 fun processPath() {
     // tag::processPath[]
@@ -184,8 +172,7 @@ fun processPath() {
     // end::processPath[]
 }
 
-@ExperimentalCoroutinesApi
-@FlowPreview
+@OptIn(FlowPreview::class)
 @Suppress("UNUSED_VARIABLE", "UNREACHABLE_CODE")
 fun passRisLinesAsList() {
     // tag::passRisLinesAsList[]
@@ -195,9 +182,7 @@ fun passRisLinesAsList() {
     // end::passRisLinesAsList[]
 }
 
-@ExperimentalCoroutinesApi
-@FlowPreview
-@DelicateCoroutinesApi
+@OptIn(FlowPreview::class, DelicateCoroutinesApi::class)
 @Suppress("UNUSED_VARIABLE", "UNREACHABLE_CODE")
 fun passRisLinesAsSequence() {
     // tag::passRisLinesAsSequence[]
@@ -207,8 +192,7 @@ fun passRisLinesAsSequence() {
     // end::passRisLinesAsSequence[]
 }
 
-@ExperimentalCoroutinesApi
-@FlowPreview
+@OptIn(FlowPreview::class)
 @Suppress("UNUSED_VARIABLE", "UNREACHABLE_CODE")
 fun passRisLinesAsFlow() {
     // tag::passRisLinesAsFlow[]

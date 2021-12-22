@@ -22,11 +22,8 @@ import org.spekframework.spek2.style.specification.describe
 /**
  * Specification how to use KRis from kotlin
  */
-@DelicateCoroutinesApi
-@ExperimentalCoroutinesApi
-@FlowPreview
 @Suppress("SpellCheckingInspection", "unused")
-@InternalCoroutinesApi
+@OptIn(FlowPreview::class, ExperimentalCoroutinesApi::class, DelicateCoroutinesApi::class, InternalCoroutinesApi::class)
 object KRisUsageSpec : Spek({
 
     describe("with list of strings representing two RIS records") {

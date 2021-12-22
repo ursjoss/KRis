@@ -159,13 +159,14 @@ configure<ProjectsExtension> {
                 named("clean").configure {
                     dependsOn(deleteOutFolderTask)
                 }
-                val kotlinApiLangVersion =  kotlinVersion.subSequence(0, 3).toString()
+                val kotlinApiLangVersion = kotlinVersion.subSequence(0, 3).toString()
                 val jvmTargetVersion = javaVersion.toString()
                 withType<KotlinCompile>().configureEach {
                     kotlinOptions {
                         apiVersion = kotlinApiLangVersion
                         languageVersion = kotlinApiLangVersion
                         jvmTarget = jvmTargetVersion
+                        freeCompilerArgs = freeCompilerArgs + listOf("-Xopt-in=kotlin.RequiresOptIn")
                     }
                 }
                 withType<JavaCompile>().configureEach {

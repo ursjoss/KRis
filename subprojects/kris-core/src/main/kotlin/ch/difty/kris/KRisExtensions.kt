@@ -1,4 +1,5 @@
 @file:Suppress("SpellCheckingInspection", "RedundantVisibilityModifier")
+@file:OptIn(ExperimentalCoroutinesApi::class)
 
 package ch.difty.kris
 
@@ -24,23 +25,19 @@ import java.nio.channels.ClosedChannelException
  * Converts a flow of Strings (representing lines in a RIS file) (as receiver) into a flow of [RisRecord]s.
  * May throw a [KRisException] if the line flow cannot be parsed successfully.
  */
-@ExperimentalCoroutinesApi
 public fun Flow<String>.toRisRecords(): Flow<RisRecord> = KRis.process(this)
 
 /**
  * Converts a list of Strings (representing lines in a RIS file) (as receiver) itno a list of [RisRecord]s.
  * May throw a [KRisException] if the line list of Strings cannot be parsed successfully.
  */
-@ExperimentalCoroutinesApi
 public fun List<String>.toRisRecords(): List<RisRecord> = KRis.processList(this)
 
 /**
  * Converts a sequence of Strings (representing lines in a RIS file) (as receiver) into a sequence of [RisRecord]s
  * in a blocking manner. May throw a [KRisException] if the line flow cannot be parsed successfully.
  */
-@FlowPreview
-@ExperimentalCoroutinesApi
-@DelicateCoroutinesApi
+@OptIn(FlowPreview::class, DelicateCoroutinesApi::class)
 public fun Sequence<String>.toRisRecords(scope: CoroutineScope = GlobalScope): Sequence<RisRecord> = mapSequence(KRis::process, scope)
 //endregion
 
@@ -51,7 +48,6 @@ public fun Sequence<String>.toRisRecords(scope: CoroutineScope = GlobalScope): S
  * Optionally accepts a list of names of RisTags defining a sort order for the RisTags in the file.
  */
 @JvmOverloads
-@ExperimentalCoroutinesApi
 public fun Flow<RisRecord>.toRisLines(sort: List<String> = emptyList()): Flow<String> = KRis.build(this, sort)
 
 /**
@@ -59,16 +55,13 @@ public fun Flow<RisRecord>.toRisLines(sort: List<String> = emptyList()): Flow<St
  * Optionally accepts a list of names of RisTags defining a sort order for the RisTags in the file.
  */
 @JvmOverloads
-@ExperimentalCoroutinesApi
 public fun List<RisRecord>.toRisLines(sort: List<String> = emptyList()): List<String> =
     runBlocking { asFlow().toRisLines(sort).toList() }
 
 /**
  * Processes a sequence of [RisRecord]s into a sequence of Strings representing lines in RIS file format.
  */
-@FlowPreview
-@ExperimentalCoroutinesApi
-@DelicateCoroutinesApi
+@OptIn(FlowPreview::class, DelicateCoroutinesApi::class)
 public fun Sequence<RisRecord>.toRisLines(scope: CoroutineScope = GlobalScope): Sequence<String> = mapSequence(KRis::build, scope)
 //endregion
 
@@ -77,8 +70,7 @@ public fun Sequence<RisRecord>.toRisLines(scope: CoroutineScope = GlobalScope): 
  * accepting a flow of type [T] and returning a flow of type [R].
  * Thanks to @jcornaz for the help.
  */
-@FlowPreview
-@ExperimentalCoroutinesApi
+@OptIn(FlowPreview::class)
 private fun <T, R> Sequence<T>.mapSequence(
     flowMapper: (Flow<T>) -> Flow<R>,
     scope: CoroutineScope

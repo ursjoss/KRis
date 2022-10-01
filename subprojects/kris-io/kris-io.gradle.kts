@@ -1,3 +1,3 @@
-dependencies {
-    api(project(":kris-core"))
-}
+//dependencies {
+//    api(project(":kris-core"))
+//}

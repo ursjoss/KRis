@@ -1,3 +1,3 @@
-dependencies {
-    testImplementation(project(":kris-io"))
-}
+//dependencies {
+//    testImplementation(project(":kris-io"))
+//}

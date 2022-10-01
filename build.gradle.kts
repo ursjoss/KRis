@@ -1,3 +1,4 @@
+/*
 @file:Suppress("SpellCheckingInspection")
 
 import io.gitlab.arturbosch.detekt.Detekt
@@ -264,3 +265,4 @@ fun Project.projectRelativSourceLink(branch: String = "main", srcSet: String = k
     rootProject.config.info.links.scm?.let { scmUrl ->
         "${scmUrl.substringBefore(".git")}/blob/$branch/${projectDir.relativeTo(rootDir)}/$srcSet"
     }
+*/

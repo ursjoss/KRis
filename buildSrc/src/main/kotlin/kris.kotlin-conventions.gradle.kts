@@ -1,8 +1,10 @@
+import io.gitlab.arturbosch.detekt.Detekt
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     `java-library`
     kotlin
+    id("io.gitlab.arturbosch.detekt")
 }
 
 group = "ch.difty.kris"
@@ -50,6 +52,16 @@ tasks {
     withType<JavaCompile>().configureEach {
         sourceCompatibility = jvmTargetVersion
         targetCompatibility = jvmTargetVersion
+    }
+    withType<Detekt>().configureEach {
+        jvmTarget = jvmTargetVersion
+        allRules = true
+        buildUponDefaultConfig = true
+        config.setFrom(files("${rootProject.projectDir}/config/detekt/detekt.yml"))
+        reports {
+            xml.required.set(true)
+            html.required.set(true)
+        }
     }
     withType<Test> {
         @Suppress("UnstableApiUsage")

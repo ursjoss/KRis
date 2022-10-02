@@ -23,6 +23,13 @@ listOf("docs", "subprojects").forEach { containerDir ->
         }
 }
 
+//reckon {
+//    stageFromProp("beta", "rc", "final")
+//    setScopeCalc(calcScopeFromProp().or(calcScopeFromCommitMessages()))
+//    setStageCalc(calcStageFromProp())
+//}
+
+
 //buildscript {
 //    repositories {
 //        gradlePluginPortal()

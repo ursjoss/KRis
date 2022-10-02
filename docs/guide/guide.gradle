@@ -28,3 +28,7 @@ afterEvaluate {
 
     gitPublishCommit.dependsOn project.tasks.findByName('createGuide')
 }
+
+dependencies {
+    testImplementation "io.reactivex.rxjava2:rxjava:2.2.21"
+}

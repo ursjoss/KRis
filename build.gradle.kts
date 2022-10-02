@@ -1,3 +1,7 @@
+//plugins {
+//    kotlin
+//    id("org.ajoberstar.reckon")
+//}
 /*
 @file:Suppress("SpellCheckingInspection")
 
@@ -5,10 +9,7 @@ import io.gitlab.arturbosch.detekt.Detekt
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 import org.kordamp.gradle.plugin.base.ProjectsExtension
 
-plugins {
-    kotlin
-    id("org.ajoberstar.reckon")
-}
+
 
 val kotlinVersion: String by project
 val javaVersion = JavaVersion.VERSION_11

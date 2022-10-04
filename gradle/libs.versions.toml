@@ -1,0 +1,30 @@
+[versions]
+detekt = "1.21.0"
+junitJupiter = "5.9.1"
+java = "11"
+kotlin = "1.7.20"
+coroutines = "1.6.4"
+spek = "2.0.19"
+
+[libraries]
+assertj-core = "org.assertj:assertj-core:3.23.1"
+coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "coroutines" }
+coroutines-rx2 = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-rx2", version.ref = "coroutines" }
+junitJupiter-api = { module = "org.junit.jupiter:junit-jupiter-api", version.ref = "junitJupiter" }
+junitJupiter-engine = { module = "org.junit.jupiter:junit-jupiter-engine", version.ref = "junitJupiter" }
+kluent = "org.amshove.kluent:kluent:1.68"
+kotlin-reflect = { module = "org.jetbrains.kotlin:kotlin-reflect", version.ref = "kotlin" }
+kotlin-stdlib = { module = "org.jetbrains.kotlin:kotlin-stdlib-jdk8", version.ref = "kotlin" }
+mockk = "io.mockk:mockk:1.13.2"
+rxjava = "io.reactivex.rxjava2:rxjava:2.2.21"
+spek-dsl = { module = "org.spekframework.spek2:spek-dsl-jvm", version.ref = "spek" }
+spek-runner = { module = "org.spekframework.spek2:spek-runner-junit5", version.ref = "spek" }
+
+plugin-detekt = { module = "io.gitlab.arturbosch.detekt:detekt-gradle-plugin", version.ref = "detekt" }
+plugin-kotlin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
+
+[plugins]
+detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }
+reckon = { id = "org.ajoberstar.reckon", version = "0.12.0" }
+versions = { id = "com.github.ben-manes.versions", version = "0.42.0" }
+testSets = { id = "org.unbroken-dome.test-sets", version = "4.0.0" }

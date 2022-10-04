@@ -1,3 +1,55 @@
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath(libs.plugin.kotlin)
+    }
+}
+
+plugins {
+    kotlin("jvm") version libs.versions.kotlin.get() apply false
+    id("kris-collect-sarif")
+}
+
+tasks {
+    val deleteOutFolderTask by registering(Delete::class) {
+        delete("out")
+    }
+    register("clean", Delete::class) {
+        delete(rootProject.buildDir)
+        dependsOn(deleteOutFolderTask)
+    }
+}
+
+project.subprojects.forEach { subProject ->
+    subProject.tasks {
+        val kotlinVersion = libs.versions.kotlin.get()
+        val kotlinApiLangVersion = kotlinVersion.subSequence(0, 3).toString()
+        val jvmTargetVersion = libs.versions.java.get()
+        withType<KotlinCompile>().configureEach {
+            kotlinOptions {
+                apiVersion = kotlinApiLangVersion
+                languageVersion = kotlinApiLangVersion
+                jvmTarget = jvmTargetVersion
+                freeCompilerArgs = freeCompilerArgs + listOf("-opt-in=kotlin.RequiresOptIn")
+            }
+        }
+        withType<JavaCompile>().configureEach {
+            sourceCompatibility = jvmTargetVersion
+            targetCompatibility = jvmTargetVersion
+        }
+
+        withType<Test> {
+            useJUnitPlatform {
+                includeEngines("junit-jupiter", "spek2")
+            }
+        }
+    }
+}
+
 //plugins {
 //    kotlin
 //    id("org.ajoberstar.reckon")

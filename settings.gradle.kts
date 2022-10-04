@@ -1,3 +1,18 @@
+@file:Suppress("UnstableApiUsage")
+
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+    }
+}
+
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        mavenCentral()
+    }
+}
+
 rootProject.name = "KRis"
 
 fun includeProject(projectDirName: String, projectName: String) {
@@ -22,6 +37,8 @@ listOf("docs", "subprojects").forEach { containerDir ->
                 includeProject(containerDir, projectDir.name)
         }
 }
+
+includeBuild("gradle-plugins")
 
 //reckon {
 //    stageFromProp("beta", "rc", "final")

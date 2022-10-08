@@ -14,3 +14,7 @@ dependencies {
     testImplementation(libs.bundles.testDeps)
     testRuntimeOnly(libs.bundles.testEngines)
 }
+
+kotlin {
+    explicitApi()
+}

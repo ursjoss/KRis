@@ -8,6 +8,10 @@ plugins {
     alias(libs.plugins.testSets)
 }
 
+kotlin {
+    explicitApi()
+}
+
 testSets {
     create("integrationTest")
 }

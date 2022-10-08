@@ -32,20 +32,13 @@ listOf("docs", "subprojects").forEach { containerDir ->
     File(rootDir, containerDir)
         .walkTopDown().maxDepth(1)
         .forEach { projectDir ->
-            val buildFile = File(projectDir, "${projectDir.name}.gradle${if (containerDir == "docs") "" else ".kts"}")
+            val buildFile = File(projectDir, "${projectDir.name}.gradle.kts")
             if (buildFile.exists())
                 includeProject(containerDir, projectDir.name)
         }
 }
 
 includeBuild("gradle-plugins")
-
-//reckon {
-//    stageFromProp("beta", "rc", "final")
-//    setScopeCalc(calcScopeFromProp().or(calcScopeFromCommitMessages()))
-//    setStageCalc(calcStageFromProp())
-//}
-
 
 //buildscript {
 //    repositories {

@@ -1,0 +1,1 @@
+var packageSearchIndex = [{"l":"ch.difty.kris","url":"ch/difty/kris/package-summary.html"}, {"l":"ch.difty.kris.domain","url":"ch/difty/kris/domain/package-summary.html"}, {"l":"All packages","url":"index.html"}]

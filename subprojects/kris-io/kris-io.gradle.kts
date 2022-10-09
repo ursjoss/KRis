@@ -1,7 +1,7 @@
 plugins {
     id("kris-detekt")
     id("kris-collect-sarif")
-    `java-library`
+    id("kris-publish")
     kotlin("jvm")
     alias(libs.plugins.testSets)
     alias(libs.plugins.dokka)

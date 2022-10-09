@@ -19,3 +19,15 @@ dependencies {
 kotlin {
     explicitApi()
 }
+
+tasks {
+    val javadocJar by existing(Jar::class) {
+        group = JavaBasePlugin.DOCUMENTATION_GROUP
+        description = "Assembled Javadoc JAR"
+        archiveClassifier.set("javadoc")
+        from(named("dokkaHtml"))
+    }
+    named("sourcesJar") {
+        dependsOn(javadocJar)
+    }
+}

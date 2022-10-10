@@ -8,6 +8,7 @@ gitPublish = "4.1.1"
 java = "11"
 junitJupiter = "5.9.1"
 kluent = "1.68"
+kotest = "5.5.1"
 kotlin = "1.7.20"
 mockk = "1.13.2"
 nexusPublish = "1.1.0"
@@ -25,6 +26,9 @@ coroutines-rx2 = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-rx2", vers
 junitJupiter-api = { module = "org.junit.jupiter:junit-jupiter-api", version.ref = "junitJupiter" }
 junitJupiter-engine = { module = "org.junit.jupiter:junit-jupiter-engine", version.ref = "junitJupiter" }
 kluent = { module = "org.amshove.kluent:kluent", version.ref = "kluent" }
+kotest-framework-api = { module = "io.kotest:kotest-framework-api", version.ref = "kotest"}
+kotest-property = { module = "io.kotest:kotest-property", version.ref = "kotest"}
+kotest-runner-junit5 = { module = "io.kotest:kotest-runner-junit5", version.ref = "kotest"}
 kotlin-reflect = { module = "org.jetbrains.kotlin:kotlin-reflect", version.ref = "kotlin" }
 kotlin-stdlib = { module = "org.jetbrains.kotlin:kotlin-stdlib-jdk8", version.ref = "kotlin" }
 mockk = { module = "io.mockk:mockk", version.ref = "mockk" }
@@ -38,8 +42,8 @@ plugin-reckon = { module = "org.ajoberstar.reckon:reckon-gradle", version.ref = 
 
 [bundles]
 kotlin = ["kotlin-stdlib", "kotlin-reflect", "coroutines-core"]
-testDeps = ["junitJupiter-api", "spek-dsl", "mockk", "kluent", "assertj-core"]
-testEngines = ["junitJupiter-engine", "spek-runner"]
+testDeps = ["junitJupiter-api", "kotest-framework-api", "spek-dsl", "mockk", "kluent", "assertj-core"]
+testEngines = ["junitJupiter-engine", "kotest-runner-junit5", "spek-runner"]
 
 [plugins]
 asciidoctorConvert = { id = "org.asciidoctor.jvm.convert", version.ref = "asciidoctor" }

@@ -97,7 +97,7 @@ subprojects.forEach { subProject ->
 
         withType<Test> {
             useJUnitPlatform {
-                includeEngines("junit-jupiter", "spek2")
+                includeEngines("junit-jupiter", "spek2", "kotest")
             }
         }
         withType<DokkaTaskPartial>().configureEach {

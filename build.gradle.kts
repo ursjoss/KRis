@@ -86,7 +86,6 @@ tasks {
     withType<SonarQubeTask> {
         description = "Push jacoco analysis to sonarcloud."
         group = "Verification"
-        dependsOn(projectsWithCoverage.map { it.tasks.getByName("jacocoTestReport") })
         dependsOn(subprojects.map { it.tasks.getByName("detekt") })
     }
 

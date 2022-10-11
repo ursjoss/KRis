@@ -25,6 +25,7 @@ class KrisDetektPlugin : Plugin<Project> {
             val detektTask = target.tasks.named("detekt", Detekt::class.java)
             detektTask.configure {
                 reports.sarif.required.set(true)
+                reports.xml.required.set(true)
             }
 
             // add detekt output to inputs of ReportMergeTask

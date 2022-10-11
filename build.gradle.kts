@@ -1,7 +1,6 @@
 import org.jetbrains.dokka.gradle.DokkaTask
 import org.jetbrains.dokka.gradle.DokkaTaskPartial
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
-import org.sonarqube.gradle.SonarQubeTask
 import java.net.URL
 
 buildscript {
@@ -43,7 +42,7 @@ sonarqube {
         property("sonar.projectKey", "ursjoss_${project.name}")
         property("sonar.organization", "ursjoss-github")
         property("sonar.coverage.jacoco.xmlReportPaths", jacocoTestReportFile)
-        property("sonar.kotlin.detekt.reportPaths", "build/reports/detekt/detekt.xml")
+        property("sonar.kotlin.detekt.reportPaths", "$buildDir/reports/detekt/detekt.xml")
     }
 }
 

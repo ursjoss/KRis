@@ -1,6 +1,7 @@
 import org.jetbrains.dokka.gradle.DokkaTask
 import org.jetbrains.dokka.gradle.DokkaTaskPartial
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+import org.sonarqube.gradle.SonarQubeTask
 import java.net.URL
 
 buildscript {
@@ -81,6 +82,19 @@ tasks {
             }
         }
     }
+    val projectsWithCoverage = subprojects.filter { it.name.mayHaveTestCoverage() }
+    withType<SonarQubeTask> {
+        description = "Push jacoco analysis to sonarcloud."
+        group = "Verification"
+        dependsOn(projectsWithCoverage.map { it.tasks.getByName("jacocoTestReport") })
+        dependsOn(subprojects.map { it.tasks.getByName("detekt") })
+    }
+
+    projectsWithCoverage.forEach { project ->
+        project.jacoco {
+            toolVersion = libs.versions.jacoco.get()
+        }
+    }
 }
 
 val kotlinSrcSet = "/src/main/kotlin"
@@ -121,3 +135,5 @@ subprojects.forEach { subProject ->
 
 fun Project.projectRelativeSourceLink(branch: String = "main", srcSet: String = kotlinSrcSet) =
     "https://github.com/ursjoss/KRis/blob/$branch/${projectDir.relativeTo(rootDir)}/$srcSet"
+
+fun String.mayHaveTestCoverage(): Boolean = startsWith("kris")

@@ -82,18 +82,6 @@ tasks {
             }
         }
     }
-    val projectsWithCoverage = subprojects.filter { it.name.mayHaveTestCoverage() }
-    withType<SonarQubeTask> {
-        description = "Push jacoco analysis to sonarcloud."
-        group = "Verification"
-        dependsOn(subprojects.map { it.tasks.getByName("detekt") })
-    }
-
-    projectsWithCoverage.forEach { project ->
-        project.jacoco {
-            toolVersion = libs.versions.jacoco.get()
-        }
-    }
 }
 
 val kotlinSrcSet = "/src/main/kotlin"

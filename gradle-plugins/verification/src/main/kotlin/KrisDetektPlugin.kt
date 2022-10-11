@@ -39,5 +39,8 @@ class KrisDetektPlugin : Plugin<Project> {
                 }
             }
         }
+        target.rootProject.tasks.named("sonarqube") {
+            dependsOn(target.tasks.getByName("detekt"))
+        }
     }
 }

@@ -132,7 +132,7 @@ The format is based on https://keepachangelog.com/en/1.0.0/[Keep a Changelog].
 - {url-issues}45[#45] Compile to Java 11
 
 .Fixed
-- Github action for publication
+- GitHub action for publication
 
 
 [[v0.2.5]]
@@ -213,7 +213,7 @@ First version of KRis (initially forked from https://github.com/fastluca/JRis[JR
 
 .Added
 - https://ursjoss.github.io/KRis/[Guide]
-- {url-issues}2[#2] Added Github Actions
+- {url-issues}2[#2] Added GitHub Actions
 - {url-issues}3[#3] Static code analysis on SonarQube
 - {url-issues}5[#5] Integrate Detekt (static analysis for kotlin files)
 - {url-issues}7[#7] Configure to push code coverage into https://sonarcloud.io/dashboard?id=ursjoss_KRis[sonarcloud]
@@ -228,9 +228,9 @@ First version of KRis (initially forked from https://github.com/fastluca/JRis[JR
 - {url-issues}24[#24] Migrate Repo into KRis
 - {url-issues}26[#26] Guide: Fix Javadoc and Source links in Section 5
 - use reckon for version management
-- Github action to publish guide
+- GitHub action to publish guide
 - Bumped kotlin, gradle-wrapper, kordamp-gradle-plugins, coroutines, rxjava, reckon, git-publish plugin, spekframework, detekt, kluent, assertj
 
 .Security
-- github actions: validate gradle-wrapper
+- GitHub actions: validate gradle-wrapper
 

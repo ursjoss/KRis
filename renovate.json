@@ -4,5 +4,8 @@
         "config:base",
         ":semanticCommitTypeAll(chore)"
     ],
-    "rebaseWhen" : "conflicted"
+    "rebaseWhen" : "conflicted",
+    "labels" : [
+        "dependencies"
+    ]
 }

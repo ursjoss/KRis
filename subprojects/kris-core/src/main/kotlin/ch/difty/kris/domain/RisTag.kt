@@ -17,7 +17,7 @@ import kotlin.reflect.KClass
  * The class was composed from information available on
  * [Wikipedia](https://en.wikipedia.org/wiki/RIS_(file_format)).
  */
-@Suppress("unused", "SpellCheckingInspection")
+@Suppress("SpellCheckingInspection")
 public enum class RisTag(
     internal val description: String,
     internal val maxLength: Int? = null,

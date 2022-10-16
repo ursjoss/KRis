@@ -4,10 +4,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
     <title>kris-core</title>
 <link href="../images/logo-icon.svg" rel="icon" type="image/svg"><script>var pathToRoot = "../";</script>    <script>const storage = localStorage.getItem("dokka-dark-mode")
-const savedDarkMode = storage ? JSON.parse(storage) : false
-if(savedDarkMode === true){
-    document.getElementsByTagName("html")[0].classList.add("theme-dark")
-}</script>
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
 <script type="text/javascript" src="../scripts/sourceset_dependencies.js" async></script>
 <link href="../styles/style.css" rel="Stylesheet">
 <link href="../styles/jetbrains-mono.css" rel="Stylesheet">
@@ -18,14 +26,15 @@ if(savedDarkMode === true){
 <script type="text/javascript" src="../scripts/navigation-loader.js" async></script>
 <script type="text/javascript" src="../scripts/platform-content-handler.js" async></script>
 <script type="text/javascript" src="../scripts/main.js" defer></script>
-<script type="text/javascript" src="../scripts/prism.js" async></script></head>
+<script type="text/javascript" src="../scripts/prism.js" async></script>
+<script type="text/javascript" src="../scripts/symbol-parameters-wrapper_deferred.js" defer></script></head>
 <body>
 <div class="navigation-wrapper" id="navigation-wrapper">
     <div id="leftToggler"><span class="icon-toggler"></span></div>
     <div class="library-name">
 <a href="../index.html">
 <span>KRis</span>            </a>    </div>
-    <div>0.4.0
+    <div>0.4.1
     </div>
     <div class="pull-right d-flex">
         <button id="theme-toggle-button"><span id="theme-toggle"></span></button>
@@ -41,7 +50,7 @@ if(savedDarkMode === true){
   <div class="breadcrumbs"></div>
   <div class="cover ">
     <h1 class="cover"><span><span>kris-core</span></span></h1>
-    <div class="platform-hinted UnderCoverText" data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable=":kris-core:dokkaHtmlPartial/main"><p class="paragraph">KRis core module, containing the domain logic on how to interpret RIS records and RIS files.</p><p class="paragraph">This module can be used in case you already have the flows or collections of Strings and handle reading from or writing to files yourself.</p><p class="paragraph">Relate to the module <code class="lang-kotlin">kris-io</code> to find add-on functionality that takes care of the IO tasks like writing to file or reading to file.</p></div></div>
+    <div class="platform-hinted UnderCoverText" data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":kris-core:dokkaHtmlPartial/main"><p class="paragraph">KRis core module, containing the domain logic on how to interpret RIS records and RIS files.</p><p class="paragraph">This module can be used in case you already have the flows or collections of Strings and handle reading from or writing to files yourself.</p><p class="paragraph">Relate to the module <code class="lang-kotlin">kris-io</code> to find add-on functionality that takes care of the IO tasks like writing to file or reading to file.</p></div></div>
   </div>
   <h2 class="">Packages</h2>
   <div class="table"><a data-name="-1586360700%2FPackages%2F2045404831" anchor-label="ch.difty.kris" id="-1586360700%2FPackages%2F2045404831" data-filterable-set=":kris-core:dokkaHtmlPartial/main"></a>

@@ -34,9 +34,6 @@ jobs:
       with:
         languages: ${{ matrix.language }}
 
-    - name: Autobuild
-      uses: github/codeql-action/autobuild@v2
-
     - name: Verify
       run: ./gradlew check --no-daemon
       env:

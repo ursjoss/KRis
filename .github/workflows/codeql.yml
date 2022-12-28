@@ -37,6 +37,11 @@ jobs:
     - name: Autobuild
       uses: github/codeql-action/autobuild@v2
 
+    - name: Verify
+      run: ./gradlew check --no-daemon
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v2
       with:

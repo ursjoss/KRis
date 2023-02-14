@@ -92,7 +92,6 @@ subprojects.forEach { subProject ->
             kotlinOptions {
                 apiVersion = kotlinApiLangVersion
                 languageVersion = kotlinApiLangVersion
-                freeCompilerArgs = freeCompilerArgs + listOf("-opt-in=kotlin.RequiresOptIn")
             }
         }
 

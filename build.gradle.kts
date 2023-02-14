@@ -24,10 +24,6 @@ plugins {
     jacoco
 }
 
-java {
-    toolchain.languageVersion.set(JavaLanguageVersion.of(libs.versions.java.get()))
-}
-
 reckon {
     stages("rc", "final")
     setScopeCalc(calcScopeFromProp().or(calcScopeFromCommitMessages()))
@@ -92,18 +88,12 @@ subprojects.forEach { subProject ->
     subProject.tasks {
         val kotlinVersion = libs.versions.kotlin.get()
         val kotlinApiLangVersion = kotlinVersion.subSequence(0, 3).toString()
-        val jvmTargetVersion = libs.versions.java.get()
         withType<KotlinCompile>().configureEach {
             kotlinOptions {
                 apiVersion = kotlinApiLangVersion
                 languageVersion = kotlinApiLangVersion
-                jvmTarget = jvmTargetVersion
                 freeCompilerArgs = freeCompilerArgs + listOf("-opt-in=kotlin.RequiresOptIn")
             }
-        }
-        withType<JavaCompile>().configureEach {
-            sourceCompatibility = jvmTargetVersion
-            targetCompatibility = jvmTargetVersion
         }
 
         withType<Test> {

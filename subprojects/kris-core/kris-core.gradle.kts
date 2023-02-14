@@ -19,6 +19,7 @@ dependencies {
 
 kotlin {
     explicitApi()
+    jvmToolchain(libs.versions.java.get().toInt())
 }
 
 tasks {

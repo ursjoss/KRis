@@ -1,16 +1,10 @@
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
-
 plugins {
     `java-library`
     kotlin("jvm")
 }
 
-tasks {
-    withType<KotlinCompile>().configureEach {
-        kotlinOptions {
-            jvmTarget = libs.versions.java.get()
-        }
-    }
+kotlin {
+    jvmToolchain(libs.versions.java.get().toInt())
 }
 
 dependencies {

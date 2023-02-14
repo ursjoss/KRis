@@ -10,6 +10,7 @@ plugins {
 
 kotlin {
     explicitApi()
+    jvmToolchain(libs.versions.java.get().toInt())
 }
 
 testSets {

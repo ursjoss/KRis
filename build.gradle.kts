@@ -1,3 +1,5 @@
+@file:Suppress("UnstableApiUsage")
+
 import org.jetbrains.dokka.gradle.DokkaTask
 import org.jetbrains.dokka.gradle.DokkaTaskPartial
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
@@ -82,6 +84,14 @@ tasks {
     }
 }
 
+testing {
+    suites {
+        val test by getting(JvmTestSuite::class) {
+            useJUnitJupiter()
+        }
+    }
+}
+
 val kotlinSrcSet = "/src/main/kotlin"
 
 subprojects.forEach { subProject ->
@@ -95,11 +105,6 @@ subprojects.forEach { subProject ->
             }
         }
 
-        withType<Test> {
-            useJUnitPlatform {
-                includeEngines("junit-jupiter", "kotest")
-            }
-        }
         withType<DokkaTaskPartial>().configureEach {
             dokkaSourceSets {
                 configureEach {

@@ -13,5 +13,4 @@ dependencies {
     implementation(libs.bundles.kotlin)
 
     testImplementation(libs.bundles.testDeps)
-    testRuntimeOnly(libs.bundles.testEngines)
 }

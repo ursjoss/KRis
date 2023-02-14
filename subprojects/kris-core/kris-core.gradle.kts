@@ -14,7 +14,6 @@ dependencies {
     implementation(libs.coroutines.rx2)
 
     testImplementation(libs.bundles.testDeps)
-    testRuntimeOnly(libs.bundles.testEngines)
 }
 
 kotlin {

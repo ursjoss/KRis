@@ -1,5 +1,6 @@
 package ch.difty.kris.domain
 
+import io.kotest.matchers.collections.shouldContainAll
 import org.junit.jupiter.api.Test
 
 @Suppress("SpellCheckingInspection")
@@ -8,7 +9,7 @@ internal class RisTagTest {
     @Test
     @Suppress("LongMethod")
     fun description() {
-        RisTag.values().map { it.description }.containsAll(
+        RisTag.values().map { it.description } shouldContainAll
             listOf(
                 "Type of reference",
                 "First Author",
@@ -56,7 +57,7 @@ internal class RisTagTest {
                 "Language",
                 "Label",
                 "Website Link",
-                "Number",
+                "Miscellaneous 1 (often Number)",
                 "Miscellaneous 2.",
                 "Type of Work",
                 "Notes",
@@ -74,8 +75,7 @@ internal class RisTagTest {
                 "Start Page",
                 "Short Title",
                 "Primary Title",
-                "Secondary Title (journal title",
-                "if applicable)",
+                "Secondary Title (journal title, if applicable)",
                 "Tertiary Title",
                 "Translated Author",
                 "Title",
@@ -90,8 +90,7 @@ internal class RisTagTest {
                 "Published Standard number",
                 "Primary Date",
                 "Access Date",
-                "End of Reference"
+                "End of Reference",
             )
-        )
     }
 }

@@ -55,7 +55,7 @@ class RisRecordBuilderTest {
         .language("language")
         .label("label")
         .websiteLink("websiteLink")
-        .number(1L)
+        .miscellaneous1("number")
         .miscellaneous2("miscellaneous2")
         .typeOfWork("typeOfWork")
         .notes("notes")
@@ -138,7 +138,7 @@ class RisRecordBuilderTest {
         assertThat(risRecord.getLanguage()).isEqualTo("language");
         assertThat(risRecord.getLabel()).isEqualTo("label");
         assertThat(risRecord.getWebsiteLink()).isEqualTo("websiteLink");
-        assertThat(risRecord.getNumber()).isEqualTo(1L);
+        assertThat(risRecord.getMiscellaneous1()).isEqualTo("number");
         assertThat(risRecord.getMiscellaneous2()).isEqualTo("miscellaneous2");
         assertThat(risRecord.getTypeOfWork()).isEqualTo("typeOfWork");
         assertThat(risRecord.getNotes()).isEqualTo("notes");
@@ -222,7 +222,7 @@ class RisRecordBuilderTest {
         assertThat(risRecord.getLanguage()).isNull();
         assertThat(risRecord.getLabel()).isNull();
         assertThat(risRecord.getWebsiteLink()).isNull();
-        assertThat(risRecord.getNumber()).isNull();
+        assertThat(risRecord.getMiscellaneous1()).isNull();
         assertThat(risRecord.getMiscellaneous2()).isNull();
         assertThat(risRecord.getTypeOfWork()).isNull();
         assertThat(risRecord.getNotes()).isNull();
@@ -255,5 +255,25 @@ class RisRecordBuilderTest {
         assertThat(risRecord.getPublisherStandardNumber()).isNull();
         assertThat(risRecord.getPrimaryDate()).isNull();
         assertThat(risRecord.getAccessDate()).isNull();
+    }
+
+    @SuppressWarnings("deprecation")
+    @Test
+    public void givenRisRecordWithMisc1_providesMisc1ButNotNumber() {
+        RisRecord risRecord = new RisRecord.Builder()
+            .miscellaneous1("4es")
+            .build();
+        assertThat(risRecord.getMiscellaneous1()).isEqualTo("4es");
+        assertThat(risRecord.getNumber()).isNull();
+    }
+
+    @SuppressWarnings("deprecation")
+    @Test
+    public void givenRisRecordWithNumber_providesNumberButNotMisc1() {
+        RisRecord risRecord = new RisRecord.Builder()
+            .number(1234L)
+            .build();
+        assertThat(risRecord.getMiscellaneous1()).isNull();
+        assertThat(risRecord.getNumber()).isEqualTo(1234L);
     }
 }

@@ -72,7 +72,7 @@ object RisRecordSpec : DescribeSpec({
                 language = null,
                 label = null,
                 websiteLink = null,
-                number = null,
+                miscellaneous1 = null,
                 miscellaneous2 = null,
                 typeOfWork = null,
                 notes = null,
@@ -159,7 +159,7 @@ object RisRecordSpec : DescribeSpec({
                 language = "language",
                 label = "label",
                 websiteLink = "websiteLink",
-                number = 1234,
+                miscellaneous1 = "number",
                 miscellaneous2 = "miscellaneous2",
                 typeOfWork = "typeOfWork",
                 notes = "notes",
@@ -244,7 +244,7 @@ object RisRecordSpec : DescribeSpec({
                 .language("language")
                 .label("label")
                 .websiteLink("websiteLink")
-                .number(1234)
+                .miscellaneous1("number")
                 .miscellaneous2("miscellaneous2")
                 .typeOfWork("typeOfWork")
                 .notes("notes")
@@ -279,6 +279,28 @@ object RisRecordSpec : DescribeSpec({
                 .accessDate("accessDate")
                 .build()
             assertSpecifiedValues(record)
+        }
+    }
+
+    @Suppress("DEPRECATION")
+    describe("Deprecated fields") {
+        describe("with RisRecord constructed with new properties") {
+            val record = RisRecord(miscellaneous1 = "1234")
+            it("should return null as Number") {
+                record.number.shouldBeNull()
+            }
+            it("should return '1234' as miscellaneous1") {
+                record.miscellaneous1 shouldBeEqualTo "1234"
+            }
+        }
+        describe("with RisRecord constructed with deprecated properties") {
+            val record = RisRecord(number = 1234L)
+            it("should return 1234 as Number") {
+                record.number shouldBeEqualTo 1234L
+            }
+            it("should return null as miscellaneous1") {
+                record.miscellaneous1.shouldBeNull()
+            }
         }
     }
 })
@@ -322,7 +344,7 @@ private suspend fun DescribeSpecContainerScope.assertDefaultValues(record: RisRe
         "language" to record.language,
         "label" to record.label,
         "websiteLink" to record.websiteLink,
-        "number" to record.number,
+        "number" to record.miscellaneous1,
         "miscellaneous2" to record.miscellaneous2,
         "typeOfWork" to record.typeOfWork,
         "notes" to record.notes,
@@ -418,7 +440,7 @@ private suspend fun DescribeSpecContainerScope.assertSpecifiedValues(record: Ris
         "language" to record.language,
         "label" to record.label,
         "websiteLink" to record.websiteLink,
-        "1234" to record.number,
+        "number" to record.miscellaneous1,
         "miscellaneous2" to record.miscellaneous2,
         "typeOfWork" to record.typeOfWork,
         "notes" to record.notes,

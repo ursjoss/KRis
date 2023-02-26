@@ -381,12 +381,19 @@ public enum class RisTag(
         getFrom = { r: RisRecord -> r.websiteLink }
     ),
 
-    /** Number */
+    /** Miscellaneous 1. Often used for Number or Range of Numbers */
+    @Suppress("Deprecation")
     M1(
-        description = "Number",
-        setInto = { r, v -> r.number = v as Long? },
-        getFrom = { r: RisRecord -> r.number },
-        kClass = Long::class
+        description = "Miscellaneous 1 (often Number)",
+        setInto = { r, v ->
+            r.miscellaneous1 = v as String?
+            r.number = v?.toLongOrNull()
+        },
+        getFrom = { r: RisRecord ->
+            r.miscellaneous1.takeUnless { it.isNullOrBlank() }
+                ?: r.number
+        },
+        kClass = String::class
     ),
 
     /** Miscellaneous 2. This is an alphanumeric field and there is no practical limit to the length of this field. */

@@ -58,7 +58,7 @@ class KRisProcessFromListTest {
         websiteLink = "websiteLink",
         miscellaneous1 = "number",
         miscellaneous2 = "miscellaneous2",
-        typeOfWork = "typeOfWork",
+        miscellaneous3 = "typeOfWork",
         notes = "notes",
         abstr2 = "abstr2",
         numberOfVolumes = "numberOfVolumes",

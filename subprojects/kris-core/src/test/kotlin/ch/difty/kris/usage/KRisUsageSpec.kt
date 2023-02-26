@@ -199,20 +199,42 @@ object KRisUsageSpec : DescribeSpec({
                     risRecords.first().number.shouldBeNull()
                 }
             }
+            describe("given M3") {
+                val risLines: List<String> = listOf(
+                    "M3  - typeOfWork",
+                    "ER  - "
+                )
+                it("can be processed") {
+                    val risRecords = risLines.toRisRecords()
+                    risRecords.shouldHaveSize(1)
+                }
+                it("can retrieve it with new property miscellaneous3") {
+                    val risRecords = risLines.toRisRecords()
+                    risRecords.first().miscellaneous3 shouldBeEqualTo "typeOfWork"
+                }
+                it("can retrieve it with deprecated property typeOfWork") {
+                    val risRecords = risLines.toRisRecords()
+                    risRecords.first().typeOfWork shouldBeEqualTo "typeOfWork"
+                }
+            }
         }
         describe("exporting to RIS") {
-            describe("using new properties miscellaneous1") {
+            describe("using new properties miscellaneous1 and miscellaneous 3") {
                 val risRecord1 = RisRecord(
                     miscellaneous1 = "1234-5678",
+                    miscellaneous3 = "typeOfWork",
                 )
                 val risRecord2 = RisRecord(
                     number = 4567L,
+                    typeOfWork = "tow",
                 )
-                it("should export to M1") {
+                it("should export both to M1 and M3") {
                     listOf(risRecord1, risRecord2).toRisLines().joinToString(separator = "") shouldBeEqualTo """M1  - 1234-5678
+                                |M3  - typeOfWork
                                 |ER  - 
                                 |
                                 |M1  - 4567
+                                |M3  - tow
                                 |ER  - 
                                 |""".trimMargin()
                 }

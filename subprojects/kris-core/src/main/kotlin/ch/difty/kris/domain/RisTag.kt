@@ -403,11 +403,18 @@ public enum class RisTag(
         getFrom = { r: RisRecord -> r.miscellaneous2 }
     ),
 
-    /** Type of Work */
+    /** Miscellaneous 3. Often used for Type of Work */
+    @Suppress("Deprecation")
     M3(
-        description = "Type of Work",
-        setInto = { r, v -> r.typeOfWork = v as String? },
-        getFrom = { r: RisRecord -> r.typeOfWork }
+        description = "Miscellaneous 3 (often Type of Work)",
+        setInto = { r, v ->
+            r.miscellaneous3 = v as String?
+            r.typeOfWork = v
+        },
+        getFrom = { r: RisRecord ->
+            r.miscellaneous3.takeUnless { it.isNullOrBlank() }
+                ?: r.typeOfWork
+        }
     ),
 
     /** Notes */

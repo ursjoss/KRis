@@ -57,7 +57,7 @@ class RisRecordBuilderTest {
         .websiteLink("websiteLink")
         .miscellaneous1("number")
         .miscellaneous2("miscellaneous2")
-        .typeOfWork("typeOfWork")
+        .miscellaneous3("typeOfWork")
         .notes("notes")
         .abstr2("abstr2")
         .numberOfVolumes("numberOfVolumes")
@@ -140,7 +140,7 @@ class RisRecordBuilderTest {
         assertThat(risRecord.getWebsiteLink()).isEqualTo("websiteLink");
         assertThat(risRecord.getMiscellaneous1()).isEqualTo("number");
         assertThat(risRecord.getMiscellaneous2()).isEqualTo("miscellaneous2");
-        assertThat(risRecord.getTypeOfWork()).isEqualTo("typeOfWork");
+        assertThat(risRecord.getMiscellaneous3()).isEqualTo("typeOfWork");
         assertThat(risRecord.getNotes()).isEqualTo("notes");
         assertThat(risRecord.getAbstr2()).isEqualTo("abstr2");
         assertThat(risRecord.getNumberOfVolumes()).isEqualTo("numberOfVolumes");
@@ -224,7 +224,7 @@ class RisRecordBuilderTest {
         assertThat(risRecord.getWebsiteLink()).isNull();
         assertThat(risRecord.getMiscellaneous1()).isNull();
         assertThat(risRecord.getMiscellaneous2()).isNull();
-        assertThat(risRecord.getTypeOfWork()).isNull();
+        assertThat(risRecord.getMiscellaneous3()).isNull();
         assertThat(risRecord.getNotes()).isNull();
         assertThat(risRecord.getAbstr2()).isNull();
         assertThat(risRecord.getNumberOfVolumes()).isNull();
@@ -275,5 +275,25 @@ class RisRecordBuilderTest {
             .build();
         assertThat(risRecord.getMiscellaneous1()).isNull();
         assertThat(risRecord.getNumber()).isEqualTo(1234L);
+    }
+
+    @SuppressWarnings("deprecation")
+    @Test
+    public void givenRisRecordWithMisc3_providesMisc3ButNotTypeOfWork() {
+        RisRecord risRecord = new RisRecord.Builder()
+            .miscellaneous3("misc3")
+            .build();
+        assertThat(risRecord.getMiscellaneous3()).isEqualTo("misc3");
+        assertThat(risRecord.getTypeOfWork()).isNull();
+    }
+
+    @SuppressWarnings("deprecation")
+    @Test
+    public void givenRisRecordWithTypeOfWork_providesTypeOfWorkButNotMisc3() {
+        RisRecord risRecord = new RisRecord.Builder()
+            .typeOfWork("misc3")
+            .build();
+        assertThat(risRecord.getMiscellaneous3()).isNull();
+        assertThat(risRecord.getTypeOfWork()).isEqualTo("misc3");
     }
 }

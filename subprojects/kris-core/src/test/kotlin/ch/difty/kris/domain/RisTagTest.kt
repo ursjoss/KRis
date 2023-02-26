@@ -59,7 +59,7 @@ internal class RisTagTest {
                 "Website Link",
                 "Miscellaneous 1 (often Number)",
                 "Miscellaneous 2.",
-                "Type of Work",
+                "Miscellaneous 3 (often Type of Work)",
                 "Notes",
                 "Abstract.",
                 "Number of Volumes",

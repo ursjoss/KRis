@@ -16,7 +16,6 @@ internal class KRisIOIntegrationTest {
 
     //region Importing
     @Test
-    @Disabled // TODO enable after implementation
     fun `can read from reader`() {
         val parsed = File(FILE_PATH).bufferedReader().process()
         parsed shouldHaveSize PAPER_COUNT
@@ -30,19 +29,16 @@ internal class KRisIOIntegrationTest {
     }
 
     @Test
-    @Disabled // TODO enable after implementation
     fun `can read from file`() {
         File(FILE_PATH).process() shouldHaveSize PAPER_COUNT
     }
 
     @Test
-    @Disabled // TODO enable after implementation
     fun `can read from file path`() {
         FILE_PATH.process() shouldHaveSize PAPER_COUNT
     }
 
     @Test
-    @Disabled // TODO enable after implementation
     fun `can read from file stream`() {
         File(FILE_PATH).inputStream().process() shouldHaveSize PAPER_COUNT
     }

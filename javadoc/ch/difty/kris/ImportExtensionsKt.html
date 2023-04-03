@@ -242,7 +242,7 @@ public final class <span class="typeNameLabel"><a href=ImportExtensionsKt.html>I
                                             </td>
                                             <th class="colSecond" scope="row"><code><a href=ImportExtensionsKt.html#process(java.io.Reader)>process</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/io/Reader.html>Reader</a> $self) </code>
                                             </th>
-                                            <td class="colLast">Converts the RISFile lines provided by the reader as receiver into a list of RisRecords.</td>
+                                            <td class="colLast">Converts the RISFile lines provided by the <a href=https://docs.oracle.com/javase/8/docs/api/java/io/Reader.html>Reader</a> as receiver into a list of RisRecords.</td>
                                         </tr>
                                         
                                         <tr id="i1" class="rowColor">
@@ -267,6 +267,38 @@ public final class <span class="typeNameLabel"><a href=ImportExtensionsKt.html>I
                                             <th class="colSecond" scope="row"><code><a href=ImportExtensionsKt.html#process(java.io.InputStream)>process</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/io/InputStream.html>InputStream</a> $self) </code>
                                             </th>
                                             <td class="colLast">Converts the RISFile lines provided by the <a href=https://docs.oracle.com/javase/8/docs/api/java/io/InputStream.html>InputStream</a> as receiver  into a list of RisRecords.</td>
+                                        </tr>
+                                        
+                                        <tr id="i4" class="altColor">
+                                            <td class="colFirst"><code>final static <a href=https://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html>Stream</a>&lt;<a href=domain/RisRecord.html>RisRecord</a>&gt;</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=ImportExtensionsKt.html#processToStream(java.io.Reader)>processToStream</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/io/Reader.html>Reader</a> $self) </code>
+                                            </th>
+                                            <td class="colLast">Converts the RISFile lines provided by the <a href=https://docs.oracle.com/javase/8/docs/api/java/io/Reader.html>Reader</a> as receiver into a stream of RisRecords.</td>
+                                        </tr>
+                                        
+                                        <tr id="i5" class="rowColor">
+                                            <td class="colFirst"><code>final static <a href=https://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html>Stream</a>&lt;<a href=domain/RisRecord.html>RisRecord</a>&gt;</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=ImportExtensionsKt.html#processToStream(java.io.File)>processToStream</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/io/File.html>File</a> $self) </code>
+                                            </th>
+                                            <td class="colLast">Converts the RISFile lines in the <a href=https://docs.oracle.com/javase/8/docs/api/java/io/File.html>File</a> provided as receiver into a stream of RisRecords.</td>
+                                        </tr>
+                                        
+                                        <tr id="i6" class="altColor">
+                                            <td class="colFirst"><code>final static <a href=https://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html>Stream</a>&lt;<a href=domain/RisRecord.html>RisRecord</a>&gt;</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=ImportExtensionsKt.html#processToStream(java.lang.String)>processToStream</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> $self) </code>
+                                            </th>
+                                            <td class="colLast">Converts the RISFile lines from the file with the path provided as receiver into a stream of RisRecords.</td>
+                                        </tr>
+                                        
+                                        <tr id="i7" class="rowColor">
+                                            <td class="colFirst"><code>final static <a href=https://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html>Stream</a>&lt;<a href=domain/RisRecord.html>RisRecord</a>&gt;</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=ImportExtensionsKt.html#processToStream(java.io.InputStream)>processToStream</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/io/InputStream.html>InputStream</a> $self) </code>
+                                            </th>
+                                            <td class="colLast">Converts the RISFile lines provided by the <a href=https://docs.oracle.com/javase/8/docs/api/java/io/InputStream.html>InputStream</a> as receiver into a stream of RisRecords.</td>
                                         </tr>
                                         
                                         </tbody>
@@ -322,7 +354,7 @@ public final class <span class="typeNameLabel"><a href=ImportExtensionsKt.html>I
                                     <li class="blockList">
                                         <h4>process</h4>
                                         <pre class="methodSignature"> final static <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=domain/RisRecord.html>RisRecord</a>&gt; <a href=ImportExtensionsKt.html#process(java.io.Reader)>process</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/io/Reader.html>Reader</a> $self)</pre>
-                                        <div class="block"><p>Converts the RISFile lines provided by the reader as receiver into a list of RisRecords. May throw an <a href=https://docs.oracle.com/javase/8/docs/api/java/io/IOException.html>IOException</a> if the reader fails to deliver lines or a <a href=KRisException.html>KRisException</a> if the lines cannot be parsed successfully.</p></div>
+                                        <div class="block"><p>Converts the RISFile lines provided by the <a href=https://docs.oracle.com/javase/8/docs/api/java/io/Reader.html>Reader</a> as receiver into a list of RisRecords. May throw an <a href=https://docs.oracle.com/javase/8/docs/api/java/io/IOException.html>IOException</a> if the reader fails to deliver lines or a <a href=KRisException.html>KRisException</a> if the lines cannot be parsed successfully.</p></div>
                                         
                                         <!-- TODO missing return annotation -->
                                     </li>
@@ -337,7 +369,7 @@ public final class <span class="typeNameLabel"><a href=ImportExtensionsKt.html>I
                                     <li class="blockList">
                                         <h4>process</h4>
                                         <pre class="methodSignature"> final static <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=domain/RisRecord.html>RisRecord</a>&gt; <a href=ImportExtensionsKt.html#process(java.io.File)>process</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/io/File.html>File</a> $self)</pre>
-                                        <div class="block"><p>Converts the RISFile lines in the <a href=https://docs.oracle.com/javase/8/docs/api/java/io/File.html>File</a> provided as receiver into a list of RisRecords. May throw an <a href=https://docs.oracle.com/javase/8/docs/api/java/io/IOException.html>IOException</a> if the file cannot be read successfully. or a <a href=KRisException.html>KRisException</a> if the lines cannot be parsed successfully.</p></div>
+                                        <div class="block"><p>Converts the RISFile lines in the <a href=https://docs.oracle.com/javase/8/docs/api/java/io/File.html>File</a> provided as receiver into a list of RisRecords. May throw an <a href=https://docs.oracle.com/javase/8/docs/api/java/io/IOException.html>IOException</a> if the file cannot be read successfully, or a <a href=KRisException.html>KRisException</a> if the lines cannot be parsed successfully.</p></div>
                                         
                                         <!-- TODO missing return annotation -->
                                     </li>
@@ -352,7 +384,7 @@ public final class <span class="typeNameLabel"><a href=ImportExtensionsKt.html>I
                                     <li class="blockList">
                                         <h4>process</h4>
                                         <pre class="methodSignature"> final static <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=domain/RisRecord.html>RisRecord</a>&gt; <a href=ImportExtensionsKt.html#process(java.lang.String)>process</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> $self)</pre>
-                                        <div class="block"><p>Converts the RISFile lines from the file with the path provided as receiver into a list of RisRecords. May throw an <a href=https://docs.oracle.com/javase/8/docs/api/java/io/IOException.html>IOException</a> if the file cannot be read successfully. or a <a href=KRisException.html>KRisException</a> if the lines cannot be parsed successfully.</p></div>
+                                        <div class="block"><p>Converts the RISFile lines from the file with the path provided as receiver into a list of RisRecords. May throw an <a href=https://docs.oracle.com/javase/8/docs/api/java/io/IOException.html>IOException</a> if the file cannot be read successfully, or a <a href=KRisException.html>KRisException</a> if the lines cannot be parsed successfully.</p></div>
                                         
                                         <!-- TODO missing return annotation -->
                                     </li>
@@ -362,12 +394,72 @@ public final class <span class="typeNameLabel"><a href=ImportExtensionsKt.html>I
                                     <!--   -->
                                 </a>
                                 <ul class=
-                                              "blockListLast"
+                                              "blockList"
                                           >
                                     <li class="blockList">
                                         <h4>process</h4>
                                         <pre class="methodSignature"> final static <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=domain/RisRecord.html>RisRecord</a>&gt; <a href=ImportExtensionsKt.html#process(java.io.InputStream)>process</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/io/InputStream.html>InputStream</a> $self)</pre>
-                                        <div class="block"><p>Converts the RISFile lines provided by the <a href=https://docs.oracle.com/javase/8/docs/api/java/io/InputStream.html>InputStream</a> as receiver  into a list of RisRecords. May throw an <a href=https://docs.oracle.com/javase/8/docs/api/java/io/IOException.html>IOException</a> if the stream cannot be read successfully. or a <a href=KRisException.html>KRisException</a> if the lines cannot be parsed successfully.</p></div>
+                                        <div class="block"><p>Converts the RISFile lines provided by the <a href=https://docs.oracle.com/javase/8/docs/api/java/io/InputStream.html>InputStream</a> as receiver  into a list of RisRecords. May throw an <a href=https://docs.oracle.com/javase/8/docs/api/java/io/IOException.html>IOException</a> if the stream cannot be read successfully, or a <a href=KRisException.html>KRisException</a> if the lines cannot be parsed successfully.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="processToStream(java.io.Reader)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>processToStream</h4>
+                                        <pre class="methodSignature"> final static <a href=https://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html>Stream</a>&lt;<a href=domain/RisRecord.html>RisRecord</a>&gt; <a href=ImportExtensionsKt.html#processToStream(java.io.Reader)>processToStream</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/io/Reader.html>Reader</a> $self)</pre>
+                                        <div class="block"><p>Converts the RISFile lines provided by the <a href=https://docs.oracle.com/javase/8/docs/api/java/io/Reader.html>Reader</a> as receiver into a stream of RisRecords. May throw an <a href=https://docs.oracle.com/javase/8/docs/api/java/io/IOException.html>IOException</a> if the reader fails to deliver lines or a <a href=KRisException.html>KRisException</a> if the lines cannot be parsed successfully.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="processToStream(java.io.File)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>processToStream</h4>
+                                        <pre class="methodSignature"> final static <a href=https://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html>Stream</a>&lt;<a href=domain/RisRecord.html>RisRecord</a>&gt; <a href=ImportExtensionsKt.html#processToStream(java.io.File)>processToStream</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/io/File.html>File</a> $self)</pre>
+                                        <div class="block"><p>Converts the RISFile lines in the <a href=https://docs.oracle.com/javase/8/docs/api/java/io/File.html>File</a> provided as receiver into a stream of RisRecords. May throw an <a href=https://docs.oracle.com/javase/8/docs/api/java/io/IOException.html>IOException</a> if the file cannot be read successfully, or a <a href=KRisException.html>KRisException</a> if the lines cannot be parsed successfully.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="processToStream(java.lang.String)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>processToStream</h4>
+                                        <pre class="methodSignature"> final static <a href=https://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html>Stream</a>&lt;<a href=domain/RisRecord.html>RisRecord</a>&gt; <a href=ImportExtensionsKt.html#processToStream(java.lang.String)>processToStream</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> $self)</pre>
+                                        <div class="block"><p>Converts the RISFile lines from the file with the path provided as receiver into a stream of RisRecords. May throw an <a href=https://docs.oracle.com/javase/8/docs/api/java/io/IOException.html>IOException</a> if the file cannot be read successfully, or a <a href=KRisException.html>KRisException</a> if the lines cannot be parsed successfully.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="processToStream(java.io.InputStream)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockListLast"
+                                          >
+                                    <li class="blockList">
+                                        <h4>processToStream</h4>
+                                        <pre class="methodSignature"> final static <a href=https://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html>Stream</a>&lt;<a href=domain/RisRecord.html>RisRecord</a>&gt; <a href=ImportExtensionsKt.html#processToStream(java.io.InputStream)>processToStream</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/io/InputStream.html>InputStream</a> $self)</pre>
+                                        <div class="block"><p>Converts the RISFile lines provided by the <a href=https://docs.oracle.com/javase/8/docs/api/java/io/InputStream.html>InputStream</a> as receiver into a stream of RisRecords. May throw an <a href=https://docs.oracle.com/javase/8/docs/api/java/io/IOException.html>IOException</a> if the stream cannot be read successfully, or a <a href=KRisException.html>KRisException</a> if the lines cannot be parsed successfully.</p></div>
                                         
                                         <!-- TODO missing return annotation -->
                                     </li>

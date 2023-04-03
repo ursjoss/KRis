@@ -276,6 +276,38 @@ public class <span class="typeNameLabel"><a href=KRisIO.html>KRisIO</a></span>
                                         </tr>
                                         
                                         <tr id="i4" class="altColor">
+                                            <td class="colFirst"><code>final static <a href=https://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html>Stream</a>&lt;<a href=domain/RisRecord.html>RisRecord</a>&gt;</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=KRisIO.html#processToStream(java.io.Reader)>processToStream</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/io/Reader.html>Reader</a> reader) </code>
+                                            </th>
+                                            <td class="colLast">Converts the RISFile lines provided by the reader into a stream of <a href=domain/RisRecord.html>RisRecord</a>s.</td>
+                                        </tr>
+                                        
+                                        <tr id="i5" class="rowColor">
+                                            <td class="colFirst"><code>final static <a href=https://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html>Stream</a>&lt;<a href=domain/RisRecord.html>RisRecord</a>&gt;</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=KRisIO.html#processToStream(java.io.File)>processToStream</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/io/File.html>File</a> file) </code>
+                                            </th>
+                                            <td class="colLast">Converts the RISFile lines in the provided <a href=https://docs.oracle.com/javase/8/docs/api/java/io/File.html>File</a> into a stream of <a href=domain/RisRecord.html>RisRecord</a>s.</td>
+                                        </tr>
+                                        
+                                        <tr id="i6" class="altColor">
+                                            <td class="colFirst"><code>final static <a href=https://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html>Stream</a>&lt;<a href=domain/RisRecord.html>RisRecord</a>&gt;</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=KRisIO.html#processToStream(java.lang.String)>processToStream</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> filePath) </code>
+                                            </th>
+                                            <td class="colLast">Converts the RISFile lines from the file with the provided path into a stream of <a href=domain/RisRecord.html>RisRecord</a>s.</td>
+                                        </tr>
+                                        
+                                        <tr id="i7" class="rowColor">
+                                            <td class="colFirst"><code>final static <a href=https://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html>Stream</a>&lt;<a href=domain/RisRecord.html>RisRecord</a>&gt;</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=KRisIO.html#processToStream(java.io.InputStream)>processToStream</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/io/InputStream.html>InputStream</a> inputStream) </code>
+                                            </th>
+                                            <td class="colLast">Converts the RISFile lines provided by the <a href=https://docs.oracle.com/javase/8/docs/api/java/io/InputStream.html>InputStream</a> into a stream of <a href=domain/RisRecord.html>RisRecord</a>s.</td>
+                                        </tr>
+                                        
+                                        <tr id="i8" class="altColor">
                                             <td class="colFirst"><code>final static <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html>Unit</a></code>
                                             </td>
                                             <th class="colSecond" scope="row"><code><a href=KRisIO.html#export(java.util.List,java.util.List,java.io.Writer)>export</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=domain/RisRecord.html>RisRecord</a>&gt; records, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a>&gt; sort, <a href=https://docs.oracle.com/javase/8/docs/api/java/io/Writer.html>Writer</a> writer) </code>
@@ -283,7 +315,7 @@ public class <span class="typeNameLabel"><a href=KRisIO.html>KRisIO</a></span>
                                             <td class="colLast">Converts a list of <a href=domain/RisRecord.html>RisRecord</a>s into a list of <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html>String</a>s in RIS file format, dumping them into the provided <a href=https://docs.oracle.com/javase/8/docs/api/java/io/Writer.html>Writer</a>.</td>
                                         </tr>
                                         
-                                        <tr id="i5" class="rowColor">
+                                        <tr id="i9" class="rowColor">
                                             <td class="colFirst"><code>final static <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html>Unit</a></code>
                                             </td>
                                             <th class="colSecond" scope="row"><code><a href=KRisIO.html#export(java.util.List,java.util.List,java.io.Writer)>export</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=domain/RisRecord.html>RisRecord</a>&gt; records, <a href=https://docs.oracle.com/javase/8/docs/api/java/io/Writer.html>Writer</a> writer) </code>
@@ -291,7 +323,7 @@ public class <span class="typeNameLabel"><a href=KRisIO.html>KRisIO</a></span>
                                             <td class="colLast">Converts a list of <a href=domain/RisRecord.html>RisRecord</a>s into a list of <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html>String</a>s in RIS file format, dumping them into the provided <a href=https://docs.oracle.com/javase/8/docs/api/java/io/Writer.html>Writer</a>.</td>
                                         </tr>
                                         
-                                        <tr id="i6" class="altColor">
+                                        <tr id="i10" class="altColor">
                                             <td class="colFirst"><code>final static <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html>Unit</a></code>
                                             </td>
                                             <th class="colSecond" scope="row"><code><a href=KRisIO.html#export(java.util.List,java.util.List,java.io.File)>export</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=domain/RisRecord.html>RisRecord</a>&gt; records, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a>&gt; sort, <a href=https://docs.oracle.com/javase/8/docs/api/java/io/File.html>File</a> file) </code>
@@ -299,7 +331,7 @@ public class <span class="typeNameLabel"><a href=KRisIO.html>KRisIO</a></span>
                                             <td class="colLast">Converts a list of <a href=domain/RisRecord.html>RisRecord</a>s into a list of <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html>String</a>s in RIS file format, writing them into the provided <a href=https://docs.oracle.com/javase/8/docs/api/java/io/File.html>File</a>.</td>
                                         </tr>
                                         
-                                        <tr id="i7" class="rowColor">
+                                        <tr id="i11" class="rowColor">
                                             <td class="colFirst"><code>final static <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html>Unit</a></code>
                                             </td>
                                             <th class="colSecond" scope="row"><code><a href=KRisIO.html#export(java.util.List,java.util.List,java.io.File)>export</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=domain/RisRecord.html>RisRecord</a>&gt; records, <a href=https://docs.oracle.com/javase/8/docs/api/java/io/File.html>File</a> file) </code>
@@ -307,7 +339,7 @@ public class <span class="typeNameLabel"><a href=KRisIO.html>KRisIO</a></span>
                                             <td class="colLast">Converts a list of <a href=domain/RisRecord.html>RisRecord</a>s into a list of <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html>String</a>s in RIS file format, writing them into the provided <a href=https://docs.oracle.com/javase/8/docs/api/java/io/File.html>File</a>.</td>
                                         </tr>
                                         
-                                        <tr id="i8" class="altColor">
+                                        <tr id="i12" class="altColor">
                                             <td class="colFirst"><code>final static <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html>Unit</a></code>
                                             </td>
                                             <th class="colSecond" scope="row"><code><a href=KRisIO.html#export(java.util.List,java.util.List,java.io.OutputStream)>export</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=domain/RisRecord.html>RisRecord</a>&gt; records, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a>&gt; sort, <a href=https://docs.oracle.com/javase/8/docs/api/java/io/OutputStream.html>OutputStream</a> out) </code>
@@ -315,7 +347,7 @@ public class <span class="typeNameLabel"><a href=KRisIO.html>KRisIO</a></span>
                                             <td class="colLast">Converts a list of <a href=domain/RisRecord.html>RisRecord</a>s into a list of <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html>String</a>s in RIS file format, writing them into the provided <a href=https://docs.oracle.com/javase/8/docs/api/java/io/OutputStream.html>OutputStream</a>.</td>
                                         </tr>
                                         
-                                        <tr id="i9" class="rowColor">
+                                        <tr id="i13" class="rowColor">
                                             <td class="colFirst"><code>final static <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html>Unit</a></code>
                                             </td>
                                             <th class="colSecond" scope="row"><code><a href=KRisIO.html#export(java.util.List,java.util.List,java.io.OutputStream)>export</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=domain/RisRecord.html>RisRecord</a>&gt; records, <a href=https://docs.oracle.com/javase/8/docs/api/java/io/OutputStream.html>OutputStream</a> out) </code>
@@ -323,7 +355,7 @@ public class <span class="typeNameLabel"><a href=KRisIO.html>KRisIO</a></span>
                                             <td class="colLast">Converts a list of <a href=domain/RisRecord.html>RisRecord</a>s into a list of <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html>String</a>s in RIS file format, writing them into the provided <a href=https://docs.oracle.com/javase/8/docs/api/java/io/OutputStream.html>OutputStream</a>.</td>
                                         </tr>
                                         
-                                        <tr id="i10" class="altColor">
+                                        <tr id="i14" class="altColor">
                                             <td class="colFirst"><code>final static <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html>Unit</a></code>
                                             </td>
                                             <th class="colSecond" scope="row"><code><a href=KRisIO.html#export(java.util.List,java.util.List,java.lang.String)>export</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=domain/RisRecord.html>RisRecord</a>&gt; records, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a>&gt; sort, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> filePath) </code>
@@ -331,7 +363,7 @@ public class <span class="typeNameLabel"><a href=KRisIO.html>KRisIO</a></span>
                                             <td class="colLast">Converts a list of <a href=domain/RisRecord.html>RisRecord</a>s into a list of <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html>String</a>s in RIS file format, writing them into file with the specified path if possible.</td>
                                         </tr>
                                         
-                                        <tr id="i11" class="rowColor">
+                                        <tr id="i15" class="rowColor">
                                             <td class="colFirst"><code>final static <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html>Unit</a></code>
                                             </td>
                                             <th class="colSecond" scope="row"><code><a href=KRisIO.html#export(java.util.List,java.util.List,java.lang.String)>export</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=domain/RisRecord.html>RisRecord</a>&gt; records, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> filePath) </code>
@@ -443,6 +475,66 @@ public class <span class="typeNameLabel"><a href=KRisIO.html>KRisIO</a></span>
                                     </li>
                                 </ul>
                                 
+                                <a id="processToStream(java.io.Reader)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>processToStream</h4>
+                                        <pre class="methodSignature"> final static <a href=https://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html>Stream</a>&lt;<a href=domain/RisRecord.html>RisRecord</a>&gt; <a href=KRisIO.html#processToStream(java.io.Reader)>processToStream</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/io/Reader.html>Reader</a> reader)</pre>
+                                        <div class="block"><p>Converts the RISFile lines provided by the reader into a stream of <a href=domain/RisRecord.html>RisRecord</a>s. May throw an <a href=https://docs.oracle.com/javase/8/docs/api/java/io/IOException.html>IOException</a> if the reader fails to deliver lines or a <a href=KRisException.html>KRisException</a> if the lines cannot be parsed successfully.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="processToStream(java.io.File)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>processToStream</h4>
+                                        <pre class="methodSignature"> final static <a href=https://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html>Stream</a>&lt;<a href=domain/RisRecord.html>RisRecord</a>&gt; <a href=KRisIO.html#processToStream(java.io.File)>processToStream</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/io/File.html>File</a> file)</pre>
+                                        <div class="block"><p>Converts the RISFile lines in the provided <a href=https://docs.oracle.com/javase/8/docs/api/java/io/File.html>File</a> into a stream of <a href=domain/RisRecord.html>RisRecord</a>s. May throw an <a href=https://docs.oracle.com/javase/8/docs/api/java/io/IOException.html>IOException</a> if the file cannot be read successfully. or a <a href=KRisException.html>KRisException</a> if the lines cannot be parsed successfully.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="processToStream(java.lang.String)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>processToStream</h4>
+                                        <pre class="methodSignature"> final static <a href=https://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html>Stream</a>&lt;<a href=domain/RisRecord.html>RisRecord</a>&gt; <a href=KRisIO.html#processToStream(java.lang.String)>processToStream</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> filePath)</pre>
+                                        <div class="block"><p>Converts the RISFile lines from the file with the provided path into a stream of <a href=domain/RisRecord.html>RisRecord</a>s. May throw an <a href=https://docs.oracle.com/javase/8/docs/api/java/io/IOException.html>IOException</a> if the file cannot be read successfully. or a <a href=KRisException.html>KRisException</a> if the lines cannot be parsed successfully.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
+                                <a id="processToStream(java.io.InputStream)">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockList"
+                                          >
+                                    <li class="blockList">
+                                        <h4>processToStream</h4>
+                                        <pre class="methodSignature"> final static <a href=https://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html>Stream</a>&lt;<a href=domain/RisRecord.html>RisRecord</a>&gt; <a href=KRisIO.html#processToStream(java.io.InputStream)>processToStream</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/io/InputStream.html>InputStream</a> inputStream)</pre>
+                                        <div class="block"><p>Converts the RISFile lines provided by the <a href=https://docs.oracle.com/javase/8/docs/api/java/io/InputStream.html>InputStream</a> into a stream of <a href=domain/RisRecord.html>RisRecord</a>s. May throw an <a href=https://docs.oracle.com/javase/8/docs/api/java/io/IOException.html>IOException</a> if the stream cannot be read successfully. or a <a href=KRisException.html>KRisException</a> if the lines cannot be parsed successfully.</p></div>
+                                        
+                                        <!-- TODO missing return annotation -->
+                                    </li>
+                                </ul>
+                                
                                 <a id="export(java.util.List,java.util.List,java.io.Writer)">
                                     <!--   -->
                                 </a>
@@ -451,7 +543,7 @@ public class <span class="typeNameLabel"><a href=KRisIO.html>KRisIO</a></span>
                                           >
                                     <li class="blockList">
                                         <h4>export</h4>
-                                        <pre class="methodSignature">@<a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.jvm/-jvm-overloads/index.html>JvmOverloads</a>() final static <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html>Unit</a> <a href=KRisIO.html#export(java.util.List,java.util.List,java.io.Writer)>export</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=domain/RisRecord.html>RisRecord</a>&gt; records, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a>&gt; sort, <a href=https://docs.oracle.com/javase/8/docs/api/java/io/Writer.html>Writer</a> writer)</pre>
+                                        <pre class="methodSignature"> final static <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html>Unit</a> <a href=KRisIO.html#export(java.util.List,java.util.List,java.io.Writer)>export</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=domain/RisRecord.html>RisRecord</a>&gt; records, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a>&gt; sort, <a href=https://docs.oracle.com/javase/8/docs/api/java/io/Writer.html>Writer</a> writer)</pre>
                                         <div class="block"><p>Converts a list of <a href=domain/RisRecord.html>RisRecord</a>s into a list of <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html>String</a>s in RIS file format, dumping them into the provided <a href=https://docs.oracle.com/javase/8/docs/api/java/io/Writer.html>Writer</a>. Optionally accepts a list of names of RisTags defining a sort order for the RisTags in the file.</p></div>
                                         
                                         <!-- TODO missing return annotation -->
@@ -466,7 +558,7 @@ public class <span class="typeNameLabel"><a href=KRisIO.html>KRisIO</a></span>
                                           >
                                     <li class="blockList">
                                         <h4>export</h4>
-                                        <pre class="methodSignature">@<a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.jvm/-jvm-overloads/index.html>JvmOverloads</a>() final static <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html>Unit</a> <a href=KRisIO.html#export(java.util.List,java.util.List,java.io.Writer)>export</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=domain/RisRecord.html>RisRecord</a>&gt; records, <a href=https://docs.oracle.com/javase/8/docs/api/java/io/Writer.html>Writer</a> writer)</pre>
+                                        <pre class="methodSignature"> final static <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html>Unit</a> <a href=KRisIO.html#export(java.util.List,java.util.List,java.io.Writer)>export</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=domain/RisRecord.html>RisRecord</a>&gt; records, <a href=https://docs.oracle.com/javase/8/docs/api/java/io/Writer.html>Writer</a> writer)</pre>
                                         <div class="block"><p>Converts a list of <a href=domain/RisRecord.html>RisRecord</a>s into a list of <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html>String</a>s in RIS file format, dumping them into the provided <a href=https://docs.oracle.com/javase/8/docs/api/java/io/Writer.html>Writer</a>. Optionally accepts a list of names of RisTags defining a sort order for the RisTags in the file.</p></div>
                                         
                                         <!-- TODO missing return annotation -->
@@ -481,7 +573,7 @@ public class <span class="typeNameLabel"><a href=KRisIO.html>KRisIO</a></span>
                                           >
                                     <li class="blockList">
                                         <h4>export</h4>
-                                        <pre class="methodSignature">@<a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.jvm/-jvm-overloads/index.html>JvmOverloads</a>() final static <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html>Unit</a> <a href=KRisIO.html#export(java.util.List,java.util.List,java.io.File)>export</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=domain/RisRecord.html>RisRecord</a>&gt; records, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a>&gt; sort, <a href=https://docs.oracle.com/javase/8/docs/api/java/io/File.html>File</a> file)</pre>
+                                        <pre class="methodSignature"> final static <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html>Unit</a> <a href=KRisIO.html#export(java.util.List,java.util.List,java.io.File)>export</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=domain/RisRecord.html>RisRecord</a>&gt; records, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a>&gt; sort, <a href=https://docs.oracle.com/javase/8/docs/api/java/io/File.html>File</a> file)</pre>
                                         <div class="block"><p>Converts a list of <a href=domain/RisRecord.html>RisRecord</a>s into a list of <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html>String</a>s in RIS file format, writing them into the provided <a href=https://docs.oracle.com/javase/8/docs/api/java/io/File.html>File</a>. Optionally accepts a list of names of RisTags defining a sort order for the RisTags in the file.</p></div>
                                         
                                         <!-- TODO missing return annotation -->
@@ -496,7 +588,7 @@ public class <span class="typeNameLabel"><a href=KRisIO.html>KRisIO</a></span>
                                           >
                                     <li class="blockList">
                                         <h4>export</h4>
-                                        <pre class="methodSignature">@<a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.jvm/-jvm-overloads/index.html>JvmOverloads</a>() final static <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html>Unit</a> <a href=KRisIO.html#export(java.util.List,java.util.List,java.io.File)>export</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=domain/RisRecord.html>RisRecord</a>&gt; records, <a href=https://docs.oracle.com/javase/8/docs/api/java/io/File.html>File</a> file)</pre>
+                                        <pre class="methodSignature"> final static <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html>Unit</a> <a href=KRisIO.html#export(java.util.List,java.util.List,java.io.File)>export</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=domain/RisRecord.html>RisRecord</a>&gt; records, <a href=https://docs.oracle.com/javase/8/docs/api/java/io/File.html>File</a> file)</pre>
                                         <div class="block"><p>Converts a list of <a href=domain/RisRecord.html>RisRecord</a>s into a list of <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html>String</a>s in RIS file format, writing them into the provided <a href=https://docs.oracle.com/javase/8/docs/api/java/io/File.html>File</a>. Optionally accepts a list of names of RisTags defining a sort order for the RisTags in the file.</p></div>
                                         
                                         <!-- TODO missing return annotation -->
@@ -511,7 +603,7 @@ public class <span class="typeNameLabel"><a href=KRisIO.html>KRisIO</a></span>
                                           >
                                     <li class="blockList">
                                         <h4>export</h4>
-                                        <pre class="methodSignature">@<a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.jvm/-jvm-overloads/index.html>JvmOverloads</a>() final static <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html>Unit</a> <a href=KRisIO.html#export(java.util.List,java.util.List,java.io.OutputStream)>export</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=domain/RisRecord.html>RisRecord</a>&gt; records, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a>&gt; sort, <a href=https://docs.oracle.com/javase/8/docs/api/java/io/OutputStream.html>OutputStream</a> out)</pre>
+                                        <pre class="methodSignature"> final static <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html>Unit</a> <a href=KRisIO.html#export(java.util.List,java.util.List,java.io.OutputStream)>export</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=domain/RisRecord.html>RisRecord</a>&gt; records, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a>&gt; sort, <a href=https://docs.oracle.com/javase/8/docs/api/java/io/OutputStream.html>OutputStream</a> out)</pre>
                                         <div class="block"><p>Converts a list of <a href=domain/RisRecord.html>RisRecord</a>s into a list of <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html>String</a>s in RIS file format, writing them into the provided <a href=https://docs.oracle.com/javase/8/docs/api/java/io/OutputStream.html>OutputStream</a>. Optionally accepts a list of names of RisTags defining a sort order for the RisTags in the file.</p></div>
                                         
                                         <!-- TODO missing return annotation -->
@@ -526,7 +618,7 @@ public class <span class="typeNameLabel"><a href=KRisIO.html>KRisIO</a></span>
                                           >
                                     <li class="blockList">
                                         <h4>export</h4>
-                                        <pre class="methodSignature">@<a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.jvm/-jvm-overloads/index.html>JvmOverloads</a>() final static <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html>Unit</a> <a href=KRisIO.html#export(java.util.List,java.util.List,java.io.OutputStream)>export</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=domain/RisRecord.html>RisRecord</a>&gt; records, <a href=https://docs.oracle.com/javase/8/docs/api/java/io/OutputStream.html>OutputStream</a> out)</pre>
+                                        <pre class="methodSignature"> final static <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html>Unit</a> <a href=KRisIO.html#export(java.util.List,java.util.List,java.io.OutputStream)>export</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=domain/RisRecord.html>RisRecord</a>&gt; records, <a href=https://docs.oracle.com/javase/8/docs/api/java/io/OutputStream.html>OutputStream</a> out)</pre>
                                         <div class="block"><p>Converts a list of <a href=domain/RisRecord.html>RisRecord</a>s into a list of <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html>String</a>s in RIS file format, writing them into the provided <a href=https://docs.oracle.com/javase/8/docs/api/java/io/OutputStream.html>OutputStream</a>. Optionally accepts a list of names of RisTags defining a sort order for the RisTags in the file.</p></div>
                                         
                                         <!-- TODO missing return annotation -->
@@ -541,7 +633,7 @@ public class <span class="typeNameLabel"><a href=KRisIO.html>KRisIO</a></span>
                                           >
                                     <li class="blockList">
                                         <h4>export</h4>
-                                        <pre class="methodSignature">@<a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.jvm/-jvm-overloads/index.html>JvmOverloads</a>() final static <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html>Unit</a> <a href=KRisIO.html#export(java.util.List,java.util.List,java.lang.String)>export</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=domain/RisRecord.html>RisRecord</a>&gt; records, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a>&gt; sort, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> filePath)</pre>
+                                        <pre class="methodSignature"> final static <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html>Unit</a> <a href=KRisIO.html#export(java.util.List,java.util.List,java.lang.String)>export</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=domain/RisRecord.html>RisRecord</a>&gt; records, <a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a>&gt; sort, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> filePath)</pre>
                                         <div class="block"><p>Converts a list of <a href=domain/RisRecord.html>RisRecord</a>s into a list of <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html>String</a>s in RIS file format, writing them into file with the specified path if possible. Optionally accepts a list of names of RisTags defining a sort order for the RisTags in the file.</p></div>
                                         
                                         <!-- TODO missing return annotation -->
@@ -556,7 +648,7 @@ public class <span class="typeNameLabel"><a href=KRisIO.html>KRisIO</a></span>
                                           >
                                     <li class="blockList">
                                         <h4>export</h4>
-                                        <pre class="methodSignature">@<a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.jvm/-jvm-overloads/index.html>JvmOverloads</a>() final static <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html>Unit</a> <a href=KRisIO.html#export(java.util.List,java.util.List,java.lang.String)>export</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=domain/RisRecord.html>RisRecord</a>&gt; records, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> filePath)</pre>
+                                        <pre class="methodSignature"> final static <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html>Unit</a> <a href=KRisIO.html#export(java.util.List,java.util.List,java.lang.String)>export</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/util/List.html>List</a>&lt;<a href=domain/RisRecord.html>RisRecord</a>&gt; records, <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> filePath)</pre>
                                         <div class="block"><p>Converts a list of <a href=domain/RisRecord.html>RisRecord</a>s into a list of <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html>String</a>s in RIS file format, writing them into file with the specified path if possible. Optionally accepts a list of names of RisTags defining a sort order for the RisTags in the file.</p></div>
                                         
                                         <!-- TODO missing return annotation -->

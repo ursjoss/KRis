@@ -574,6 +574,38 @@ We will receive a list of [RisRecord] instances.</p>
 <pre class="prettyprint highlight linenums"><code data-lang="source">        final List&lt;RisRecord&gt; records = KRisIO.process("import.ris");</code></pre>
 </div>
 </div>
+<div class="paragraph">
+<p>While this is sufficient to process reasonably small files, you may prefer consuming streams for processing large files.</p>
+</div>
+<div class="listingblock">
+<div class="title">Reading RIS records as stream from BufferedReader [Java]</div>
+<div class="content">
+<pre class="prettyprint highlight linenums"><code data-lang="source">        try (final BufferedReader reader = new BufferedReader(new FileReader("import.ris"))) {
+            final Stream&lt;RisRecord&gt; records = KRisIO.processToStream(reader);
+        }</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Reading RIS records as stream from File [Java]</div>
+<div class="content">
+<pre class="prettyprint highlight linenums"><code data-lang="source">        final File file = new File("import.ris");
+        final Stream&lt;RisRecord&gt; records = KRisIO.processToStream(file);</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Reading RIS records as stream from InputStream [Java]</div>
+<div class="content">
+<pre class="prettyprint highlight linenums"><code data-lang="source">        try (InputStream s = new BufferedInputStream(new FileInputStream("import.ris"))) {
+            final Stream&lt;RisRecord&gt; records = KRisIO.processToStream(s);
+        }</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Reading RIS records as stream from Path [Java]</div>
+<div class="content">
+<pre class="prettyprint highlight linenums"><code data-lang="source">        final Stream&lt;RisRecord&gt; records = KRisIO.processToStream("import.ris");</code></pre>
+</div>
+</div>
 </div>
 <div class="sect3">
 <h4 id="_java_import_memory"><a class="anchor" href="#_java_import_memory"></a>4.2.2. RIS file lines in memory</h4>
@@ -623,8 +655,8 @@ We will receive a list of [RisRecord] instances.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Version 0.4.5<br>
-Last updated 2023-04-01 16:44:31 UTC
+Version 0.4.6<br>
+Last updated 2023-04-03 11:32:10 UTC
 </div>
 </div>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prettify/r298/prettify.min.css">

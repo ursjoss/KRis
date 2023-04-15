@@ -39,10 +39,11 @@ public object KRisIO {
     @JvmStatic
     @JvmOverloads
     @Throws(IOException::class)
-    public fun process(reader: Reader, dispatcher: CoroutineDispatcher = Dispatchers.IO): List<RisRecord> = runBlocking(dispatcher) {
-        val lineFlow = BufferedReader(reader).lineSequence().asFlow()
-        KRis.process(lineFlow).toList()
-    }
+    public fun process(reader: Reader, dispatchers: DispatcherProvider = DefaultDispatcherProvider): List<RisRecord> =
+        runBlocking(dispatchers.io) {
+            val lineFlow = BufferedReader(reader).lineSequence().asFlow()
+            KRis.process(lineFlow).toList()
+        }
 
     /**
      * Converts the RISFile lines in the provided [File] into a list of [RisRecord]s.
@@ -52,8 +53,8 @@ public object KRisIO {
     @JvmStatic
     @JvmOverloads
     @Throws(IOException::class)
-    public fun process(file: File, dispatcher: CoroutineDispatcher = Dispatchers.IO): List<RisRecord> =
-        process(file.bufferedReader(), dispatcher)
+    public fun process(file: File, dispatchers: DispatcherProvider = DefaultDispatcherProvider): List<RisRecord> =
+        process(file.bufferedReader(), dispatchers)
 
     /**
      * Converts the RISFile lines from the file with the provided path into a list of [RisRecord]s.
@@ -63,8 +64,8 @@ public object KRisIO {
     @JvmStatic
     @JvmOverloads
     @Throws(IOException::class)
-    public fun process(filePath: String, dispatcher: CoroutineDispatcher = Dispatchers.IO): List<RisRecord> =
-        process(File(filePath).bufferedReader(), dispatcher)
+    public fun process(filePath: String, dispatchers: DispatcherProvider = DefaultDispatcherProvider): List<RisRecord> =
+        process(File(filePath).bufferedReader(), dispatchers)
 
     /**
      * Converts the RISFile lines provided by the [InputStream] into a list of [RisRecord]s.
@@ -74,8 +75,8 @@ public object KRisIO {
     @JvmStatic
     @JvmOverloads
     @Throws(IOException::class)
-    public fun process(inputStream: InputStream, dispatcher: CoroutineDispatcher = Dispatchers.IO): List<RisRecord> =
-        process(inputStream.bufferedReader(), dispatcher)
+    public fun process(inputStream: InputStream, dispatchers: DispatcherProvider = DefaultDispatcherProvider): List<RisRecord> =
+        process(inputStream.bufferedReader(), dispatchers)
 
     /**
      * Converts the RISFile lines provided by the reader into a stream of [RisRecord]s.
@@ -85,8 +86,8 @@ public object KRisIO {
     @JvmStatic
     @JvmOverloads
     @Throws(IOException::class)
-    public fun processToStream(reader: Reader, dispatcher: CoroutineDispatcher = Dispatchers.IO): Stream<RisRecord> =
-        runBlocking(dispatcher) {
+    public fun processToStream(reader: Reader, dispatchers: DispatcherProvider = DefaultDispatcherProvider): Stream<RisRecord> =
+        runBlocking(dispatchers.io) {
             val lineFlow = BufferedReader(reader).lineSequence().asFlow()
             Stream.builder<RisRecord>().apply {
                 KRis.process(lineFlow).onEach { add(it) }.lastOrNull()
@@ -101,8 +102,8 @@ public object KRisIO {
     @JvmStatic
     @JvmOverloads
     @Throws(IOException::class)
-    public fun processToStream(file: File, dispatcher: CoroutineDispatcher = Dispatchers.IO): Stream<RisRecord> =
-        processToStream(file.bufferedReader(), dispatcher)
+    public fun processToStream(file: File, dispatchers: DispatcherProvider = DefaultDispatcherProvider): Stream<RisRecord> =
+        processToStream(file.bufferedReader(), dispatchers)
 
     /**
      * Converts the RISFile lines from the file with the provided path into a stream of [RisRecord]s.
@@ -112,8 +113,8 @@ public object KRisIO {
     @JvmStatic
     @JvmOverloads
     @Throws(IOException::class)
-    public fun processToStream(filePath: String, dispatcher: CoroutineDispatcher = Dispatchers.IO): Stream<RisRecord> =
-        processToStream(File(filePath).bufferedReader(), dispatcher)
+    public fun processToStream(filePath: String, dispatchers: DispatcherProvider = DefaultDispatcherProvider): Stream<RisRecord> =
+        processToStream(File(filePath).bufferedReader(), dispatchers)
 
     /**
      * Converts the RISFile lines provided by the [InputStream] into a stream of [RisRecord]s.
@@ -123,8 +124,8 @@ public object KRisIO {
     @JvmStatic
     @JvmOverloads
     @Throws(IOException::class)
-    public fun processToStream(inputStream: InputStream, dispatcher: CoroutineDispatcher = Dispatchers.IO): Stream<RisRecord> =
-        processToStream(inputStream.bufferedReader(), dispatcher)
+    public fun processToStream(inputStream: InputStream, dispatchers: DispatcherProvider = DefaultDispatcherProvider): Stream<RisRecord> =
+        processToStream(inputStream.bufferedReader(), dispatchers)
 
     //endregion
 
@@ -140,11 +141,11 @@ public object KRisIO {
     public fun export(
         records: List<RisRecord>,
         sort: List<String> = emptyList(),
-        dispatcher: CoroutineDispatcher = Dispatchers.IO,
+        dispatchers: DispatcherProvider = DefaultDispatcherProvider,
         writer: Writer,
     ) {
         writer.use { w ->
-            runBlocking(dispatcher) {
+            runBlocking(dispatchers.io) {
                 KRis.build(records.asFlow(), sort)
                     .buffer(onBufferOverflow = BufferOverflow.SUSPEND)
                     .collect { line ->
@@ -164,11 +165,11 @@ public object KRisIO {
     public fun export(
         records: List<RisRecord>,
         sort: List<String> = emptyList(),
-        dispatcher: CoroutineDispatcher = Dispatchers.IO,
+        dispatchers: DispatcherProvider = DefaultDispatcherProvider,
         file: File,
     ) {
         FileWriter(file).use { fileWriter ->
-            export(records, sort, dispatcher, fileWriter)
+            export(records, sort, dispatchers, fileWriter)
         }
     }
 
@@ -182,11 +183,11 @@ public object KRisIO {
     public fun export(
         records: List<RisRecord>,
         sort: List<String> = emptyList(),
-        dispatcher: CoroutineDispatcher = Dispatchers.IO,
+        dispatchers: DispatcherProvider = DefaultDispatcherProvider,
         out: OutputStream,
     ) {
         OutputStreamWriter(out).use { writer ->
-            export(records, sort, dispatcher, writer)
+            export(records, sort, dispatchers, writer)
         }
     }
 
@@ -200,11 +201,11 @@ public object KRisIO {
     public fun export(
         records: List<RisRecord>,
         sort: List<String> = emptyList(),
-        dispatcher: CoroutineDispatcher = Dispatchers.IO,
+        dispatchers: DispatcherProvider = DefaultDispatcherProvider,
         filePath: String,
     ) {
         FileOutputStream(filePath).use {
-            export(records, sort, dispatcher, it)
+            export(records, sort, dispatchers, it)
         }
     }
 

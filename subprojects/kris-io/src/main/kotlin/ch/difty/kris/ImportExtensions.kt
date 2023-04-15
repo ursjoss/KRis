@@ -1,8 +1,6 @@
 package ch.difty.kris
 
 import ch.difty.kris.domain.RisRecord
-import kotlinx.coroutines.CoroutineDispatcher
-import kotlinx.coroutines.Dispatchers
 import java.io.File
 import java.io.IOException
 import java.io.InputStream
@@ -15,8 +13,8 @@ import java.util.stream.Stream
  * if the lines cannot be parsed successfully.
  */
 @JvmOverloads
-public fun Reader.process(dispatcher: CoroutineDispatcher = Dispatchers.IO): List<RisRecord> =
-    KRisIO.process(this, dispatcher)
+public fun Reader.process(dispatchers: DispatcherProvider = DefaultDispatcherProvider): List<RisRecord> =
+    KRisIO.process(this, dispatchers)
 
 /**
  * Converts the RISFile lines in the [File] provided as receiver into a list of RisRecords.
@@ -24,8 +22,8 @@ public fun Reader.process(dispatcher: CoroutineDispatcher = Dispatchers.IO): Lis
  * or a [KRisException] if the lines cannot be parsed successfully.
  */
 @JvmOverloads
-public fun File.process(dispatcher: CoroutineDispatcher = Dispatchers.IO): List<RisRecord> =
-    KRisIO.process(this, dispatcher)
+public fun File.process(dispatchers: DispatcherProvider = DefaultDispatcherProvider): List<RisRecord> =
+    KRisIO.process(this, dispatchers)
 
 /**
  * Converts the RISFile lines from the file with the path provided as receiver into a list of RisRecords.
@@ -33,8 +31,8 @@ public fun File.process(dispatcher: CoroutineDispatcher = Dispatchers.IO): List<
  * or a [KRisException] if the lines cannot be parsed successfully.
  */
 @JvmOverloads
-public fun String.process(dispatcher: CoroutineDispatcher = Dispatchers.IO): List<RisRecord> =
-    KRisIO.process(this, dispatcher)
+public fun String.process(dispatchers: DispatcherProvider = DefaultDispatcherProvider): List<RisRecord> =
+    KRisIO.process(this, dispatchers)
 
 /**
  * Converts the RISFile lines provided by the [InputStream] as receiver  into a list of RisRecords.
@@ -42,8 +40,8 @@ public fun String.process(dispatcher: CoroutineDispatcher = Dispatchers.IO): Lis
  * or a [KRisException] if the lines cannot be parsed successfully.
  */
 @JvmOverloads
-public fun InputStream.process(dispatcher: CoroutineDispatcher = Dispatchers.IO): List<RisRecord> =
-    KRisIO.process(this, dispatcher)
+public fun InputStream.process(dispatchers: DispatcherProvider = DefaultDispatcherProvider): List<RisRecord> =
+    KRisIO.process(this, dispatchers)
 
 /**
  * Converts the RISFile lines provided by the [Reader] as receiver into a stream of RisRecords.
@@ -51,8 +49,8 @@ public fun InputStream.process(dispatcher: CoroutineDispatcher = Dispatchers.IO)
  * if the lines cannot be parsed successfully.
  */
 @JvmOverloads
-public fun Reader.processToStream(dispatcher: CoroutineDispatcher = Dispatchers.IO): Stream<RisRecord> =
-    KRisIO.processToStream(this, dispatcher)
+public fun Reader.processToStream(dispatchers: DispatcherProvider = DefaultDispatcherProvider): Stream<RisRecord> =
+    KRisIO.processToStream(this, dispatchers)
 
 /**
  * Converts the RISFile lines in the [File] provided as receiver into a stream of RisRecords.
@@ -60,8 +58,8 @@ public fun Reader.processToStream(dispatcher: CoroutineDispatcher = Dispatchers.
  * or a [KRisException] if the lines cannot be parsed successfully.
  */
 @JvmOverloads
-public fun File.processToStream(dispatcher: CoroutineDispatcher = Dispatchers.IO): Stream<RisRecord> =
-    KRisIO.processToStream(this, dispatcher)
+public fun File.processToStream(dispatchers: DispatcherProvider = DefaultDispatcherProvider): Stream<RisRecord> =
+    KRisIO.processToStream(this, dispatchers)
 
 /**
  * Converts the RISFile lines from the file with the path provided as receiver into a stream of RisRecords.
@@ -69,8 +67,8 @@ public fun File.processToStream(dispatcher: CoroutineDispatcher = Dispatchers.IO
  * or a [KRisException] if the lines cannot be parsed successfully.
  */
 @JvmOverloads
-public fun String.processToStream(dispatcher: CoroutineDispatcher = Dispatchers.IO): Stream<RisRecord> =
-    KRisIO.processToStream(this, dispatcher)
+public fun String.processToStream(dispatchers: DispatcherProvider = DefaultDispatcherProvider): Stream<RisRecord> =
+    KRisIO.processToStream(this, dispatchers)
 
 /**
  * Converts the RISFile lines provided by the [InputStream] as receiver into a stream of RisRecords.
@@ -78,5 +76,5 @@ public fun String.processToStream(dispatcher: CoroutineDispatcher = Dispatchers.
  * or a [KRisException] if the lines cannot be parsed successfully.
  */
 @JvmOverloads
-public fun InputStream.processToStream(dispatcher: CoroutineDispatcher = Dispatchers.IO): Stream<RisRecord> =
-    KRisIO.processToStream(this, dispatcher)
+public fun InputStream.processToStream(dispatchers: DispatcherProvider = DefaultDispatcherProvider): Stream<RisRecord> =
+    KRisIO.processToStream(this, dispatchers)

@@ -1,8 +1,6 @@
 package ch.difty.kris
 
 import ch.difty.kris.domain.RisRecord
-import kotlinx.coroutines.CoroutineDispatcher
-import kotlinx.coroutines.Dispatchers
 import java.io.File
 import java.io.OutputStream
 import java.io.Writer
@@ -16,8 +14,8 @@ import java.io.Writer
 public fun Writer.accept(
     records: List<RisRecord>,
     sort: List<String> = emptyList(),
-    dispatcher: CoroutineDispatcher = Dispatchers.IO,
-): Unit = KRisIO.export(records, sort, dispatcher, this)
+    dispatchers: DispatcherProvider = DefaultDispatcherProvider,
+): Unit = KRisIO.export(records, sort, dispatchers, this)
 
 /**
  * Converts a list of [RisRecord]s into a list of [String]s in RIS file format, writing them into the [File]
@@ -28,8 +26,8 @@ public fun Writer.accept(
 public fun File.accept(
     records: List<RisRecord>,
     sort: List<String> = emptyList(),
-    dispatcher: CoroutineDispatcher = Dispatchers.IO,
-): Unit = KRisIO.export(records, sort, dispatcher, this)
+    dispatchers: DispatcherProvider = DefaultDispatcherProvider,
+): Unit = KRisIO.export(records, sort, dispatchers, this)
 
 /**
  * Converts a list of [RisRecord]s into a list of [String]s in RIS file format, writing them into
@@ -40,8 +38,8 @@ public fun File.accept(
 public fun OutputStream.accept(
     records: List<RisRecord>,
     sort: List<String> = emptyList(),
-    dispatcher: CoroutineDispatcher = Dispatchers.IO,
-): Unit = KRisIO.export(records, sort, dispatcher, this)
+    dispatchers: DispatcherProvider = DefaultDispatcherProvider,
+): Unit = KRisIO.export(records, sort, dispatchers, this)
 
 /**
  * Converts a list of [RisRecord]s into a list of [String]s in RIS file format, writing them into file with
@@ -52,5 +50,5 @@ public fun OutputStream.accept(
 public fun String.accept(
     records: List<RisRecord>,
     sort: List<String> = emptyList(),
-    dispatcher: CoroutineDispatcher = Dispatchers.IO,
-): Unit = KRisIO.export(records, sort, dispatcher, this)
+    dispatchers: DispatcherProvider = DefaultDispatcherProvider,
+): Unit = KRisIO.export(records, sort, dispatchers, this)

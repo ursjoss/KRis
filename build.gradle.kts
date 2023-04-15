@@ -18,6 +18,7 @@ plugins {
     alias(libs.plugins.sonarqube)
     alias(libs.plugins.dokka)
     alias(libs.plugins.nexusPublish)
+    alias(libs.plugins.binaryCompatValidator)
     `maven-publish`
     jacoco
 }

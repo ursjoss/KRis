@@ -13,7 +13,8 @@ plugins {
 }
 
 configure<ReckonExtension> {
-    stages("beta", "rc", "final", "bosch")
+    setDefaultInferredScope("patch")
+    stages("beta", "rc", "final")
     setScopeCalc(calcScopeFromProp().or(calcScopeFromCommitMessages()))
     setStageCalc(calcStageFromProp())
 }

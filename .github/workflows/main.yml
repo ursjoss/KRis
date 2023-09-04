@@ -51,7 +51,6 @@ jobs:
             check
             detekt
             mergeDetektSarif
-            sonar
             :gradle-plugins:buildPlugins
             --continue
 

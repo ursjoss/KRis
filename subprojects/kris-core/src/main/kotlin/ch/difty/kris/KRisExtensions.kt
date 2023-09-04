@@ -98,4 +98,4 @@ private fun <T, R> Sequence<T>.mapSequence(
 /**
  * List of the names of all [RisTag]s.
  */
-public val risTagNames: List<String> get() = RisTag.values().map { it.name }
+public val risTagNames: List<String> get() = RisTag.entries.map { it.name }

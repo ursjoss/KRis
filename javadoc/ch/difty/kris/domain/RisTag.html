@@ -126,6 +126,14 @@ public enum <span class="typeNameLabel"><a href=RisTag.html>RisTag</a></span>
 extends <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Enum.html>Enum</a>&lt;<a href=RisTag.html>RisTag</a>&gt;
                     </pre>
                     <div class="block"><p>The enum defines all available Tags that may be used in the RIS format.</p><p>A description outlines the purpose of the tag, the maxLength property defines the maximum number of characters (for Strings) - a <code>null</code> value indicates either no restriction or a non-String class (as specified in kClass). The requiredOrder property defines the first level of sorting when writing RIS files. The specification does not enforce any particular order except for <code>TY</code> to be the first one and <code>ER</code> to be the last tag in a RIS record. All other tags share the same value, resulting in either being sorted by tag name alphabetically or by a custom sort order specified by the caller.</p><p>The class was composed from information available on <a href=https://en.wikipedia.org/wiki/RIS_(file_format).html>Wikipedia</a>.</p></div>
+
+                    <dl>
+
+                    
+
+                    
+
+                    </dl>
                 </li>
             </ul>
         </div>
@@ -188,6 +196,12 @@ extends <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Enum.html>En
                                         <tr class="rowColor">
                                             <td class="colFirst"><code>private final <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html>Integer</a></code></td>
                                             <th class="colSecond" scope="row"><code><a href=RisType.html#ordinal>ordinal</a></code></th>
+                                            <td class="colLast"></td>
+                                        </tr>
+                                        
+                                        <tr class="altColor">
+                                            <td class="colFirst"><code>private final <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.enums/-enum-entries/index.html>EnumEntries</a>&lt;<a href=RisTag.html>RisTag</a>&gt;</code></td>
+                                            <th class="colSecond" scope="row"><code><a href=RisTag.html#entries>entries</a></code></th>
                                             <td class="colLast"></td>
                                         </tr>
                                         
@@ -760,6 +774,14 @@ extends <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Enum.html>En
                                             <td class="colLast">Returns an array containing the constants of this enum type, in the order they're declared.</td>
                                         </tr>
                                         
+                                        <tr id="i2" class="altColor">
+                                            <td class="colFirst"><code>final <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.enums/-enum-entries/index.html>EnumEntries</a>&lt;<a href=RisTag.html>RisTag</a>&gt;</code>
+                                            </td>
+                                            <th class="colSecond" scope="row"><code><a href=RisTag.html#getEntries()>getEntries</a>() </code>
+                                            </th>
+                                            <td class="colLast">The enum defines all available Tags that may be used in the RIS format.</td>
+                                        </tr>
+                                        
                                         </tbody>
                                     </table>
                                 </div>
@@ -820,8 +842,16 @@ extends <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Enum.html>En
                                         <h4>valueOf</h4>
                                         <pre class="methodSignature"> final <a href=RisTag.html>RisTag</a> <a href=RisTag.html#valueOf(java.lang.String)>valueOf</a>(<a href=https://docs.oracle.com/javase/8/docs/api/java/lang/String.html>String</a> value)</pre>
                                         <div class="block"><p>Returns the enum constant of this type with the specified name. The string must match exactly an identifier used to declare an enum constant in this type. (Extraneous whitespace characters are not permitted.)</p></div>
+
+                                        <dl>
+
                                         
-                                        <!-- TODO missing return annotation -->
+
+                                        
+
+                                        
+
+                                        </dl>
                                     </li>
                                 </ul>
                                 
@@ -829,14 +859,45 @@ extends <a href=https://docs.oracle.com/javase/8/docs/api/java/lang/Enum.html>En
                                     <!--   -->
                                 </a>
                                 <ul class=
-                                              "blockListLast"
+                                              "blockList"
                                           >
                                     <li class="blockList">
                                         <h4>values</h4>
                                         <pre class="methodSignature"> final <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-array/index.html>Array</a>&lt;<a href=RisTag.html>RisTag</a>&gt; <a href=RisTag.html#values()>values</a>()</pre>
                                         <div class="block"><p>Returns an array containing the constants of this enum type, in the order they're declared.</p><p>This method may be used to iterate over the constants.</p></div>
+
+                                        <dl>
+
                                         
-                                        <!-- TODO missing return annotation -->
+
+                                        
+
+                                        
+
+                                        </dl>
+                                    </li>
+                                </ul>
+                                
+                                <a id="getEntries()">
+                                    <!--   -->
+                                </a>
+                                <ul class=
+                                              "blockListLast"
+                                          >
+                                    <li class="blockList">
+                                        <h4>getEntries</h4>
+                                        <pre class="methodSignature"> final <a href=https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.enums/-enum-entries/index.html>EnumEntries</a>&lt;<a href=RisTag.html>RisTag</a>&gt; <a href=RisTag.html#getEntries()>getEntries</a>()</pre>
+                                        <div class="block"><p>The enum defines all available Tags that may be used in the RIS format.</p><p>A description outlines the purpose of the tag, the maxLength property defines the maximum number of characters (for Strings) - a <code>null</code> value indicates either no restriction or a non-String class (as specified in kClass). The requiredOrder property defines the first level of sorting when writing RIS files. The specification does not enforce any particular order except for <code>TY</code> to be the first one and <code>ER</code> to be the last tag in a RIS record. All other tags share the same value, resulting in either being sorted by tag name alphabetically or by a custom sort order specified by the caller.</p><p>The class was composed from information available on <a href=https://en.wikipedia.org/wiki/RIS_(file_format).html>Wikipedia</a>.</p></div>
+
+                                        <dl>
+
+                                        
+
+                                        
+
+                                        
+
+                                        </dl>
                                     </li>
                                 </ul>
                                 

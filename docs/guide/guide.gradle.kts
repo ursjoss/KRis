@@ -8,7 +8,7 @@ plugins {
 }
 
 tasks {
-    val builtGuideDir = project.layout.buildDirectory.get().asFile.resolve("/guide")
+    val builtGuideDir = project.layout.buildDirectory.get().asFile.resolve("guide")
     withType<AsciidoctorTask> {
         sourceDir(file("src/docs/asciidoc/"))
         setBaseDir(file("src/docs/asciidoc/"))

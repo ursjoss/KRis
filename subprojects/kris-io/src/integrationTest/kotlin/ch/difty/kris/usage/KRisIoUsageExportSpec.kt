@@ -10,7 +10,6 @@ import kotlinx.coroutines.withContext
 import org.amshove.kluent.shouldHaveSize
 import java.io.File
 
-@Suppress("unused")
 object KRisIoUsageExportSpec : DescribeSpec({
 
     describe("exporting into file") {

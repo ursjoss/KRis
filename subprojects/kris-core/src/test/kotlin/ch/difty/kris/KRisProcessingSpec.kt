@@ -10,7 +10,7 @@ import org.amshove.kluent.shouldBeEqualTo
 import org.amshove.kluent.shouldHaveSize
 import org.amshove.kluent.shouldThrow
 
-@Suppress("unused", "SpellCheckingInspection", "S1192")
+@Suppress("SpellCheckingInspection", "S1192")
 object KRisProcessingSpec : DescribeSpec({
 
     describe("with RIS file as list of strings") {

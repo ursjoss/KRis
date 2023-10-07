@@ -12,7 +12,6 @@ import org.amshove.kluent.shouldHaveSize
 import java.io.File
 import kotlin.streams.toList
 
-@Suppress("unused")
 object KRisIoUsageImportSpec : DescribeSpec({
 
     describe("importing from file") {

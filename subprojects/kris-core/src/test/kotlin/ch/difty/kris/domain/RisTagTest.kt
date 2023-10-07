@@ -3,7 +3,6 @@ package ch.difty.kris.domain
 import org.amshove.kluent.shouldContainAll
 import org.junit.jupiter.api.Test
 
-@Suppress("SpellCheckingInspection")
 internal class RisTagTest {
 
     @Test

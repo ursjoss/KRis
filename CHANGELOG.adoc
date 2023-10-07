@@ -77,6 +77,7 @@ The format is based on https://keepachangelog.com/en/1.0.0/[Keep a Changelog].
 
 .Removed
 - Java 11 compatibility (now requiring java platform 17 as minimum)
+- {url-issues}132[#132] Remove deprecated RIS fields number and typeOfWork
 
 
 [[v0.4.9]]

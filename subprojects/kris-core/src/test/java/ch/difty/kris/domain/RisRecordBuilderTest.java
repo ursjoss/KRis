@@ -256,44 +256,4 @@ class RisRecordBuilderTest {
         assertThat(risRecord.getPrimaryDate()).isNull();
         assertThat(risRecord.getAccessDate()).isNull();
     }
-
-    @SuppressWarnings("deprecation")
-    @Test
-    public void givenRisRecordWithMisc1_providesMisc1ButNotNumber() {
-        RisRecord risRecord = new RisRecord.Builder()
-            .miscellaneous1("4es")
-            .build();
-        assertThat(risRecord.getMiscellaneous1()).isEqualTo("4es");
-        assertThat(risRecord.getNumber()).isNull();
-    }
-
-    @SuppressWarnings("deprecation")
-    @Test
-    public void givenRisRecordWithNumber_providesNumberButNotMisc1() {
-        RisRecord risRecord = new RisRecord.Builder()
-            .number(1234L)
-            .build();
-        assertThat(risRecord.getMiscellaneous1()).isNull();
-        assertThat(risRecord.getNumber()).isEqualTo(1234L);
-    }
-
-    @SuppressWarnings("deprecation")
-    @Test
-    public void givenRisRecordWithMisc3_providesMisc3ButNotTypeOfWork() {
-        RisRecord risRecord = new RisRecord.Builder()
-            .miscellaneous3("misc3")
-            .build();
-        assertThat(risRecord.getMiscellaneous3()).isEqualTo("misc3");
-        assertThat(risRecord.getTypeOfWork()).isNull();
-    }
-
-    @SuppressWarnings("deprecation")
-    @Test
-    public void givenRisRecordWithTypeOfWork_providesTypeOfWorkButNotMisc3() {
-        RisRecord risRecord = new RisRecord.Builder()
-            .typeOfWork("misc3")
-            .build();
-        assertThat(risRecord.getMiscellaneous3()).isNull();
-        assertThat(risRecord.getTypeOfWork()).isEqualTo("misc3");
-    }
 }

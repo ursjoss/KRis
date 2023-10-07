@@ -62,6 +62,23 @@ The format is based on https://keepachangelog.com/en/1.0.0/[Keep a Changelog].
 
 ////
 
+[[v0.4.9]]
+== [0.4.9] -- 2023-09-05
+
+{url-cl}0.4.6++...++0.4.9[Full Changelog]
+
+.Changed
+- Bumped dependencies
+  kotlin, coroutines, kotlinx-coroutines-rx2
+  junit5, kotest, mockk, kluent,
+  dokka, detekt, reckon,
+  versions gradle plugin, git-publish plugin, binary compatibility-validator, sonarqube gradle plugin,
+
+.Added
+- detekt hints
+
+.Fixed
+- Path to guide build directory
 
 [[v0.4.6]]
 == [0.4.6] -- 2023-04-03

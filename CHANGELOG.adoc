@@ -44,7 +44,7 @@ The format is based on https://keepachangelog.com/en/1.0.0/[Keep a Changelog].
 [[unreleased]]
 == [unreleased]
 
-{url-cl}0.4.6++...++main[Full Changelog]
+{url-cl}0.5.0++...++main[Full Changelog]
 
 .Added
 
@@ -61,6 +61,23 @@ The format is based on https://keepachangelog.com/en/1.0.0/[Keep a Changelog].
 .Security
 
 ////
+
+[[v0.5.0]]
+== [0.5.0] -- 2023-10-07
+
+{url-cl}0.4.9++...++0.5.0[Full Changelog]
+
+.Changed
+- Bumped dependency
+  gradle-wrapper,
+  kotest, mockk,
+  versions gradle plugin,
+  checkout github action
+- Fail on gradle deprecation warnings
+
+.Removed
+- Java 11 compatibility (now requiring java platform 17 as minimum)
+
 
 [[v0.4.9]]
 == [0.4.9] -- 2023-09-05

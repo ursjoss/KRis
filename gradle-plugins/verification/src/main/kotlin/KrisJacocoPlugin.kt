@@ -7,7 +7,7 @@ import org.gradle.testing.jacoco.plugins.JacocoPlugin
 import org.gradle.testing.jacoco.plugins.JacocoReportAggregationPlugin
 import org.gradle.testing.jacoco.tasks.JacocoReport
 
-@Suppress("unused")
+@Suppress("unused", "UnstableApiUsage")
 class KrisJacocoPlugin : Plugin<Project> {
 
     override fun apply(target: Project) {
@@ -26,6 +26,7 @@ class KrisJacocoPlugin : Plugin<Project> {
             }
             target.rootProject.tasks.named("sonar") {
                 dependsOn(tasks.getByName("check"))
+                dependsOn(tasks.getByName("jacocoTestReport"))
             }
         }
     }

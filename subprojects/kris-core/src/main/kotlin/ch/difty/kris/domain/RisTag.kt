@@ -17,7 +17,6 @@ import kotlin.reflect.KClass
  * The class was composed from information available on
  * [Wikipedia](https://en.wikipedia.org/wiki/RIS_(file_format)).
  */
-@Suppress("SpellCheckingInspection")
 public enum class RisTag(
     internal val description: String,
     internal val maxLength: Int? = null,
@@ -382,17 +381,10 @@ public enum class RisTag(
     ),
 
     /** Miscellaneous 1. Often used for Number or Range of Numbers */
-    @Suppress("Deprecation")
     M1(
         description = "Miscellaneous 1 (often Number)",
-        setInto = { r, v ->
-            r.miscellaneous1 = v as String?
-            r.number = v?.toLongOrNull()
-        },
-        getFrom = { r: RisRecord ->
-            r.miscellaneous1.takeUnless { it.isNullOrBlank() }
-                ?: r.number
-        },
+        setInto = { r, v -> r.miscellaneous1 = v as String? },
+        getFrom = { r: RisRecord -> r.miscellaneous1 },
         kClass = String::class
     ),
 
@@ -404,17 +396,10 @@ public enum class RisTag(
     ),
 
     /** Miscellaneous 3. Often used for Type of Work */
-    @Suppress("Deprecation")
     M3(
         description = "Miscellaneous 3 (often Type of Work)",
-        setInto = { r, v ->
-            r.miscellaneous3 = v as String?
-            r.typeOfWork = v
-        },
-        getFrom = { r: RisRecord ->
-            r.miscellaneous3.takeUnless { it.isNullOrBlank() }
-                ?: r.typeOfWork
-        }
+        setInto = { r, v -> r.miscellaneous3 = v as String? },
+        getFrom = { r: RisRecord -> r.miscellaneous3 }
     ),
 
     /** Notes */

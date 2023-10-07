@@ -18,7 +18,7 @@ import org.junit.jupiter.api.Test;
 class KRisUsageTest {
 
     //@formatter:off
-    @SuppressWarnings("SpellCheckingInspection") private final List<String> risLines = List.of(
+    private final List<String> risLines = List.of(
         "TY  - JOUR",
         "AU  - Shannon, Claude E.",
         "PY  - 1948/07//",

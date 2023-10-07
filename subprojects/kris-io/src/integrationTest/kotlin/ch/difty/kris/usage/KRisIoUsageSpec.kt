@@ -12,7 +12,6 @@ import org.amshove.kluent.shouldBeEqualTo
 import org.amshove.kluent.shouldHaveSize
 import java.io.File
 
-@Suppress("unused")
 object KRisIoUsageSpec : DescribeSpec({
 
     describe("importing from file") {

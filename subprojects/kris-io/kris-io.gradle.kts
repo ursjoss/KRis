@@ -53,6 +53,17 @@ tasks {
     named("sourcesJar") {
         dependsOn(javadocJar)
     }
+    val apiBuild by existing
+    named("jacocoTestReport") {
+        dependsOn(testing.suites.named("integrationTest"))
+        dependsOn(apiBuild)
+        rootProject.subprojects.firstOrNull { it.name == "kris-core" }?.tasks?.named("test")?.let {
+            dependsOn(it)
+        }
+        rootProject.subprojects.firstOrNull { it.name == "kris-core" }?.tasks?.named("apiBuild")?.let {
+            mustRunAfter(it)
+        }
+    }
 }
 
 dependencies {

@@ -32,4 +32,8 @@ tasks {
     named("sourcesJar") {
         dependsOn(javadocJar)
     }
+    val apiBuild by existing
+    named("jacocoTestReport") {
+        dependsOn(apiBuild)
+    }
 }

@@ -24,8 +24,6 @@ plugins {
     jacoco
 }
 
-val jacocoTestReportFile = "${layout.buildDirectory.get()}/reports/jacoco/test/jacocoTestReport.xml"
-
 jacoco {
     toolVersion = libs.versions.jacoco.get()
 }
@@ -35,8 +33,6 @@ sonarqube {
         property("sonar.host.url", "https://sonarcloud.io")
         property("sonar.projectKey", "ursjoss_${project.name}")
         property("sonar.organization", "ursjoss-github")
-        property("sonar.coverage.jacoco.xmlReportPaths", jacocoTestReportFile)
-        property("sonar.kotlin.detekt.reportPaths", "${layout.buildDirectory.get()}/reports/detekt/detekt.xml")
     }
 }
 
@@ -85,6 +81,24 @@ kotlin {
 val kotlinSrcSet = "/src/main/kotlin"
 
 subprojects.forEach { subProject ->
+    if (subProject.name in setOf("kris-core", "kris-io")) {
+        apply {
+            plugin("org.sonarqube")
+            plugin("jacoco")
+        }
+        sonarqube {
+            properties {
+                property(
+                    "sonar.kotlin.detekt.reportPaths",
+                    subProject.layout.buildDirectory.get().asFile.resolve("reports/detekt/detekt.xml")
+                )
+                property(
+                    "sonar.coverage.jacoco.xmlReportPaths",
+                    subProject.layout.buildDirectory.get().asFile.resolve("reports/jacoco/test/jacocoTestReport.xml")
+                )
+            }
+        }
+    }
     subProject.tasks {
         val kotlinVersion = libs.versions.kotlin.get()
         val kotlinApiLangVersion = kotlinVersion.subSequence(0, 3).toString()

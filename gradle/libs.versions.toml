@@ -16,7 +16,7 @@ mockk = "1.13.9"
 nexusPublish = "1.3.0"
 rxjava = "2.2.21"
 sonarqube = "4.2.1.3168"
-versions = "0.50.0"
+versions = "0.51.0"
 
 [libraries]
 assertj-core = { module = "org.assertj:assertj-core", version.ref = "assertj" }

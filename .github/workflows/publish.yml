@@ -33,7 +33,7 @@ jobs:
             gradle-cache-${{ hashFiles('gradle/wrapper/gradle-wrapper.properties') }}
 
       - name: Publish github pages
-        uses: gradle/gradle-build-action@v2
+        uses: gradle/gradle-build-action@v3
         env:
           GRGIT_USER: ${{ secrets.GRGIT_USER }}
         with:
@@ -43,7 +43,7 @@ jobs:
             :guide:gitPublishPush
 
       - name: Publish to maven central
-        uses: gradle/gradle-build-action@v2
+        uses: gradle/gradle-build-action@v3
         with:
           arguments: |
             build

@@ -44,12 +44,11 @@ The format is based on https://keepachangelog.com/en/1.0.0/[Keep a Changelog].
 [[unreleased]]
 == [unreleased]
 
-{url-cl}0.5.0++...++main[Full Changelog]
+{url-cl}0.5.1++...++main[Full Changelog]
 
 .Added
 
 ////
-
 .Changed
 
 .Deprecated
@@ -61,6 +60,24 @@ The format is based on https://keepachangelog.com/en/1.0.0/[Keep a Changelog].
 .Security
 
 ////
+
+
+[[v0.5.1]]
+== [0.5.1] -- 2024-03-23
+
+{url-cl}0.5.0++...++0.5.1[Full Changelog]
+
+.Changed
+- Bumped dependency
+  kotlin, couroutines,
+  gradle, dokka,
+  junit5, kotest, mockk, assertj, detekt, reckon,
+  asciidoctor-plugin, git-publish-plugin, versions-plugin, sonarqube-plugin,
+  binary-compatibility-validator
+
+.Removed
+- detekt-hint build action
+
 
 [[v0.5.0]]
 == [0.5.0] -- 2023-10-07

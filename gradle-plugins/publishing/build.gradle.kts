@@ -20,7 +20,7 @@ dependencies {
 
 detekt {
     buildUponDefaultConfig = true
-    config.from(file("../../config/detekt/detekt.yml"))
+    config.from(file("../../config/detekt.yml"))
 }
 
 gradlePlugin {

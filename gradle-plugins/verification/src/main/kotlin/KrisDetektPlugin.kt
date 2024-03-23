@@ -19,7 +19,7 @@ class KrisDetektPlugin : Plugin<Project> {
                 allRules = true
                 baseline = target.file("detekt-baseline.xml")
                 basePath = rootProject.projectDir.absolutePath
-                config.setFrom("${rootProject.projectDir}/config/detekt/detekt.yml")
+                config.setFrom("${rootProject.projectDir}/config/detekt.yml")
             }
 
             // enable SARIF report

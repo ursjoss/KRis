@@ -6,6 +6,6 @@ detekt-hint:
     active: true
     threshold: "0.8"
   InterfaceSegregationPrinciple:
-      active: true
+    active: true
   OpenClosedPrinciple:
-      active: true
+    active: true

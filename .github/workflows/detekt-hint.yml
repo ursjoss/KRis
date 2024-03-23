@@ -6,7 +6,7 @@ on:
       - '*'
 
 jobs:
-  hint:
+  gradle:
     strategy:
       matrix:
         os: [ubuntu-latest]
@@ -17,8 +17,8 @@ jobs:
       JDK_VERSION:  ${{ matrix.jdk }}
     steps:
       - name: Checkout Repo
-        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
-        
+        uses: actions/checkout@v2
+
       - name: Run detekt hint
         uses: mkohm/detekt-hint-action@v1.1
         with:

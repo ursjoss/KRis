@@ -9,7 +9,7 @@ import kotlinx.coroutines.flow.flow
 
 private const val INT_INTERMEDIATE = 1000
 
-private val LINE_SEPARATOR = System.getProperty("line.separator")
+private val LINE_SEPARATOR = System.lineSeparator()
 
 internal object RisExport {
 
@@ -17,6 +17,7 @@ internal object RisExport {
      * Converts a flow of [RisRecord]s into a flow of [String]s in RIS file format.
      * Optionally accepts a list of names of [RisTag]s defining a sort order for the [RisTag]s in the file.
      */
+    @Suppress("OpenClosedPrinciple")
     internal fun build(recordFlow: Flow<RisRecord>, sort: List<String> = emptyList()): Flow<String> = flow {
         fun RisTag.withValue(value: Any): String = "$this$TAG_SEPARATOR$value$LINE_SEPARATOR"
         val sortMap = sort.withIndex().associate { RisTag.valueOf(it.value) to it.index }.toMap()

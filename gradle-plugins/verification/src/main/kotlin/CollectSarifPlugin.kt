@@ -3,7 +3,7 @@ import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.api.plugins.JavaBasePlugin
 
-@Suppress("unused")
+@Suppress("unused", "LackOfCohesionMethods")
 class CollectSarifPlugin : Plugin<Project> {
 
     override fun apply(target: Project) {

@@ -1,9 +1,9 @@
 package ch.difty.kris.domain
 
 /**
- * A single RIS record. It contains all the allowed tag from RIS format.
+ * A single RIS record. It contains all the allowed tags from RIS format.
  */
-@Suppress("ParameterListWrapping", "SpellCheckingInspection", "TooManyFunctions")
+@Suppress("ParameterListWrapping", "SpellCheckingInspection", "TooManyFunctions", "LackOfCohesionMethods")
 public data class RisRecord(
 
     /** TY */

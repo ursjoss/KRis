@@ -1,7 +1,7 @@
 import org.jetbrains.dokka.gradle.DokkaTask
 import org.jetbrains.dokka.gradle.DokkaTaskPartial
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
-import java.net.URL
+import java.net.URI
 
 buildscript {
     repositories {
@@ -64,7 +64,7 @@ tasks {
             configureEach {
                 sourceLink {
                     localDirectory.set(file("$projectDir/$kotlinSrcSet"))
-                    remoteUrl.set(URL(projectRelativeSourceLink()))
+                    remoteUrl.set(URI.create(projectRelativeSourceLink()).toURL())
                     remoteLineSuffix.set("#L")
                 }
             }

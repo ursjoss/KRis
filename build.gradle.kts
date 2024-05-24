@@ -1,6 +1,5 @@
 import org.jetbrains.dokka.gradle.DokkaTask
 import org.jetbrains.dokka.gradle.DokkaTaskPartial
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 import java.net.URI
 
 buildscript {
@@ -22,6 +21,10 @@ plugins {
     alias(libs.plugins.binaryCompatValidator)
     `maven-publish`
     jacoco
+}
+
+kotlin {
+    jvmToolchain(libs.versions.java.get().toInt())
 }
 
 jacoco {
@@ -51,6 +54,8 @@ nexusPublishing {
     }
 }
 
+val kotlinSrcSet = "/src/main/kotlin"
+
 tasks {
     val deleteOutFolderTask by registering(Delete::class) {
         delete("out")
@@ -72,14 +77,6 @@ tasks {
     }
 }
 
-kotlin {
-    jvmToolchain {
-        languageVersion.set(JavaLanguageVersion.of(libs.versions.java.get()))
-    }
-}
-
-val kotlinSrcSet = "/src/main/kotlin"
-
 subprojects.forEach { subProject ->
     if (subProject.name in setOf("kris-core", "kris-io")) {
         apply {
@@ -99,23 +96,16 @@ subprojects.forEach { subProject ->
             }
         }
     }
+
     subProject.tasks {
-        val kotlinVersion = libs.versions.kotlin.get()
-        val kotlinApiLangVersion = kotlinVersion.subSequence(0, 3).toString()
-        val jvmTargetVersion = libs.versions.java.get()
-        withType<KotlinCompile>().configureEach {
-            kotlinOptions {
+        named("compileKotlin", org.jetbrains.kotlin.gradle.tasks.KotlinCompilationTask::class.java) {
+            val kotlinApiLangVersion = org.jetbrains.kotlin.gradle.dsl.KotlinVersion.fromVersion(libs.versions.kotlin.get().take(3))
+            compilerOptions {
                 apiVersion = kotlinApiLangVersion
                 languageVersion = kotlinApiLangVersion
-                jvmTarget = jvmTargetVersion
-                freeCompilerArgs = freeCompilerArgs + listOf("-opt-in=kotlin.RequiresOptIn")
+                freeCompilerArgs.add("-opt-in=kotlin.RequiresOptIn")
             }
         }
-        withType<JavaCompile>().configureEach {
-            sourceCompatibility = jvmTargetVersion
-            targetCompatibility = jvmTargetVersion
-        }
-
         withType<Test> {
             useJUnitPlatform {
                 includeEngines("junit-jupiter", "kotest")
@@ -126,11 +116,6 @@ subprojects.forEach { subProject ->
                 configureEach {
                     includes.from("module.md")
                 }
-            }
-        }
-        kotlin {
-            jvmToolchain {
-                languageVersion.set(JavaLanguageVersion.of(libs.versions.java.get()))
             }
         }
     }

@@ -98,14 +98,6 @@ subprojects.forEach { subProject ->
     }
 
     subProject.tasks {
-        named("compileKotlin", org.jetbrains.kotlin.gradle.tasks.KotlinCompilationTask::class.java) {
-            val kotlinApiLangVersion = org.jetbrains.kotlin.gradle.dsl.KotlinVersion.fromVersion(libs.versions.kotlin.get().take(3))
-            compilerOptions {
-                apiVersion = kotlinApiLangVersion
-                languageVersion = kotlinApiLangVersion
-                freeCompilerArgs.add("-opt-in=kotlin.RequiresOptIn")
-            }
-        }
         withType<Test> {
             useJUnitPlatform {
                 includeEngines("junit-jupiter", "kotest")

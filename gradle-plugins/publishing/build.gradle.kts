@@ -1,5 +1,3 @@
-import org.jetbrains.kotlin.gradle.tasks.KotlinJvmCompile
-
 @Suppress("DSL_SCOPE_VIOLATION")
 plugins {
     `java-gradle-plugin`
@@ -8,9 +6,7 @@ plugins {
 }
 
 kotlin {
-    jvmToolchain {
-        languageVersion.set(JavaLanguageVersion.of(libs.versions.java.get()))
-    }
+    jvmToolchain(libs.versions.java.get().toInt())
 }
 
 dependencies {

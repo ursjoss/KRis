@@ -13,9 +13,7 @@ dependencies {
 }
 
 kotlin {
-    jvmToolchain {
-        languageVersion.set(JavaLanguageVersion.of(libs.versions.java.get()))
-    }
+    jvmToolchain(libs.versions.java.get().toInt())
 }
 
 detekt {

@@ -1,6 +1,6 @@
 [versions]
 asciidoctor = "4.0.2"
-assertj = "3.25.3"
+assertj = "3.26.0"
 binaryCompaValidator = "0.14.0"
 coroutines = "1.8.1"
 detekt = "1.23.6"

@@ -10,7 +10,6 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import org.amshove.kluent.shouldHaveSize
 import java.io.File
-import kotlin.streams.toList
 
 object KRisIoUsageImportSpec : DescribeSpec({
 
@@ -22,7 +21,7 @@ object KRisIoUsageImportSpec : DescribeSpec({
             it.deleteOnExit()
         }
 
-        describe("list mehtods") {
+        describe("list methods") {
             it("can read from File") {
                 file.process() shouldHaveSize 1
             }

@@ -11,7 +11,7 @@ import java.util.stream.Collectors.toList
 private const val FILE_PATH = "src/integrationTest/resources/sample.ris"
 private const val PAPER_COUNT = 4
 
-@Suppress("FunctionName", "S100", "SpellCheckingInspection", "MaxLineLength", "TooManyFunctions")
+@Suppress("FunctionName", "S100", "SpellCheckingInspection", "MaxLineLength", "TooManyFunctions", "RedundantSuppression")
 internal class KRisIOIntegrationTest {
 
     private val expectedLines = setOf(

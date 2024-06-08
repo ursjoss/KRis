@@ -8,7 +8,7 @@ image:https://github.com/ursjoss/KRis/actions/workflows/codeql.yml/badge.svg?bra
 KRis is a Kotlin implementation of RIS Format -- forked from fastlucas Java implementation https://github.com/fastluca/JRis[JRis].
 KRis has the goal to give an easy way to parse RIS format stream and to build them.
 
-From https://en.wikipedia.org/wiki/RIS_(file_format)[Wikipiedia]:
+From https://en.wikipedia.org/wiki/RIS_(file_format)[Wikipedia]:
 
 ====
 RIS is a standardized tag format developed by Research Information Systems,

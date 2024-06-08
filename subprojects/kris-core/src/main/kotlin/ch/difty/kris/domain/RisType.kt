@@ -3,7 +3,7 @@ package ch.difty.kris.domain
 /**
  * Types of References - as used in [RisTag] `TY`.
  *
- * The class was composed from information available on
+ * The class was composed of information available on
  * [Wikipedia](https://en.wikipedia.org/wiki/RIS_(file_format)).
  */
 @Suppress("SpellCheckingInspection")

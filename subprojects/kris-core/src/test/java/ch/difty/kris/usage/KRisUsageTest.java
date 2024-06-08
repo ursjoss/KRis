@@ -42,21 +42,21 @@ class KRisUsageTest {
 
     @Test
     void whenProcessingRisLinesAsList_willReturnListOfRisRecords() {
-        final List<RisRecord> risRecords = KRis.processList(risLines);
-        assertThat(risRecords).hasSize(2);
+        final List<RisRecord> records = KRis.processList(risLines);
+        assertThat(records).hasSize(2);
     }
 
     @Test
     void whenProcessingRisLinesAsObservable_willReturnObservableOfRisRecords() {
-        final List<RisRecord> risRecords = new ArrayList<>();
+        final List<RisRecord> records = new ArrayList<>();
 
         final Observable<String> observable = Observable.fromIterable(risLines);
 
         KRis
             .processObservables(observable)
-            .blockingSubscribe(risRecords::add);
+            .blockingSubscribe(records::add);
 
-        assertThat(risRecords).hasSize(2);
+        assertThat(records).hasSize(2);
     }
 
     private final RisRecord risRecord = new RisRecord.Builder()
@@ -76,20 +76,20 @@ class KRisUsageTest {
 
     @Test
     void whenProcessingRisRecordsAsList_willReturnListOfRisLines() {
-        final List<String> risLines = KRis.buildFromList(risRecords);
-        assertThat(risLines).hasSize(expectedLineCount);
+        final List<String> lines = KRis.buildFromList(risRecords);
+        assertThat(lines).hasSize(expectedLineCount);
     }
 
     @Test
     void whenProcessingRisRecordsAsObservable_willReturnObservableOfString() {
-        final List<String> risLines = new ArrayList<>();
+        final List<String> lines = new ArrayList<>();
 
         final Observable<RisRecord> observable = Observable.fromIterable(risRecords);
 
         KRis
             .exportObservable(observable)
-            .blockingSubscribe(risLines::add);
+            .blockingSubscribe(lines::add);
 
-        assertThat(risLines).hasSize(expectedLineCount);
+        assertThat(lines).hasSize(expectedLineCount);
     }
 }

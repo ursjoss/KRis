@@ -5,7 +5,6 @@ import ch.difty.kris.domain.RisType
 import io.mockk.every
 import io.mockk.mockk
 import io.mockk.verify
-import kotlinx.coroutines.ExperimentalCoroutinesApi
 import org.junit.jupiter.api.Test
 import java.io.Writer
 
@@ -22,7 +21,6 @@ internal class KRisIoTest {
             every { close() } returns Unit
         }
 
-        @OptIn(ExperimentalCoroutinesApi::class)
         KRisIO.export(records, writer = writer, dispatchers = TestDispatcherProvider())
 
         verify { writer.write("TY  - BOOK\n") }

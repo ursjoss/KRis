@@ -14,7 +14,7 @@ import kotlin.reflect.KClass
  * share the same value, resulting in either being sorted by tag name alphabetically
  * or by a custom sort order specified by the caller.
  *
- * The class was composed from information available on
+ * The class was composed of information available on
  * [Wikipedia](https://en.wikipedia.org/wiki/RIS_(file_format)).
  */
 public enum class RisTag(

@@ -10,9 +10,9 @@ like writing to file or reading to file.
 
 # Package ch.difty.kris
 
-`KRis` is the object at the core of the KRis library. If offers a number of accessor methods
+`KRis` is the object at the core of the KRis library. If provides a number of accessor methods
 to Java Clients that offer to convert `String`s to `RisRecord`s or vice versa, in different
-flavors of data input, non-blockingly using kotlin flows or RxJava observables or in a blocking
+flavors of data input, non-blocking usage kotlin flows or RxJava observables or in a blocking
 manner accepting lists.
 
 `KrisExtensions` offers a number of handy extension functions to kotlin clients.

@@ -49,6 +49,7 @@ public class GuideExamples {
 
         List<String> lines = KRis.buildFromList(records);
         // end::fromList[]
+        System.out.println(lines);
     }
 
     void fromListCustomSort() {
@@ -58,6 +59,7 @@ public class GuideExamples {
 
         List<String> lines = KRis.buildFromList(records, sort);
         // end::fromListCustomSort[]
+        System.out.println(lines);
     }
 
     // tag::fromObservable[]
@@ -135,6 +137,7 @@ public class GuideExamples {
         final File file = new File("import.ris");
         final List<RisRecord> records = KRisIO.process(file);
         // end::processFile[]
+        System.out.println(records);
     }
 
     void processInputStream() throws IOException {
@@ -149,6 +152,7 @@ public class GuideExamples {
         // tag::processPath[]
         final List<RisRecord> records = KRisIO.process("import.ris");
         // end::processPath[]
+        System.out.println(records);
     }
 
     void processReaderAsStream() throws IOException {
@@ -164,6 +168,7 @@ public class GuideExamples {
         final File file = new File("import.ris");
         final Stream<RisRecord> records = KRisIO.processToStream(file);
         // end::processFileAsStream[]
+        System.out.println(records);
     }
 
     void processInputStreamAsStream() throws IOException {
@@ -178,6 +183,7 @@ public class GuideExamples {
         // tag::processPathAsStream[]
         final Stream<RisRecord> records = KRisIO.processToStream("import.ris");
         // end::processPathAsStream[]
+        System.out.println(records);
     }
 
     void passRisLinesAsList() throws IOException {
@@ -185,6 +191,7 @@ public class GuideExamples {
         final List<String> lines = List.of(); // TODO
         List<RisRecord> records = KRis.processList(lines);
         // end::passRisLinesAsList[]
+        System.out.println(records);
     }
 
     void processObservables() throws IOException {
@@ -205,5 +212,6 @@ public class GuideExamples {
         // tag::getListOfRisTagsAsString[]
         List<String> namesOfAllRisTags = KRis.risTagNames();
         // end::getListOfRisTagsAsString[]
+        System.out.println(namesOfAllRisTags);
     }
 }

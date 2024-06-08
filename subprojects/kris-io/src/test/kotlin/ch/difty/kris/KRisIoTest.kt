@@ -22,7 +22,6 @@ internal class KRisIoTest {
             every { close() } returns Unit
         }
 
-        @OptIn(ExperimentalCoroutinesApi::class)
         KRisIO.export(records, writer = writer, dispatchers = TestDispatcherProvider())
 
         verify { writer.write("TY  - BOOK\n") }

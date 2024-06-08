@@ -186,7 +186,7 @@ public class GuideExamples {
         System.out.println(records);
     }
 
-    void passRisLinesAsList() throws IOException {
+    void passRisLinesAsList() {
         // tag::passRisLinesAsList[]
         final List<String> lines = List.of(); // TODO
         List<RisRecord> records = KRis.processList(lines);
@@ -194,7 +194,7 @@ public class GuideExamples {
         System.out.println(records);
     }
 
-    void processObservables() throws IOException {
+    void processObservables() {
         // tag::processObservables[]
         final List<RisRecord> risRecords = new ArrayList<>();
         final List<String> lines = new ArrayList<>();

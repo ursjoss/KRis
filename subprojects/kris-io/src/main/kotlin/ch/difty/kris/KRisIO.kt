@@ -10,6 +10,7 @@ import kotlinx.coroutines.flow.lastOrNull
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.toList
 import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.withContext
 import java.io.BufferedReader
 import java.io.File
 import java.io.FileOutputStream
@@ -147,7 +148,9 @@ public object KRisIO {
                 KRis.build(records.asFlow(), sort)
                     .buffer(onBufferOverflow = BufferOverflow.SUSPEND)
                     .collect { line ->
-                        w.write(line)
+                        withContext(dispatchers.io) {
+                            w.write(line)
+                        }
                     }
             }
         }

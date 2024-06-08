@@ -22,7 +22,7 @@ object KRisIoUsageImportSpec : DescribeSpec({
             it.deleteOnExit()
         }
 
-        describe("list mehtods") {
+        describe("list methods") {
             it("can read from File") {
                 file.process() shouldHaveSize 1
             }

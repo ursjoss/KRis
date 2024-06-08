@@ -93,7 +93,7 @@ public class GuideExamples {
         // end::writerExport[]
     }
 
-    void fileExport() throws IOException {
+    void fileExport() {
         // tag::fileExport[]
         final List<RisRecord> records = List.of(record1, record2);
 
@@ -113,7 +113,7 @@ public class GuideExamples {
         // end::streamExport[]
     }
 
-    void pathExport() throws IOException {
+    void pathExport() {
         // tag::pathExport[]
         final List<RisRecord> records = List.of(record1, record2);
 

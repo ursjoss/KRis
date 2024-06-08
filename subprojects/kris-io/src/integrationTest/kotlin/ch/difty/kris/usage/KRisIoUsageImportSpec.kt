@@ -10,7 +10,6 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import org.amshove.kluent.shouldHaveSize
 import java.io.File
-import kotlin.streams.toList
 
 object KRisIoUsageImportSpec : DescribeSpec({
 

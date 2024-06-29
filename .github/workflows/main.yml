@@ -44,7 +44,7 @@ jobs:
           restore-keys: |
             gradle-cache-${{ hashFiles('gradle/wrapper/gradle-wrapper.properties') }}
 
-      - uses: gradle/gradle-build-action@v3
+      - uses: gradle/actions/setup-gradle@v3
         with:
           arguments: |
             build

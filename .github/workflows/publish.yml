@@ -32,27 +32,19 @@ jobs:
           restore-keys: |
             gradle-cache-${{ hashFiles('gradle/wrapper/gradle-wrapper.properties') }}
 
-      - name: Publish github pages
+      - name: Setup gradle
         uses: gradle/actions/setup-gradle@v3
+
+      - name: Publish github pages
+        run: ./gradlew build check :guide:gitPublishPush
         env:
           GRGIT_USER: ${{ secrets.GRGIT_USER }}
-        with:
-          arguments: |
-            build
-            check
-            :guide:gitPublishPush
 
       - name: Publish to maven central
-        uses: gradle/actions/setup-gradle@v3
-        with:
-          arguments: |
-            build
-            check
-            :kris-core:publish
-            :kris-io:publish
-            -x apiCheck
+        run: ./gradlew build check :kris-core:publish :kris-io:publish -x apiCheck
         env:
           GPG_SIGNING_KEY: ${{ secrets.GPG_SIGNING_KEY }}
           GPG_SIGNING_PASSPHRASE: ${{ secrets.GPG_SIGNING_PASSPHRASE }}
           OSSRH_USERNAME: ${{ secrets.OSSRH_USERNAME }}
           OSSRH_PASSWORD: ${{ secrets.OSSRH_PASSWORD }}
+

@@ -44,7 +44,7 @@ The format is based on https://keepachangelog.com/en/1.0.0/[Keep a Changelog].
 [[unreleased]]
 == [unreleased]
 
-{url-cl}0.5.2++...++main[Full Changelog]
+{url-cl}0.5.3++...++main[Full Changelog]
 
 .Added
 
@@ -61,11 +61,21 @@ The format is based on https://keepachangelog.com/en/1.0.0/[Keep a Changelog].
 
 ////
 
+[[v0.5.3]]
+== [0.5.3] -- 2024-06-29
+
+{url-cl}0.5.2++...++0.5.3[Full Changelog]
+
+.Changed
+- Resolved deprecations with gradle actions
+
 
 [[v0.5.2]]
 == [0.5.2] -- 2024-06-29
 
 {url-cl}0.5.1++...++0.5.2[Full Changelog]
+
+Note: The publication of this release to Maven Centeral failed.
 
 .Changed
 - Bumped kotlin, coroutines,

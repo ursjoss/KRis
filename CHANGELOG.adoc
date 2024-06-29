@@ -44,7 +44,7 @@ The format is based on https://keepachangelog.com/en/1.0.0/[Keep a Changelog].
 [[unreleased]]
 == [unreleased]
 
-{url-cl}0.5.1++...++main[Full Changelog]
+{url-cl}0.5.2++...++main[Full Changelog]
 
 .Added
 
@@ -60,6 +60,19 @@ The format is based on https://keepachangelog.com/en/1.0.0/[Keep a Changelog].
 .Security
 
 ////
+
+
+[[v0.5.2]]
+== [0.5.2] -- 2024-06-29
+
+{url-cl}0.5.1++...++0.5.2[Full Changelog]
+
+.Changed
+- Bumped kotlin, coroutines,
+  junit5, kotest, mockk, assertj-core, detekt,
+  gradle, gradle-nexus.publish-plugin, sonarqube-plugin,
+  actions/checkout digest, gradle/wrapper-validation-action
+- resoled some warnins and deprecations
 
 
 [[v0.5.1]]

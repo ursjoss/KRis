@@ -10,6 +10,9 @@ import ch.difty.kris.KRisIO;
 import ch.difty.kris.domain.RisRecord;
 import ch.difty.kris.domain.RisType;
 import io.reactivex.Observable;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SuppressWarnings("ALL")
 public class GuideExamples {
@@ -213,5 +216,10 @@ public class GuideExamples {
         List<String> namesOfAllRisTags = KRis.risTagNames();
         // end::getListOfRisTagsAsString[]
         System.out.println(namesOfAllRisTags);
+    }
+
+    @Test
+    void dummyTest() {
+        assertEquals(true, true);
     }
 }

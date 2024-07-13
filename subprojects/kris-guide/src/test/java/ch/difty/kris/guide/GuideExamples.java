@@ -1,5 +1,7 @@
 package ch.difty.kris.guide;
 
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -12,10 +14,8 @@ import ch.difty.kris.domain.RisType;
 import io.reactivex.Observable;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
 @SuppressWarnings("ALL")
-public class GuideExamples {
+class GuideExamples {
 
     //region export
 
@@ -82,6 +82,7 @@ public class GuideExamples {
         try {
             writer.close();
         } catch (Exception ex) {
+            // no-op
         }
     }
     // end::fromObservable[]
@@ -220,6 +221,6 @@ public class GuideExamples {
 
     @Test
     void dummyTest() {
-        assertEquals(true, true);
+        assertTrue(1 == 1);
     }
 }

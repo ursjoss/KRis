@@ -14,7 +14,7 @@ kotest = "5.9.1"
 kotlin = "2.0.0"
 # See https://github.com/detekt/detekt/issues/6198
 detektKotlinVersion = "1.9.22"
-mockk = "1.13.11"
+mockk = "1.13.12"
 nexusPublish = "2.0.0"
 rxjava = "2.2.21"
 sonarqube = "5.1.0.4882"

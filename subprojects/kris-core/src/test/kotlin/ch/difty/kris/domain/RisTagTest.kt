@@ -119,6 +119,7 @@ internal class RisTagTest {
     }
 
     @Test
+    @Suppress("LongMethod")
     fun settingStringValues() {
         val rr = RisRecord()
         mapOf(

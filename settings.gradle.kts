@@ -9,7 +9,7 @@ pluginManagement {
 }
 
 plugins {
-    id("org.ajoberstar.reckon.settings") version "0.18.3"
+    id("org.ajoberstar.reckon.settings") version "0.19.1"
     id("org.gradle.toolchains.foojay-resolver-convention") version ("0.8.0")
 }
 

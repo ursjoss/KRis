@@ -44,7 +44,7 @@ The format is based on https://keepachangelog.com/en/1.0.0/[Keep a Changelog].
 [[unreleased]]
 == [unreleased]
 
-{url-cl}0.5.3++...++main[Full Changelog]
+{url-cl}0.5.5++...++main[Full Changelog]
 
 .Added
 
@@ -60,6 +60,20 @@ The format is based on https://keepachangelog.com/en/1.0.0/[Keep a Changelog].
 .Security
 
 ////
+
+
+[[v0.5.5]]
+== [0.5.5] -- 2024-12-11
+
+{url-cl}0.5.3++...++0.5.5[Full Changelog]
+
+.Changed
+- Bumped kotlin, coroutines,
+  junit5, mockk, assertj,
+  gradle, detekt, git-publish, reckon, asciidoctor, foojay-resolver-convention,
+  binary-compatibitility-validator, sonarqube,
+  checkout action, gradle action
+
 
 [[v0.5.3]]
 == [0.5.3] -- 2024-06-29

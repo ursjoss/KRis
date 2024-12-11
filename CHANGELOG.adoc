@@ -44,7 +44,7 @@ The format is based on https://keepachangelog.com/en/1.0.0/[Keep a Changelog].
 [[unreleased]]
 == [unreleased]
 
-{url-cl}0.5.9++...++main[Full Changelog]
+{url-cl}0.5.10++...++main[Full Changelog]
 
 .Added
 
@@ -60,6 +60,12 @@ The format is based on https://keepachangelog.com/en/1.0.0/[Keep a Changelog].
 .Security
 
 ////
+
+[[v0.5.10]]
+== [0.5.10] -- 2024-12-11
+
+.Fixed
+- reverted kotlin upgrade to 2.1.0 - seems to require Kotlin 2.1 on usage side
 
 
 [[v0.5.9]]

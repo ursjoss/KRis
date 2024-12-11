@@ -64,7 +64,7 @@ afterEvaluate {
     val htmlJavadocOutputDir = dokkaOutputDir.resolve("javadocCollector")
     val gitPassword = providers.environmentVariable("GRGIT_USER")
     gitPublish {
-        repoUri.set("git@github.com:ursjoss/KRis.git")
+        repoUri.set("https://github.com/ursjoss/KRis.git")
         branch.set("gh-pages")
         contents {
             project.tasks.findByName("createGuide")?.outputs?.files?.let {

@@ -82,7 +82,7 @@ afterEvaluate {
         }
         commitMessage.set("Publish guide for ${project.version}")
 
-        username = "git"
+        username = "ursjoss"
         password = gitPassword
     }
 }

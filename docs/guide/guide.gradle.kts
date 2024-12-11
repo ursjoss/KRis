@@ -62,7 +62,6 @@ afterEvaluate {
     val dokkaOutputDir = rootProject.layout.buildDirectory.get().asFile.resolve("dokka")
     val htmlMultiModuleOutputDir = dokkaOutputDir.resolve("htmlMultiModule")
     val htmlJavadocOutputDir = dokkaOutputDir.resolve("javadocCollector")
-    val gitUsername = providers.environmentVariable("GRGIT_USER")
     val gitPassword = providers.environmentVariable("GRGIT_USER")
     gitPublish {
         repoUri.set("https://github.com/ursjoss/KRis.git")
@@ -83,7 +82,7 @@ afterEvaluate {
         }
         commitMessage.set("Publish guide for ${project.version}")
 
-        username = gitUsername
+        username = "ursjoss"
         password = gitPassword
     }
 }

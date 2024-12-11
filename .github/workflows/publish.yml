@@ -35,6 +35,12 @@ jobs:
       - name: Setup gradle
         uses: gradle/actions/setup-gradle@v4
 
+      - name: Configure Git
+        shell: bash
+        run: |
+          git config --global user.name "Urs Joss"
+          git config --global user.email "urs.joss@gmx.ch"
+
       - name: Publish github pages
         run: ./gradlew build check :guide:gitPublishPush
         env:

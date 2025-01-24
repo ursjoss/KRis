@@ -1,4 +1,3 @@
-import org.jetbrains.dokka.gradle.DokkaTask
 import org.jetbrains.dokka.gradle.DokkaTaskPartial
 import java.net.URI
 
@@ -11,7 +10,6 @@ buildscript {
     }
 }
 
-@Suppress("DSL_SCOPE_VIOLATION")
 plugins {
     kotlin("jvm") version libs.versions.kotlin.get()
     id("kris-collect-sarif")
@@ -56,6 +54,21 @@ nexusPublishing {
 
 val kotlinSrcSet = "/src/main/kotlin"
 
+dokka {
+    dokkaSourceSets.main {
+        sourceLink {
+            localDirectory.set(file("$projectDir/$kotlinSrcSet"))
+            remoteUrl.set(URI.create(projectRelativeSourceLink()).toURL().toURI())
+            remoteLineSuffix.set("#L")
+        }
+    }
+}
+
+dependencies {
+    dokka(project(":kris-core:"))
+    dokka(project(":kris-io"))
+}
+
 tasks {
     val deleteOutFolderTask by registering(Delete::class) {
         delete("out")
@@ -63,17 +76,6 @@ tasks {
     named("clean") {
         delete(rootProject.layout.buildDirectory.get())
         dependsOn(deleteOutFolderTask)
-    }
-    val dokkaHtml by getting(DokkaTask::class) {
-        dokkaSourceSets {
-            configureEach {
-                sourceLink {
-                    localDirectory.set(file("$projectDir/$kotlinSrcSet"))
-                    remoteUrl.set(URI.create(projectRelativeSourceLink()).toURL())
-                    remoteLineSuffix.set("#L")
-                }
-            }
-        }
     }
 }
 

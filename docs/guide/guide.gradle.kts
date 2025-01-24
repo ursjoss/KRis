@@ -50,8 +50,7 @@ tasks {
         from(project.tasks.asciidoctor.get().outputDir)
         destinationDir = builtGuideDir
         dependsOn(asciidoctor)
-        dependsOn(rootProject.tasks.named("dokkaHtmlMultiModule"))
-        dependsOn(rootProject.tasks.named("dokkaJavadocCollector"))
+        dependsOn(rootProject.tasks.named("dokkaGenerate"))
     }
     withType<GitPublishCommit> {
         dependsOn(createGuide)

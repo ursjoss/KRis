@@ -1,4 +1,3 @@
-@Suppress("DSL_SCOPE_VIOLATION")
 plugins {
     id("kris-detekt")
     id("kris-collect-sarif")
@@ -22,12 +21,21 @@ kotlin {
     explicitApi()
 }
 
+
+dokka {
+    dokkaSourceSets {
+        named("main") {
+            includes.from("module.md")
+        }
+    }
+}
+
 tasks {
     val javadocJar by existing(Jar::class) {
         group = JavaBasePlugin.DOCUMENTATION_GROUP
         description = "Assembled Javadoc JAR"
         archiveClassifier.set("javadoc")
-        from(named("dokkaHtml"))
+        from(named("dokkaGenerate"))
     }
     named("sourcesJar") {
         dependsOn(javadocJar)

@@ -35,7 +35,7 @@ tasks {
         group = JavaBasePlugin.DOCUMENTATION_GROUP
         description = "Assembled Javadoc JAR"
         archiveClassifier.set("javadoc")
-        from(named("dokkaHtml"))
+        from(named("dokkaGenerate"))
     }
     named("sourcesJar") {
         dependsOn(javadocJar)

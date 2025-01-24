@@ -44,7 +44,7 @@ The format is based on https://keepachangelog.com/en/1.0.0/[Keep a Changelog].
 [[unreleased]]
 == [unreleased]
 
-{url-cl}0.5.11++...++main[Full Changelog]
+{url-cl}0.5.12++...++main[Full Changelog]
 
 .Added
 
@@ -62,8 +62,8 @@ The format is based on https://keepachangelog.com/en/1.0.0/[Keep a Changelog].
 ////
 
 
-[[v0.5.11]]
-== [0.5.11] -- 2025-01-24
+[[v0.5.12]]
+== [0.5.12] -- 2025-01-24
 
 {url-cl}0.5.10++...++0.5.11[Full Changelog]
 

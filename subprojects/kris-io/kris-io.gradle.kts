@@ -1,6 +1,5 @@
 @file:Suppress("UnstableApiUsage")
 
-@Suppress("DSL_SCOPE_VIOLATION")
 plugins {
     id("kris-detekt")
     id("kris-collect-sarif")
@@ -15,11 +14,20 @@ kotlin {
     explicitApi()
 }
 
+dokka {
+    dokkaSourceSets {
+        named("main") {
+            includes.from("module.md")
+        }
+    }
+}
+
 testing {
     suites {
         val test by getting(JvmTestSuite::class) {
             useJUnitJupiter()
         }
+        @Suppress("unused")
         val integrationTest by registering(JvmTestSuite::class) {
             testType.set(TestSuiteType.INTEGRATION_TEST)
             dependencies {

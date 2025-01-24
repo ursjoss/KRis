@@ -1,4 +1,3 @@
-@Suppress("DSL_SCOPE_VIOLATION")
 plugins {
     id("kris-detekt")
     id("kris-collect-sarif")
@@ -20,6 +19,15 @@ dependencies {
 
 kotlin {
     explicitApi()
+}
+
+
+dokka {
+    dokkaSourceSets {
+        named("main") {
+            includes.from("module.md")
+        }
+    }
 }
 
 tasks {

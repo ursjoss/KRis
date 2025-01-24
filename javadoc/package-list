@@ -1,7 +1,0 @@
-$dokka.format:javadoc-v1
-$dokka.linkExtension:html
-$dokka.location:ch.difty.kris.domain/RisRecord.Builder///PointingToDeclaration/ch/difty/kris/domain/RisRecord.Builder.html
-$dokka.location:ch.difty.kris.domain/RisTag.Companion///PointingToDeclaration/ch/difty/kris/domain/RisTag.Companion.html
-ch.difty.kris
-ch.difty.kris.domain
-

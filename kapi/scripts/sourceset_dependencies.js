@@ -1,1 +1,0 @@
-sourceset_dependencies = '{":kris-io:dokkaHtmlPartial/main":[],":kris-core:dokkaHtmlPartial/main":[]}'

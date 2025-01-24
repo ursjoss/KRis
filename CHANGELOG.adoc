@@ -44,7 +44,7 @@ The format is based on https://keepachangelog.com/en/1.0.0/[Keep a Changelog].
 [[unreleased]]
 == [unreleased]
 
-{url-cl}0.5.10++...++main[Full Changelog]
+{url-cl}0.5.11++...++main[Full Changelog]
 
 .Added
 
@@ -61,8 +61,23 @@ The format is based on https://keepachangelog.com/en/1.0.0/[Keep a Changelog].
 
 ////
 
+
+[[v0.5.11]]
+== [0.5.11] -- 2025-01-24
+
+{url-cl}0.5.10++...++0.5.11[Full Changelog]
+
+.Changed
+- Bumped kotlinx-coroutines, kotlinx-coroutines-rx2
+  junit5, mockk, assertj-core
+  gradle, versions-plugin, asciidoctor-plugin, dokka,
+  binary-compatibility-validator
+
+
 [[v0.5.10]]
 == [0.5.10] -- 2024-12-11
+
+{url-cl}0.5.9++...++0.5.10[Full Changelog]
 
 .Fixed
 - reverted kotlin upgrade to 2.1.0 - seems to require Kotlin 2.1 on usage side

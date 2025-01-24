@@ -1,0 +1,1346 @@
+<!doctype html>
+<html class="no-js">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>RisRecord</title>
+<link href="../../../images/logo-icon.svg" rel="icon" type="image/svg">    <script>var pathToRoot = "../../../";</script>
+    <script>document.documentElement.classList.replace("no-js","js");</script>
+    <script>const storage = localStorage.getItem("dokka-dark-mode")
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
+<script type="text/javascript" src="https://unpkg.com/kotlin-playground@1/dist/playground.min.js" async></script>
+<script type="text/javascript" src="../../../scripts/sourceset_dependencies.js" async></script>
+<link href="../../../styles/style.css" rel="Stylesheet">
+<link href="../../../styles/main.css" rel="Stylesheet">
+<link href="../../../styles/prism.css" rel="Stylesheet">
+<link href="../../../styles/logo-styles.css" rel="Stylesheet">
+<link href="../../../styles/font-jb-sans-auto.css" rel="Stylesheet">
+<link href="../../../ui-kit/ui-kit.min.css" rel="Stylesheet">
+<script type="text/javascript" src="../../../scripts/clipboard.js" async></script>
+<script type="text/javascript" src="../../../scripts/navigation-loader.js" async></script>
+<script type="text/javascript" src="../../../scripts/platform-content-handler.js" async></script>
+<script type="text/javascript" src="../../../scripts/main.js" defer></script>
+<script type="text/javascript" src="../../../scripts/prism.js" async></script>
+<script type="text/javascript" src="../../../ui-kit/ui-kit.min.js" defer></script>
+<script type="text/javascript" src="../../../scripts/symbol-parameters-wrapper_deferred.js" defer></script></head>
+<body>
+    <div class="root">
+    <nav class="navigation theme-dark" id="navigation-wrapper">
+<a class="library-name--link" href="../../../index.html">
+                    KRis
+            </a>        <button class="navigation-controls--btn navigation-controls--btn_toc ui-kit_mobile-only" id="toc-toggle" type="button">Toggle table of contents
+        </button>
+        <div class="navigation-controls--break ui-kit_mobile-only"></div>
+        <div class="library-version" id="library-version">0.5.12
+        </div>
+        <div class="navigation-controls">
+        <div class="filter-section filter-section_loading" id="filter-section">
+                <button class="platform-tag platform-selector jvm-like" data-active="" data-filter=":kris-core/main">jvm</button>
+            <div class="dropdown filter-section--dropdown" data-role="dropdown" id="filter-section-dropdown">
+                <button class="button button_dropdown filter-section--dropdown-toggle" role="combobox" data-role="dropdown-toggle" aria-controls="platform-tags-listbox" aria-haspopup="listbox" aria-expanded="false" aria-label="Toggle source sets"></button>
+                <ul role="listbox" id="platform-tags-listbox" class="dropdown--list" data-role="dropdown-listbox">
+                    <div class="dropdown--header"><span>Platform filter</span>
+                        <button class="button" data-role="dropdown-toggle" aria-label="Close platform filter">
+                            <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                        </button>
+                    </div>
+                        <li role="option" class="dropdown--option platform-selector-option jvm-like" tabindex="0">
+                            <label class="checkbox">
+                                <input type="checkbox" class="checkbox--input" id=":kris-core/main" data-filter=":kris-core/main">
+                                <span class="checkbox--icon"></span>
+                                jvm
+                            </label>
+                        </li>
+                </ul>
+                <div class="dropdown--overlay"></div>
+            </div>
+        </div>
+            <button class="navigation-controls--btn navigation-controls--btn_theme" id="theme-toggle-button" type="button">Switch theme
+            </button>
+            <div class="navigation-controls--btn navigation-controls--btn_search" id="searchBar" role="button">Search in
+                API
+            </div>
+        </div>
+    </nav>
+        <div id="container">
+            <div class="sidebar" id="leftColumn">
+                <div class="dropdown theme-dark_mobile" data-role="dropdown" id="toc-dropdown">
+                    <ul role="listbox" id="toc-listbox" class="dropdown--list dropdown--list_toc-list" data-role="dropdown-listbox">
+                        <div class="dropdown--header">
+                            <span>
+                                    KRis
+                            </span>
+                            <button class="button" data-role="dropdown-toggle" aria-label="Close table of contents">
+                                <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                            </button>
+                        </div>
+                        <div class="sidebar--inner" id="sideMenu"></div>
+                    </ul>
+                    <div class="dropdown--overlay"></div>
+                </div>
+            </div>
+            <div id="main">
+<div class="main-content" data-page-type="classlike" id="content" pageids="kris-core::ch.difty.kris.domain/RisRecord///PointingToDeclaration//-2026382967">
+  <div class="breadcrumbs"><a href="../../index.html">kris-core</a><span class="delimiter">/</span><a href="../index.html">ch.difty.kris.domain</a><span class="delimiter">/</span><span class="current">RisRecord</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span>Ris</span><wbr><span><span>Record</span></span></h1>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":kris-core/main"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">class </span><a href="index.html">RisRecord</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">var </span>type<span class="token operator">: </span><a href="../-ris-type/index.html">RisType</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>firstAuthors<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-mutable-list/index.html">MutableList</a><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">&gt;</span><span class="token operator"> = </span>mutableListOf()<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>secondaryAuthors<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-mutable-list/index.html">MutableList</a><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">&gt;</span><span class="token operator"> = </span>mutableListOf()<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>tertiaryAuthors<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-mutable-list/index.html">MutableList</a><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">&gt;</span><span class="token operator"> = </span>mutableListOf()<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>subsidiaryAuthors<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-mutable-list/index.html">MutableList</a><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">&gt;</span><span class="token operator"> = </span>mutableListOf()<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>authors<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-mutable-list/index.html">MutableList</a><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">&gt;</span><span class="token operator"> = </span>mutableListOf()<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>abstr<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>authorAddress<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>accessionNumber<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>archivesLocation<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>bt<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>custom1<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>custom2<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>custom3<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>custom4<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>custom5<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>custom6<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>custom7<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>custom8<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>caption<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>callNumber<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>cp<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>unpublishedReferenceTitle<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>placePublished<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>date<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>databaseName<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>doi<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>databaseProvider<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>editor<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>endPage<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>edition<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>referenceId<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>issue<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>periodicalNameUserAbbrevation<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>alternativeTitle<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>periodicalNameStandardAbbrevation<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>periodicalNameFullFormatJF<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>periodicalNameFullFormatJO<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>keywords<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-mutable-list/index.html">MutableList</a><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">&gt;</span><span class="token operator"> = </span>mutableListOf()<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>pdfLinks<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-mutable-list/index.html">MutableList</a><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">&gt;</span><span class="token operator"> = </span>mutableListOf()<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>fullTextLinks<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-mutable-list/index.html">MutableList</a><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">&gt;</span><span class="token operator"> = </span>mutableListOf()<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>relatedRecords<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-mutable-list/index.html">MutableList</a><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">&gt;</span><span class="token operator"> = </span>mutableListOf()<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>images<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-mutable-list/index.html">MutableList</a><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">&gt;</span><span class="token operator"> = </span>mutableListOf()<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>language<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>label<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>websiteLink<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>miscellaneous1<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>miscellaneous2<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>miscellaneous3<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>notes<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>abstr2<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>numberOfVolumes<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>originalPublication<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>publisher<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>publishingPlace<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>publicationYear<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>reviewedItem<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>researchNotes<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>reprintEdition<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>section<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>isbnIssn<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>startPage<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>shortTitle<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>primaryTitle<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>secondaryTitle<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>tertiaryTitle<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>translatedAuthor<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>title<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>translatedTitle<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>userDefinable1<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>userDefinable2<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>userDefinable3<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>userDefinable4<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>userDefinable5<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>url<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>volumeNumber<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>publisherStandardNumber<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>primaryDate<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>accessDate<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null</span></span><span class="token punctuation">)</span></div><p class="paragraph">A single RIS record. It contains all the allowed tags from RIS format.</p></div></div>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="CONSTRUCTOR,TYPE,PROPERTY,FUNCTION">Members</button></div>
+    <div class="tabs-section-body">
+      <div data-togglable="CONSTRUCTOR">
+        <h2 class="">Constructors</h2>
+        <div class="table"><a data-name="-83629872%2FConstructors%2F-2026382967" anchor-label="RisRecord" id="-83629872%2FConstructors%2F-2026382967" data-filterable-set=":kris-core/main"></a>
+          <div class="table-row" data-togglable="CONSTRUCTOR" data-filterable-current=":kris-core/main" data-filterable-set=":kris-core/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-ris-record.html"><span>Ris</span><wbr><span><span>Record</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-83629872%2FConstructors%2F-2026382967"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":kris-core/main"><div class="symbol monospace"><span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">type<span class="token operator">: </span><a href="../-ris-type/index.html">RisType</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter ">firstAuthors<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-mutable-list/index.html">MutableList</a><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">&gt;</span><span class="token operator"> = </span>mutableListOf()<span class="token punctuation">, </span></span><span class="parameter ">secondaryAuthors<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-mutable-list/index.html">MutableList</a><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">&gt;</span><span class="token operator"> = </span>mutableListOf()<span class="token punctuation">, </span></span><span class="parameter ">tertiaryAuthors<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-mutable-list/index.html">MutableList</a><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">&gt;</span><span class="token operator"> = </span>mutableListOf()<span class="token punctuation">, </span></span><span class="parameter ">subsidiaryAuthors<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-mutable-list/index.html">MutableList</a><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">&gt;</span><span class="token operator"> = </span>mutableListOf()<span class="token punctuation">, </span></span><span class="parameter ">authors<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-mutable-list/index.html">MutableList</a><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">&gt;</span><span class="token operator"> = </span>mutableListOf()<span class="token punctuation">, </span></span><span class="parameter ">abstr<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter ">authorAddress<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter ">accessionNumber<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter ">archivesLocation<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter ">bt<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter ">custom1<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter ">custom2<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter ">custom3<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter ">custom4<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter ">custom5<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter ">custom6<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter ">custom7<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter ">custom8<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter ">caption<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter ">callNumber<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter ">cp<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter ">unpublishedReferenceTitle<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter ">placePublished<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter ">date<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter ">databaseName<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter ">doi<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter ">databaseProvider<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter ">editor<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter ">endPage<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter ">edition<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter ">referenceId<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter ">issue<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter ">periodicalNameUserAbbrevation<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter ">alternativeTitle<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter ">periodicalNameStandardAbbrevation<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter ">periodicalNameFullFormatJF<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter ">periodicalNameFullFormatJO<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter ">keywords<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-mutable-list/index.html">MutableList</a><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">&gt;</span><span class="token operator"> = </span>mutableListOf()<span class="token punctuation">, </span></span><span class="parameter ">pdfLinks<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-mutable-list/index.html">MutableList</a><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">&gt;</span><span class="token operator"> = </span>mutableListOf()<span class="token punctuation">, </span></span><span class="parameter ">fullTextLinks<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-mutable-list/index.html">MutableList</a><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">&gt;</span><span class="token operator"> = </span>mutableListOf()<span class="token punctuation">, </span></span><span class="parameter ">relatedRecords<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-mutable-list/index.html">MutableList</a><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">&gt;</span><span class="token operator"> = </span>mutableListOf()<span class="token punctuation">, </span></span><span class="parameter ">images<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-mutable-list/index.html">MutableList</a><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">&gt;</span><span class="token operator"> = </span>mutableListOf()<span class="token punctuation">, </span></span><span class="parameter ">language<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter ">label<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter ">websiteLink<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter ">miscellaneous1<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter ">miscellaneous2<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter ">miscellaneous3<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter ">notes<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter ">abstr2<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter ">numberOfVolumes<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter ">originalPublication<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter ">publisher<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter ">publishingPlace<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter ">publicationYear<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter ">reviewedItem<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter ">researchNotes<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter ">reprintEdition<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter ">section<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter ">isbnIssn<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter ">startPage<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter ">shortTitle<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter ">primaryTitle<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter ">secondaryTitle<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter ">tertiaryTitle<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter ">translatedAuthor<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter ">title<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter ">translatedTitle<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter ">userDefinable1<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter ">userDefinable2<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter ">userDefinable3<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter ">userDefinable4<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter ">userDefinable5<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter ">url<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter ">volumeNumber<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter ">publisherStandardNumber<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter ">primaryDate<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter ">accessDate<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null</span></span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="TYPE">
+        <h2 class="">Types</h2>
+        <div class="table"><a data-name="1887056854%2FClasslikes%2F-2026382967" anchor-label="Builder" id="1887056854%2FClasslikes%2F-2026382967" data-filterable-set=":kris-core/main"></a>
+          <div class="table-row" data-filterable-current=":kris-core/main" data-filterable-set=":kris-core/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-builder/index.html"><span><span>Builder</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1887056854%2FClasslikes%2F-2026382967"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":kris-core/main"><div class="symbol monospace"><span class="token keyword">class </span><a href="-builder/index.html">Builder</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="PROPERTY">
+        <h2 class="">Properties</h2>
+        <div class="table"><a data-name="-2091541426%2FProperties%2F-2026382967" anchor-label="abstr" id="-2091541426%2FProperties%2F-2026382967" data-filterable-set=":kris-core/main"></a>
+          <div class="table-row" data-filterable-current=":kris-core/main" data-filterable-set=":kris-core/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="abstr.html"><span><span>abstr</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2091541426%2FProperties%2F-2026382967"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":kris-core/main"><div class="symbol monospace"><span class="token keyword">var </span><a href="abstr.html">abstr</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">AB</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-863307430%2FProperties%2F-2026382967" anchor-label="abstr2" id="-863307430%2FProperties%2F-2026382967" data-filterable-set=":kris-core/main"></a>
+          <div class="table-row" data-filterable-current=":kris-core/main" data-filterable-set=":kris-core/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="abstr2.html"><span><span>abstr2</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-863307430%2FProperties%2F-2026382967"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":kris-core/main"><div class="symbol monospace"><span class="token keyword">var </span><a href="abstr2.html">abstr2</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">N2. Abstract. This is a free text field and can contain alphanumeric characters.     There is no practical length limit to this field.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-2097978262%2FProperties%2F-2026382967" anchor-label="accessDate" id="-2097978262%2FProperties%2F-2026382967" data-filterable-set=":kris-core/main"></a>
+          <div class="table-row" data-filterable-current=":kris-core/main" data-filterable-set=":kris-core/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="access-date.html"><span>access</span><wbr><span><span>Date</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2097978262%2FProperties%2F-2026382967"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":kris-core/main"><div class="symbol monospace"><span class="token keyword">var </span><a href="access-date.html">accessDate</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">Y2</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1369925743%2FProperties%2F-2026382967" anchor-label="accessionNumber" id="-1369925743%2FProperties%2F-2026382967" data-filterable-set=":kris-core/main"></a>
+          <div class="table-row" data-filterable-current=":kris-core/main" data-filterable-set=":kris-core/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="accession-number.html"><span>accession</span><wbr><span><span>Number</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1369925743%2FProperties%2F-2026382967"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":kris-core/main"><div class="symbol monospace"><span class="token keyword">var </span><a href="accession-number.html">accessionNumber</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">AN</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1011346479%2FProperties%2F-2026382967" anchor-label="alternativeTitle" id="-1011346479%2FProperties%2F-2026382967" data-filterable-set=":kris-core/main"></a>
+          <div class="table-row" data-filterable-current=":kris-core/main" data-filterable-set=":kris-core/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="alternative-title.html"><span>alternative</span><wbr><span><span>Title</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1011346479%2FProperties%2F-2026382967"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":kris-core/main"><div class="symbol monospace"><span class="token keyword">var </span><a href="alternative-title.html">alternativeTitle</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">J2. This field is used for the abbreviated title of a book or journal name, the latter mapped to T2.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-152736746%2FProperties%2F-2026382967" anchor-label="archivesLocation" id="-152736746%2FProperties%2F-2026382967" data-filterable-set=":kris-core/main"></a>
+          <div class="table-row" data-filterable-current=":kris-core/main" data-filterable-set=":kris-core/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="archives-location.html"><span>archives</span><wbr><span><span>Location</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-152736746%2FProperties%2F-2026382967"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":kris-core/main"><div class="symbol monospace"><span class="token keyword">var </span><a href="archives-location.html">archivesLocation</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">AV</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1704318965%2FProperties%2F-2026382967" anchor-label="authorAddress" id="1704318965%2FProperties%2F-2026382967" data-filterable-set=":kris-core/main"></a>
+          <div class="table-row" data-filterable-current=":kris-core/main" data-filterable-set=":kris-core/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="author-address.html"><span>author</span><wbr><span><span>Address</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1704318965%2FProperties%2F-2026382967"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":kris-core/main"><div class="symbol monospace"><span class="token keyword">var </span><a href="author-address.html">authorAddress</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">AD</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1110787382%2FProperties%2F-2026382967" anchor-label="authors" id="1110787382%2FProperties%2F-2026382967" data-filterable-set=":kris-core/main"></a>
+          <div class="table-row" data-filterable-current=":kris-core/main" data-filterable-set=":kris-core/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="authors.html"><span><span>authors</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1110787382%2FProperties%2F-2026382967"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":kris-core/main"><div class="symbol monospace"><span class="token keyword">val </span><a href="authors.html">authors</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-mutable-list/index.html">MutableList</a><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">AU</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-215666102%2FProperties%2F-2026382967" anchor-label="bt" id="-215666102%2FProperties%2F-2026382967" data-filterable-set=":kris-core/main"></a>
+          <div class="table-row" data-filterable-current=":kris-core/main" data-filterable-set=":kris-core/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="bt.html"><span><span>bt</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-215666102%2FProperties%2F-2026382967"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":kris-core/main"><div class="symbol monospace"><span class="token keyword">var </span><a href="bt.html">bt</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">BT</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1122433525%2FProperties%2F-2026382967" anchor-label="callNumber" id="1122433525%2FProperties%2F-2026382967" data-filterable-set=":kris-core/main"></a>
+          <div class="table-row" data-filterable-current=":kris-core/main" data-filterable-set=":kris-core/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="call-number.html"><span>call</span><wbr><span><span>Number</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1122433525%2FProperties%2F-2026382967"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":kris-core/main"><div class="symbol monospace"><span class="token keyword">var </span><a href="call-number.html">callNumber</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">CN</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1129982296%2FProperties%2F-2026382967" anchor-label="caption" id="1129982296%2FProperties%2F-2026382967" data-filterable-set=":kris-core/main"></a>
+          <div class="table-row" data-filterable-current=":kris-core/main" data-filterable-set=":kris-core/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="caption.html"><span><span>caption</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1129982296%2FProperties%2F-2026382967"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":kris-core/main"><div class="symbol monospace"><span class="token keyword">var </span><a href="caption.html">caption</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">CA</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="621868687%2FProperties%2F-2026382967" anchor-label="cp" id="621868687%2FProperties%2F-2026382967" data-filterable-set=":kris-core/main"></a>
+          <div class="table-row" data-filterable-current=":kris-core/main" data-filterable-set=":kris-core/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="cp.html"><span><span>cp</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="621868687%2FProperties%2F-2026382967"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":kris-core/main"><div class="symbol monospace"><span class="token keyword">var </span><a href="cp.html">cp</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">CP</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1458893410%2FProperties%2F-2026382967" anchor-label="custom1" id="-1458893410%2FProperties%2F-2026382967" data-filterable-set=":kris-core/main"></a>
+          <div class="table-row" data-filterable-current=":kris-core/main" data-filterable-set=":kris-core/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="custom1.html"><span><span>custom1</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1458893410%2FProperties%2F-2026382967"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":kris-core/main"><div class="symbol monospace"><span class="token keyword">var </span><a href="custom1.html">custom1</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">C1</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1427873603%2FProperties%2F-2026382967" anchor-label="custom2" id="-1427873603%2FProperties%2F-2026382967" data-filterable-set=":kris-core/main"></a>
+          <div class="table-row" data-filterable-current=":kris-core/main" data-filterable-set=":kris-core/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="custom2.html"><span><span>custom2</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1427873603%2FProperties%2F-2026382967"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":kris-core/main"><div class="symbol monospace"><span class="token keyword">var </span><a href="custom2.html">custom2</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">C2</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1396853796%2FProperties%2F-2026382967" anchor-label="custom3" id="-1396853796%2FProperties%2F-2026382967" data-filterable-set=":kris-core/main"></a>
+          <div class="table-row" data-filterable-current=":kris-core/main" data-filterable-set=":kris-core/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="custom3.html"><span><span>custom3</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1396853796%2FProperties%2F-2026382967"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":kris-core/main"><div class="symbol monospace"><span class="token keyword">var </span><a href="custom3.html">custom3</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">C3</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1365833989%2FProperties%2F-2026382967" anchor-label="custom4" id="-1365833989%2FProperties%2F-2026382967" data-filterable-set=":kris-core/main"></a>
+          <div class="table-row" data-filterable-current=":kris-core/main" data-filterable-set=":kris-core/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="custom4.html"><span><span>custom4</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1365833989%2FProperties%2F-2026382967"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":kris-core/main"><div class="symbol monospace"><span class="token keyword">var </span><a href="custom4.html">custom4</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">C4</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1334814182%2FProperties%2F-2026382967" anchor-label="custom5" id="-1334814182%2FProperties%2F-2026382967" data-filterable-set=":kris-core/main"></a>
+          <div class="table-row" data-filterable-current=":kris-core/main" data-filterable-set=":kris-core/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="custom5.html"><span><span>custom5</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1334814182%2FProperties%2F-2026382967"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":kris-core/main"><div class="symbol monospace"><span class="token keyword">var </span><a href="custom5.html">custom5</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">C5</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1303794375%2FProperties%2F-2026382967" anchor-label="custom6" id="-1303794375%2FProperties%2F-2026382967" data-filterable-set=":kris-core/main"></a>
+          <div class="table-row" data-filterable-current=":kris-core/main" data-filterable-set=":kris-core/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="custom6.html"><span><span>custom6</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1303794375%2FProperties%2F-2026382967"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":kris-core/main"><div class="symbol monospace"><span class="token keyword">var </span><a href="custom6.html">custom6</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">C6</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1272774568%2FProperties%2F-2026382967" anchor-label="custom7" id="-1272774568%2FProperties%2F-2026382967" data-filterable-set=":kris-core/main"></a>
+          <div class="table-row" data-filterable-current=":kris-core/main" data-filterable-set=":kris-core/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="custom7.html"><span><span>custom7</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1272774568%2FProperties%2F-2026382967"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":kris-core/main"><div class="symbol monospace"><span class="token keyword">var </span><a href="custom7.html">custom7</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">C7</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1241754761%2FProperties%2F-2026382967" anchor-label="custom8" id="-1241754761%2FProperties%2F-2026382967" data-filterable-set=":kris-core/main"></a>
+          <div class="table-row" data-filterable-current=":kris-core/main" data-filterable-set=":kris-core/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="custom8.html"><span><span>custom8</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1241754761%2FProperties%2F-2026382967"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":kris-core/main"><div class="symbol monospace"><span class="token keyword">var </span><a href="custom8.html">custom8</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">C8</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="87949238%2FProperties%2F-2026382967" anchor-label="databaseName" id="87949238%2FProperties%2F-2026382967" data-filterable-set=":kris-core/main"></a>
+          <div class="table-row" data-filterable-current=":kris-core/main" data-filterable-set=":kris-core/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="database-name.html"><span>database</span><wbr><span><span>Name</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="87949238%2FProperties%2F-2026382967"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":kris-core/main"><div class="symbol monospace"><span class="token keyword">var </span><a href="database-name.html">databaseName</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">DB</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1582808816%2FProperties%2F-2026382967" anchor-label="databaseProvider" id="-1582808816%2FProperties%2F-2026382967" data-filterable-set=":kris-core/main"></a>
+          <div class="table-row" data-filterable-current=":kris-core/main" data-filterable-set=":kris-core/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="database-provider.html"><span>database</span><wbr><span><span>Provider</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1582808816%2FProperties%2F-2026382967"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":kris-core/main"><div class="symbol monospace"><span class="token keyword">var </span><a href="database-provider.html">databaseProvider</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">DP</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-57580882%2FProperties%2F-2026382967" anchor-label="date" id="-57580882%2FProperties%2F-2026382967" data-filterable-set=":kris-core/main"></a>
+          <div class="table-row" data-filterable-current=":kris-core/main" data-filterable-set=":kris-core/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="date.html"><span><span>date</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-57580882%2FProperties%2F-2026382967"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":kris-core/main"><div class="symbol monospace"><span class="token keyword">var </span><a href="date.html">date</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">DA</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="2137766272%2FProperties%2F-2026382967" anchor-label="doi" id="2137766272%2FProperties%2F-2026382967" data-filterable-set=":kris-core/main"></a>
+          <div class="table-row" data-filterable-current=":kris-core/main" data-filterable-set=":kris-core/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="doi.html"><span><span>doi</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2137766272%2FProperties%2F-2026382967"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":kris-core/main"><div class="symbol monospace"><span class="token keyword">var </span><a href="doi.html">doi</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">DO</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1917038464%2FProperties%2F-2026382967" anchor-label="edition" id="-1917038464%2FProperties%2F-2026382967" data-filterable-set=":kris-core/main"></a>
+          <div class="table-row" data-filterable-current=":kris-core/main" data-filterable-set=":kris-core/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="edition.html"><span><span>edition</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1917038464%2FProperties%2F-2026382967"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":kris-core/main"><div class="symbol monospace"><span class="token keyword">var </span><a href="edition.html">edition</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">ED</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1321867791%2FProperties%2F-2026382967" anchor-label="editor" id="1321867791%2FProperties%2F-2026382967" data-filterable-set=":kris-core/main"></a>
+          <div class="table-row" data-filterable-current=":kris-core/main" data-filterable-set=":kris-core/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="editor.html"><span><span>editor</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1321867791%2FProperties%2F-2026382967"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":kris-core/main"><div class="symbol monospace"><span class="token keyword">var </span><a href="editor.html">editor</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">ED</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="713292212%2FProperties%2F-2026382967" anchor-label="endPage" id="713292212%2FProperties%2F-2026382967" data-filterable-set=":kris-core/main"></a>
+          <div class="table-row" data-filterable-current=":kris-core/main" data-filterable-set=":kris-core/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="end-page.html"><span>end</span><wbr><span><span>Page</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="713292212%2FProperties%2F-2026382967"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":kris-core/main"><div class="symbol monospace"><span class="token keyword">var </span><a href="end-page.html">endPage</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">EP</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-366474460%2FProperties%2F-2026382967" anchor-label="firstAuthors" id="-366474460%2FProperties%2F-2026382967" data-filterable-set=":kris-core/main"></a>
+          <div class="table-row" data-filterable-current=":kris-core/main" data-filterable-set=":kris-core/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="first-authors.html"><span>first</span><wbr><span><span>Authors</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-366474460%2FProperties%2F-2026382967"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":kris-core/main"><div class="symbol monospace"><span class="token keyword">val </span><a href="first-authors.html">firstAuthors</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-mutable-list/index.html">MutableList</a><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">A1</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="688505249%2FProperties%2F-2026382967" anchor-label="fullTextLinks" id="688505249%2FProperties%2F-2026382967" data-filterable-set=":kris-core/main"></a>
+          <div class="table-row" data-filterable-current=":kris-core/main" data-filterable-set=":kris-core/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="full-text-links.html"><span>full</span><wbr><span>Text</span><wbr><span><span>Links</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="688505249%2FProperties%2F-2026382967"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":kris-core/main"><div class="symbol monospace"><span class="token keyword">val </span><a href="full-text-links.html">fullTextLinks</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-mutable-list/index.html">MutableList</a><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">L2. Link to Full-text. There is no practical limit to the length of this field.     URL addresses can be entered individually, one per tag or multiple addresses     can be entered on one line using a semicolon as a separator.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-401511580%2FProperties%2F-2026382967" anchor-label="images" id="-401511580%2FProperties%2F-2026382967" data-filterable-set=":kris-core/main"></a>
+          <div class="table-row" data-filterable-current=":kris-core/main" data-filterable-set=":kris-core/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="images.html"><span><span>images</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-401511580%2FProperties%2F-2026382967"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":kris-core/main"><div class="symbol monospace"><span class="token keyword">val </span><a href="images.html">images</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-mutable-list/index.html">MutableList</a><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">L4. Image(s). There is no practical limit to the length of this field.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1852811679%2FProperties%2F-2026382967" anchor-label="isbnIssn" id="-1852811679%2FProperties%2F-2026382967" data-filterable-set=":kris-core/main"></a>
+          <div class="table-row" data-filterable-current=":kris-core/main" data-filterable-set=":kris-core/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="isbn-issn.html"><span>isbn</span><wbr><span><span>Issn</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1852811679%2FProperties%2F-2026382967"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":kris-core/main"><div class="symbol monospace"><span class="token keyword">var </span><a href="isbn-issn.html">isbnIssn</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">SN</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1750138373%2FProperties%2F-2026382967" anchor-label="issue" id="1750138373%2FProperties%2F-2026382967" data-filterable-set=":kris-core/main"></a>
+          <div class="table-row" data-filterable-current=":kris-core/main" data-filterable-set=":kris-core/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="issue.html"><span><span>issue</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1750138373%2FProperties%2F-2026382967"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":kris-core/main"><div class="symbol monospace"><span class="token keyword">var </span><a href="issue.html">issue</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">IS</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-534651214%2FProperties%2F-2026382967" anchor-label="keywords" id="-534651214%2FProperties%2F-2026382967" data-filterable-set=":kris-core/main"></a>
+          <div class="table-row" data-filterable-current=":kris-core/main" data-filterable-set=":kris-core/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="keywords.html"><span><span>keywords</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-534651214%2FProperties%2F-2026382967"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":kris-core/main"><div class="symbol monospace"><span class="token keyword">val </span><a href="keywords.html">keywords</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-mutable-list/index.html">MutableList</a><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">KW</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-55071670%2FProperties%2F-2026382967" anchor-label="label" id="-55071670%2FProperties%2F-2026382967" data-filterable-set=":kris-core/main"></a>
+          <div class="table-row" data-filterable-current=":kris-core/main" data-filterable-set=":kris-core/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="label.html"><span><span>label</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-55071670%2FProperties%2F-2026382967"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":kris-core/main"><div class="symbol monospace"><span class="token keyword">var </span><a href="label.html">label</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">LB</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-662975804%2FProperties%2F-2026382967" anchor-label="language" id="-662975804%2FProperties%2F-2026382967" data-filterable-set=":kris-core/main"></a>
+          <div class="table-row" data-filterable-current=":kris-core/main" data-filterable-set=":kris-core/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="language.html"><span><span>language</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-662975804%2FProperties%2F-2026382967"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":kris-core/main"><div class="symbol monospace"><span class="token keyword">var </span><a href="language.html">language</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">LA</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="306906937%2FProperties%2F-2026382967" anchor-label="miscellaneous1" id="306906937%2FProperties%2F-2026382967" data-filterable-set=":kris-core/main"></a>
+          <div class="table-row" data-filterable-current=":kris-core/main" data-filterable-set=":kris-core/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="miscellaneous1.html"><span><span>miscellaneous1</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="306906937%2FProperties%2F-2026382967"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":kris-core/main"><div class="symbol monospace"><span class="token keyword">var </span><a href="miscellaneous1.html">miscellaneous1</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">M1. Often used for Number. This is an alphanumeric field, thus suporting e.g. ranges or chars</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="337926744%2FProperties%2F-2026382967" anchor-label="miscellaneous2" id="337926744%2FProperties%2F-2026382967" data-filterable-set=":kris-core/main"></a>
+          <div class="table-row" data-filterable-current=":kris-core/main" data-filterable-set=":kris-core/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="miscellaneous2.html"><span><span>miscellaneous2</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="337926744%2FProperties%2F-2026382967"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":kris-core/main"><div class="symbol monospace"><span class="token keyword">var </span><a href="miscellaneous2.html">miscellaneous2</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">M2. This is an alphanumeric field and there is no practical limit to the length of this field.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="368946551%2FProperties%2F-2026382967" anchor-label="miscellaneous3" id="368946551%2FProperties%2F-2026382967" data-filterable-set=":kris-core/main"></a>
+          <div class="table-row" data-filterable-current=":kris-core/main" data-filterable-set=":kris-core/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="miscellaneous3.html"><span><span>miscellaneous3</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="368946551%2FProperties%2F-2026382967"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":kris-core/main"><div class="symbol monospace"><span class="token keyword">var </span><a href="miscellaneous3.html">miscellaneous3</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">M3 - often used for Type of Work. Alphanumeric field.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1007897885%2FProperties%2F-2026382967" anchor-label="notes" id="1007897885%2FProperties%2F-2026382967" data-filterable-set=":kris-core/main"></a>
+          <div class="table-row" data-filterable-current=":kris-core/main" data-filterable-set=":kris-core/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="notes.html"><span><span>notes</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1007897885%2FProperties%2F-2026382967"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":kris-core/main"><div class="symbol monospace"><span class="token keyword">var </span><a href="notes.html">notes</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">N1</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-137228251%2FProperties%2F-2026382967" anchor-label="numberOfVolumes" id="-137228251%2FProperties%2F-2026382967" data-filterable-set=":kris-core/main"></a>
+          <div class="table-row" data-filterable-current=":kris-core/main" data-filterable-set=":kris-core/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="number-of-volumes.html"><span>number</span><wbr><span>Of</span><wbr><span><span>Volumes</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-137228251%2FProperties%2F-2026382967"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":kris-core/main"><div class="symbol monospace"><span class="token keyword">var </span><a href="number-of-volumes.html">numberOfVolumes</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">NV.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1239575491%2FProperties%2F-2026382967" anchor-label="originalPublication" id="1239575491%2FProperties%2F-2026382967" data-filterable-set=":kris-core/main"></a>
+          <div class="table-row" data-filterable-current=":kris-core/main" data-filterable-set=":kris-core/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="original-publication.html"><span>original</span><wbr><span><span>Publication</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1239575491%2FProperties%2F-2026382967"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":kris-core/main"><div class="symbol monospace"><span class="token keyword">var </span><a href="original-publication.html">originalPublication</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">OP</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-118188267%2FProperties%2F-2026382967" anchor-label="pdfLinks" id="-118188267%2FProperties%2F-2026382967" data-filterable-set=":kris-core/main"></a>
+          <div class="table-row" data-filterable-current=":kris-core/main" data-filterable-set=":kris-core/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="pdf-links.html"><span>pdf</span><wbr><span><span>Links</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-118188267%2FProperties%2F-2026382967"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":kris-core/main"><div class="symbol monospace"><span class="token keyword">val </span><a href="pdf-links.html">pdfLinks</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-mutable-list/index.html">MutableList</a><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">L1. There is no practical limit to the length of this field. URL addresses can be entered individually,     one per tag or multiple addresses can be entered on one line using a semicolon as a separator.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1438501705%2FProperties%2F-2026382967" anchor-label="periodicalNameFullFormatJF" id="1438501705%2FProperties%2F-2026382967" data-filterable-set=":kris-core/main"></a>
+          <div class="table-row" data-filterable-current=":kris-core/main" data-filterable-set=":kris-core/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="periodical-name-full-format-j-f.html"><span>periodical</span><wbr><span>Name</span><wbr><span>Full</span><wbr><span>Format</span><wbr><span><span>JF</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1438501705%2FProperties%2F-2026382967"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":kris-core/main"><div class="symbol monospace"><span class="token keyword">var </span><a href="periodical-name-full-format-j-f.html">periodicalNameFullFormatJF</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">JF. Journal/Periodical name: full format. This is an alphanumeric field of up to 255 characters.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1717679968%2FProperties%2F-2026382967" anchor-label="periodicalNameFullFormatJO" id="1717679968%2FProperties%2F-2026382967" data-filterable-set=":kris-core/main"></a>
+          <div class="table-row" data-filterable-current=":kris-core/main" data-filterable-set=":kris-core/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="periodical-name-full-format-j-o.html"><span>periodical</span><wbr><span>Name</span><wbr><span>Full</span><wbr><span>Format</span><wbr><span><span>JO</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1717679968%2FProperties%2F-2026382967"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":kris-core/main"><div class="symbol monospace"><span class="token keyword">var </span><a href="periodical-name-full-format-j-o.html">periodicalNameFullFormatJO</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">JO. Journal/Periodical name: full format. This is an alphanumeric field of up to 255 characters.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="663069625%2FProperties%2F-2026382967" anchor-label="periodicalNameStandardAbbrevation" id="663069625%2FProperties%2F-2026382967" data-filterable-set=":kris-core/main"></a>
+          <div class="table-row" data-filterable-current=":kris-core/main" data-filterable-set=":kris-core/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="periodical-name-standard-abbrevation.html"><span>periodical</span><wbr><span>Name</span><wbr><span>Standard</span><wbr><span><span>Abbrevation</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="663069625%2FProperties%2F-2026382967"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":kris-core/main"><div class="symbol monospace"><span class="token keyword">var </span><a href="periodical-name-standard-abbrevation.html">periodicalNameStandardAbbrevation</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">JA. This is the periodical in which the article was (or is to be, in the case of in-press references) published.     This is an alphanumeric field of up to 255 characters.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-632735033%2FProperties%2F-2026382967" anchor-label="periodicalNameUserAbbrevation" id="-632735033%2FProperties%2F-2026382967" data-filterable-set=":kris-core/main"></a>
+          <div class="table-row" data-filterable-current=":kris-core/main" data-filterable-set=":kris-core/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="periodical-name-user-abbrevation.html"><span>periodical</span><wbr><span>Name</span><wbr><span>User</span><wbr><span><span>Abbrevation</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-632735033%2FProperties%2F-2026382967"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":kris-core/main"><div class="symbol monospace"><span class="token keyword">var </span><a href="periodical-name-user-abbrevation.html">periodicalNameUserAbbrevation</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">J1. Max 255 characters.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-198885099%2FProperties%2F-2026382967" anchor-label="placePublished" id="-198885099%2FProperties%2F-2026382967" data-filterable-set=":kris-core/main"></a>
+          <div class="table-row" data-filterable-current=":kris-core/main" data-filterable-set=":kris-core/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="place-published.html"><span>place</span><wbr><span><span>Published</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-198885099%2FProperties%2F-2026382967"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":kris-core/main"><div class="symbol monospace"><span class="token keyword">var </span><a href="place-published.html">placePublished</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">CY</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1669884626%2FProperties%2F-2026382967" anchor-label="primaryDate" id="-1669884626%2FProperties%2F-2026382967" data-filterable-set=":kris-core/main"></a>
+          <div class="table-row" data-filterable-current=":kris-core/main" data-filterable-set=":kris-core/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="primary-date.html"><span>primary</span><wbr><span><span>Date</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1669884626%2FProperties%2F-2026382967"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":kris-core/main"><div class="symbol monospace"><span class="token keyword">var </span><a href="primary-date.html">primaryDate</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">Y1</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="477429478%2FProperties%2F-2026382967" anchor-label="primaryTitle" id="477429478%2FProperties%2F-2026382967" data-filterable-set=":kris-core/main"></a>
+          <div class="table-row" data-filterable-current=":kris-core/main" data-filterable-set=":kris-core/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="primary-title.html"><span>primary</span><wbr><span><span>Title</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="477429478%2FProperties%2F-2026382967"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":kris-core/main"><div class="symbol monospace"><span class="token keyword">var </span><a href="primary-title.html">primaryTitle</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">T1</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1592555285%2FProperties%2F-2026382967" anchor-label="publicationYear" id="1592555285%2FProperties%2F-2026382967" data-filterable-set=":kris-core/main"></a>
+          <div class="table-row" data-filterable-current=":kris-core/main" data-filterable-set=":kris-core/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="publication-year.html"><span>publication</span><wbr><span><span>Year</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1592555285%2FProperties%2F-2026382967"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":kris-core/main"><div class="symbol monospace"><span class="token keyword">var </span><a href="publication-year.html">publicationYear</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">PY. Publication year (YYYY/MM/DD).</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="846797250%2FProperties%2F-2026382967" anchor-label="publisher" id="846797250%2FProperties%2F-2026382967" data-filterable-set=":kris-core/main"></a>
+          <div class="table-row" data-filterable-current=":kris-core/main" data-filterable-set=":kris-core/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="publisher.html"><span><span>publisher</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="846797250%2FProperties%2F-2026382967"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":kris-core/main"><div class="symbol monospace"><span class="token keyword">var </span><a href="publisher.html">publisher</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">PB</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="180240188%2FProperties%2F-2026382967" anchor-label="publisherStandardNumber" id="180240188%2FProperties%2F-2026382967" data-filterable-set=":kris-core/main"></a>
+          <div class="table-row" data-filterable-current=":kris-core/main" data-filterable-set=":kris-core/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="publisher-standard-number.html"><span>publisher</span><wbr><span>Standard</span><wbr><span><span>Number</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="180240188%2FProperties%2F-2026382967"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":kris-core/main"><div class="symbol monospace"><span class="token keyword">var </span><a href="publisher-standard-number.html">publisherStandardNumber</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">VO</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1513923158%2FProperties%2F-2026382967" anchor-label="publishingPlace" id="-1513923158%2FProperties%2F-2026382967" data-filterable-set=":kris-core/main"></a>
+          <div class="table-row" data-filterable-current=":kris-core/main" data-filterable-set=":kris-core/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="publishing-place.html"><span>publishing</span><wbr><span><span>Place</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1513923158%2FProperties%2F-2026382967"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":kris-core/main"><div class="symbol monospace"><span class="token keyword">var </span><a href="publishing-place.html">publishingPlace</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">PP</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1152944904%2FProperties%2F-2026382967" anchor-label="referenceId" id="-1152944904%2FProperties%2F-2026382967" data-filterable-set=":kris-core/main"></a>
+          <div class="table-row" data-filterable-current=":kris-core/main" data-filterable-set=":kris-core/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="reference-id.html"><span>reference</span><wbr><span><span>Id</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1152944904%2FProperties%2F-2026382967"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":kris-core/main"><div class="symbol monospace"><span class="token keyword">var </span><a href="reference-id.html">referenceId</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">ID</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="125791269%2FProperties%2F-2026382967" anchor-label="relatedRecords" id="125791269%2FProperties%2F-2026382967" data-filterable-set=":kris-core/main"></a>
+          <div class="table-row" data-filterable-current=":kris-core/main" data-filterable-set=":kris-core/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="related-records.html"><span>related</span><wbr><span><span>Records</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="125791269%2FProperties%2F-2026382967"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":kris-core/main"><div class="symbol monospace"><span class="token keyword">val </span><a href="related-records.html">relatedRecords</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-mutable-list/index.html">MutableList</a><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">L3. Related Records. There is no practical limit to the length of this field.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1874734168%2FProperties%2F-2026382967" anchor-label="reprintEdition" id="1874734168%2FProperties%2F-2026382967" data-filterable-set=":kris-core/main"></a>
+          <div class="table-row" data-filterable-current=":kris-core/main" data-filterable-set=":kris-core/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="reprint-edition.html"><span>reprint</span><wbr><span><span>Edition</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1874734168%2FProperties%2F-2026382967"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":kris-core/main"><div class="symbol monospace"><span class="token keyword">var </span><a href="reprint-edition.html">reprintEdition</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">RP</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="2049214616%2FProperties%2F-2026382967" anchor-label="researchNotes" id="2049214616%2FProperties%2F-2026382967" data-filterable-set=":kris-core/main"></a>
+          <div class="table-row" data-filterable-current=":kris-core/main" data-filterable-set=":kris-core/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="research-notes.html"><span>research</span><wbr><span><span>Notes</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2049214616%2FProperties%2F-2026382967"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":kris-core/main"><div class="symbol monospace"><span class="token keyword">var </span><a href="research-notes.html">researchNotes</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">RN</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-40678094%2FProperties%2F-2026382967" anchor-label="reviewedItem" id="-40678094%2FProperties%2F-2026382967" data-filterable-set=":kris-core/main"></a>
+          <div class="table-row" data-filterable-current=":kris-core/main" data-filterable-set=":kris-core/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="reviewed-item.html"><span>reviewed</span><wbr><span><span>Item</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-40678094%2FProperties%2F-2026382967"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":kris-core/main"><div class="symbol monospace"><span class="token keyword">var </span><a href="reviewed-item.html">reviewedItem</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">RI</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="167809640%2FProperties%2F-2026382967" anchor-label="secondaryAuthors" id="167809640%2FProperties%2F-2026382967" data-filterable-set=":kris-core/main"></a>
+          <div class="table-row" data-filterable-current=":kris-core/main" data-filterable-set=":kris-core/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="secondary-authors.html"><span>secondary</span><wbr><span><span>Authors</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="167809640%2FProperties%2F-2026382967"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":kris-core/main"><div class="symbol monospace"><span class="token keyword">val </span><a href="secondary-authors.html">secondaryAuthors</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-mutable-list/index.html">MutableList</a><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">A2</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1814703336%2FProperties%2F-2026382967" anchor-label="secondaryTitle" id="-1814703336%2FProperties%2F-2026382967" data-filterable-set=":kris-core/main"></a>
+          <div class="table-row" data-filterable-current=":kris-core/main" data-filterable-set=":kris-core/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="secondary-title.html"><span>secondary</span><wbr><span><span>Title</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1814703336%2FProperties%2F-2026382967"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":kris-core/main"><div class="symbol monospace"><span class="token keyword">var </span><a href="secondary-title.html">secondaryTitle</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">T2</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="289182009%2FProperties%2F-2026382967" anchor-label="section" id="289182009%2FProperties%2F-2026382967" data-filterable-set=":kris-core/main"></a>
+          <div class="table-row" data-filterable-current=":kris-core/main" data-filterable-set=":kris-core/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="section.html"><span><span>section</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="289182009%2FProperties%2F-2026382967"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":kris-core/main"><div class="symbol monospace"><span class="token keyword">var </span><a href="section.html">section</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">SE</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-840511584%2FProperties%2F-2026382967" anchor-label="shortTitle" id="-840511584%2FProperties%2F-2026382967" data-filterable-set=":kris-core/main"></a>
+          <div class="table-row" data-filterable-current=":kris-core/main" data-filterable-set=":kris-core/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="short-title.html"><span>short</span><wbr><span><span>Title</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-840511584%2FProperties%2F-2026382967"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":kris-core/main"><div class="symbol monospace"><span class="token keyword">var </span><a href="short-title.html">shortTitle</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">ST</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-2019167411%2FProperties%2F-2026382967" anchor-label="startPage" id="-2019167411%2FProperties%2F-2026382967" data-filterable-set=":kris-core/main"></a>
+          <div class="table-row" data-filterable-current=":kris-core/main" data-filterable-set=":kris-core/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="start-page.html"><span>start</span><wbr><span><span>Page</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2019167411%2FProperties%2F-2026382967"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":kris-core/main"><div class="symbol monospace"><span class="token keyword">var </span><a href="start-page.html">startPage</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">SP - String? instead of Int? for DistillerSr format</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="853585155%2FProperties%2F-2026382967" anchor-label="subsidiaryAuthors" id="853585155%2FProperties%2F-2026382967" data-filterable-set=":kris-core/main"></a>
+          <div class="table-row" data-filterable-current=":kris-core/main" data-filterable-set=":kris-core/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="subsidiary-authors.html"><span>subsidiary</span><wbr><span><span>Authors</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="853585155%2FProperties%2F-2026382967"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":kris-core/main"><div class="symbol monospace"><span class="token keyword">val </span><a href="subsidiary-authors.html">subsidiaryAuthors</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-mutable-list/index.html">MutableList</a><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">A4</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1919498408%2FProperties%2F-2026382967" anchor-label="tertiaryAuthors" id="1919498408%2FProperties%2F-2026382967" data-filterable-set=":kris-core/main"></a>
+          <div class="table-row" data-filterable-current=":kris-core/main" data-filterable-set=":kris-core/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="tertiary-authors.html"><span>tertiary</span><wbr><span><span>Authors</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1919498408%2FProperties%2F-2026382967"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":kris-core/main"><div class="symbol monospace"><span class="token keyword">val </span><a href="tertiary-authors.html">tertiaryAuthors</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-mutable-list/index.html">MutableList</a><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">A3</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1051920728%2FProperties%2F-2026382967" anchor-label="tertiaryTitle" id="1051920728%2FProperties%2F-2026382967" data-filterable-set=":kris-core/main"></a>
+          <div class="table-row" data-filterable-current=":kris-core/main" data-filterable-set=":kris-core/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="tertiary-title.html"><span>tertiary</span><wbr><span><span>Title</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1051920728%2FProperties%2F-2026382967"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":kris-core/main"><div class="symbol monospace"><span class="token keyword">var </span><a href="tertiary-title.html">tertiaryTitle</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">T3</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1080762010%2FProperties%2F-2026382967" anchor-label="title" id="-1080762010%2FProperties%2F-2026382967" data-filterable-set=":kris-core/main"></a>
+          <div class="table-row" data-filterable-current=":kris-core/main" data-filterable-set=":kris-core/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="title.html"><span><span>title</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1080762010%2FProperties%2F-2026382967"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":kris-core/main"><div class="symbol monospace"><span class="token keyword">var </span><a href="title.html">title</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">TI</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-978394821%2FProperties%2F-2026382967" anchor-label="translatedAuthor" id="-978394821%2FProperties%2F-2026382967" data-filterable-set=":kris-core/main"></a>
+          <div class="table-row" data-filterable-current=":kris-core/main" data-filterable-set=":kris-core/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="translated-author.html"><span>translated</span><wbr><span><span>Author</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-978394821%2FProperties%2F-2026382967"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":kris-core/main"><div class="symbol monospace"><span class="token keyword">var </span><a href="translated-author.html">translatedAuthor</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">TA</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1171947164%2FProperties%2F-2026382967" anchor-label="translatedTitle" id="1171947164%2FProperties%2F-2026382967" data-filterable-set=":kris-core/main"></a>
+          <div class="table-row" data-filterable-current=":kris-core/main" data-filterable-set=":kris-core/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="translated-title.html"><span>translated</span><wbr><span><span>Title</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1171947164%2FProperties%2F-2026382967"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":kris-core/main"><div class="symbol monospace"><span class="token keyword">var </span><a href="translated-title.html">translatedTitle</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">TT</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1071913122%2FProperties%2F-2026382967" anchor-label="type" id="1071913122%2FProperties%2F-2026382967" data-filterable-set=":kris-core/main"></a>
+          <div class="table-row" data-filterable-current=":kris-core/main" data-filterable-set=":kris-core/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="type.html"><span><span>type</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1071913122%2FProperties%2F-2026382967"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":kris-core/main"><div class="symbol monospace"><span class="token keyword">var </span><a href="type.html">type</a><span class="token operator">: </span><a href="../-ris-type/index.html">RisType</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">TY</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-2116228132%2FProperties%2F-2026382967" anchor-label="unpublishedReferenceTitle" id="-2116228132%2FProperties%2F-2026382967" data-filterable-set=":kris-core/main"></a>
+          <div class="table-row" data-filterable-current=":kris-core/main" data-filterable-set=":kris-core/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="unpublished-reference-title.html"><span>unpublished</span><wbr><span>Reference</span><wbr><span><span>Title</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2116228132%2FProperties%2F-2026382967"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":kris-core/main"><div class="symbol monospace"><span class="token keyword">var </span><a href="unpublished-reference-title.html">unpublishedReferenceTitle</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">CT</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="785146479%2FProperties%2F-2026382967" anchor-label="url" id="785146479%2FProperties%2F-2026382967" data-filterable-set=":kris-core/main"></a>
+          <div class="table-row" data-filterable-current=":kris-core/main" data-filterable-set=":kris-core/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="url.html"><span><span>url</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="785146479%2FProperties%2F-2026382967"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":kris-core/main"><div class="symbol monospace"><span class="token keyword">var </span><a href="url.html">url</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">UR</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1892767676%2FProperties%2F-2026382967" anchor-label="userDefinable1" id="-1892767676%2FProperties%2F-2026382967" data-filterable-set=":kris-core/main"></a>
+          <div class="table-row" data-filterable-current=":kris-core/main" data-filterable-set=":kris-core/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="user-definable1.html"><span>user</span><wbr><span><span>Definable1</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1892767676%2FProperties%2F-2026382967"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":kris-core/main"><div class="symbol monospace"><span class="token keyword">var </span><a href="user-definable1.html">userDefinable1</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">U1. User definable 1. This is an alphanumeric field and there is no practical limit to the length of this field.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1861747869%2FProperties%2F-2026382967" anchor-label="userDefinable2" id="-1861747869%2FProperties%2F-2026382967" data-filterable-set=":kris-core/main"></a>
+          <div class="table-row" data-filterable-current=":kris-core/main" data-filterable-set=":kris-core/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="user-definable2.html"><span>user</span><wbr><span><span>Definable2</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1861747869%2FProperties%2F-2026382967"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":kris-core/main"><div class="symbol monospace"><span class="token keyword">var </span><a href="user-definable2.html">userDefinable2</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">U. User definable 2. This is an alphanumeric field and there is no practical limit to the length of this field.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1830728062%2FProperties%2F-2026382967" anchor-label="userDefinable3" id="-1830728062%2FProperties%2F-2026382967" data-filterable-set=":kris-core/main"></a>
+          <div class="table-row" data-filterable-current=":kris-core/main" data-filterable-set=":kris-core/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="user-definable3.html"><span>user</span><wbr><span><span>Definable3</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1830728062%2FProperties%2F-2026382967"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":kris-core/main"><div class="symbol monospace"><span class="token keyword">var </span><a href="user-definable3.html">userDefinable3</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">U3. User definable 3. This is an alphanumeric field and there is no practical limit to the length of this field.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1799708255%2FProperties%2F-2026382967" anchor-label="userDefinable4" id="-1799708255%2FProperties%2F-2026382967" data-filterable-set=":kris-core/main"></a>
+          <div class="table-row" data-filterable-current=":kris-core/main" data-filterable-set=":kris-core/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="user-definable4.html"><span>user</span><wbr><span><span>Definable4</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1799708255%2FProperties%2F-2026382967"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":kris-core/main"><div class="symbol monospace"><span class="token keyword">var </span><a href="user-definable4.html">userDefinable4</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">U4. User definable 4. This is an alphanumeric field and there is no practical limit to the length of this field.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1768688448%2FProperties%2F-2026382967" anchor-label="userDefinable5" id="-1768688448%2FProperties%2F-2026382967" data-filterable-set=":kris-core/main"></a>
+          <div class="table-row" data-filterable-current=":kris-core/main" data-filterable-set=":kris-core/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="user-definable5.html"><span>user</span><wbr><span><span>Definable5</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1768688448%2FProperties%2F-2026382967"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":kris-core/main"><div class="symbol monospace"><span class="token keyword">var </span><a href="user-definable5.html">userDefinable5</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">U5. User definable 5. This is an alphanumeric field and there is no practical limit to the length of this field.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="526354937%2FProperties%2F-2026382967" anchor-label="volumeNumber" id="526354937%2FProperties%2F-2026382967" data-filterable-set=":kris-core/main"></a>
+          <div class="table-row" data-filterable-current=":kris-core/main" data-filterable-set=":kris-core/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="volume-number.html"><span>volume</span><wbr><span><span>Number</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="526354937%2FProperties%2F-2026382967"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":kris-core/main"><div class="symbol monospace"><span class="token keyword">var </span><a href="volume-number.html">volumeNumber</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">VL</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1167097239%2FProperties%2F-2026382967" anchor-label="websiteLink" id="-1167097239%2FProperties%2F-2026382967" data-filterable-set=":kris-core/main"></a>
+          <div class="table-row" data-filterable-current=":kris-core/main" data-filterable-set=":kris-core/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="website-link.html"><span>website</span><wbr><span><span>Link</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1167097239%2FProperties%2F-2026382967"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":kris-core/main"><div class="symbol monospace"><span class="token keyword">var </span><a href="website-link.html">websiteLink</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">LK</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    <div class="footer">
+        <a href="#content" id="go-to-top-link" class="footer--button footer--button_go-to-top"></a>
+        <span>© 2025 Copyright</span>
+        <span class="pull-right">
+            <span>Generated by </span>
+            <a class="footer--link footer--link_external" href="https://github.com/Kotlin/dokka">
+                <span>dokka</span>
+            </a>
+        </span>
+    </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

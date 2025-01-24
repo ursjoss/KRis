@@ -1,0 +1,8 @@
+$dokka.format:html-v1
+$dokka.linkExtension:html
+
+module:kris-core
+ch.difty.kris
+ch.difty.kris.domain
+module:kris-io
+ch.difty.kris

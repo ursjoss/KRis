@@ -1,0 +1,1 @@
+sourceset_dependencies = '{":kris-io/main":[],":kris-core/main":[]}'

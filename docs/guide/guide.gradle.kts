@@ -59,8 +59,7 @@ tasks {
 
 afterEvaluate {
     val dokkaOutputDir = rootProject.layout.buildDirectory.get().asFile.resolve("dokka")
-    val htmlMultiModuleOutputDir = dokkaOutputDir.resolve("htmlMultiModule")
-    val htmlJavadocOutputDir = dokkaOutputDir.resolve("javadocCollector")
+    val htmlOutputDir = dokkaOutputDir.resolve("html")
     val gitPassword = providers.environmentVariable("GRGIT_USER")
     gitPublish {
         repoUri.set("https://github.com/ursjoss/KRis.git")
@@ -69,15 +68,12 @@ afterEvaluate {
             project.tasks.findByName("createGuide")?.outputs?.files?.let {
                 from(it)
             }
-            from(htmlMultiModuleOutputDir) {
+            from(htmlOutputDir) {
                 into("kapi")
-            }
-            from(htmlJavadocOutputDir) {
-                into("javadoc")
             }
         }
         preserve {
-            include(htmlMultiModuleOutputDir.absolutePath)
+            include(htmlOutputDir.absolutePath)
         }
         commitMessage.set("Publish guide for ${project.version}")
 

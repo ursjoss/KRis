@@ -21,5 +21,3 @@ include::{includedir}/usage.adoc[]
 
 link:kapi/index.html[Kotlindoc, window="_blank"]
 
-link:javadoc/index.html[JavaDoc, window="_blank"]
-

@@ -5,3 +5,4 @@ kris.iml
 build/
 out/
 s101plugin.state
+.kotlin/

@@ -29,7 +29,6 @@ testing {
         }
         @Suppress("unused")
         val integrationTest by registering(JvmTestSuite::class) {
-            testType.set(TestSuiteType.INTEGRATION_TEST)
             dependencies {
                 implementation(project())
             }

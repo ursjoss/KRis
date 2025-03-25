@@ -17,7 +17,7 @@ detektKotlinVersion = "1.9.22"
 mockk = "1.13.17"
 nexusPublish = "2.0.0"
 rxjava = "2.2.21"
-sonarqube = "6.0.1.5171"
+sonarqube = "6.1.0.5360"
 versions = "0.52.0"
 
 [libraries]

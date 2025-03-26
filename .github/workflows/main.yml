@@ -21,7 +21,7 @@ jobs:
           fetch-depth: 0
 
       - name: Validate gradle wrapper
-        uses: gradle/actions/wrapper-validation@94baf225fe0a508e581a564467443d0e2379123b # v4
+        uses: gradle/actions/wrapper-validation@06832c7b30a0129d7fb559bcc6e43d26f6374244 # v4
 
       - name: Set up JDK 17
         uses: actions/setup-java@3a4f6e1af504cf6a31855fa899c6aa5355ba6c12 # v4
@@ -45,7 +45,7 @@ jobs:
             gradle-cache-${{ hashFiles('gradle/wrapper/gradle-wrapper.properties') }}
 
       - name: Setup gradle
-        uses: gradle/actions/setup-gradle@94baf225fe0a508e581a564467443d0e2379123b # v4
+        uses: gradle/actions/setup-gradle@06832c7b30a0129d7fb559bcc6e43d26f6374244 # v4
 
       - name: Run build
         run: ./gradlew build check detekt mergeDetektSarif :gradle-plugins:buildPlugins --continue

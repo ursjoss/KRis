@@ -44,7 +44,7 @@ The format is based on https://keepachangelog.com/en/1.0.0/[Keep a Changelog].
 [[unreleased]]
 == [unreleased]
 
-{url-cl}0.5.12++...++main[Full Changelog]
+{url-cl}0.5.13++...++main[Full Changelog]
 
 .Added
 
@@ -61,11 +61,21 @@ The format is based on https://keepachangelog.com/en/1.0.0/[Keep a Changelog].
 
 ////
 
+[[v0.5.13]]
+== [0.5.13] -- 2025-05-10
+
+{url-cl}0.5.12++...++0.5.13[Full Changelog]
+
+.Changed
+- Bumped coroutines, gradle, detekt, junit5, mockk,
+  git-publish plugin, sonarqube plugin, reckon,
+  foojay-resolver-convention
+
 
 [[v0.5.12]]
 == [0.5.12] -- 2025-01-24
 
-{url-cl}0.5.10++...++0.5.11[Full Changelog]
+{url-cl}0.5.10++...++0.5.12[Full Changelog]
 
 .Changed
 - Bumped kotlinx-coroutines, kotlinx-coroutines-rx2

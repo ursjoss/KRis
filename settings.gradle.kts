@@ -10,7 +10,7 @@ pluginManagement {
 
 plugins {
     id("org.ajoberstar.reckon.settings") version "0.19.2"
-    id("org.gradle.toolchains.foojay-resolver-convention") version ("0.10.0")
+    id("org.gradle.toolchains.foojay-resolver-convention") version ("1.0.0")
 }
 
 configure<ReckonExtension> {

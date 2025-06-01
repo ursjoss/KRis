@@ -43,6 +43,9 @@ testing {
         }
         configurations.named("integrationTestImplementation") {
             extendsFrom(configurations.testImplementation.get())
+            dependencies {
+                implementation(libs.bundles.testEngines)
+            }
         }
     }
 }

@@ -11,7 +11,7 @@ java = "17"
 junitJupiter = "5.13.2"
 kluent = "1.73"
 kotest = "5.9.1"
-kotlin = "2.1.21"
+kotlin = "2.2.0"
 # See https://github.com/detekt/detekt/issues/6198
 detektKotlinVersion = "1.9.22"
 mockk = "1.14.4"

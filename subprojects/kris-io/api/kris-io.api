@@ -7,10 +7,10 @@ public final class ch/difty/kris/DefaultDispatcherProvider : ch/difty/kris/Dispa
 }
 
 public abstract interface class ch/difty/kris/DispatcherProvider {
-	public abstract fun getDefault ()Lkotlinx/coroutines/CoroutineDispatcher;
-	public abstract fun getIo ()Lkotlinx/coroutines/CoroutineDispatcher;
-	public abstract fun getMain ()Lkotlinx/coroutines/CoroutineDispatcher;
-	public abstract fun getUnconfined ()Lkotlinx/coroutines/CoroutineDispatcher;
+	public fun getDefault ()Lkotlinx/coroutines/CoroutineDispatcher;
+	public fun getIo ()Lkotlinx/coroutines/CoroutineDispatcher;
+	public fun getMain ()Lkotlinx/coroutines/CoroutineDispatcher;
+	public fun getUnconfined ()Lkotlinx/coroutines/CoroutineDispatcher;
 }
 
 public final class ch/difty/kris/DispatcherProvider$DefaultImpls {

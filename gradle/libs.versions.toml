@@ -28,6 +28,7 @@ coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", ve
 junitJupiter-api = { module = "org.junit.jupiter:junit-jupiter-api", version.ref = "junitJupiter" }
 junitJupiter-engine = { module = "org.junit.jupiter:junit-jupiter-engine", version.ref = "junitJupiter" }
 kluent = { module = "org.amshove.kluent:kluent", version.ref = "kluent" }
+kotest-assertions-core = { module = "io.kotest:kotest-assertions-core", version.ref = "kotest"}
 kotest-framework-engine = { module = "io.kotest:kotest-framework-engine", version.ref = "kotest" }
 kotest-runner-junit5 = { module = "io.kotest:kotest-runner-junit5", version.ref = "kotest"}
 kotlin-reflect = { module = "org.jetbrains.kotlin:kotlin-reflect", version.ref = "kotlin" }
@@ -40,7 +41,7 @@ plugin-kotlin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.
 
 [bundles]
 kotlin = ["kotlin-stdlib", "kotlin-reflect", "coroutines-core"]
-testDeps = ["junitJupiter-api", "kotest-framework-engine", "mockk", "kluent", "assertj-core"]
+testDeps = ["junitJupiter-api", "kotest-framework-engine", "kotest-assertions-core", "mockk", "kluent", "assertj-core"]
 testEngines = ["junitJupiter-engine", "kotest-runner-junit5"]
 
 [plugins]
@@ -51,5 +52,6 @@ dokka = { id = "org.jetbrains.dokka", version.ref = "dokka" }
 gitPublish = { id = "org.ajoberstar.git-publish", version.ref = "gitPublish" }
 kotest = { id = "io.kotest", version.ref = "kotest" }
 nexusPublish = { id = "io.github.gradle-nexus.publish-plugin", version.ref = "nexusPublish" }
+powerAssert = { id = "org.jetbrains.kotlin.plugin.power-assert", version.ref = "kotlin" }
 sonarqube = { id = "org.sonarqube", version.ref = "sonarqube" }
 versions = { id = "com.github.ben-manes.versions", version.ref = "versions" }

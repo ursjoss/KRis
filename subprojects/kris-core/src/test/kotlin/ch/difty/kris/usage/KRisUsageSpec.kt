@@ -7,12 +7,12 @@ import ch.difty.kris.risTagNames
 import ch.difty.kris.toRisLines
 import ch.difty.kris.toRisRecords
 import io.kotest.core.spec.style.DescribeSpec
+import io.kotest.matchers.collections.shouldHaveSize
+import io.kotest.matchers.shouldBe
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.asFlow
 import kotlinx.coroutines.flow.toList
 import kotlinx.coroutines.runBlocking
-import org.amshove.kluent.shouldBeEqualTo
-import org.amshove.kluent.shouldHaveSize
 
 /** Specification how to use KRis from kotlin */
 object KRisUsageSpec : DescribeSpec({
@@ -118,7 +118,7 @@ object KRisUsageSpec : DescribeSpec({
         }
 
         it("can convert risRecord to a string") {
-            risRecords.toRisLines().joinToString(separator = "") shouldBeEqualTo """TY  - JOUR
+            risRecords.toRisLines().joinToString(separator = "") shouldBe """TY  - JOUR
                                 |AU  - Shannon, Claude E.
                                 |EP  - 423
                                 |PY  - 1948/07//
@@ -131,7 +131,7 @@ object KRisUsageSpec : DescribeSpec({
         }
 
         it("can convert risRecord to a string - applying a sort") {
-            risRecords.toRisLines(listOf("TI", "EP")).joinToString(separator = "") shouldBeEqualTo """TY  - JOUR
+            risRecords.toRisLines(listOf("TI", "EP")).joinToString(separator = "") shouldBe """TY  - JOUR
                                 |TI  - A Mathematical Theory of Communication
                                 |EP  - 423
                                 |AU  - Shannon, Claude E.
@@ -145,14 +145,14 @@ object KRisUsageSpec : DescribeSpec({
 
         it("can get list of all RisTag names") {
             @Suppress("MaxLineLength")
-            risTagNames.joinToString() shouldBeEqualTo
+            risTagNames.joinToString() shouldBe
                 "TY, A1, A2, A3, A4, AB, AD, AN, AU, AV, BT, C1, C2, C3, C4, C5, C6, C7, C8, CA, CN, CP, CT, CY, DA, DB, DO, " +
                 "DP, ED, EP, ET, ID, IS, J1, J2, JA, JF, JO, KW, L1, L2, L3, L4, LA, LB, LK, M1, M2, M3, N1, N2, NV, OP, PB, " +
                 "PP, PY, RI, RN, RP, SE, SN, SP, ST, T1, T2, T3, TA, TI, TT, U1, U2, U3, U4, U5, UR, VL, VO, Y1, Y2, ER"
         }
 
         it("can get list of all RisTag names via KRis") {
-            KRis.risTagNames() shouldBeEqualTo risTagNames
+            KRis.risTagNames() shouldBe risTagNames
         }
     }
 })

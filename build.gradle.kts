@@ -40,8 +40,8 @@ sonarqube {
 nexusPublishing {
     repositories {
         sonatype {
-            nexusUrl.set(uri("https://central.sonatype.com/api/v1/publisher"))
-            snapshotRepositoryUrl.set(uri("https://central.sonatype.com/api/v1/publisher/snapshots"))
+            nexusUrl.set(uri("https://central.sonatype.com/api/v1/publisher/"))
+            snapshotRepositoryUrl.set(uri("https://central.sonatype.com/api/v1/publisher/snapshots/"))
             val mcUsername = providers.environmentVariable("MC_USERNAME")
             val mcPassword = providers.environmentVariable("MC_PASSWORD")
             if (mcUsername.isPresent && mcPassword.isPresent) {

@@ -83,5 +83,6 @@ dependencies {
     implementation(libs.bundles.kotlin)
 
     testImplementation(libs.bundles.testDeps)
+    testImplementation(libs.coroutines.test)
     testRuntimeOnly(libs.bundles.testEngines)
 }

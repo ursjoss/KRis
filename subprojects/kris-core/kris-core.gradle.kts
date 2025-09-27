@@ -4,6 +4,7 @@ plugins {
     id("kris-publish")
     id("kris-jacoco")
     kotlin("jvm")
+    alias(libs.plugins.kotest)
     alias(libs.plugins.dokka)
 }
 
@@ -20,7 +21,6 @@ dependencies {
 kotlin {
     explicitApi()
 }
-
 
 dokka {
     dokkaSourceSets {
@@ -43,5 +43,8 @@ tasks {
     val apiBuild by existing
     named("jacocoTestReport") {
         dependsOn(apiBuild)
+    }
+    withType<Test>().configureEach {
+        useJUnitPlatform()
     }
 }

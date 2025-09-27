@@ -8,6 +8,7 @@ plugins {
     kotlin("jvm")
     alias(libs.plugins.dokka)
     `jvm-test-suite`
+    alias(libs.plugins.kotest)
 }
 
 kotlin {
@@ -82,5 +83,6 @@ dependencies {
     implementation(libs.bundles.kotlin)
 
     testImplementation(libs.bundles.testDeps)
+    testImplementation(libs.coroutines.test)
     testRuntimeOnly(libs.bundles.testEngines)
 }

@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
+
 plugins {
     id("kris-detekt")
     id("kris-collect-sarif")
@@ -6,6 +8,7 @@ plugins {
     kotlin("jvm")
     alias(libs.plugins.kotest)
     alias(libs.plugins.dokka)
+    alias(libs.plugins.powerAssert)
 }
 
 dependencies {
@@ -20,6 +23,13 @@ dependencies {
 
 kotlin {
     explicitApi()
+}
+
+@OptIn(ExperimentalKotlinGradlePluginApi::class)
+powerAssert {
+    functions = listOf(
+        "io.kotest.matchers.shouldBe",
+    )
 }
 
 dokka {

@@ -1,14 +1,13 @@
 package ch.difty.kris
 
 import ch.difty.kris.domain.RisType
+import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.core.spec.style.DescribeSpec
+import io.kotest.matchers.collections.shouldHaveSize
+import io.kotest.matchers.shouldBe
 import kotlinx.coroutines.flow.asFlow
 import kotlinx.coroutines.flow.toList
 import kotlinx.coroutines.runBlocking
-import org.amshove.kluent.coInvoking
-import org.amshove.kluent.shouldBeEqualTo
-import org.amshove.kluent.shouldHaveSize
-import org.amshove.kluent.shouldThrow
 
 @Suppress("SpellCheckingInspection", "S1192")
 object KRisProcessingSpec : DescribeSpec({
@@ -39,17 +38,17 @@ object KRisProcessingSpec : DescribeSpec({
             val risRecords = runBlocking { KRis.process(lines.asFlow()).toList() }
 
             it("should be parsed into one single RisRecord") { risRecords shouldHaveSize 1 }
-            it("should have the reference type $type") { risRecords.first().type shouldBeEqualTo RisType.JOUR }
+            it("should have the reference type $type") { risRecords.first().type shouldBe RisType.JOUR }
             it("should have single author") { risRecords.first().authors shouldHaveSize 1 }
-            it("should have author $author") { risRecords.first().authors.first() shouldBeEqualTo author }
-            it("should have publication year $pubYear") { risRecords.first().publicationYear shouldBeEqualTo pubYear }
-            it("should have title $title") { risRecords.first().title shouldBeEqualTo title }
+            it("should have author $author") { risRecords.first().authors.first() shouldBe author }
+            it("should have publication year $pubYear") { risRecords.first().publicationYear shouldBe pubYear }
+            it("should have title $title") { risRecords.first().title shouldBe title }
             it("should have secondary/journal title $journalTitle") {
-                risRecords.first().secondaryTitle shouldBeEqualTo journalTitle
+                risRecords.first().secondaryTitle shouldBe journalTitle
             }
-            it("should have start page $startPage") { risRecords.first().startPage shouldBeEqualTo startPage }
-            it("should have end page $endPage") { risRecords.first().endPage shouldBeEqualTo endPage }
-            it("should have volume $volume") { risRecords.first().volumeNumber shouldBeEqualTo volume }
+            it("should have start page $startPage") { risRecords.first().startPage shouldBe startPage }
+            it("should have end page $endPage") { risRecords.first().endPage shouldBe endPage }
+            it("should have volume $volume") { risRecords.first().volumeNumber shouldBe volume }
         }
 
         describe("representing two records") {
@@ -67,7 +66,9 @@ object KRisProcessingSpec : DescribeSpec({
         )
 
         it("should throw") {
-            coInvoking { KRis.process(lines.asFlow()).toList() } shouldThrow KRisException::class
+            shouldThrow<KRisException> {
+                KRis.process(lines.asFlow()).toList()
+            }
         }
     }
 
@@ -87,11 +88,11 @@ object KRisProcessingSpec : DescribeSpec({
             val risRecords = runBlocking { KRis.process(lines.asFlow()).toList() }
 
             it("should be parsed into one single RisRecord") { risRecords shouldHaveSize 1 }
-            it("should have the reference type $type") { risRecords.first().type shouldBeEqualTo RisType.JOUR }
+            it("should have the reference type $type") { risRecords.first().type shouldBe RisType.JOUR }
             it("should have number $miscellaneous1") {
-                risRecords.first().miscellaneous1 shouldBeEqualTo miscellaneous1
+                risRecords.first().miscellaneous1 shouldBe miscellaneous1
             }
-            it("should have abstract $abstract") { risRecords.first().abstr shouldBeEqualTo abstract }
+            it("should have abstract $abstract") { risRecords.first().abstr shouldBe abstract }
         }
 
         describe("with number, abstract and some invalid tag thereafter") {
@@ -105,8 +106,8 @@ object KRisProcessingSpec : DescribeSpec({
             val risRecords = runBlocking { KRis.process(lines.asFlow()).toList() }
 
             it("should be parsed into one single RisRecord") { risRecords shouldHaveSize 1 }
-            it("should have the reference type $type") { risRecords.first().type shouldBeEqualTo RisType.JOUR }
-            it("should have abstract $abstract2") { risRecords.first().abstr shouldBeEqualTo abstract2 }
+            it("should have the reference type $type") { risRecords.first().type shouldBe RisType.JOUR }
+            it("should have abstract $abstract2") { risRecords.first().abstr shouldBe abstract2 }
         }
     }
 })

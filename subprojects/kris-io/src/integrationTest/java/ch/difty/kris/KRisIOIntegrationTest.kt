@@ -2,8 +2,8 @@ package ch.difty.kris
 
 import ch.difty.kris.domain.RisRecord
 import ch.difty.kris.domain.RisType
-import org.amshove.kluent.shouldContainAll
-import org.amshove.kluent.shouldHaveSize
+import io.kotest.matchers.collections.shouldContainAll
+import io.kotest.matchers.collections.shouldHaveSize
 import org.junit.jupiter.api.Test
 import java.io.File
 import java.util.stream.Collectors.toList

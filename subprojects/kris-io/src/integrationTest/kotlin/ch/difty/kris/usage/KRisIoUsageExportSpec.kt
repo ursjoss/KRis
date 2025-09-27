@@ -5,9 +5,9 @@ import ch.difty.kris.domain.RisRecord
 import ch.difty.kris.domain.RisType
 import ch.difty.kris.process
 import io.kotest.core.spec.style.DescribeSpec
+import io.kotest.matchers.collections.shouldHaveSize
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
-import org.amshove.kluent.shouldHaveSize
 import java.io.File
 
 object KRisIoUsageExportSpec : DescribeSpec({

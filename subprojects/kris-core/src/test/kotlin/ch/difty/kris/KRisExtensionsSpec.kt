@@ -1,7 +1,7 @@
 package ch.difty.kris
 
 import io.kotest.core.spec.style.DescribeSpec
-import org.amshove.kluent.shouldBeEqualTo
+import io.kotest.matchers.shouldBe
 
 object KRisExtensionsSpec : DescribeSpec({
 
@@ -20,19 +20,19 @@ object KRisExtensionsSpec : DescribeSpec({
 
     describe("with a list of lines - each w/ new lines") {
         it("should extract startPage") {
-            recordWithNewLines.toRisRecords().first().startPage shouldBeEqualTo "2"
+            recordWithNewLines.toRisRecords().first().startPage shouldBe "2"
         }
         it("should extract endPage") {
-            recordWithNewLines.toRisRecords().first().endPage shouldBeEqualTo "28"
+            recordWithNewLines.toRisRecords().first().endPage shouldBe "28"
         }
     }
 
     describe("with a list of lines - each w/o new lines") {
         it("should extract startPage") {
-            recordWithoutNewLines.toRisRecords().first().startPage shouldBeEqualTo "2"
+            recordWithoutNewLines.toRisRecords().first().startPage shouldBe "2"
         }
         it("should extract endPage") {
-            recordWithoutNewLines.toRisRecords().first().endPage shouldBeEqualTo "28"
+            recordWithoutNewLines.toRisRecords().first().endPage shouldBe "28"
         }
     }
 })

@@ -54,3 +54,14 @@ jobs:
           MC_USERNAME: ${{ secrets.MC_USERNAME }}
           MC_PASSWORD: ${{ secrets.MC_PASSWORD }}
 
+      - name: Publish artifacts
+        run: |
+          set -e
+          AUTH_TOKEN=$(echo -n "${MC_USERNAME}:${MC_PASSWORD}" | base64)
+          echo "::add-mask::${AUTH_TOKEN}"
+          curl -v -X POST "https://ossrh-staging-api.central.sonatype.com/manual/upload/defaultRepository/ch.difty.kris?publishing_type=automatic" \
+            -H "Authorization: Bearer ${AUTH_TOKEN}"
+        env:
+          MC_USERNAME: ${{ secrets.MC_USERNAME }}
+          MC_PASSWORD: ${{ secrets.MC_PASSWORD }}
+

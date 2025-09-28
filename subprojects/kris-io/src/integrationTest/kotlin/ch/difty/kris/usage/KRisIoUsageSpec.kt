@@ -6,10 +6,10 @@ import ch.difty.kris.domain.RisRecord
 import ch.difty.kris.domain.RisType
 import ch.difty.kris.process
 import io.kotest.core.spec.style.DescribeSpec
+import io.kotest.matchers.collections.shouldHaveSize
+import io.kotest.matchers.shouldBe
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
-import org.amshove.kluent.shouldBeEqualTo
-import org.amshove.kluent.shouldHaveSize
 import java.io.File
 
 object KRisIoUsageSpec : DescribeSpec({
@@ -113,7 +113,7 @@ object KRisIoUsageSpec : DescribeSpec({
                 it("writes TY first, EL last and remainder alphabetically") {
                     file.path.accept(records)
                     val fileContent = file.readText()
-                    fileContent shouldBeEqualTo """TY  - ABST
+                    fileContent shouldBe """TY  - ABST
                     |AB  - abstr
                     |DP  - dp
                     |LA  - lang
@@ -127,7 +127,7 @@ object KRisIoUsageSpec : DescribeSpec({
                 it("writes TY first, EL last, then according to sort and remainder alphabetically") {
                     file.path.accept(records, listOf("M3", "AB"))
                     val fileContent = file.readText()
-                    fileContent shouldBeEqualTo """TY  - ABST
+                    fileContent shouldBe """TY  - ABST
                     |M3  - tow
                     |AB  - abstr
                     |DP  - dp

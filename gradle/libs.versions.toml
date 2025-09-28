@@ -9,8 +9,7 @@ gitPublish = "5.1.3"
 jacoco = "0.8.8"
 java = "17"
 junitJupiter = "5.13.4"
-kluent = "1.73"
-kotest = "5.9.1"
+kotest = "6.0.3"
 kotlin = "2.2.20"
 # See https://github.com/detekt/detekt/issues/6198
 detektKotlinVersion = "1.9.22"
@@ -24,11 +23,11 @@ versions = "0.53.0"
 assertj-core = { module = "org.assertj:assertj-core", version.ref = "assertj" }
 coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "coroutines" }
 coroutines-rx2 = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-rx2", version.ref = "coroutines" }
+coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "coroutines" }
 junitJupiter-api = { module = "org.junit.jupiter:junit-jupiter-api", version.ref = "junitJupiter" }
 junitJupiter-engine = { module = "org.junit.jupiter:junit-jupiter-engine", version.ref = "junitJupiter" }
-kluent = { module = "org.amshove.kluent:kluent", version.ref = "kluent" }
-kotest-framework-api = { module = "io.kotest:kotest-framework-api", version.ref = "kotest"}
-kotest-property = { module = "io.kotest:kotest-property", version.ref = "kotest"}
+kotest-assertions-core = { module = "io.kotest:kotest-assertions-core", version.ref = "kotest"}
+kotest-framework-engine = { module = "io.kotest:kotest-framework-engine", version.ref = "kotest" }
 kotest-runner-junit5 = { module = "io.kotest:kotest-runner-junit5", version.ref = "kotest"}
 kotlin-reflect = { module = "org.jetbrains.kotlin:kotlin-reflect", version.ref = "kotlin" }
 kotlin-stdlib = { module = "org.jetbrains.kotlin:kotlin-stdlib-jdk8", version.ref = "kotlin" }
@@ -40,7 +39,7 @@ plugin-kotlin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.
 
 [bundles]
 kotlin = ["kotlin-stdlib", "kotlin-reflect", "coroutines-core"]
-testDeps = ["junitJupiter-api", "kotest-framework-api", "mockk", "kluent", "assertj-core"]
+testDeps = ["junitJupiter-api", "kotest-framework-engine", "kotest-assertions-core", "mockk", "assertj-core"]
 testEngines = ["junitJupiter-engine", "kotest-runner-junit5"]
 
 [plugins]
@@ -49,6 +48,8 @@ binaryCompatValidator = { id = "org.jetbrains.kotlinx.binary-compatibility-valid
 detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }
 dokka = { id = "org.jetbrains.dokka", version.ref = "dokka" }
 gitPublish = { id = "org.ajoberstar.git-publish", version.ref = "gitPublish" }
+kotest = { id = "io.kotest", version.ref = "kotest" }
 nexusPublish = { id = "io.github.gradle-nexus.publish-plugin", version.ref = "nexusPublish" }
+powerAssert = { id = "org.jetbrains.kotlin.plugin.power-assert", version.ref = "kotlin" }
 sonarqube = { id = "org.sonarqube", version.ref = "sonarqube" }
 versions = { id = "com.github.ben-manes.versions", version.ref = "versions" }

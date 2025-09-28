@@ -4,10 +4,10 @@ package ch.difty.kris.domain
 
 import io.kotest.core.spec.style.DescribeSpec
 import io.kotest.core.spec.style.scopes.DescribeSpecContainerScope
-import org.amshove.kluent.shouldBeEmpty
-import org.amshove.kluent.shouldBeEqualTo
-import org.amshove.kluent.shouldBeNull
-import org.amshove.kluent.shouldContainAll
+import io.kotest.matchers.collections.shouldBeEmpty
+import io.kotest.matchers.collections.shouldContainAll
+import io.kotest.matchers.nulls.shouldBeNull
+import io.kotest.matchers.shouldBe
 
 object RisRecordSpec : DescribeSpec({
 
@@ -452,7 +452,7 @@ private suspend fun DescribeSpecContainerScope.assertSpecifiedValues(record: Ris
         "accessDate" to record.accessDate
     ).forEach { (value, field) ->
         it("should be $value") {
-            field.toString() shouldBeEqualTo value
+            field.toString() shouldBe value
         }
     }
 
@@ -469,7 +469,7 @@ private suspend fun DescribeSpecContainerScope.assertSpecifiedValues(record: Ris
         "i" to record.images
     ).forEach { (name, list) ->
         it("list values should have value ${name}1 and ${name}2") {
-            list shouldContainAll arrayOf("${name}1", "${name}2")
+            list.shouldContainAll("${name}1", "${name}2")
         }
     }
 }

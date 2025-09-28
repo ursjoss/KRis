@@ -4,7 +4,7 @@ package ch.difty.kris
 
 import ch.difty.kris.domain.RisRecord
 import ch.difty.kris.domain.RisType
-import org.amshove.kluent.shouldBeEqualTo
+import io.kotest.matchers.shouldBe
 import org.junit.jupiter.api.Test
 
 class KRisProcessFromListTest {
@@ -188,6 +188,6 @@ class KRisProcessFromListTest {
     @Test
     fun `can build risRecord with all fields`() {
         val lines = KRis.buildFromList(listOf(risRecord))
-        lines.joinToString("") shouldBeEqualTo expected
+        lines.joinToString("") shouldBe expected
     }
 }

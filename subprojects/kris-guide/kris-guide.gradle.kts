@@ -1,6 +1,7 @@
 plugins {
     `java-library`
     kotlin("jvm")
+    alias(libs.plugins.kotest)
 }
 
 dependencies {
@@ -10,4 +11,10 @@ dependencies {
 
     testImplementation(libs.bundles.testDeps)
     testRuntimeOnly(libs.bundles.testEngines)
+}
+
+tasks {
+    withType<Test>().configureEach {
+        useJUnitPlatform()
+    }
 }

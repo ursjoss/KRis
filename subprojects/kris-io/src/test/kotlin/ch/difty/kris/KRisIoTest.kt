@@ -5,13 +5,14 @@ import ch.difty.kris.domain.RisType
 import io.mockk.every
 import io.mockk.mockk
 import io.mockk.verify
+import kotlinx.coroutines.test.runTest
 import org.junit.jupiter.api.Test
 import java.io.Writer
 
 internal class KRisIoTest {
 
     @Test
-    internal fun givenTwoRisRecords_when_exporting_areWrittenTwoWriter() {
+    internal fun givenTwoRisRecords_when_exporting_areWrittenTwoWriter(): Unit = runTest {
         val records = listOf(
             RisRecord(type = RisType.BOOK, authors = mutableListOf("Bond J."), publicationYear = "1922"),
             RisRecord(type = RisType.JOUR, authors = mutableListOf("No Dr."), publicationYear = "1962"),
@@ -21,7 +22,7 @@ internal class KRisIoTest {
             every { close() } returns Unit
         }
 
-        KRisIO.export(records, writer = writer, dispatchers = TestDispatcherProvider())
+        KRisIO.export(records, writer = writer)
 
         verify { writer.write("TY  - BOOK\n") }
         verify { writer.write("AU  - Bond J.\n") }

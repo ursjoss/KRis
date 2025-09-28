@@ -44,7 +44,7 @@ The format is based on https://keepachangelog.com/en/1.0.0/[Keep a Changelog].
 [[unreleased]]
 == [unreleased]
 
-{url-cl}0.5.13++...++main[Full Changelog]
+{url-cl}0.5.20++...++main[Full Changelog]
 
 .Added
 
@@ -60,6 +60,19 @@ The format is based on https://keepachangelog.com/en/1.0.0/[Keep a Changelog].
 .Security
 
 ////
+
+[[v0.5.20]]
+== [0.5.20] -- 2025-09-27
+
+.Changed
+- Bumped kotlin,
+  gradle, binary-compatibility-validator, reckon,
+  kotsst, junit5, mockk, assertj,
+  versions, git-publish, asciidoctor, sonarqube, foojay-resolver-convention,
+  gradle/actions digewst, actions/cache, actions/checkout, actions/setup-java, github/codeql-action
+.Removed
+- dependency kluent (migrated to kotest-assertions)
+
 
 [[v0.5.13]]
 == [0.5.13] -- 2025-05-10

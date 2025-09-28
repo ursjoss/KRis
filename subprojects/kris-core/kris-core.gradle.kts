@@ -1,10 +1,14 @@
+import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
+
 plugins {
     id("kris-detekt")
     id("kris-collect-sarif")
     id("kris-publish")
     id("kris-jacoco")
     kotlin("jvm")
+    alias(libs.plugins.kotest)
     alias(libs.plugins.dokka)
+    alias(libs.plugins.powerAssert)
 }
 
 dependencies {
@@ -21,6 +25,12 @@ kotlin {
     explicitApi()
 }
 
+@OptIn(ExperimentalKotlinGradlePluginApi::class)
+powerAssert {
+    functions = listOf(
+        "io.kotest.matchers.shouldBe",
+    )
+}
 
 dokka {
     dokkaSourceSets {
@@ -43,5 +53,8 @@ tasks {
     val apiBuild by existing
     named("jacocoTestReport") {
         dependsOn(apiBuild)
+    }
+    withType<Test>().configureEach {
+        useJUnitPlatform()
     }
 }

@@ -11,59 +11,66 @@ class KrisPublishPlugin : Plugin<Project> {
 
     @Suppress("LongMethod")
     override fun apply(target: Project) {
-        target.plugins.apply("com.vanniktech.maven.publish")
-        target.plugins.apply("org.gradle.java-library")
+        with (target) {
+            plugins.apply("org.gradle.java-library")
+            plugins.apply("com.vanniktech.maven.publish")
 
-        target.extensions.configure<MavenPublishBaseExtension> {
-            publishToMavenCentral(automaticRelease = true)
-            signAllPublications()
+            extensions.configure<MavenPublishBaseExtension> {
+                publishToMavenCentral(automaticRelease = true)
+                signAllPublications()
 
-            coordinates(
-                groupId = target.project.group.toString(),
-                artifactId = target.project.name,
-                version = target.project.version.toString()
-            )
+                coordinates(
+                    groupId = target.project.group.toString(),
+                    artifactId = target.project.name,
+                    version = target.project.version.toString()
+                )
 
-            pom {
-                name.set(target.rootProject.name)
-                description.set("Kotlin library for importing/exporting bibliographic records in RIS format")
-                inceptionYear.set("2017")
-                url.set(gitUrl)
-                scm {
+                pom {
+                    name.set(target.rootProject.name)
+                    description.set("Kotlin library for importing/exporting bibliographic records in RIS format")
+                    inceptionYear.set("2017")
                     url.set(gitUrl)
-                }
-                ciManagement {
-                    url.set("$gitUrl/actions")
-                }
-                issueManagement {
-                    url.set("$gitUrl/issues")
-                }
-                licenses {
-                    license {
-                        name.set("MIT")
-                        url.set("https://opensource.org/licenses/mit-license.php")
-                        distribution.set("repo")
+                    scm {
+                        url.set(gitUrl)
+                    }
+                    ciManagement {
+                        url.set("$gitUrl/actions")
+                    }
+                    issueManagement {
+                        url.set("$gitUrl/issues")
+                    }
+                    licenses {
+                        license {
+                            name.set("MIT")
+                            url.set("https://opensource.org/licenses/mit-license.php")
+                            distribution.set("repo")
+                        }
+                    }
+                    developers {
+                        developer {
+                            id.set("fastluca")
+                            name.set("Gianluca Colaianni")
+                            roles.add("developer")
+                        }
+                        developer {
+                            id.set("ursjoss")
+                            name.set("Urs Joss")
+                            roles.add("developer")
+                        }
                     }
                 }
-                developers {
-                    developer {
-                        id.set("fastluca")
-                        name.set("Gianluca Colaianni")
-                        roles.add("developer")
-                    }
-                    developer {
-                        id.set("ursjoss")
-                        name.set("Urs Joss")
-                        roles.add("developer")
-                    }
-                }
-
             }
-        }
-
-        target.extensions.configure<JavaPluginExtension> {
-            withSourcesJar()
-            withJavadocJar()
+            extensions.configure<JavaPluginExtension> {
+                withSourcesJar()
+                withJavadocJar()
+            }
+            project.afterEvaluate {
+                tasks.apply {
+                    named("generateMetadataFileForMavenPublication") {
+                        mustRunAfter(named("dokkaJavadocJar"))
+                    }
+                }
+            }
         }
     }
 }

@@ -15,9 +15,8 @@ plugins {
     id("kris-collect-sarif")
     alias(libs.plugins.sonarqube)
     alias(libs.plugins.dokka)
-    alias(libs.plugins.nexusPublish)
     alias(libs.plugins.binaryCompatValidator)
-    `maven-publish`
+    alias(libs.plugins.mavenPublish) apply false
     jacoco
 }
 
@@ -34,21 +33,6 @@ sonarqube {
         property("sonar.host.url", "https://sonarcloud.io")
         property("sonar.projectKey", "ursjoss_${project.name}")
         property("sonar.organization", "ursjoss-github")
-    }
-}
-
-nexusPublishing {
-    repositories {
-        sonatype {
-            nexusUrl.set(uri("https://ossrh-staging-api.central.sonatype.com/service/local/"))
-            snapshotRepositoryUrl.set(uri("https://central.sonatype.com/repository/maven-snapshots/"))
-            val mcUsername = providers.environmentVariable("MC_USERNAME")
-            val mcPassword = providers.environmentVariable("MC_PASSWORD")
-            if (mcUsername.isPresent && mcPassword.isPresent) {
-                username.set(mcUsername.get())
-                password.set(mcPassword.get())
-            }
-        }
     }
 }
 

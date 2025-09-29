@@ -55,15 +55,6 @@ tasks {
     named("check") {
         dependsOn(testing.suites.named("integrationTest"))
     }
-    val javadocJar by existing(Jar::class) {
-        group = JavaBasePlugin.DOCUMENTATION_GROUP
-        description = "Assembled Javadoc JAR"
-        archiveClassifier.set("javadoc")
-        from(named("dokkaGenerate"))
-    }
-    named("sourcesJar") {
-        dependsOn(javadocJar)
-    }
     val apiBuild by existing
     named("jacocoTestReport") {
         dependsOn(testing.suites.named("integrationTest"))

@@ -41,15 +41,6 @@ dokka {
 }
 
 tasks {
-    val javadocJar by existing(Jar::class) {
-        group = JavaBasePlugin.DOCUMENTATION_GROUP
-        description = "Assembled Javadoc JAR"
-        archiveClassifier.set("javadoc")
-        from(named("dokkaGenerate"))
-    }
-    named("sourcesJar") {
-        dependsOn(javadocJar)
-    }
     val apiBuild by existing
     named("jacocoTestReport") {
         dependsOn(apiBuild)

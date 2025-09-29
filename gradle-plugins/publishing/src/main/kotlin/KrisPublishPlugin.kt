@@ -60,17 +60,6 @@ class KrisPublishPlugin : Plugin<Project> {
                     }
                 }
             }
-            extensions.configure<JavaPluginExtension> {
-                withSourcesJar()
-                withJavadocJar()
-            }
-            project.afterEvaluate {
-                tasks.apply {
-                    named("generateMetadataFileForMavenPublication") {
-                        mustRunAfter(named("dokkaJavadocJar"))
-                    }
-                }
-            }
         }
     }
 }

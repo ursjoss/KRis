@@ -14,7 +14,7 @@ kotlin = "2.2.20"
 # See https://github.com/detekt/detekt/issues/6198
 detektKotlinVersion = "1.9.22"
 mockk = "1.14.5"
-nexusPublish = "2.0.0"
+mavenPublish = "0.34.0"
 rxjava = "2.2.21"
 sonarqube = "6.3.1.5724"
 versions = "0.53.0"
@@ -36,6 +36,7 @@ rxjava = { module = "io.reactivex.rxjava2:rxjava", version.ref = "rxjava" }
 
 plugin-detekt = { module = "io.gitlab.arturbosch.detekt:detekt-gradle-plugin", version.ref = "detekt" }
 plugin-kotlin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
+plugin-maven-publish = { module = "com.vanniktech:gradle-maven-publish-plugin", version.ref = "mavenPublish" }
 
 [bundles]
 kotlin = ["kotlin-stdlib", "kotlin-reflect", "coroutines-core"]
@@ -49,7 +50,7 @@ detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }
 dokka = { id = "org.jetbrains.dokka", version.ref = "dokka" }
 gitPublish = { id = "org.ajoberstar.git-publish", version.ref = "gitPublish" }
 kotest = { id = "io.kotest", version.ref = "kotest" }
-nexusPublish = { id = "io.github.gradle-nexus.publish-plugin", version.ref = "nexusPublish" }
+mavenPublish = { id = "com.vanniktech.maven.publish", version.ref = "mavenPublish"}
 powerAssert = { id = "org.jetbrains.kotlin.plugin.power-assert", version.ref = "kotlin" }
 sonarqube = { id = "org.sonarqube", version.ref = "sonarqube" }
 versions = { id = "com.github.ben-manes.versions", version.ref = "versions" }

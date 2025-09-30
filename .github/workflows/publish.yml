@@ -47,21 +47,10 @@ jobs:
           GRGIT_USER: ${{ secrets.GRGIT_USER }}
 
       - name: Publish to maven central
-        run: ./gradlew build check :kris-core:publish :kris-io:publish -x apiCheck
+        run: ./gradlew build check :kris-core:publishToMavenCentral :kris-io:publishToMavenCentral -x apiCheck
         env:
-          GPG_SIGNING_KEY: ${{ secrets.GPG_SIGNING_KEY }}
-          GPG_SIGNING_PASSPHRASE: ${{ secrets.GPG_SIGNING_PASSPHRASE }}
-          MC_USERNAME: ${{ secrets.MC_USERNAME }}
-          MC_PASSWORD: ${{ secrets.MC_PASSWORD }}
-
-      - name: Publish artifacts
-        run: |
-          set -e
-          AUTH_TOKEN=$(echo -n "${MC_USERNAME}:${MC_PASSWORD}" | base64)
-          echo "::add-mask::${AUTH_TOKEN}"
-          curl -v -X POST "https://ossrh-staging-api.central.sonatype.com/manual/upload/defaultRepository/ch.difty.kris?publishing_type=automatic" \
-            -H "Authorization: Bearer ${AUTH_TOKEN}"
-        env:
-          MC_USERNAME: ${{ secrets.MC_USERNAME }}
-          MC_PASSWORD: ${{ secrets.MC_PASSWORD }}
+          ORG_GRADLE_PROJECT_signingInMemoryKey: ${{ secrets.GPG_SIGNING_KEY }}
+          ORG_GRADLE_PROJECT_signingInMemoryKeyPassword: ${{ secrets.GPG_SIGNING_PASSPHRASE }}
+          ORG_GRADLE_PROJECT_mavenCentralUsername: ${{ secrets.MC_USERNAME }}
+          ORG_GRADLE_PROJECT_mavenCentralPassword: ${{ secrets.MC_PASSWORD }}
 

@@ -44,7 +44,7 @@ The format is based on https://keepachangelog.com/en/1.0.0/[Keep a Changelog].
 [[unreleased]]
 == [unreleased]
 
-{url-cl}0.5.22++...++main[Full Changelog]
+{url-cl}0.5.25++...++main[Full Changelog]
 
 .Added
 
@@ -61,8 +61,20 @@ The format is based on https://keepachangelog.com/en/1.0.0/[Keep a Changelog].
 
 ////
 
+
+[[v0.5.25]]
+== [0.5.25] -- 2025-09-29
+
+{url-cl}0.5.22++...++0.5.24[Full Changelog]
+
+.Changed
+- {url-issues}340[#340] Migrated from nexus publish plugin to maven publish plugin to publish to maven central
+
+
 [[v0.5.22]]
 == [0.5.22] -- 2025-09-28
+
+{url-cl}0.5.13++...++0.5.22[Full Changelog]
 
 .Changed
 - Bumped kotlin,

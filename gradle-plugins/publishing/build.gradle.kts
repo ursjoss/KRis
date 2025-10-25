@@ -1,11 +1,6 @@
 plugins {
-    `java-gradle-plugin`
     `kotlin-dsl`
     alias(libs.plugins.detekt)
-}
-
-kotlin {
-    jvmToolchain(libs.versions.java.get().toInt())
 }
 
 dependencies {

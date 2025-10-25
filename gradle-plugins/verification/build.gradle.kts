@@ -1,5 +1,4 @@
 plugins {
-    `java-gradle-plugin`
     `kotlin-dsl`
     alias(libs.plugins.detekt)
     alias(libs.plugins.sonarqube)
@@ -9,10 +8,6 @@ dependencies {
     implementation(libs.plugin.kotlin)
     implementation(libs.plugin.detekt)
     implementation(libs.plugin.sonarqube)
-}
-
-kotlin {
-    jvmToolchain(libs.versions.java.get().toInt())
 }
 
 detekt {

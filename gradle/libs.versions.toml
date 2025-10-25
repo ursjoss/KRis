@@ -50,7 +50,6 @@ binaryCompatValidator = { id = "org.jetbrains.kotlinx.binary-compatibility-valid
 detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }
 dokka = { id = "org.jetbrains.dokka", version.ref = "dokka" }
 gitPublish = { id = "org.ajoberstar.git-publish", version.ref = "gitPublish" }
-kotest = { id = "io.kotest", version.ref = "kotest" }
 mavenPublish = { id = "com.vanniktech.maven.publish", version.ref = "mavenPublish"}
 powerAssert = { id = "org.jetbrains.kotlin.plugin.power-assert", version.ref = "kotlin" }
 sonarqube = { id = "org.sonarqube", version.ref = "sonarqube" }

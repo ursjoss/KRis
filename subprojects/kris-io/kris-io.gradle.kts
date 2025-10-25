@@ -8,7 +8,6 @@ plugins {
     kotlin("jvm")
     alias(libs.plugins.dokka)
     `jvm-test-suite`
-    alias(libs.plugins.kotest)
 }
 
 kotlin {

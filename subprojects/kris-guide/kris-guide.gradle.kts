@@ -1,7 +1,6 @@
 plugins {
     `java-library`
     kotlin("jvm")
-    alias(libs.plugins.kotest)
 }
 
 dependencies {

@@ -12,6 +12,8 @@ class KrisJacocoPlugin : Plugin<Project> {
 
     override fun apply(target: Project) {
         with(target) {
+            plugins.apply("kotlin")
+            plugins.apply("org.sonarqube")
             apply<JacocoPlugin>()
             apply<JacocoReportAggregationPlugin>()
             val test = tasks.named("test")

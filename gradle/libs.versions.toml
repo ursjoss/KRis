@@ -37,6 +37,7 @@ rxjava = { module = "io.reactivex.rxjava2:rxjava", version.ref = "rxjava" }
 plugin-detekt = { module = "io.gitlab.arturbosch.detekt:detekt-gradle-plugin", version.ref = "detekt" }
 plugin-kotlin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
 plugin-maven-publish = { module = "com.vanniktech:gradle-maven-publish-plugin", version.ref = "mavenPublish" }
+plugin-sonarqube = { module = "org.sonarqube:org.sonarqube.gradle.plugin", version.ref = "sonarqube" }
 
 [bundles]
 kotlin = ["kotlin-stdlib", "kotlin-reflect", "coroutines-core"]
@@ -49,7 +50,6 @@ binaryCompatValidator = { id = "org.jetbrains.kotlinx.binary-compatibility-valid
 detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }
 dokka = { id = "org.jetbrains.dokka", version.ref = "dokka" }
 gitPublish = { id = "org.ajoberstar.git-publish", version.ref = "gitPublish" }
-kotest = { id = "io.kotest", version.ref = "kotest" }
 mavenPublish = { id = "com.vanniktech.maven.publish", version.ref = "mavenPublish"}
 powerAssert = { id = "org.jetbrains.kotlin.plugin.power-assert", version.ref = "kotlin" }
 sonarqube = { id = "org.sonarqube", version.ref = "sonarqube" }

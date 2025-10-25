@@ -1,13 +1,14 @@
-@Suppress("DSL_SCOPE_VIOLATION")
 plugins {
     `java-gradle-plugin`
     `kotlin-dsl`
     alias(libs.plugins.detekt)
+    alias(libs.plugins.sonarqube)
 }
 
 dependencies {
     implementation(libs.plugin.kotlin)
     implementation(libs.plugin.detekt)
+    implementation(libs.plugin.sonarqube)
 }
 
 kotlin {
@@ -17,6 +18,15 @@ kotlin {
 detekt {
     buildUponDefaultConfig = true
     config.from(file("../../config/detekt.yml"))
+}
+
+testing {
+    @Suppress("UnstableApiUsage", "unused")
+    suites {
+        val test by getting(JvmTestSuite::class) {
+            useKotlinTest()
+        }
+    }
 }
 
 gradlePlugin {

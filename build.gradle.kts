@@ -1,4 +1,3 @@
-import org.jetbrains.dokka.gradle.DokkaTaskPartial
 import java.net.URI
 
 buildscript {
@@ -39,6 +38,10 @@ sonarqube {
 val kotlinSrcSet = "/src/main/kotlin"
 
 dokka {
+    dokkaPublications.html {
+        suppressInheritedMembers.set(true)
+        failOnWarning.set(true)
+    }
     dokkaSourceSets.main {
         sourceLink {
             localDirectory.set(file("$projectDir/$kotlinSrcSet"))
@@ -87,13 +90,6 @@ subprojects.forEach { subProject ->
         withType<Test> {
             useJUnitPlatform {
                 includeEngines("junit-jupiter", "kotest")
-            }
-        }
-        withType<DokkaTaskPartial>().configureEach {
-            dokkaSourceSets {
-                configureEach {
-                    includes.from("module.md")
-                }
             }
         }
     }

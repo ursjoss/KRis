@@ -6,7 +6,6 @@ plugins {
     id("kris-publish")
     id("kris-jacoco")
     kotlin("jvm")
-    alias(libs.plugins.kotest)
     alias(libs.plugins.dokka)
     alias(libs.plugins.powerAssert)
 }

@@ -12,6 +12,8 @@ class KrisJacocoPlugin : Plugin<Project> {
 
     override fun apply(target: Project) {
         with(target) {
+            plugins.apply("kotlin")
+            plugins.apply("org.sonarqube")
             apply<JacocoPlugin>()
             apply<JacocoReportAggregationPlugin>()
             val test = tasks.named("test")
@@ -24,7 +26,7 @@ class KrisJacocoPlugin : Plugin<Project> {
                 }
                 dependsOn(test)
             }
-            target.rootProject.tasks.named("sonar") {
+            rootProject.tasks.named("sonar") {
                 dependsOn(tasks.getByName("check"))
                 dependsOn(tasks.getByName("jacocoTestReport"))
             }

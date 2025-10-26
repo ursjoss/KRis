@@ -1,12 +1,6 @@
-@Suppress("DSL_SCOPE_VIOLATION")
 plugins {
-    `java-gradle-plugin`
     `kotlin-dsl`
     alias(libs.plugins.detekt)
-}
-
-kotlin {
-    jvmToolchain(libs.versions.java.get().toInt())
 }
 
 dependencies {
@@ -18,6 +12,15 @@ dependencies {
 detekt {
     buildUponDefaultConfig = true
     config.from(file("../../config/detekt.yml"))
+}
+
+testing {
+    @Suppress("UnstableApiUsage", "unused")
+    suites {
+        val test by getting(JvmTestSuite::class) {
+            useKotlinTest()
+        }
+    }
 }
 
 gradlePlugin {

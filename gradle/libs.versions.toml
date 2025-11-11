@@ -14,7 +14,7 @@ kotlin = "2.2.21"
 # See https://github.com/detekt/detekt/issues/6198
 detektKotlinVersion = "1.9.22"
 mockk = "1.14.6"
-mavenPublish = "0.34.0"
+mavenPublish = "0.35.0"
 rxjava = "2.2.21"
 sonarqube = "6.3.1.5724"
 versions = "0.53.0"

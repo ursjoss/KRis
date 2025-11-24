@@ -1,14 +1,5 @@
 import java.net.URI
 
-buildscript {
-    repositories {
-        mavenCentral()
-    }
-    dependencies {
-        classpath(libs.plugin.kotlin)
-    }
-}
-
 plugins {
     kotlin("jvm") version libs.versions.kotlin.get()
     id("kris-collect-sarif")

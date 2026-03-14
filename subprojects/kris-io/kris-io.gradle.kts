@@ -71,6 +71,7 @@ dependencies {
     api(project(":kris-core"))
 
     implementation(libs.bundles.kotlin)
+    implementation(libs.jackson.core)
 
     testImplementation(libs.bundles.testDeps)
     testImplementation(libs.coroutines.test)

@@ -2,6 +2,8 @@
 asciidoctor = "4.0.5"
 assertj = "3.27.7"
 binaryCompaValidator = "0.18.1"
+# PINNED: sonarqube-gradle-plugin 6.3.1.5724 - org.apache.commons:commons-lang3 3.16.0 -> 3.18.0+ (https://github.com/ursjoss/KRis/security/dependabot/3)
+commonsLang3 = "3.20.0"
 coroutines = "1.10.2"
 detekt = "1.23.8"
 dokka = "2.1.0"
@@ -21,6 +23,7 @@ versions = "0.53.0"
 
 [libraries]
 assertj-core = { module = "org.assertj:assertj-core", version.ref = "assertj" }
+commons-lang3 = { module = "org.apache.commons:commons-lang3", version.ref = "commonsLang3" }
 coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "coroutines" }
 coroutines-rx2 = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-rx2", version.ref = "coroutines" }
 coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "coroutines" }

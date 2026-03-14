@@ -8,6 +8,7 @@ dependencies {
     implementation(libs.plugin.kotlin)
     implementation(libs.plugin.detekt)
     implementation(libs.plugin.sonarqube)
+    implementation(libs.commons.lang3)
 }
 
 detekt {

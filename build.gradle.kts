@@ -28,6 +28,14 @@ sonarqube {
 
 val kotlinSrcSet = "/src/main/kotlin"
 
+buildscript {
+    configurations.classpath {
+        resolutionStrategy {
+            force(libs.jackson.core)
+        }
+    }
+}
+
 dokka {
     dokkaPublications.html {
         suppressInheritedMembers.set(true)

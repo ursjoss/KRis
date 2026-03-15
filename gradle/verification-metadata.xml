@@ -2366,7 +2366,7 @@
          </artifact>
       </component>
       <component group="org.junit" name="junit-bom" version="5.13.4">
-         <artifact name="junit-bom-4.13.4.module">
+         <artifact name="junit-bom-5.13.4.module">
             <sha256 value="e959288fde1b1b050d9bc082fc786789128da5d2853091468fca504104bdf400" origin="Manually added"/>
          </artifact>
          <artifact name="junit-bom-5.13.4.pom">

@@ -2386,7 +2386,7 @@
             <sha256 value="ab137ba5a8e32c9b066bf9126a1c76dd5614b724ba5c0b02549772b5e9f4cf1f" origin="Manually added"/>
          </artifact>
          <artifact name="junit-bom-5.9.2.pom">
-            <sha256 value="a7ee7013041eac5ab8c220b7c893fa2a9c6777daa302103cab47f1c9edb9f83b" origin="Manually added"/>
+            <sha256 value="2ed07d65845131f5336a86476c9a4056b59d0b58b9815ab3679bb0f36f35f705" origin="Manually added"/>
          </artifact>
       </component>
       <component group="org.junit" name="junit-bom" version="6.0.3">

@@ -46,6 +46,8 @@ jobs:
 
       - name: Setup gradle
         uses: gradle/actions/setup-gradle@0723195856401067f7a2779048b490ace7a47d7c # v5
+        with:
+          cache-disabled: true
 
       - name: Run build
         run: ./gradlew build check detekt mergeDetektSarif :gradle-plugins:buildPlugins --continue

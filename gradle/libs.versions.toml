@@ -6,7 +6,7 @@ binaryCompaValidator = "0.18.1"
 commonsLang3 = "3.20.0"
 coroutines = "1.10.2"
 detekt = "1.23.8"
-dokka = "2.1.0"
+dokka = "2.2.0"
 gitPublish = "6.0.0"
 # PINNED: docka 2.1.0 - com.fasterxml.jackson.core:jackson-core 2.15.3 -> 2.18.6+ (https://github.com/ursjoss/KRis/security/dependabot/4)
 jackson = "2.21.2"

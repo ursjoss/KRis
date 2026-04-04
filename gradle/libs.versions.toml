@@ -13,7 +13,7 @@ jackson = "2.21.2"
 jacoco = "0.8.8"
 java = "21"
 junitJupiter = "6.0.3"
-kotest = "6.1.10"
+kotest = "6.1.11"
 kotlin = "2.3.10"
 # See https://github.com/detekt/detekt/issues/6198
 detektKotlinVersion = "1.9.22"

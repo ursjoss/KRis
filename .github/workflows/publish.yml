@@ -1,9 +1,17 @@
 name: Publish
 
+
+permissions:
+  contents: write
+
+concurrency:
+  group: publish
+  cancel-in-progress: false
+
 on:
   push:
     tags:
-      - '*'
+      - '[0-9]+.[0-9]+.[0-9]+*'
 
 jobs:
   publish:
@@ -12,8 +20,6 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
-        with:
-          fetch-depth: 1
 
       - name: Validate gradle wrapper
         uses: gradle/actions/wrapper-validation@50e97c2cd7a37755bbfafc9c5b7cafaece252f6e # v6
@@ -24,18 +30,16 @@ jobs:
           distribution: 'zulu'
           java-version: '21'
 
-      - name: Cache global .gradle folder
+      - name: Gradle cache
         uses: actions/cache@668228422ae6a00e4ad889ee87cd7109ec5666a7 # v5
         with:
-          path: ~/.gradle
-          key: gradle-cache-${{ hashFiles('gradle/wrapper/gradle-wrapper.properties') }}-${{ hashFiles('**/*.kt*') }}-${{ hashFiles('**/*.java') }}
+          path: |
+            ~/.gradle/caches
+            ~/.gradle/wrapper
+          key: gradle-${{ runner.os }}-${{ hashFiles('**/gradle-wrapper.properties', '**/*.gradle*', '**/*.versions.toml') }}-${{ hashFiles('**/*.kts') }}
           restore-keys: |
-            gradle-cache-${{ hashFiles('gradle/wrapper/gradle-wrapper.properties') }}
-
-      - name: Setup gradle
-        uses: gradle/actions/setup-gradle@50e97c2cd7a37755bbfafc9c5b7cafaece252f6e # v6
-        with:
-          cache-disabled: true
+            gradle-${{ runner.os }}-${{ hashFiles('**/gradle-wrapper.properties', '**/*.gradle*', '**/*.versions.toml') }}-
+            gradle-${{ runner.os }}-
 
       - name: Configure Git
         shell: bash
@@ -43,16 +47,18 @@ jobs:
           git config --global user.name "Urs Joss"
           git config --global user.email "urs.joss@gmx.ch"
 
+      - name: Run build
+        run: ./gradlew build --no-daemon --warning-mode=all
+
       - name: Publish github pages
-        run: ./gradlew build check :guide:gitPublishPush
+        run: ./gradlew :guide:gitPublishPush --no-daemon --warning-mode=all
         env:
           GRGIT_USER: ${{ secrets.GRGIT_USER }}
 
       - name: Publish to maven central
-        run: ./gradlew build check :kris-core:publishToMavenCentral :kris-io:publishToMavenCentral -x apiCheck
+        run: ./gradlew :kris-core:publishToMavenCentral :kris-io:publishToMavenCentral -x apiCheck --no-daemon --warning-mode=all
         env:
           ORG_GRADLE_PROJECT_signingInMemoryKey: ${{ secrets.GPG_SIGNING_KEY }}
           ORG_GRADLE_PROJECT_signingInMemoryKeyPassword: ${{ secrets.GPG_SIGNING_PASSPHRASE }}
           ORG_GRADLE_PROJECT_mavenCentralUsername: ${{ secrets.MC_USERNAME }}
           ORG_GRADLE_PROJECT_mavenCentralPassword: ${{ secrets.MC_PASSWORD }}
-

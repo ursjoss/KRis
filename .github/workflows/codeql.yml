@@ -4,7 +4,6 @@ on:
   push:
     branches: [ "main" ]
   pull_request:
-    # The branches below must be a subset of the branches above
     branches: [ "main" ]
   workflow_dispatch:
   schedule:
@@ -18,6 +17,7 @@ jobs:
       actions: read
       contents: read
       security-events: write
+      packages: read
 
     strategy:
       fail-fast: false
@@ -34,14 +34,27 @@ jobs:
         distribution: 'zulu'
         java-version: '21'
 
-    # Initializes the CodeQL tools for scanning.
+    - name: Gradle wrapper validation
+      uses: gradle/actions/wrapper-validation@50e97c2cd7a37755bbfafc9c5b7cafaece252f6e # v6.1.0
+
+    - name: Gradle cache
+      uses: actions/cache@668228422ae6a00e4ad889ee87cd7109ec5666a7 # v5
+      with:
+        path: |
+          ~/.gradle/caches
+          ~/.gradle/wrapper
+        key: gradle-${{ runner.os }}-${{ hashFiles('**/gradle-wrapper.properties', '**/*.gradle*', '**/*.versions.toml') }}-${{ hashFiles('**/*.kts') }}
+        restore-keys: |
+          gradle-${{ runner.os }}-${{ hashFiles('**/gradle-wrapper.properties', '**/*.gradle*', '**/*.versions.toml') }}-
+          gradle-${{ runner.os }}-
+
     - name: Initialize CodeQL
       uses: github/codeql-action/init@c10b8064de6f491fea524254123dbe5e09572f13 # v4
       with:
         languages: ${{ matrix.language }}
 
     - name: Verify
-      run: ./gradlew check --no-daemon
+      run: ./gradlew check --no-daemon --warning-mode=all
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 

@@ -1,5 +1,10 @@
 name: Build
 
+permissions:
+  contents: read
+  security-events: write
+  pull-requests: write
+
 on:
   push:
     branches:
@@ -18,7 +23,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
         with:
-          fetch-depth: 0
+          fetch-depth: 0 # relevant for sonar analysis
 
       - name: Validate gradle wrapper
         uses: gradle/actions/wrapper-validation@50e97c2cd7a37755bbfafc9c5b7cafaece252f6e # v6
@@ -36,27 +41,19 @@ jobs:
           key: ${{ runner.os }}-sonar
           restore-keys: ${{ runner.os }}-sonar
 
-      - name: Cache global .gradle folder
+      - name: Gradle cache
         uses: actions/cache@668228422ae6a00e4ad889ee87cd7109ec5666a7 # v5
         with:
-          path: ~/.gradle
-          key: gradle-cache-${{ hashFiles('gradle/wrapper/gradle-wrapper.properties') }}-${{ hashFiles('**/*.kt*') }}-${{ hashFiles('**/*.java') }}
+          path: |
+            ~/.gradle/caches
+            ~/.gradle/wrapper
+          key: gradle-${{ runner.os }}-${{ hashFiles('**/gradle-wrapper.properties', '**/*.gradle*', '**/*.versions.toml') }}-${{ hashFiles('**/*.kts') }}
           restore-keys: |
-            gradle-cache-${{ hashFiles('gradle/wrapper/gradle-wrapper.properties') }}
-
-      - name: Setup gradle
-        uses: gradle/actions/setup-gradle@50e97c2cd7a37755bbfafc9c5b7cafaece252f6e # v6
-        with:
-          cache-disabled: true
+            gradle-${{ runner.os }}-${{ hashFiles('**/gradle-wrapper.properties', '**/*.gradle*', '**/*.versions.toml') }}-
+            gradle-${{ runner.os }}-
 
       - name: Run build
-        run: ./gradlew build check detekt mergeDetektSarif :gradle-plugins:buildPlugins --continue
-
-      - uses: github/codeql-action/upload-sarif@c10b8064de6f491fea524254123dbe5e09572f13 # v4
-        if: success() || failure()
-        with:
-          sarif_file: build/detekt-merged.sarif
-          category: detekt
+        run: ./gradlew check detekt mergeDetektSarif :gradle-plugins:buildPlugins --no-daemon --warning-mode=all --continue
 
       - name: Upload failure artifacts
         if: failure()
@@ -64,6 +61,12 @@ jobs:
         with:
           name: reports
           path: '**/build/reports'
+
+      - uses: github/codeql-action/upload-sarif@c10b8064de6f491fea524254123dbe5e09572f13 # v4
+        if: success() || failure()
+        with:
+          sarif_file: build/detekt-merged.sarif
+          category: detekt
 
       - name: Re-run all tests with Gradle
         run: |

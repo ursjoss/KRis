@@ -1,5 +1,10 @@
 name: Build
 
+permissions:
+  contents: read
+  security-events: write
+  pull-requests: write
+
 on:
   push:
     branches:
@@ -18,10 +23,10 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
         with:
-          fetch-depth: 0
+          fetch-depth: 0 # relevant for sonar analysis
 
       - name: Validate gradle wrapper
-        uses: gradle/actions/wrapper-validation@0723195856401067f7a2779048b490ace7a47d7c # v5
+        uses: gradle/actions/wrapper-validation@50e97c2cd7a37755bbfafc9c5b7cafaece252f6e # v6
 
       - name: Set up JDK 21
         uses: actions/setup-java@be666c2fcd27ec809703dec50e508c2fdc7f6654 # v5
@@ -30,38 +35,38 @@ jobs:
           java-version: '21'
 
       - name: Cache SonarCloud packages
-        uses: actions/cache@668228422ae6a00e4ad889ee87cd7109ec5666a7 # v5
+        uses: actions/cache@27d5ce7f107fe9357f9df03efb73ab90386fccae # v5
         with:
           path: ~/.sonar/cache
           key: ${{ runner.os }}-sonar
           restore-keys: ${{ runner.os }}-sonar
 
-      - name: Cache global .gradle folder
-        uses: actions/cache@668228422ae6a00e4ad889ee87cd7109ec5666a7 # v5
+      - name: Gradle cache
+        uses: actions/cache@27d5ce7f107fe9357f9df03efb73ab90386fccae # v5
         with:
-          path: ~/.gradle
-          key: gradle-cache-${{ hashFiles('gradle/wrapper/gradle-wrapper.properties') }}-${{ hashFiles('**/*.kt*') }}-${{ hashFiles('**/*.java') }}
+          path: |
+            ~/.gradle/caches
+            ~/.gradle/wrapper
+          key: gradle-${{ runner.os }}-${{ hashFiles('**/gradle-wrapper.properties', '**/*.gradle*', '**/*.versions.toml') }}-${{ hashFiles('**/*.kts') }}
           restore-keys: |
-            gradle-cache-${{ hashFiles('gradle/wrapper/gradle-wrapper.properties') }}
-
-      - name: Setup gradle
-        uses: gradle/actions/setup-gradle@0723195856401067f7a2779048b490ace7a47d7c # v5
+            gradle-${{ runner.os }}-${{ hashFiles('**/gradle-wrapper.properties', '**/*.gradle*', '**/*.versions.toml') }}-
+            gradle-${{ runner.os }}-
 
       - name: Run build
-        run: ./gradlew build check detekt mergeDetektSarif :gradle-plugins:buildPlugins --continue
+        run: ./gradlew check detekt mergeDetektSarif :gradle-plugins:buildPlugins --no-daemon --warning-mode=all --continue
 
-      - uses: github/codeql-action/upload-sarif@38697555549f1db7851b81482ff19f1fa5c4fedc # v4
+      - name: Upload failure artifacts
+        if: failure()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
+        with:
+          name: reports
+          path: '**/build/reports'
+
+      - uses: github/codeql-action/upload-sarif@95e58e9a2cdfd71adc6e0353d5c52f41a045d225 # v4
         if: success() || failure()
         with:
           sarif_file: build/detekt-merged.sarif
           category: detekt
-
-      - name: Upload failure artifacts
-        if: failure()
-        uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f # v7
-        with:
-          name: reports
-          path: '**/build/reports'
 
       - name: Re-run all tests with Gradle
         run: |

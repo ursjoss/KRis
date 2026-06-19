@@ -14,7 +14,7 @@ jacoco = "0.8.15"
 java = "21"
 junitJupiter = "6.1.0"
 
-kotest = "6.2.0"
+kotest = "6.2.1"
 kotlin = "2.3.21"
 
 # See https://github.com/detekt/detekt/issues/6198

@@ -41,7 +41,7 @@ dokka {
 }
 
 tasks {
-    val apiBuild by existing
+    val apiBuild = getByName("apiBuild")
     named("jacocoTestReport") {
         dependsOn(apiBuild)
     }

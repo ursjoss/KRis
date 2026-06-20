@@ -24,11 +24,11 @@ dokka {
 
 testing {
     suites {
-        val test by getting(JvmTestSuite::class) {
+        val test = getByName<JvmTestSuite>("test") {
             useJUnitJupiter()
         }
         @Suppress("unused")
-        val integrationTest by registering(JvmTestSuite::class) {
+        val integrationTest = register<JvmTestSuite>("integrationTest") {
             dependencies {
                 implementation(project())
             }
@@ -54,7 +54,7 @@ tasks {
     named("check") {
         dependsOn(testing.suites.named("integrationTest"))
     }
-    val apiBuild by existing
+    val apiBuild = getByName("apiBuild")
     named("jacocoTestReport") {
         dependsOn(testing.suites.named("integrationTest"))
         dependsOn(apiBuild)

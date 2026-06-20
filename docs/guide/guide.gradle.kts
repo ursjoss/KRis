@@ -43,7 +43,7 @@ tasks {
         )
     }
 
-    val asciidoctor by existing
+    val asciidoctor = getByName("asciidoctor")
     val createGuide = register<Copy>("createGuide") {
         group = "Documentation"
         description = "Creates an Asciidoctor based guide."

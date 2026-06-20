@@ -44,23 +44,39 @@ The format is based on https://keepachangelog.com/en/1.0.0/[Keep a Changelog].
 [[unreleased]]
 == [unreleased]
 
-{url-cl}0.5.25++...++main[Full Changelog]
+{url-cl}0.5.26++...++main[Full Changelog]
 
 .Added
 
+////
 .Changed
 
 .Deprecated
 
 .Removed
-- CodeQL
 
-////
 .Fixed
 
 .Security
 
 ////
+
+
+[[v0.5.26]]
+== [0.5.26] -- 2026-06-19
+
+{url-cl}0.5.25++...++0.5.26[Full Changelog]
+
+.Changed
+- Raised Java to 21,
+  kotlin, kotlinx-coroutines,
+  junit, kotest, mockk, jococo, assertj-core,
+  gradle,
+  gradle plugins versions, maven-publish, git-publish, dokka, reckon, sonarqube,
+  github actions cache, checkout, setup-java, upload-artifact
+
+.Removed
+- CodeQL
 
 
 [[v0.5.25]]

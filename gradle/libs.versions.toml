@@ -10,7 +10,7 @@ gitPublish = "6.0.0"
 jackson = "2.22.0"
 jacoco = "0.8.15"
 java = "21"
-junitJupiter = "6.1.0"
+junitJupiter = "6.1.1"
 
 kotest = "6.2.1"
 kotlin = "2.4.0"

@@ -13,7 +13,7 @@ java = "21"
 junitJupiter = "6.1.2"
 
 kotest = "6.2.2"
-kotlin = "2.4.0"
+kotlin = "2.4.10"
 
 # See https://github.com/detekt/detekt/issues/6198
 detektKotlinVersion = "1.9.22"

@@ -72,6 +72,7 @@ dependencies {
 
     implementation(libs.bundles.kotlin)
     implementation(libs.jackson.core)
+    implementation(libs.jackson.module.kotlin)
 
     testImplementation(libs.bundles.testDeps)
     testImplementation(libs.coroutines.test)

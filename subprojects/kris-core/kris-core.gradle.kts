@@ -16,6 +16,7 @@ dependencies {
     implementation(libs.bundles.kotlin)
     implementation(libs.coroutines.rx2)
     implementation(libs.jackson.core)
+    implementation(libs.jackson.module.kotlin)
 
     testImplementation(libs.bundles.testDeps)
     testRuntimeOnly(libs.bundles.testEngines)

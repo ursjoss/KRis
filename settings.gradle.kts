@@ -9,8 +9,18 @@ pluginManagement {
     }
 }
 
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.ajoberstar.reckon:reckon-gradle:2.0.0")
+    }
+}
+
+apply(plugin = "org.ajoberstar.reckon.settings")
+
 plugins {
-    id("org.ajoberstar.reckon.settings") version "2.0.0"
     id("org.gradle.toolchains.foojay-resolver-convention") version ("1.0.0")
 }
 

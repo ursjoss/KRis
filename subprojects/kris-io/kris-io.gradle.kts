@@ -71,10 +71,23 @@ dependencies {
     api(project(":kris-core"))
 
     implementation(libs.bundles.kotlin)
-    implementation(libs.jackson.core)
-    implementation(libs.jackson.module.kotlin)
 
     testImplementation(libs.bundles.testDeps)
     testImplementation(libs.coroutines.test)
     testRuntimeOnly(libs.bundles.testEngines)
+}
+
+configurations.configureEach {
+    if (name.startsWith("dokka")) {
+        resolutionStrategy.eachDependency {
+            if (requested.group.startsWith("com.fasterxml.jackson")) {
+                useVersion(libs.versions.jackson.get())
+                because("CVE fix: pin all Jackson to 2.22.2")
+            }
+            if (requested.group.startsWith("org.jsoup")) {
+                useVersion(libs.versions.jsoup.get())
+                because("CVE fix: pin jsoup to 1.23.1")
+            }
+        }
+    }
 }

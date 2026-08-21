@@ -1,5 +1,11 @@
 import java.net.URI
 
+buildscript {
+    dependencies {
+        classpath(enforcedPlatform(libs.jackson.bom))
+    }
+}
+
 plugins {
     kotlin("jvm") version libs.versions.kotlin.get()
     id("kris-collect-sarif")
@@ -27,14 +33,6 @@ sonarqube {
 }
 
 val kotlinSrcSet = "/src/main/kotlin"
-
-buildscript {
-    configurations.classpath {
-        resolutionStrategy {
-            force(libs.jackson.core)
-        }
-    }
-}
 
 dokka {
     dokkaPublications.html {

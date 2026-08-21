@@ -15,11 +15,20 @@ dependencies {
 
     implementation(libs.bundles.kotlin)
     implementation(libs.coroutines.rx2)
-    implementation(libs.jackson.core)
-    implementation(libs.jackson.module.kotlin)
 
     testImplementation(libs.bundles.testDeps)
     testRuntimeOnly(libs.bundles.testEngines)
+}
+
+configurations.configureEach {
+    if (name.startsWith("dokka")) {
+        resolutionStrategy.eachDependency {
+            if (requested.group.startsWith("com.fasterxml.jackson")) {
+                useVersion(libs.versions.jackson.get())
+                because("CVE fix: pin all Jackson to 2.22.2")
+            }
+        }
+    }
 }
 
 kotlin {

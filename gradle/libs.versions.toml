@@ -1,7 +1,7 @@
 [versions]
 asciidoctor = "4.0.5"
 assertj = "3.27.7"
-binaryCompaValidator = "0.18.1"
+binaryCompaValidator = "0.18.2"
 coroutines = "1.11.0"
 detekt = "1.23.8"
 dokka = "2.2.0"

@@ -10,6 +10,15 @@ plugins {
     alias(libs.plugins.powerAssert)
 }
 
+configurations.configureEach {
+    resolutionStrategy.eachDependency {
+        if (requested.group.startsWith("org.bouncycastle")) {
+            useVersion("1.86")
+            because("PINNED: org.bouncycastle:bcpg-jdk18on 1.80 - org.bouncycastle:... 1.80 -> 1.85+")
+        }
+    }
+}
+
 dependencies {
     api(libs.rxjava.get())
 

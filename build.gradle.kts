@@ -95,7 +95,6 @@ configurations.matching { it.name == "detekt" }.all {
     }
 }
 
-
 fun Project.projectRelativeSourceLink(branch: String = "main", srcSet: String = kotlinSrcSet) =
     "https://github.com/ursjoss/KRis/blob/$branch/${projectDir.relativeTo(rootDir)}/$srcSet"
 

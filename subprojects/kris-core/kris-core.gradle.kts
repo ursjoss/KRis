@@ -17,6 +17,14 @@ configurations.configureEach {
             because("PINNED: org.bouncycastle:bcpg-jdk18on 1.80 - org.bouncycastle:... 1.80 -> 1.85+")
         }
     }
+    if (name.startsWith("dokka")) {
+        resolutionStrategy.eachDependency {
+            if (requested.group.startsWith("com.fasterxml.jackson") && requested.name != "jackson-annotations") {
+                useVersion(rootProject.libs.versions.jackson.get())
+                because("PINNED: org.jetbrains.dokka 2.3.0 - com.fasterxml.jackson.core:jackson-core 2.22.2 -> 2.22.3+")
+            }
+        }
+    }
 }
 
 dependencies {

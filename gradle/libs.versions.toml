@@ -20,7 +20,7 @@ detektKotlinVersion = "1.9.22"
 mockk = "1.14.12"
 mavenPublish = "0.37.0"
 rxjava = "2.2.21"
-sonarqube = "7.5.0.8588"
+sonarqube = "7.6.0.18749"
 versions = "0.67.0"
 
 [libraries]
